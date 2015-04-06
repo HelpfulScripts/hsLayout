@@ -41,7 +41,7 @@ module.exports = function(grunt) {
 			options: {
 				banner: '<%= banner %>',
 				stripBanners: true,
-				separator: ';',
+				separator: '',
 				sourceMap: false
 			},
 			js: {
@@ -49,7 +49,7 @@ module.exports = function(grunt) {
 				dest: 'dist/<%= pkg.name %>.js'
 			},
 			less: {
-				src: ['src/css/*.less'],
+				src: 'src/css/*.less',
 				dest: 'dist/<%= pkg.name %>.less',
 			}
 		},
@@ -84,7 +84,9 @@ module.exports = function(grunt) {
 				startPage: '#/api/<%= pkg.name %>',
 				scripts: [
 						  './lib/jquery/2.1.1/jquery.min.js',
-						  './lib/angularjs/1.2.16/angular.min.js',
+                          './lib/angularjs/1.3.5/angular.js',
+                          './lib/angularjs/1.3.5/angular-touch.js',
+                          './lib/angularjs/1.3.5/angular-animate.js',
 						  './dist/<%= pkg.name %>.js'
 				],
 				styles: [
