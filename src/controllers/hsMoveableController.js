@@ -8,7 +8,7 @@
  */    
 angular.module('hsWidgets').controller('hsMoveableCtrl', ['$scope', function(/*$scope*/) {
     var steps = 12;
-    var r = 10;
+    var gRadius = 20;
     var gStart = null;
     var gUIHelper = "hs-widget-helper";
     var gLastMouseUp = 0;
@@ -94,10 +94,12 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', ['$scope', function(/*$
             var widget = $(this).parent().parent();
             var x = (e.offsetX || e.clientX - $(e.target).offset().left),
                 y = (e.offsetY || e.clientY - $(e.target).offset().top);
-            var action = getEventType(x, y, get(widget, 'width'), get(widget, 'height'), r);
+            var action = getEventType(x, y, get(widget, 'width'), get(widget, 'height'), gRadius);
+console.log(action);            
             if (action) {
                 gStart = { x:e.pageX, y:e.pageY, widget:widget, action: action };
                 startEvent(gStart);
+                if (action === 'toggleFullScreen') { end(); }
             }
             e.preventDefault();
         }
@@ -123,7 +125,7 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', ['$scope', function(/*$
     function end(/*e*/) {
         gLastMouseUp = new Date().getTime();
         if (gStart != null) {
-            gStart.helper.css('top', -10000); gStart.helper.css('left', -10000);
+            if (gStart.helper) { gStart.helper.css('top', -10000); gStart.helper.css('left', -10000); }
             gStart = null;
         }
     }
@@ -134,7 +136,7 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', ['$scope', function(/*$
      * @methodOf hsWidgets.controller:hsMoveableCtrl
      * @param {jQuery selection} elem the element for which hs-moveable was defined
      */
-    this.moveable = function moveable(elem) { 
+    this.moveable = function moveable(elem, radius) { 
         var t = $(elem).find('.hs-widget-pane'),            // target to resize
             c = t.parent().parent();                        // dashboard in which to resize
         if ($(c).find('.'+gUIHelper).length === 0) {
@@ -144,6 +146,7 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', ['$scope', function(/*$
         $(c).find('.hs-widget-moveable').on('mousedown', start);
         $(c).on('mousemove', move);
         $(c).on('mouseup', end);
+        if (radius) { gRadius = radius; }
     };
 }]);
 
