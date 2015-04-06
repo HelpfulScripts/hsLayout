@@ -21,8 +21,38 @@ are wrapped in square brackets: `[...]`. When optional, the default value is <u>
     inserts content of an external file, similar to ng-include.
     A new command 'hs-include' is needed since ng-include clashes with the
     `transclude: true` statement needed in case the content is inline
+@example
+<example module="hsWidgets">
+    <file name="index.html">
+        <hs-dashboard hs-moveable>
+            <hs-widget hs-size='["50%", "50%"]'>
+                <br>1
+                <br>Move me along the top.
+                <br>Size me from the corners.
+            </hs-widget>
+            <div hs-widget hs-size='["50%", "50%"]'>
+                <br>2
+                <br>Move me along the top.
+                <br>Size me from the corners.
+            </div>
+        </hs-dashboard>
+    </file>
+    <file name="style.css">
+        .well           { position: relative; height: 300px; padding:0; }
+        hs-dashboard    { background-color: #efe; }
+        hs-widget>div, [hs-widget]>div { 
+            background-color: #ffe; 
+            text-align: center;
+        }
+        [hs-widget]>div { 
+            background-color: #eef; 
+            text-align: center;
+        }
+    </file>
+</example>
  */
 angular.module('hsWidgets').directive('hsWidget', function() {
+    "use strict";
     function getVal(attr, def)  { return attr? removePercent(JSON.parse(attr)) : def; }
     function removePercent(arr) { return [parseInt(arr[0].replace('%','')), parseInt(arr[1] .replace('%',''))]; }
 
@@ -38,13 +68,11 @@ angular.module('hsWidgets').directive('hsWidget', function() {
                 return '<div class="hs-widget-pane" ng-transclude></div>';
             }
         },
-        link: function link(scope, elem, attrs, controller /*, transcludeFn*/) {
-            var widget = { elem: elem };
-            var size = widget.size = getVal(attrs['hsSize'], ['100%','100%']);
-            $(elem).css('width', size[0]+'%');  $(elem).css('height', size[1]+'%');
-
-            var pos = widget.pos = getVal(attrs['hsPos'], controller.registerWidget(widget));
-            $(elem).css('left', pos[0]+'%');    $(elem).css('top', pos[1]+'%');
+        link: function link(scope, elem, attrs, controller) {
+            var widget = { elem: elem, dashboard: elem.parent()};
+            widget.size = getVal(attrs['hsSize'], ['100%','100%']);
+            widget.pos = getVal(attrs['hsPos'], []);
+            controller.registerWidget(widget);
         }
     };
 });

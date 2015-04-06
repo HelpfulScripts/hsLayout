@@ -4,26 +4,42 @@
  * @restrict EA
  * @element ANY
  * @description hs-dashboard directive. Establishes a space in which {@link hsWidgets.directive:hsWidget widgets} live.
- * Usage:
- *  <hs-dashboard hs-unit='50'>
- *      <hs-widget hs-size='[2,2]'> content </hs-widget>
- *      <hs-widget hs-size='[2,2]' ng-include'content.html'></hs-widget>
- *  </hs-dashboard>
- *
+ @example
+<example module="hsWidgets">
+    <file name="index.html">
+        <hs-dashboard hs-moveable class='myHeight'>
+            <hs-widget hs-size='["50%", "50%"]'>
+                <br>Move me along the top.
+                <br>Size me from the corners.
+            </hs-widget>
+            <hs-widget hs-size='["50%", "50%"]'>
+                <br>Move me along the top.
+                <br>Size me from the corners.
+            </hs-widget>
+        </hs-dashboard>
+    </file>
+    <file name="style.css">
+        .well           { position: relative; height: 300px; padding:0; }
+        hs-dashboard    { background-color: #fafafa; }
+        hs-widget       { 
+            background-color: #ffe; 
+            border: 1px solid #888; 
+            text-align: center;
+        }
+        hs-widget:first-of-type { background-color: #eef; }
+    </file>
+</example>
  */
 angular.module('hsWidgets').directive('hsDashboard', function() {
-
-    function registerWidget(widget) {
-        this.widgets.push(widget);
+    "use strict";
+    
+    function setWidgetPos(widgets, widget) {
         var pos = [0,0];
-        if (this.widgets.length > 1) {
-            var w = this.widgets[this.widgets.length-2];
+        if (widgets.length > 1) {
+            var w = widgets[widgets.length-2];
             var wpos = w.pos;
             var wsiz = w.size;
             var siz = widget.size;
-//              var wpos = [parseInt(w.pos[0].replace('%','')), parseInt(w.pos[1].replace('%',''))];
-//              var wsiz = [parseInt(w.size[0].replace('%','')), parseInt(w.size[1].replace('%',''))];
-//              var siz = [parseInt(widget.size[0].replace('%','')), parseInt(widget.size[1].replace('%',''))];
             pos[0] = wpos[0] + wsiz[0];
             pos[1] = wpos[1];
 
@@ -37,22 +53,36 @@ angular.module('hsWidgets').directive('hsDashboard', function() {
             if (pos[1] > 0) { pane.css('margin-top', '0'); }
         }, 1000);
 
-        return pos;
+        widget.pos = pos;
+    }
+
+    function setWidgetMargins(widget) {
+        var w  = widget.elem;
+        $(w).css('width',  widget.size[0] +'%');  
+        $(w).css('height', widget.size[1] +'%');
+        $(w).css('left',   widget.pos[0]  +'%');    
+        $(w).css('top',    widget.pos[1]  +'%');
+    }
+    
+    function registerWidget(dashboard) {
+        return function registerWidget(widget) {
+            dashboard.widgets.push(widget);
+            if (widget.pos.length === 0) { setWidgetPos(dashboard.widgets, widget); }
+            setWidgetMargins(widget);
+        };
     }
 
     return {
         restrict: 'EA',
         replace: false,
-        template: '',
         controller: function($scope, $element) {
-            this.registerWidget = registerWidget;
             this.widgets = [];
+            this.registerWidget = registerWidget(this);
             var e = $($element[0]);
             this.width  = parseInt(e.css('width'));
             this.height = parseInt(e.css('height'));
         },
-        link: function link(/*scope, elem, attrs*/) {
-        }
+        link: function link(/*scope, elem, attrs*/) {}
     };
 });
 
