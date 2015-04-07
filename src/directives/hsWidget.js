@@ -24,7 +24,7 @@ are wrapped in square brackets: `[...]`. When optional, the default value is <u>
 @example
 <example module="hsWidgets">
     <file name="index.html">
-        <hs-dashboard hs-moveable>
+        <hs-layout hs-moveable>
             <hs-widget hs-size='["50%", "50%"]'>
                 <br>1
                 <br>Move me along the top.
@@ -35,22 +35,18 @@ are wrapped in square brackets: `[...]`. When optional, the default value is <u>
                 <br>Move me along the top.
                 <br>Size me from the corners.
             </div>
-            <div hs-widget hs-size='["100%", "50%"]'>
+            <hs-widget hs-pos='["25%", "50%"]' hs-size='["50%", "50%"]'>
                 <br>3
                 <br>Move me along the top.
                 <br>Size me from the corners.
-            </div>
-        </hs-dashboard>
+            </hs-widget>
+        </hs-layout>
     </file>
     <file name="style.css">
         .well           { position: relative; height: 300px; padding:0; }
-        hs-dashboard    { background-color: #eee; }
-        hs-widget>div, [hs-widget]>div { 
-            background-color: rgba(255, 255, 240, 0.75); 
-            text-align: center;
-        }
-        [hs-widget]>div { 
-            background-color: rgba(240, 240, 255, 0.75); 
+        hs-layout    { background-color: #eee; }
+        hs-widget, [hs-widget] { 
+            background-color: #ffe; 
             text-align: center;
         }
     </file>
@@ -74,14 +70,17 @@ angular.module('hsWidgets').directive('hsWidget', function() {
                    top: widget.org[0], left: widget.org[1], width: widget.org[2], height: widget.org[3]
                }, gDuration, gEasing, function() {
                    widget.elem.removeClass('hs-widget-in-front');         
-               });       
+                   scope.$broadcast('hs-resize');
+              });       
                widget.org = undefined;
            } else {
                widget.org = [t, l, w, h];     
                widget.elem.addClass('hs-widget-in-front');  
                widget.elem.animate({  
                    top: '0%', left: '0%', width: '100%', height: '100%'
-               }, gDuration, gEasing);       
+               }, gDuration, gEasing, function() {
+                   scope.$broadcast('hs-resize');
+              });       
            }
         };
     }
@@ -89,7 +88,7 @@ angular.module('hsWidgets').directive('hsWidget', function() {
     return {
         restrict: 'EA',
         replace: false,
-        require: '^hsDashboard',
+        require: '?^hsLayout',
         transclude: true,
         template: function(elem, attrs) {
             if (attrs['hsInclude']) {
@@ -99,10 +98,15 @@ angular.module('hsWidgets').directive('hsWidget', function() {
             }
         },
         link: function link(scope, elem, attrs, controller) {
-            var widget = { elem: elem, dashboard: elem.parent()};
+            $(elem).wrap('<div class="hs-widget-container">');
+            var widget = { elem: elem.parent() };
+            elem.hsStruct = {attrs:attrs};
             widget.size = getVal(attrs['hsSize'], ['100%','100%']);
             widget.pos = getVal(attrs['hsPos'], []);
-            controller.registerWidget(widget);
+            if (controller) { controller.registerWidget(widget); }
+            else { 
+                console.log('no layout controller found in widget'); 
+            }
             $(elem).dblclick(maximizeWindow(scope, widget));
         }
     };

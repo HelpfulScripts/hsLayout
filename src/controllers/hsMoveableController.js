@@ -8,12 +8,12 @@
  */    
 angular.module('hsWidgets').controller('hsMoveableCtrl', ['$scope', function(/*$scope*/) {
     "use strict";
-    var steps = 12;
+    var gGrid = 12;
     var gRadius = 20;
     var gStart = null;
     var gUIHelper = "hs-widget-helper";
      
-    function quant(x, d)    { return Math.round(steps*x/d)*d/steps; }
+    function quant(x, d)    { return Math.round(gGrid*x/d)*d/gGrid; }
     function get(e, a)      { return parseInt(e.css(a)); }
 
     function getEventType(x, y, dx, dy, r) {
@@ -27,13 +27,13 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', ['$scope', function(/*$
     }
 
     function startEvent(start) {
-        var dashboard = start.widget.parent();
+        var layout = start.widget.closest('hs-layout');
 
         if (start.action !== '') {    // start a move:
-            start.dw        = get(dashboard, 'width');
-            start.dh        = get(dashboard, 'height');
-            start.helper    = dashboard.find('.'+gUIHelper);
-            start.dashboard = dashboard;
+            start.dw        = get(layout, 'width');
+            start.dh        = get(layout, 'height');
+            start.helper    = layout.find('.'+gUIHelper);
+            start.layout = layout;
     
             if (start.action === 'move') { 
                 start.a1 = 'left'; start.a2 = 'top'; 
@@ -49,8 +49,8 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', ['$scope', function(/*$
        
     function setPosSize(start, ex, ey) {
         var ix, iy;
-        var w = start.widget, h = start.helper, db = start.dashboard;
-        // get dashboard padding:
+        var w = start.widget, h = start.helper, db = start.layout;
+        // get layout padding:
         var padding = { left:get(db, 'padding-left'), right:get(db, 'padding-right'), top:get(db, 'padding-top'), bottom:get(db, 'padding-bottom')};
         // get widget margins:
         var margin = { left:get(w, 'margin-left'), right:get(w, 'margin-right'), top:get(w, 'margin-top'), bottom:get(w, 'margin-bottom')};
@@ -73,7 +73,7 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', ['$scope', function(/*$
             h.css('width',  ex*100/start.dw+'%'); 
             h.css('height', ey*100/start.dh+'%'); 
         }
-        // move widget in steps of steps of 1/12 of width/height:
+        // move widget in steps of 1/gGrid of width/height:
         w.css(start.a1,   ix*100/start.dw+'%'); 
         w.css(start.a2,    iy*100/start.dh+'%');
     }
@@ -86,7 +86,7 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', ['$scope', function(/*$
      */
     function start(e) {
         if (gStart == null) {   // if no event in progress:
-            var widget = $(e.target).parent().parent();
+            var widget = $(e.target).closest('.hs-widget-container');
             var x = (e.offsetX || e.clientX - $(e.target).offset().left),
                 y = (e.offsetY || e.clientY - $(e.target).offset().top);
             var action = getEventType(x, y, get(widget, 'width'), get(widget, 'height'), gRadius);
@@ -129,17 +129,28 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', ['$scope', function(/*$
      * @methodOf hsWidgets.controller:hsMoveableCtrl
      * @param {jQuery selection} elem the element for which hs-moveable was defined
      */
-    this.moveable = function moveable(elem, radius) { 
-        var t = $(elem).find('.hs-widget-pane'),            // target to resize
-            c = t.parent().parent();                        // dashboard in which to resize
-        if ($(c).find('.'+gUIHelper).length === 0) {
-            c.append('<div class=' + gUIHelper + '/>');     // add one widget helper per container
+    this.moveable = function moveable(elem, radius, grid) {
+        var layout = $(elem).closest('hs-layout');
+        if (layout.length === 0) { console.log("hs-moveable called outside of a hs-layout"); }
+        else {        
+            var target = $(elem).closest('.hs-widget-container');   // target to resize
+            if (target.length === 0) {                              // if hs-moveable is not defined on a single widget:
+                target = layout.find('.hs-widget-container');       //   assume it is defined on a layout:
+            }
+            if (target.length === 0) { console.log('hs-moveable did not find a widget container'); }
+            else {
+                // define one widget helper per layout
+                if (layout.find('.'+gUIHelper).length === 0) {
+                    layout.append('<div class=' + gUIHelper + '/>');
+                }
+                var widgets = target.children();
+                widgets.on('mousedown', start);
+                layout.on('mousemove', move);
+                layout.on('mouseup', end);
+                if (radius) { gRadius = radius; }
+                if (grid)   { gGrid   = grid; }
+            }
         }
-        t.append('<div class=hs-widget-moveable' + '/>');     // add affordance to the target
-        $(c).find('.hs-widget-moveable').on('mousedown', start);
-        $(c).on('mousemove', move);
-        $(c).on('mouseup', end);
-        if (radius) { gRadius = radius; }
     };
 }]);
 

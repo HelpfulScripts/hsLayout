@@ -6,12 +6,14 @@
  * @file angular factory for providing ...
  * @copyright Helpful Scripts 2015
  * @description
- * Provides *AngularJS* directives to facilitate {@link hsWidgets.directive:hsWidget widgets} on a {@link hsWidgets.directive:hsDashboard dashboard}. 
+ * Provides *AngularJS* directives to facilitate {@link hsWidgets.directive:hsWidget widgets} on a {@link hsWidgets.directive:hsDashboard dashboard}.
+ * Double clicking the widgets will toggle full-screen mode. add the {@link hsWidgets.directive:hsMoveable hs-moveable} attribute to allow
+ * them to be moved or resized. 
  * 
 @example
 <example module="hsWidgets">
     <file name="index.html">
-        <hs-dashboard hs-moveable>
+        <hs-layout hs-moveable>
             <hs-widget hs-size='["50%", "50%"]'>
                 <br>1
                 <br>Move me along the top.
@@ -27,17 +29,13 @@
                 <br>Move me along the top.
                 <br>Size me from the corners.
             </div>
-        </hs-dashboard>
+        </hs-layout>
     </file>
     <file name="style.css">
-        .well           { position: relative; height: 300px; padding:0; }
-        hs-dashboard    { background-color: #eee; }
-        hs-widget>div, [hs-widget]>div { 
+        .well        { position: relative; height: 300px; padding:0; }
+        hs-layout    { background-color: #eee; }
+        hs-widget, [hs-widget] { 
             background-color: rgba(255, 255, 240, 1); 
-            text-align: center;
-        }
-        [hs-widget]>div { 
-            background-color: rgba(240, 240, 255, 1); 
             text-align: center;
         }
     </file>

@@ -1,27 +1,34 @@
 /**
  * @ngdoc directive
- * @name hsWidgets.directive:hsDashboard
+ * @name hsWidgets.directive:hsLayout
  * @restrict EA
  * @element ANY
  * @description hs-dashboard directive. Establishes a space in which {@link hsWidgets.directive:hsWidget widgets} live.
  @example
 <example module="hsWidgets">
     <file name="index.html">
-        <hs-dashboard hs-moveable class='myHeight'>
+        <hs-layout hs-moveable class='myHeight'>
             <hs-widget hs-size='["50%", "50%"]'>
+                <br>1
                 <br>Move me along the top.
                 <br>Size me from the corners.
             </hs-widget>
             <hs-widget hs-size='["50%", "50%"]'>
+                <br>2
                 <br>Move me along the top.
                 <br>Size me from the corners.
             </hs-widget>
-        </hs-dashboard>
+            <hs-widget hs-pos='["25%", "50%"]' hs-size='["50%", "50%"]'>
+                <br>3
+                <br>Move me along the top.
+                <br>Size me from the corners.
+            </hs-widget>
+        </hs-layout>
     </file>
     <file name="style.css">
-        .well           { position: relative; height: 300px; padding:0; }
-        hs-dashboard    { background-color: #fafafa; }
-        hs-widget       { 
+        .well       { position: relative; height: 300px; padding:0; }
+        hs-layout   { background-color: #fafafa; }
+        hs-widget   { 
             background-color: #ffe; 
             border: 1px solid #888; 
             text-align: center;
@@ -30,11 +37,12 @@
     </file>
 </example>
  */
-angular.module('hsWidgets').directive('hsDashboard', function() {
+angular.module('hsWidgets').directive('hsLayout', function() {
     "use strict";
     
-    function setWidgetPos(widgets, widget) {
+    function setWidgetPos(widget) {
         var pos = [0,0];
+        var widgets = widget.layout.widgets;
         if (widgets.length > 1) {
             var w = widgets[widgets.length-2];
             var wpos = w.pos;
@@ -47,12 +55,6 @@ angular.module('hsWidgets').directive('hsDashboard', function() {
                 pos[0] = 0; pos[1] += wsiz[1];
             }
         }
-        setTimeout(function() {
-            var pane = $(widget.elem[0]).find('.hs-widget-pane');
-            if (pos[0]!==0) { pane.css('margin-left', '0'); }
-            if (pos[1] > 0) { pane.css('margin-top', '0'); }
-        }, 1000);
-
         widget.pos = pos;
     }
 
@@ -64,10 +66,11 @@ angular.module('hsWidgets').directive('hsDashboard', function() {
         $(w).css('top',    widget.pos[1]  +'%');
     }
     
-    function registerWidget(dashboard) {
+    function registerWidget(layout) {
         return function registerWidget(widget) {
-            dashboard.widgets.push(widget);
-            if (widget.pos.length === 0) { setWidgetPos(dashboard.widgets, widget); }
+            layout.widgets.push(widget);
+            widget.layout = layout;
+            if (widget.pos.length === 0) { setWidgetPos(widget); }
             setWidgetMargins(widget);
         };
     }
@@ -75,8 +78,11 @@ angular.module('hsWidgets').directive('hsDashboard', function() {
     return {
         restrict: 'EA',
         replace: false,
+        transclude: true,
+        template: '<div class="hs-layout-container" ng-transclude></div>',
         controller: function($scope, $element) {
             this.widgets = [];
+            this.elem = $element;
             this.registerWidget = registerWidget(this);
             var e = $($element[0]);
             this.width  = parseInt(e.css('width'));
