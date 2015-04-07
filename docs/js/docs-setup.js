@@ -9,8 +9,8 @@ NG_DOCS={
       "shortName": "hsWidgets",
       "type": "overview",
       "moduleName": "hsWidgets",
-      "shortDescription": "Provides AngularJS directives to ... ",
-      "keywords": "angular api directives factory helpful hswidgets overview providing scripts"
+      "shortDescription": "Provides AngularJS directives to facilitate widgets on a dashboard. ",
+      "keywords": "angular api background-color center corners css dashboard directive directives eee facilitate factory height helpful hs-dashboard hs-moveable hs-size hs-widget hswidgets html module overview padding position providing relative rgba scripts style text-align top widgets"
     },
     {
       "section": "api",
