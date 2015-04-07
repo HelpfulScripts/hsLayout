@@ -1,4 +1,4 @@
-/*! hsWidgets - v1.0.0 - 2015-04-06
+/*! hsWidgets - v1.0.0 - 2015-04-07
 * https://github.com/HelpfulScripts/hsWidgets
 * Copyright (c) 2015 Helpful Scripts; Licensed  */
 /*
@@ -9,12 +9,12 @@ angular.module('hsWidgets', ['ngTouch']);
 
 angular.module('hsWidgets').controller('hsMoveableCtrl', ['$scope', function(/*$scope*/) {
     "use strict";
-    var steps = 12;
+    var gGrid = 12;
     var gRadius = 20;
     var gStart = null;
     var gUIHelper = "hs-widget-helper";
      
-    function quant(x, d)    { return Math.round(steps*x/d)*d/steps; }
+    function quant(x, d)    { return Math.round(gGrid*x/d)*d/gGrid; }
     function get(e, a)      { return parseInt(e.css(a)); }
 
     function getEventType(x, y, dx, dy, r) {
@@ -28,13 +28,13 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', ['$scope', function(/*$
     }
 
     function startEvent(start) {
-        var dashboard = start.widget.parent();
+        var layout = start.widget.closest('hs-layout');
 
         if (start.action !== '') {    // start a move:
-            start.dw        = get(dashboard, 'width');
-            start.dh        = get(dashboard, 'height');
-            start.helper    = dashboard.find('.'+gUIHelper);
-            start.dashboard = dashboard;
+            start.dw        = get(layout, 'width');
+            start.dh        = get(layout, 'height');
+            start.helper    = layout.find('.'+gUIHelper);
+            start.layout = layout;
     
             if (start.action === 'move') { 
                 start.a1 = 'left'; start.a2 = 'top'; 
@@ -50,8 +50,8 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', ['$scope', function(/*$
        
     function setPosSize(start, ex, ey) {
         var ix, iy;
-        var w = start.widget, h = start.helper, db = start.dashboard;
-        // get dashboard padding:
+        var w = start.widget, h = start.helper, db = start.layout;
+        // get layout padding:
         var padding = { left:get(db, 'padding-left'), right:get(db, 'padding-right'), top:get(db, 'padding-top'), bottom:get(db, 'padding-bottom')};
         // get widget margins:
         var margin = { left:get(w, 'margin-left'), right:get(w, 'margin-right'), top:get(w, 'margin-top'), bottom:get(w, 'margin-bottom')};
@@ -74,7 +74,7 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', ['$scope', function(/*$
             h.css('width',  ex*100/start.dw+'%'); 
             h.css('height', ey*100/start.dh+'%'); 
         }
-        // move widget in steps of steps of 1/12 of width/height:
+        // move widget in steps of 1/gGrid of width/height:
         w.css(start.a1,   ix*100/start.dw+'%'); 
         w.css(start.a2,    iy*100/start.dh+'%');
     }
@@ -87,7 +87,7 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', ['$scope', function(/*$
      */
     function start(e) {
         if (gStart == null) {   // if no event in progress:
-            var widget = $(e.target).parent().parent();
+            var widget = $(e.target).closest('.hs-widget-container');
             var x = (e.offsetX || e.clientX - $(e.target).offset().left),
                 y = (e.offsetY || e.clientY - $(e.target).offset().top);
             var action = getEventType(x, y, get(widget, 'width'), get(widget, 'height'), gRadius);
@@ -130,25 +130,37 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', ['$scope', function(/*$
      * @methodOf hsWidgets.controller:hsMoveableCtrl
      * @param {jQuery selection} elem the element for which hs-moveable was defined
      */
-    this.moveable = function moveable(elem, radius) { 
-        var t = $(elem).find('.hs-widget-pane'),            // target to resize
-            c = t.parent().parent();                        // dashboard in which to resize
-        if ($(c).find('.'+gUIHelper).length === 0) {
-            c.append('<div class=' + gUIHelper + '/>');     // add one widget helper per container
+    this.moveable = function moveable(elem, radius, grid) {
+        var layout = $(elem).closest('hs-layout');
+        if (layout.length === 0) { console.log("hs-moveable called outside of a hs-layout"); }
+        else {        
+            var target = $(elem).closest('.hs-widget-container');   // target to resize
+            if (target.length === 0) {                              // if hs-moveable is not defined on a single widget:
+                target = layout.find('.hs-widget-container');       //   assume it is defined on a layout:
+            }
+            if (target.length === 0) { console.log('hs-moveable did not find a widget container'); }
+            else {
+                // define one widget helper per layout
+                if (layout.find('.'+gUIHelper).length === 0) {
+                    layout.append('<div class=' + gUIHelper + '/>');
+                }
+                var widgets = target.children();
+                widgets.on('mousedown', start);
+                layout.on('mousemove', move);
+                layout.on('mouseup', end);
+                if (radius) { gRadius = radius; }
+                if (grid)   { gGrid   = grid; }
+            }
         }
-        t.append('<div class=hs-widget-moveable' + '/>');     // add affordance to the target
-        $(c).find('.hs-widget-moveable').on('mousedown', start);
-        $(c).on('mousemove', move);
-        $(c).on('mouseup', end);
-        if (radius) { gRadius = radius; }
     };
 }]);
 
-angular.module('hsWidgets').directive('hsDashboard', function() {
+angular.module('hsWidgets').directive('hsLayout', function() {
     "use strict";
     
-    function setWidgetPos(widgets, widget) {
+    function setWidgetPos(widget) {
         var pos = [0,0];
+        var widgets = widget.layout.widgets;
         if (widgets.length > 1) {
             var w = widgets[widgets.length-2];
             var wpos = w.pos;
@@ -161,12 +173,6 @@ angular.module('hsWidgets').directive('hsDashboard', function() {
                 pos[0] = 0; pos[1] += wsiz[1];
             }
         }
-        setTimeout(function() {
-            var pane = $(widget.elem[0]).find('.hs-widget-pane');
-            if (pos[0]!==0) { pane.css('margin-left', '0'); }
-            if (pos[1] > 0) { pane.css('margin-top', '0'); }
-        }, 1000);
-
         widget.pos = pos;
     }
 
@@ -178,10 +184,11 @@ angular.module('hsWidgets').directive('hsDashboard', function() {
         $(w).css('top',    widget.pos[1]  +'%');
     }
     
-    function registerWidget(dashboard) {
+    function registerWidget(layout) {
         return function registerWidget(widget) {
-            dashboard.widgets.push(widget);
-            if (widget.pos.length === 0) { setWidgetPos(dashboard.widgets, widget); }
+            layout.widgets.push(widget);
+            widget.layout = layout;
+            if (widget.pos.length === 0) { setWidgetPos(widget); }
             setWidgetMargins(widget);
         };
     }
@@ -189,8 +196,11 @@ angular.module('hsWidgets').directive('hsDashboard', function() {
     return {
         restrict: 'EA',
         replace: false,
+        transclude: true,
+        template: '<div class="hs-layout-container" ng-transclude></div>',
         controller: function($scope, $element) {
             this.widgets = [];
+            this.elem = $element;
             this.registerWidget = registerWidget(this);
             var e = $($element[0]);
             this.width  = parseInt(e.css('width'));
@@ -209,7 +219,8 @@ angular.module('hsWidgets').directive('hsMoveable', function() {
         controller: 'hsMoveableCtrl',
         link: function link(scope, elem, attrs, controller) {
             var moveable = parseInt(attrs['hsMoveable']) || 20;
-            controller.moveable(elem, moveable);
+            var grid = parseInt(attrs['grid']) || 12;
+            controller.moveable(elem, moveable, grid);
         }
     };
 });
@@ -232,14 +243,17 @@ angular.module('hsWidgets').directive('hsWidget', function() {
                    top: widget.org[0], left: widget.org[1], width: widget.org[2], height: widget.org[3]
                }, gDuration, gEasing, function() {
                    widget.elem.removeClass('hs-widget-in-front');         
-               });       
+                   scope.$broadcast('hs-resize');
+              });       
                widget.org = undefined;
            } else {
                widget.org = [t, l, w, h];     
                widget.elem.addClass('hs-widget-in-front');  
                widget.elem.animate({  
                    top: '0%', left: '0%', width: '100%', height: '100%'
-               }, gDuration, gEasing);       
+               }, gDuration, gEasing, function() {
+                   scope.$broadcast('hs-resize');
+              });       
            }
         };
     }
@@ -247,7 +261,7 @@ angular.module('hsWidgets').directive('hsWidget', function() {
     return {
         restrict: 'EA',
         replace: false,
-        require: '^hsDashboard',
+        require: '?^hsLayout',
         transclude: true,
         template: function(elem, attrs) {
             if (attrs['hsInclude']) {
@@ -257,10 +271,15 @@ angular.module('hsWidgets').directive('hsWidget', function() {
             }
         },
         link: function link(scope, elem, attrs, controller) {
-            var widget = { elem: elem, dashboard: elem.parent()};
+            $(elem).wrap('<div class="hs-widget-container">');
+            var widget = { elem: elem.parent() };
+            elem.hsStruct = {attrs:attrs};
             widget.size = getVal(attrs['hsSize'], ['100%','100%']);
             widget.pos = getVal(attrs['hsPos'], []);
-            controller.registerWidget(widget);
+            if (controller) { controller.registerWidget(widget); }
+            else { 
+                console.log('no layout controller found in widget'); 
+            }
             $(elem).dblclick(maximizeWindow(scope, widget));
         }
     };

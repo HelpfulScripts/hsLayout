@@ -1,4 +1,4 @@
-/*! hsWidgets - v1.0.0 - 2015-04-06
+/*! hsWidgets - v1.0.0 - 2015-04-07
 * https://github.com/HelpfulScripts/hsWidgets
 * Copyright (c) 2015 Helpful Scripts; Licensed  */
 * {
@@ -26,23 +26,30 @@ body {
 /**********************************************************
  * mechanic css directives to implement dashboards and widgets
  */
-hs-dashboard,
-[hs-dashboard] {
+hs-layout,
+[hs-layout] {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   overflow: hidden;
+}
+/**
+ * only element inside each hs-layout. 
+ * Used to establish a margin around the contained widgets
+ */
+.hs-layout-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: 2px;
 }
 hs-widget,
 [hs-widget] {
-  position: absolute;
-  overflow: visible;
-}
-.hs-widget-in-front {
-  z-index: 1000;
-}
-.hs-widget-pane {
-  margin: 6px;
+  margin: 2px;
   box-sizing: content-box;
   border-radius: 6px;
   border: 1px solid #aaa;
@@ -53,14 +60,29 @@ hs-widget,
   bottom: 0;
   overflow: hidden;
 }
-.hs-widget-moveable {
-  left: 0%;
-  top: 0%;
-  width: 100%;
-  height: 100%;
-  display: block;
+.hs-widget-in-front {
+  z-index: 1000;
+}
+/**
+ * wraps the hs-widget directive.
+ * This container will be positioned and sized by hs-layout and hs-movebale
+ */
+.hs-widget-container {
   position: absolute;
 }
+/**
+ *  wraps the content of a hs-widget directive. Not used for now.
+ */
+.hs-widget-pane {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+/**
+ * used to visualize the outline of a widget while moving or resizing
+ */
 .hs-widget-helper {
   border: 1px dashed blue;
   position: absolute;
