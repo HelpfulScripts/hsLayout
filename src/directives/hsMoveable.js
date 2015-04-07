@@ -12,6 +12,8 @@ are wrapped in square brackets: `[...]`. When optional, the default value is <u>
     sensitive area, in each corner for resizing, and across the top for moving the widget.
 */    
 angular.module('hsWidgets').directive('hsMoveable', function() {
+    "use strict";
+
     return {
         restrict: 'A',
         replace: false,

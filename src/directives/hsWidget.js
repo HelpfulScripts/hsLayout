@@ -35,17 +35,22 @@ are wrapped in square brackets: `[...]`. When optional, the default value is <u>
                 <br>Move me along the top.
                 <br>Size me from the corners.
             </div>
+            <div hs-widget hs-size='["100%", "50%"]'>
+                <br>3
+                <br>Move me along the top.
+                <br>Size me from the corners.
+            </div>
         </hs-dashboard>
     </file>
     <file name="style.css">
         .well           { position: relative; height: 300px; padding:0; }
-        hs-dashboard    { background-color: #efe; }
+        hs-dashboard    { background-color: #eee; }
         hs-widget>div, [hs-widget]>div { 
-            background-color: #ffe; 
+            background-color: rgba(255, 255, 240, 0.75); 
             text-align: center;
         }
         [hs-widget]>div { 
-            background-color: #eef; 
+            background-color: rgba(240, 240, 255, 0.75); 
             text-align: center;
         }
     </file>
@@ -53,8 +58,33 @@ are wrapped in square brackets: `[...]`. When optional, the default value is <u>
  */
 angular.module('hsWidgets').directive('hsWidget', function() {
     "use strict";
+    
+    var gDuration = 250;
+    var gEasing   = 'swing';
+    
     function getVal(attr, def)  { return attr? removePercent(JSON.parse(attr)) : def; }
     function removePercent(arr) { return [parseInt(arr[0].replace('%','')), parseInt(arr[1] .replace('%',''))]; }
+        
+    function maximizeWindow(scope, widget) {
+        return function() {
+           var t = widget.elem[0].style.top, l = widget.elem[0].style.left;
+           var w = widget.elem[0].style.width, h = widget.elem[0].style.height;
+           if (widget.org) {              
+               widget.elem.animate({  
+                   top: widget.org[0], left: widget.org[1], width: widget.org[2], height: widget.org[3]
+               }, gDuration, gEasing, function() {
+                   widget.elem.removeClass('hs-widget-in-front');         
+               });       
+               widget.org = undefined;
+           } else {
+               widget.org = [t, l, w, h];     
+               widget.elem.addClass('hs-widget-in-front');  
+               widget.elem.animate({  
+                   top: '0%', left: '0%', width: '100%', height: '100%'
+               }, gDuration, gEasing);       
+           }
+        };
+    }
 
     return {
         restrict: 'EA',
@@ -73,7 +103,28 @@ angular.module('hsWidgets').directive('hsWidget', function() {
             widget.size = getVal(attrs['hsSize'], ['100%','100%']);
             widget.pos = getVal(attrs['hsPos'], []);
             controller.registerWidget(widget);
+            $(elem).dblclick(maximizeWindow(scope, widget));
         }
     };
 });
 
+/*
+angular.module('hsWidgets').animation('.js-anim', function () {
+    "use strict";
+
+    return {      
+        beforeAddClass: function(element, className, done) {
+console.log('beforeAddClass');            
+            if (className === 'hs-widget-in-front') {
+                element.animate({ opacity: 0 },1000, function (){
+                    element.css({ opacity: 1 }); 
+                    done();
+                });
+            }
+            else {
+                done();
+            }
+        }      
+    };
+});
+*/

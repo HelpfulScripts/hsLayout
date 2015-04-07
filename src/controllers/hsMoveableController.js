@@ -7,34 +7,29 @@
  * @description Controller to manage move and size events on widgets.
  */    
 angular.module('hsWidgets').controller('hsMoveableCtrl', ['$scope', function(/*$scope*/) {
+    "use strict";
     var steps = 12;
     var gRadius = 20;
     var gStart = null;
     var gUIHelper = "hs-widget-helper";
-    var gLastMouseUp = 0;
      
     function quant(x, d)    { return Math.round(steps*x/d)*d/steps; }
     function get(e, a)      { return parseInt(e.css(a)); }
 
     function getEventType(x, y, dx, dy, r) {
-        var dt = new Date().getTime() - gLastMouseUp;
         // check for magic spots
         if (y>0 && x>0 && y<r && x<r)               { return 'tl'; }
         else if (y>0 && x>dx-r && y<r && x<dx)      { return 'tr'; }
         else if (y>dy-r && x>0 && y<dy && x<r)      { return 'bl'; }
         else if (y>dy-r && x>dx-r && y<dy && x<dx)  { return 'br'; }
-        else if (y>0 && y<r) { 
-            return dt<100? 'toggleFullScreen' : 'move'; 
-        }
+        else if (y>0 && y<r)                        { return 'move'; }
         return ''; 
     }
 
     function startEvent(start) {
         var dashboard = start.widget.parent();
 
-        if (start.action === 'toggleFullScreen') {
- console.log('double click');                  
-        } else if (start.action !== '') {    // start a move:
+        if (start.action !== '') {    // start a move:
             start.dw        = get(dashboard, 'width');
             start.dh        = get(dashboard, 'height');
             start.helper    = dashboard.find('.'+gUIHelper);
@@ -91,11 +86,10 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', ['$scope', function(/*$
      */
     function start(e) {
         if (gStart == null) {   // if no event in progress:
-            var widget = $(this).parent().parent();
+            var widget = $(e.target).parent().parent();
             var x = (e.offsetX || e.clientX - $(e.target).offset().left),
                 y = (e.offsetY || e.clientY - $(e.target).offset().top);
             var action = getEventType(x, y, get(widget, 'width'), get(widget, 'height'), gRadius);
-console.log(action);            
             if (action) {
                 gStart = { x:e.pageX, y:e.pageY, widget:widget, action: action };
                 startEvent(gStart);
@@ -123,7 +117,6 @@ console.log(action);
      * Also, the time of latest mouseUp is used to determine a double click
      */
     function end(/*e*/) {
-        gLastMouseUp = new Date().getTime();
         if (gStart != null) {
             if (gStart.helper) { gStart.helper.css('top', -10000); gStart.helper.css('left', -10000); }
             gStart = null;

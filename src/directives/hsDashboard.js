@@ -71,7 +71,7 @@ angular.module('hsWidgets').directive('hsDashboard', function() {
             setWidgetMargins(widget);
         };
     }
-
+    
     return {
         restrict: 'EA',
         replace: false,
