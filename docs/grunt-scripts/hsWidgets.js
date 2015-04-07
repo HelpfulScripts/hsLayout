@@ -266,23 +266,3 @@ angular.module('hsWidgets').directive('hsWidget', function() {
     };
 });
 
-/*
-angular.module('hsWidgets').animation('.js-anim', function () {
-    "use strict";
-
-    return {      
-        beforeAddClass: function(element, className, done) {
-console.log('beforeAddClass');            
-            if (className === 'hs-widget-in-front') {
-                element.animate({ opacity: 0 },1000, function (){
-                    element.css({ opacity: 1 }); 
-                    done();
-                });
-            }
-            else {
-                done();
-            }
-        }      
-    };
-});
-*/

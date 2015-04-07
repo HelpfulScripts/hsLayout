@@ -59,6 +59,7 @@ NG_DOCS={
     "jquery.min.js",
     "angular.js",
     "angular-touch.js",
+    "angular-animate.js",
     "hsWidgets.js"
   ]
 };
