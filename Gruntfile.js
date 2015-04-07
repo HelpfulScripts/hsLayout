@@ -86,6 +86,7 @@ module.exports = function(grunt) {
 						  './lib/jquery/2.1.1/jquery.min.js',
                           './lib/angularjs/1.3.5/angular.js',
                           './lib/angularjs/1.3.5/angular-touch.js',
+                          './lib/angularjs/1.3.5/angular-animate.js',
 						  './dist/<%= pkg.name %>.js'
 				],
 				styles: [
