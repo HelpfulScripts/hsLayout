@@ -1,0 +1,69 @@
+/*! hsWidgets - v1.0.0 - 2015-04-06
+* https://github.com/HelpfulScripts/hsWidgets
+* Copyright (c) 2015 Helpful Scripts; Licensed  */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+a:focus {
+  outline: none;
+  outline-offset: 0;
+}
+body {
+  /*	margin-left: 5px; margin-right: 5px; */
+}
+.hs-fill-page {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+/**********************************************************
+ * mechanic css directives to implement dashboards and widgets
+ */
+hs-dashboard,
+[hs-dashboard] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+hs-widget,
+[hs-widget] {
+  position: absolute;
+  overflow: visible;
+}
+.hs-widget-in-front {
+  z-index: 1000;
+}
+.hs-widget-pane {
+  margin: 6px;
+  box-sizing: content-box;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+.hs-widget-moveable {
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+}
+.hs-widget-helper {
+  border: 1px dashed blue;
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+}

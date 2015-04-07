@@ -1,0 +1,79 @@
+<h1><code ng:non-bindable="">hsWidget</code>
+<div><span class="hint">directive in module <code ng:non-bindable="">hsWidgets</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="hswidgets-directive-page hswidgets-directive-hswidget-page"><p>hs-widget directive. Adds a widget to a <a href="#/api/hsWidgets.directive:hsDashboard">dashboard</a>.
+For use within a hs-dashboard</p>
+<h3 id="description_attributes">Attributes</h3>
+<p>All attributes are optional except where marked as required. For emphasis, optional attributes
+are wrapped in square brackets: <code>[...]</code>. When optional, the default value is <u>underlined</u>.</p>
+<ul>
+<li><p>[<strong>hs-size</strong> = &#39;[<u>&quot;100%&quot;</u>, <u>&quot;100%&quot;</u>]&#39;]
+  sets the relative size of the widget within the dashboard;
+  absolute sizes are also supported. Defaults to [&quot;100%&quot;, &quot;100%&quot;]</p>
+</li>
+<li><p>[<strong>hs-pos</strong> = &#39;[&quot;50%&quot;, &quot;50%&quot;]&#39;] 
+  sets the position of the widget (top left corner) within the dashboard
+  absolute sizes are also supported. Defaults to the next free space
+  in the dashboard, as determined by the controller.</p>
+</li>
+<li><p>[<strong>hs-include</strong> = <url>] 
+  inserts content of an external file, similar to ng-include.
+  A new command &#39;hs-include&#39; is needed since ng-include clashes with the
+  <code>transclude: true</code> statement needed in case the content is inline</p>
+</li>
+</ul>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage">as element:<pre class="prettyprint linenums">&lt;hs-widget&gt;
+&lt;/hs-widget&gt;</pre>
+as attribute<pre class="prettyprint linenums">&lt;ANY hs-widget&gt;
+   ...
+&lt;/ANY&gt;</pre>
+</div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="hswidgets-directive-page hswidgets-directive-hswidget-page"><h4 id="example_source">Source</h4>
+<div source-edit="hsWidgets" source-edit-deps="angular.js" source-edit-html="index.html-0" source-edit-css="style.css-1" source-edit-js="" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div class="tabbable"><div class="tab-pane" title="index.html">
+<pre class="prettyprint linenums" ng-set-text="index.html-0" ng-html-wrap-loaded="hsWidgets angular.js"></pre>
+<script type="text/ng-template" id="index.html-0">
+    <hs-dashboard hs-moveable>
+        <hs-widget hs-size='["50%", "50%"]'>
+            <br>1
+            <br>Move me along the top.
+            <br>Size me from the corners.
+        </hs-widget>
+        <div hs-widget hs-size='["50%", "50%"]'>
+            <br>2
+            <br>Move me along the top.
+            <br>Size me from the corners.
+        </div>
+        <div hs-widget hs-size='["100%", "50%"]'>
+            <br>3
+            <br>Move me along the top.
+            <br>Size me from the corners.
+        </div>
+    </hs-dashboard>
+</script>
+</div>
+<div class="tab-pane" title="style.css">
+<pre class="prettyprint linenums" ng-set-text="style.css-1"></pre>
+<style type="text/css" id="style.css-1">
+    .well           { position: relative; height: 300px; padding:0; }
+    hs-dashboard    { background-color: #eee; }
+    hs-widget>div, [hs-widget]>div { 
+        background-color: rgba(255, 255, 240, 0.75); 
+        text-align: center;
+    }
+    [hs-widget]>div { 
+        background-color: rgba(240, 240, 255, 0.75); 
+        text-align: center;
+    }
+</style>
+</div>
+</div><h4 id="example_demo">Demo</h4>
+<div class="well doc-example-live animate-container" ng-embed-app="hsWidgets" ng-set-html="index.html-0" ng-eval-javascript=""></div>
+</div></div>
+</div>
