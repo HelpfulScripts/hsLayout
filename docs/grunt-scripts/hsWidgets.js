@@ -1,11 +1,11 @@
-/*! hsWidgets - v1.0.0 - 2015-04-07
+/*! hsWidgets - v1.0.0 - 2015-04-18
 * https://github.com/HelpfulScripts/hsWidgets
 * Copyright (c) 2015 Helpful Scripts; Licensed  */
 /*
  * Create the module by calling angular.module with dependency object [].
  * Subsequent additions to the module work by referncing the angular.module('hsWidgets') without [].
  */
-angular.module('hsWidgets', ['ngTouch']);
+angular.module('hsWidgets', ['ngTouch', 'hs']);
 
 angular.module('hsWidgets').controller('hsMoveableCtrl', ['$scope', function(/*$scope*/) {
     "use strict";
@@ -225,11 +225,10 @@ angular.module('hsWidgets').directive('hsMoveable', function() {
     };
 });
 
-angular.module('hsWidgets').directive('hsWidget', function() {
+angular.module('hsWidgets').directive('hsWidget', ['hsUtil', function(util) {
     "use strict";
     
-    var gDuration = 250;
-    var gEasing   = 'swing';
+    var gEasing   = 'swing';  
     
     function getVal(attr, def)  { return attr? removePercent(JSON.parse(attr)) : def; }
     function removePercent(arr) { return [parseInt(arr[0].replace('%','')), parseInt(arr[1] .replace('%',''))]; }
@@ -238,12 +237,12 @@ angular.module('hsWidgets').directive('hsWidget', function() {
         return function() {
            var t = widget.elem[0].style.top, l = widget.elem[0].style.left;
            var w = widget.elem[0].style.width, h = widget.elem[0].style.height;
-           if (widget.org) {              
+          if (widget.org) {              
                widget.elem.animate({  
                    top: widget.org[0], left: widget.org[1], width: widget.org[2], height: widget.org[3]
-               }, gDuration, gEasing, function() {
-                   widget.elem.removeClass('hs-widget-in-front');         
+               }, util.animationDuration, gEasing, function() {
                    scope.$broadcast('hs-resize');
+                   widget.elem.removeClass('hs-widget-in-front');         
               });       
                widget.org = undefined;
            } else {
@@ -251,10 +250,26 @@ angular.module('hsWidgets').directive('hsWidget', function() {
                widget.elem.addClass('hs-widget-in-front');  
                widget.elem.animate({  
                    top: '0%', left: '0%', width: '100%', height: '100%'
-               }, gDuration, gEasing, function() {
+               }, util.animationDuration, gEasing, function() {
                    scope.$broadcast('hs-resize');
               });       
            }
+        };
+    }
+    
+    function doubleClick(handler) {
+        var delay = 500;
+        
+        return function(event) {
+            var now = new Date().getTime();
+            var lastTouch = $(this).data('lastTouch') || now + 1; // the first time this will make delta a negativ number        
+            var delta = now - lastTouch;
+            $(this).data('lastTouch', now);
+            
+            if (delta > 0 && delta < delay) {   // a double tap or click: call handler
+                handler(event);
+            }
+            return false;
         };
     }
 
@@ -280,8 +295,8 @@ angular.module('hsWidgets').directive('hsWidget', function() {
             else { 
                 console.log('no layout controller found in widget'); 
             }
-            $(elem).dblclick(maximizeWindow(scope, widget));
+            $(elem).on('touchend mouseup', doubleClick(maximizeWindow(scope, widget)));
         }
     };
-});
+}]);
 
