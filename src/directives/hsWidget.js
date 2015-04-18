@@ -3,8 +3,8 @@
  * @name hsWidgets.directive:hsWidget
  * @restrict EA
  * @element ANY
- * @description hs-widget directive. Adds a widget to a {@link hsWidgets.directive:hsDashboard dashboard}.
- * For use within a hs-dashboard
+ * @description hs-widget directive. Adds a widget to a {@link hsWidgets.directive:hsLayout layout}.
+ * For use within a hs-layout
 #Attributes
 All attributes are optional except where marked as required. For emphasis, optional attributes
 are wrapped in square brackets: `[...]`. When optional, the default value is <u>underlined</u>.
@@ -43,7 +43,7 @@ are wrapped in square brackets: `[...]`. When optional, the default value is <u>
         </hs-layout>
     </file>
     <file name="style.css">
-        .well           { position: relative; height: 300px; padding:0; }
+        .well        { position: relative; height: 300px; padding:0; }
         hs-layout    { background-color: #eee; }
         hs-widget, [hs-widget] { 
             background-color: #ffe; 
@@ -52,11 +52,10 @@ are wrapped in square brackets: `[...]`. When optional, the default value is <u>
     </file>
 </example>
  */
-angular.module('hsWidgets').directive('hsWidget', function() {
+angular.module('hsWidgets').directive('hsWidget', ['hsUtil', function(util) {
     "use strict";
     
-    var gDuration = 250;
-    var gEasing   = 'swing';
+    var gEasing   = 'swing';  
     
     function getVal(attr, def)  { return attr? removePercent(JSON.parse(attr)) : def; }
     function removePercent(arr) { return [parseInt(arr[0].replace('%','')), parseInt(arr[1] .replace('%',''))]; }
@@ -65,12 +64,12 @@ angular.module('hsWidgets').directive('hsWidget', function() {
         return function() {
            var t = widget.elem[0].style.top, l = widget.elem[0].style.left;
            var w = widget.elem[0].style.width, h = widget.elem[0].style.height;
-           if (widget.org) {              
+          if (widget.org) {              
                widget.elem.animate({  
                    top: widget.org[0], left: widget.org[1], width: widget.org[2], height: widget.org[3]
-               }, gDuration, gEasing, function() {
-                   widget.elem.removeClass('hs-widget-in-front');         
+               }, util.animationDuration, gEasing, function() {
                    scope.$broadcast('hs-resize');
+                   widget.elem.removeClass('hs-widget-in-front');         
               });       
                widget.org = undefined;
            } else {
@@ -78,10 +77,26 @@ angular.module('hsWidgets').directive('hsWidget', function() {
                widget.elem.addClass('hs-widget-in-front');  
                widget.elem.animate({  
                    top: '0%', left: '0%', width: '100%', height: '100%'
-               }, gDuration, gEasing, function() {
+               }, util.animationDuration, gEasing, function() {
                    scope.$broadcast('hs-resize');
               });       
            }
+        };
+    }
+    
+    function doubleClick(handler) {
+        var delay = 500;
+        
+        return function(event) {
+            var now = new Date().getTime();
+            var lastTouch = $(this).data('lastTouch') || now + 1; // the first time this will make delta a negativ number        
+            var delta = now - lastTouch;
+            $(this).data('lastTouch', now);
+            
+            if (delta > 0 && delta < delay) {   // a double tap or click: call handler
+                handler(event);
+            }
+            return false;
         };
     }
 
@@ -107,8 +122,8 @@ angular.module('hsWidgets').directive('hsWidget', function() {
             else { 
                 console.log('no layout controller found in widget'); 
             }
-            $(elem).dblclick(maximizeWindow(scope, widget));
+            $(elem).on('touchend mouseup', doubleClick(maximizeWindow(scope, widget)));
         }
     };
-});
+}]);
 

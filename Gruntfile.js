@@ -96,7 +96,7 @@ module.exports = function(grunt) {
 				bestMatch: true
 			},
 			api: {
-				src: ['src/**/*.js'],
+				src: ['src/**/*.js', 'lib/hs/hs.js'],
 				title: 'API Documentation'
 			}
 		},

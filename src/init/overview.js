@@ -6,7 +6,7 @@
  * @file angular factory for providing ...
  * @copyright Helpful Scripts 2015
  * @description
- * Provides *AngularJS* directives to facilitate {@link hsWidgets.directive:hsWidget widgets} on a {@link hsWidgets.directive:hsDashboard dashboard}.
+ * Provides *AngularJS* directives to facilitate {@link hsWidgets.directive:hsWidget widgets} on a {@link hsWidgets.directive:hsLayout layout}.
  * Double clicking the widgets will toggle full-screen mode. add the {@link hsWidgets.directive:hsMoveable hs-moveable} attribute to allow
  * them to be moved or resized. 
  * 
@@ -47,5 +47,5 @@
  * Create the module by calling angular.module with dependency object [].
  * Subsequent additions to the module work by referncing the angular.module('hsWidgets') without [].
  */
-angular.module('hsWidgets', ['ngTouch']);
+angular.module('hsWidgets', ['ngTouch', 'hs']);
 
