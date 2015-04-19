@@ -131,6 +131,10 @@ module.exports = function(grunt) {
             js: {
                 files: ['src/**/*.js'],
                 tasks: ['makeAll']
+            },
+            hs: {
+                files: ['lib/hs/hs.js'],
+                tasks: ['makeAll']
             }
 		}
 	});
