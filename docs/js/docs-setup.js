@@ -27,8 +27,8 @@ NG_DOCS={
       "shortName": "hs.object.HsConfigurable",
       "type": "object",
       "moduleName": "hs.object",
-      "shortDescription": "provides for a basic configuration mechanism.",
-      "keywords": "add adds allows angular api attrs basic call callback called calling calls cb cfg cfgsave chaining color completed configuration configure consists console data directive doubles ele example file function green hs hscfgsave hsconfigurable hsexample hsobject html js json jsonfile key key1 key2 label link list literal loading log mechanism method module mylabel myname notation obj obj1 object pairs parameter parameters provided range replace replaces restrict result return returns save script setup specifies stringify type url value1 value2 var"
+      "shortDescription": "provides for a basic configuration mechanism and",
+      "keywords": "add addition adds allow allows angular api array attrs basic call callback called calling calls cb cfg cfgsave chained chaining child children color completed configuration configure consists console current data descendents directive doubles ele establishes example file function generates green hs hscfgsave hsconfigurable hsexample hsobject html js json jsonfile key key1 key2 label link list literal loading log maintaining mechanism method module mylabel myname notation obj obj1 object pairs parameter parameters parent provided range remove removed removes replace replaces restrict result retrieves return returned returns save script sets setup specific specifies string stringify structure sub-arrays tree true-ish type url value1 value2 var"
     },
     {
       "section": "api",
@@ -37,7 +37,7 @@ NG_DOCS={
       "type": "object",
       "moduleName": "hs.object",
       "shortDescription": "Base class for all HelpfulScripts objects.",
-      "keywords": "addition allow api array base calls chained child children class current descendents establishes function generates helpfulscripts hs hsobject identical list maintaining obj1 obj2 object objects parameter parent remove removed removes result retrieves returned returns sets specific specifies string structure sub-arrays tree true-ish type var"
+      "keywords": "adds api base category child class helpfulscripts hs hsobject identical obj1 obj2 object objects parent result type var"
     },
     {
       "section": "api",
