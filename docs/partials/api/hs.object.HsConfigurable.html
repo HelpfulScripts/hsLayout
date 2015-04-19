@@ -1,14 +1,19 @@
-<a href="https://github.com/HelpfulScripts/hsWidgets.git/edit/master/lib/hs/hs.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/HelpfulScripts/hsWidgets.git/blob/630f128/lib/hs/hs.js#L44" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">HsConfigurable</code>
+<a href="https://github.com/HelpfulScripts/hsWidgets.git/edit/master/lib/hs/hs.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/HelpfulScripts/hsWidgets.git/blob/20ef42e/lib/hs/hs.js#L46" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">HsConfigurable</code>
 <div><span class="hint">service in module <code ng:non-bindable="">hs.object</code>
 </span>
 </div>
 </h1>
 <div><h2 id="description">Description</h2>
-<div class="description"><div class="hs-object-hsconfigurable-page"><p>provides for a basic configuration mechanism and
-establishes an array of children to allow for a tree structure of descendents; </p>
+<div class="description"><div class="hs-object-hsconfigurable-page"><p>inherits from <a href="#/api/hs.object.HsObject">HsObject</a> and provides for a basic configuration mechanism;</p>
 </div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><pre class="prettyprint linenums">HsConfigurable(type, name[, parent]);</pre>
+<h4 id="usage_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>type</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="hs-object-hsconfigurable-page"><p>the object type or category</p>
+</div></td></tr><tr><td>name</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="hs-object-hsconfigurable-page"><p>the object name</p>
+</div></td></tr><tr><td>parent <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-hsobject">HsObject</a></td><td><div class="hs-object-hsconfigurable-page"><p>If specified, adds this HsObject as a child to the parent.</p>
+</div></td></tr></tbody></table></div>
 <div class="member method"><h2 id="methods">Methods</h2>
-<ul class="methods"><li><a href="https://github.com/HelpfulScripts/hsWidgets.git/blob/630f128/lib/hs/hs.js#L190" class="view-source icon-eye-open"> </a><h3 id="methods_cfg">cfg(d, cb)</h3>
+<ul class="methods"><li><a href="https://github.com/HelpfulScripts/hsWidgets.git/blob/20ef42e/lib/hs/hs.js#L238" class="view-source icon-eye-open"> </a><h3 id="methods_cfg">cfg(d, cb)</h3>
 <div class="cfg"><div class="cfg-page"><p>Configuration function that doubles as a configuration object.
 This object consists of a list of key/value pairs in object literal notation:
 <pre class="prettyprint linenums">    { key1: value1, key2: value2, ...} </pre>
@@ -22,17 +27,17 @@ This allows chaining of method calls during setup.</p>
 </div></td></tr></table><h4 id="methods_cfg_example">Example</h4>
 <div class="example"><div class="cfg-page"><p>See <code>script.js</code> in the following example for 
 <h6 id="methods_cfg_example_source">Source</h6>
-<div source-edit="hs" source-edit-deps="angular.js script.js" source-edit-html="index.html-8" source-edit-css="" source-edit-js="script.js-7" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div source-edit="hs" source-edit-deps="angular.js script.js" source-edit-html="index.html-10" source-edit-css="" source-edit-js="script.js-9" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-8" ng-html-wrap-loaded="hs angular.js script.js"></pre>
-<script type="text/ng-template" id="index.html-8">
+<pre class="prettyprint linenums" ng-set-text="index.html-10" ng-html-wrap-loaded="hs angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html-10">
     <hs-example>           
     </hs-example>
   </script>
 </div>
 <div class="tab-pane" title="script.js">
-<pre class="prettyprint linenums" ng-set-text="script.js-7"></pre>
-<script type="text/ng-template" id="script.js-7">
+<pre class="prettyprint linenums" ng-set-text="script.js-9"></pre>
+<script type="text/ng-template" id="script.js-9">
   angular.module('hs').directive('hsExample', ['HsConfigurable', function(HsConfigurable){
         return {
             restrict: 'E',
@@ -56,27 +61,27 @@ This allows chaining of method calls during setup.</p>
   </script>
 </div>
 </div><h6 id="methods_cfg_example_demo">Demo</h6>
-<div class="well doc-example-live animate-container" ng-embed-app="hs" ng-set-html="index.html-8" ng-eval-javascript="script.js-7"></div>
+<div class="well doc-example-live animate-container" ng-embed-app="hs" ng-set-html="index.html-10" ng-eval-javascript="script.js-9"></div>
 <h5 id="methods_cfg_example_json-file-configuration">JSON file configuration</h5>
 <p>Calling cfg(d) with a JSON file or JSON url will configure the object with the parameters from the JSON file. </p>
 </div></div>
 </div>
 </li>
-<li><a href="https://github.com/HelpfulScripts/hsWidgets.git/blob/630f128/lib/hs/hs.js#L249" class="view-source icon-eye-open"> </a><h3 id="methods_cfgsave">cfgSave()</h3>
+<li><a href="https://github.com/HelpfulScripts/hsWidgets.git/blob/20ef42e/lib/hs/hs.js#L170" class="view-source icon-eye-open"> </a><h3 id="methods_cfgsave">cfgSave()</h3>
 <div class="cfgsave"><div class="cfgsave-page"><p>Configuration save function.</p>
 </div><h4 id="methods_cfgsave_example">Example</h4>
 <div class="example"><div class="cfgsave-page"><h6 id="methods_cfgsave_example_source">Source</h6>
-<div source-edit="hs" source-edit-deps="angular.js script.js" source-edit-html="index.html-10" source-edit-css="" source-edit-js="script.js-9" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div source-edit="hs" source-edit-deps="angular.js script.js" source-edit-html="index.html-8" source-edit-css="" source-edit-js="script.js-7" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-10" ng-html-wrap-loaded="hs angular.js script.js"></pre>
-<script type="text/ng-template" id="index.html-10">
+<pre class="prettyprint linenums" ng-set-text="index.html-8" ng-html-wrap-loaded="hs angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html-8">
   <hs-cfg-save>           
   </hs-cfg-save>
 </script>
 </div>
 <div class="tab-pane" title="script.js">
-<pre class="prettyprint linenums" ng-set-text="script.js-9"></pre>
-<script type="text/ng-template" id="script.js-9">
+<pre class="prettyprint linenums" ng-set-text="script.js-7"></pre>
+<script type="text/ng-template" id="script.js-7">
 angular.module('hs').directive('hsCfgSave', ['HsConfigurable', function(HsConfigurable){
       return {
           restrict: 'E',
@@ -84,32 +89,17 @@ angular.module('hs').directive('hsCfgSave', ['HsConfigurable', function(HsConfig
               var result = "";
               var o = new HsConfigurable().
                   cfg({name: "myName", type: "myLabel"});
-              o.cfgSave('data/savedCfg.json');
+              var result = o.cfgSave('data/savedCfg.json');
+              ele.html(result);
           }
       }; 
 }]);
 </script>
 </div>
 </div><h6 id="methods_cfgsave_example_demo">Demo</h6>
-<div class="well doc-example-live animate-container" ng-embed-app="hs" ng-set-html="index.html-10" ng-eval-javascript="script.js-9"></div>
+<div class="well doc-example-live animate-container" ng-embed-app="hs" ng-set-html="index.html-8" ng-eval-javascript="script.js-7"></div>
 </div></div>
 </div>
-</li>
-<li><a href="https://github.com/HelpfulScripts/hsWidgets.git/blob/630f128/lib/hs/hs.js#L302" class="view-source icon-eye-open"> </a><h3 id="methods_children">children(child, remove)</h3>
-<div class="children"><div class="children-page"><p>retrieves the list of children, or sets or removes a specific child to this parent.
-In addition to maintaining an array of the children to this parent, this function also
-generates sub-arrays of children for each Object type.</p>
-</div><h5 id="methods_children_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>child <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-hsobject">HsObject</a><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="children-page"><p><em>String</em>: the parameter specifies an HsObject type and
-the function returns an array of children of this type.
-<br><em>HsObject</em>: <code>child</code> will be added as a child to this parent and the child 
-returned.
-<br><em>Unspecified</em>: the list of current children will be returned as an Array. </p>
-</div></td></tr><tr><td>remove <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-boolean">Boolean</a></td><td><div class="children-page"><p>if specified and true-ish, the specified <em>child</em> object will be removed
-from the list of children. If <em>child</em> is a type string, <em>remove</em> will have no effect.</p>
-</div></td></tr></tbody></table><h5 id="methods_children_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="children-page"><p>this parent if a child HsObject was specified, to allow for chained calls;
-<br>or an array of children of a certain type, if s type string was specified;
-<br>or the array of children if no parameter was specified.</p>
-</div></td></tr></table></div>
 </li>
 </ul>
 </div>
