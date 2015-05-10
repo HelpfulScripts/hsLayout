@@ -59,32 +59,35 @@ angular.module('hsWidgets').directive('hsWidget', ['hsUtil', function(util) {
     
     function getVal(attr, def)  { return attr? removePercent(JSON.parse(attr)) : def; }
     function removePercent(arr) { return [parseInt(arr[0].replace('%','')), parseInt(arr[1] .replace('%',''))]; }
-        
+
     function maximizeWindow(scope, widget) {
+        var animate = true;
         return function() {
-           var t = widget.elem[0].style.top, l = widget.elem[0].style.left;
-           var w = widget.elem[0].style.width, h = widget.elem[0].style.height;
-          if (widget.org) {              
-               widget.elem.animate({  
-                   top: widget.org[0], left: widget.org[1], width: widget.org[2], height: widget.org[3]
-               }, util.animationDuration, gEasing, function() {
-                   scope.$broadcast('hs-resize');
-                   widget.elem.removeClass('hs-widget-in-front');         
-              });       
-               widget.org = undefined;
-           } else {
-               widget.org = [t, l, w, h];     
-               widget.elem.addClass('hs-widget-in-front');  
-               widget.elem.animate({  
-                   top: '0%', left: '0%', width: '100%', height: '100%'
-               }, util.animationDuration, gEasing, function() {
-                   scope.$broadcast('hs-resize');
-              });       
-           }
+            var t = widget.elem[0].style.top, l = widget.elem[0].style.left;
+            var w = widget.elem[0].style.width, h = widget.elem[0].style.height;
+            var size;
+            if (widget.org) {        // shrink widget to original size     
+                size = widget.org;  
+                widget.org = undefined;
+                widget.elem.removeClass('hs-widget-in-front');         
+            } else {                // maximize widget to fill screen
+                widget.org = {top: t, left: l, width: w, height: h};  
+                size = {top: '0%', left: '0%', width: '100%', height: '100%'};  
+                widget.elem.addClass('hs-widget-in-front');  
+            }
+            if (animate) {
+                widget.elem.animate(size, util.animationDuration, gEasing, function() {
+                    scope.$broadcast('hs-resize-end', size);
+                });       
+                scope.$broadcast('hs-resize-begin', size);
+            } else {
+                scope.$broadcast('hs-resize-begin', size);
+                widget.elem.css(size);
+                scope.$broadcast('hs-resize-end', size);
+            }
         };
     }
-    
-    function doubleClick(handler) {
+   function doubleClick(handler) {
         var delay = 500;
         
         return function(event) {
