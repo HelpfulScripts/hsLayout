@@ -1,11 +1,11 @@
-/*! hsWidgets - v1.0.5 - 2015-04-26
+/*! hsWidgets - v1.0.5 - 2015-06-09
 * https://github.com/HelpfulScripts/hsWidgets
 * Copyright (c) 2015 Helpful Scripts; Licensed  */
 /*
  * Create the module by calling angular.module with dependency object [].
  * Subsequent additions to the module work by referncing the angular.module('hsWidgets') without [].
  */
-angular.module('hsWidgets', ['ngTouch', 'hs']);
+angular.module('hsWidgets', ['ngTouch', 'hs', 'ngRoute']);
 
 angular.module('hsWidgets').controller('hsMoveableCtrl', ['$scope', function(/*$scope*/) {
     "use strict";
@@ -232,44 +232,49 @@ angular.module('hsWidgets').directive('hsWidget', ['hsUtil', function(util) {
     
     function getVal(attr, def)  { return attr? removePercent(JSON.parse(attr)) : def; }
     function removePercent(arr) { return [parseInt(arr[0].replace('%','')), parseInt(arr[1] .replace('%',''))]; }
-        
+
     function maximizeWindow(scope, widget) {
+        var animate = true;
         return function() {
-           var t = widget.elem[0].style.top, l = widget.elem[0].style.left;
-           var w = widget.elem[0].style.width, h = widget.elem[0].style.height;
-          if (widget.org) {              
-               widget.elem.animate({  
-                   top: widget.org[0], left: widget.org[1], width: widget.org[2], height: widget.org[3]
-               }, util.animationDuration, gEasing, function() {
-                   scope.$broadcast('hs-resize');
-                   widget.elem.removeClass('hs-widget-in-front');         
-              });       
-               widget.org = undefined;
-           } else {
-               widget.org = [t, l, w, h];     
-               widget.elem.addClass('hs-widget-in-front');  
-               widget.elem.animate({  
-                   top: '0%', left: '0%', width: '100%', height: '100%'
-               }, util.animationDuration, gEasing, function() {
-                   scope.$broadcast('hs-resize');
-              });       
-           }
+            var t = widget.elem[0].style.top, l = widget.elem[0].style.left;
+            var w = widget.elem[0].style.width, h = widget.elem[0].style.height;
+            var size;
+            if (widget.org) {        // shrink widget to original size     
+                size = widget.org;  
+                widget.org = undefined;
+                widget.elem.removeClass('hs-widget-in-front');         
+            } else {                // maximize widget to fill screen
+                widget.org = {top: t, left: l, width: w, height: h};  
+                size = {top: '0%', left: '0%', width: '100%', height: '100%'};  
+                widget.elem.addClass('hs-widget-in-front');  
+            }
+            if (animate) {
+                widget.elem.animate(size, util.animationDuration, gEasing, function() {
+                    scope.$broadcast('hs-resize-end', size);
+                });       
+                scope.$broadcast('hs-resize-begin', size);
+            } else {
+                scope.$broadcast('hs-resize-begin', size);
+                widget.elem.css(size);
+                scope.$broadcast('hs-resize-end', size);
+            }
         };
     }
-    
-    function doubleClick(handler) {
+   function doubleClick(handler) {
         var delay = 500;
         
         return function(event) {
             var now = new Date().getTime();
-            var lastTouch = $(this).data('lastTouch') || now + 1; // the first time this will make delta a negativ number        
+            var lastTouch = $(this).data('lastTouch') || now + 1; // the first time this will make delta a negativ number
             var delta = now - lastTouch;
-            $(this).data('lastTouch', now);
             
-            if (delta > 0 && delta < delay) {   // a double tap or click: call handler
+            if (delta > 0 && delta < delay && event.type === $(this).data('lastType')) {   // a double tap or click: call handler
                 handler(event);
+                return false;
             }
-            return false;
+            $(this).data('lastTouch', now);
+            $(this).data('lastType', event.type);
+            return true;
         };
     }
 
@@ -295,12 +300,13 @@ angular.module('hsWidgets').directive('hsWidget', ['hsUtil', function(util) {
             else { 
                 console.log('no layout controller found in widget'); 
             }
+//            $(elem).on('mouseup', doubleClick(maximizeWindow(scope, widget)));
             $(elem).on('touchend mouseup', doubleClick(maximizeWindow(scope, widget)));
         }
     };
 }]);
 
-/*! hs - v0.9.5 - 2015-04-19
+/*! hs - v0.9.5 - 2015-05-09
 * https://github.com/HelpfulScripts/hs
 * Copyright (c) 2015 Helpful Scripts; Licensed  */
 
@@ -485,7 +491,8 @@ angular.module('hs').factory('HsConfigurable', ['HsObject', '$http', function Hs
  * <pre>    { key1: value1, key2: value2, ...} </pre>
  * 
  * # Object Literal configuration
- * Calling cfg(d) with an *object literal* adds or replaces the provided keys in the configuration object.
+ * Calling cfg({...}) with an *object literal* adds or replaces the provided keys in the configuration object.
+ * Calling cfg("...") with a *string* returns the value of the specified key.
  * Calling cfg() without a parameter returns the configuration object. 
  * @example
  * <pre>
@@ -782,6 +789,7 @@ angular.module('hs').factory('hsUtil', function() {
         toDate:         toDate,
         getType:        getType,
         castData:       castData,
-        doubleClick:    doubleClick
+        doubleClick:    doubleClick,
+        animationDuration: 250
     };
 });
