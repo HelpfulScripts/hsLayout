@@ -92,14 +92,16 @@ angular.module('hsWidgets').directive('hsWidget', ['hsUtil', function(util) {
         
         return function(event) {
             var now = new Date().getTime();
-            var lastTouch = $(this).data('lastTouch') || now + 1; // the first time this will make delta a negativ number        
+            var lastTouch = $(this).data('lastTouch') || now + 1; // the first time this will make delta a negativ number
             var delta = now - lastTouch;
-            $(this).data('lastTouch', now);
             
-            if (delta > 0 && delta < delay) {   // a double tap or click: call handler
+            if (delta > 0 && delta < delay && event.type === $(this).data('lastType')) {   // a double tap or click: call handler
                 handler(event);
+                return false;
             }
-            return false;
+            $(this).data('lastTouch', now);
+            $(this).data('lastType', event.type);
+            return true;
         };
     }
 
@@ -125,6 +127,7 @@ angular.module('hsWidgets').directive('hsWidget', ['hsUtil', function(util) {
             else { 
                 console.log('no layout controller found in widget'); 
             }
+//            $(elem).on('mouseup', doubleClick(maximizeWindow(scope, widget)));
             $(elem).on('touchend mouseup', doubleClick(maximizeWindow(scope, widget)));
         }
     };

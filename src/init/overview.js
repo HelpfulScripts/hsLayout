@@ -47,5 +47,5 @@
  * Create the module by calling angular.module with dependency object [].
  * Subsequent additions to the module work by referncing the angular.module('hsWidgets') without [].
  */
-angular.module('hsWidgets', ['ngTouch', 'hs']);
+angular.module('hsWidgets', ['ngTouch', 'hs', 'ngRoute']);
 
