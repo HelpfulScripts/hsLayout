@@ -68,12 +68,12 @@ module.exports = function(grunt) {
 				compress: true,
 				wrap: true,
 				preserveComments: false,
-//				sourceMap: true,
-//				sourceMapIncludeSources: true
+				sourceMap: false,
+				sourceMapIncludeSources: false
 //				sourceMapIn: 'dist/<%= pkg.name %>.js.map'
 			},
 			dist: {
-				src: '<%= concat.js.dest %>',
+				src:  'dist/<%= pkg.name %>.js',
 				dest: 'dist/<%= pkg.name %>.min.js'
 			}
 		},
@@ -119,6 +119,12 @@ module.exports = function(grunt) {
     			}
 			]}
 		},
+        karma: {
+          unit: {
+            configFile: './test/karma.test.config.js'
+          }
+        },
+    
         watch: {
             gruntfile: {
                 files: 'Gruntfile.js',
@@ -149,9 +155,13 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-karma');
 
-	// ngDoc only.
-	grunt.registerTask('makeDocs', ['ngdocs']);
+    // ngDoc only.
+    grunt.registerTask('makeDocs', ['ngdocs']);
+
+    // test only.
+    grunt.registerTask('test', ['karma']);
 
 	// Default task.
 	grunt.registerTask('makeAll', ['jshint', 'clean', 'concat', 'less', 'cssmin', 'uglify', 'copy', 'ngdocs']);
