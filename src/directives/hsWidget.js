@@ -47,7 +47,7 @@ are wrapped in square brackets: `[...]`. When optional, the default value is <u>
     <file name="style.css">
         .well        { position: relative; }
         hs-layout    { background-color: #eee; }
-        .s-widget-pane { 
+        .hs-widget-pane { 
             background-color: #ffe; 
             text-align: center;
         }

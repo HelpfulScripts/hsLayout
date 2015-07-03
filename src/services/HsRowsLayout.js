@@ -48,7 +48,7 @@ See also the description of attribute options in {@link hsWidgets.directive:hsLa
             <hs-layout hs-rows='[,"20%"]'>
                 <hs-widget ng-repeat="w in [1,2,3,4]">
                     {{w}}
-                    <br>{{$last? "10%" : "we share the remaining space"}}
+                    <br>{{$last? "20%" : "we share the remaining space"}}
                 </hs-widget>
             </hs-layout>
         </div>
@@ -72,7 +72,7 @@ See also the description of attribute options in {@link hsWidgets.directive:hsLa
         <div ng-controller="myCtrl" style="height:300px; padding:0;">
             <hs-layout hs-rows='["100px",,"50px"]'>
                 <hs-widget>
-                    <br>Header:200px
+                    <br>Header:10px
                 </hs-widget>
                 <hs-layout hs-tiles>
                     <hs-widget ng-repeat="w in widgets" class='repeated-item'>
@@ -80,7 +80,7 @@ See also the description of attribute options in {@link hsWidgets.directive:hsLa
                     </hs-widget>
                 </hs-layout>
                 <hs-widget>
-                    <br>Footer:100px
+                    <br>Footer:50px
                 </hs-widget>
             </hs-layout>
          </div>
