@@ -1,4 +1,4 @@
-<a href="https://github.com/HelpfulScripts/hsWidgets.git/edit/master/src/directives/hsMoveable.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/HelpfulScripts/hsWidgets.git/blob/422ecbb/src/directives/hsMoveable.js#L38" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">hsMoveable</code>
+<a href="https://github.com/HelpfulScripts/hsWidgets.git/edit/master/src/directives/hsMoveable.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/HelpfulScripts/hsWidgets.git/blob/937d17d/src/directives/hsMoveable.js#L40" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">hsMoveable</code>
 <div><span class="hint">directive in module <code ng:non-bindable="">hsWidgets</code>
 </span>
 </div>
@@ -29,19 +29,21 @@ are wrapped in square brackets: <code>[...]</code>. When optional, the default v
 <div class="tabbable"><div class="tab-pane" title="index.html">
 <pre class="prettyprint linenums" ng-set-text="index.html-2" ng-html-wrap-loaded="hsWidgets angular.js"></pre>
 <script type="text/ng-template" id="index.html-2">
-    <hs-layout hs-moveable grid='20'>
-        <hs-widget hs-size='["50%", "50%"]'>
-            <br>1
-            <br>Move me along the top.
-            <br>Size me from the corners.
-        </hs-widget>
-    </hs-layout>
+    <div style="height: 300px; padding:0; ">
+        <hs-layout hs-moveable grid='20'>
+            <hs-widget hs-size='["50%", "50%"]'>
+                <br>1
+                <br>Move me along the top.
+                <br>Size me from the corners.
+            </hs-widget>
+        </hs-layout>
+    </div>
 </script>
 </div>
 <div class="tab-pane" title="style.css">
 <pre class="prettyprint linenums" ng-set-text="style.css-3"></pre>
 <style type="text/css" id="style.css-3">
-    .well           { position: relative; height: 300px; padding:0; }
+    .well           { position: relative; }
     hs-layout       { background-color: #eee; }
     hs-widget, [hs-widget] { 
         background-color: #ffe; 

@@ -82,7 +82,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "hsWidgets",
       "shortDescription": "hs-widget directive. Adds a widget to a layout.",
-      "keywords": "absolute adds api attributes background-color brackets case center clashes command content controller corner corners css dashboard default defaults determined directive ea eee emphasis external ffe file free height hs-include hs-layout hs-moveable hs-pos hs-size hs-widget hswidgets html inline inserts layout left marked module needed ng-include optional padding position relative required s-widget-pane sets size sizes space square statement style supported text-align top transclude true widget wrapped"
+      "keywords": "absolute adds api attributes background-color brackets case center clashes command content controller corner corners css dashboard default defaults determined directive ea eee emphasis external ffe file free height hs-include hs-layout hs-moveable hs-pos hs-size hs-widget hs-widget-pane hswidgets html inline inserts layout left marked module needed ng-include optional padding position relative required sets size sizes space square statement style supported text-align top transclude true widget wrapped"
     },
     {
       "section": "api",
@@ -91,7 +91,7 @@ NG_DOCS={
       "type": "object",
       "moduleName": "hsWidgets.object",
       "shortDescription": "Extends HsLayout.",
-      "keywords": "$interval $scope angular api array attribute attributes background-color border borders center children class column columns container controller create css description directive divides eef elements empty equal evenly extends fafafa ffe fill function fw height horizontally hs-columns hs-layout hs-tiles hs-widget-pane hscolumnslayout hslayout hswidgets html indicators inside js layout leaving left location lw module multiple myctrl n-1 n-2 nested ng-controller ng-repeat object options padding panel partitions position push px relative remaining repeated-item script sequence sets share solid space spaced specifications style supported text-align tile top uninterrupted unit unused var w1 w2 wide widget widgets width widths"
+      "keywords": "$interval $scope angular api array attribute attributes background-color border borders center children class column columns container controller create css description directive divides eef elements empty equal evenly extends fafafa ffe fill function fw height horizontally hs-columns hs-layout hs-tiles hs-widget-pane hscolumnslayout hslayout hswidgets html indicators inside js layout leaving left location lw module multiple myctrl n-1 n-2 nested ng-controller ng-repeat object options padding panel partitions position push px relative remaining repeated-item script sequence sets share solid space spaced specifications style supported text-align tile top uninterrupted unit unused var w1 w2 widget widgets width widths"
     },
     {
       "section": "api",

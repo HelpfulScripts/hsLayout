@@ -1,4 +1,4 @@
-<a href="https://github.com/HelpfulScripts/hsWidgets.git/edit/master/src/services/HsRowsLayout.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/HelpfulScripts/hsWidgets.git/blob/422ecbb/src/services/HsRowsLayout.js#L118" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">HsRowsLayout</code>
+<a href="https://github.com/HelpfulScripts/hsWidgets.git/edit/master/src/services/HsRowsLayout.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/HelpfulScripts/hsWidgets.git/blob/937d17d/src/services/HsRowsLayout.js#L118" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">HsRowsLayout</code>
 <div><span class="hint">service in module <code ng:non-bindable="">hsWidgets.object</code>
 </span>
 </div>
@@ -41,7 +41,7 @@ Rows layout divides the container vertically into partitions according to the <c
             <hs-layout hs-rows='[,"20%"]'>
                 <hs-widget ng-repeat="w in [1,2,3,4]">
                     {{w}}
-                    <br>{{$last? "10%" : "we share the remaining space"}}
+                    <br>{{$last? "20%" : "we share the remaining space"}}
                 </hs-widget>
             </hs-layout>
         </div>
@@ -75,7 +75,7 @@ Rows layout divides the container vertically into partitions according to the <c
         <div ng-controller="myCtrl" style="height:300px; padding:0;">
             <hs-layout hs-rows='["100px",,"50px"]'>
                 <hs-widget>
-                    <br>Header:200px
+                    <br>Header:10px
                 </hs-widget>
                 <hs-layout hs-tiles>
                     <hs-widget ng-repeat="w in widgets" class='repeated-item'>
@@ -83,7 +83,7 @@ Rows layout divides the container vertically into partitions according to the <c
                     </hs-widget>
                 </hs-layout>
                 <hs-widget>
-                    <br>Footer:100px
+                    <br>Footer:50px
                 </hs-widget>
             </hs-layout>
          </div>
