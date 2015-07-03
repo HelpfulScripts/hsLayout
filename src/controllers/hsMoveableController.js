@@ -6,7 +6,7 @@
  * @scope
  * @description Controller to manage move and size events on widgets.
  */    
-angular.module('hsWidgets').controller('hsMoveableCtrl', ['$scope', function(/*$scope*/) {
+angular.module('hsWidgets').controller('hsMoveableCtrl', [function() {
     "use strict";
     var gGrid = 12;
     var gRadius = 20;

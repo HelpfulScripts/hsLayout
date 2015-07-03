@@ -1,5 +1,5 @@
 # hsWidgets
-Provides AngularJS directives to facilitate widgets on a dashboard.
+Provides AngularJS directives to facilitate layouts and widgets on a dashboard.
 
 ## Installation
 After downloading first install the required node modules by running

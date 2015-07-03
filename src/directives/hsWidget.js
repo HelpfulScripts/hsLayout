@@ -24,28 +24,30 @@ are wrapped in square brackets: `[...]`. When optional, the default value is <u>
 @example
 <example module="hsWidgets">
     <file name="index.html">
-        <hs-layout hs-moveable>
-            <hs-widget hs-size='["50%", "50%"]'>
-                <br>1
-                <br>Move me along the top.
-                <br>Size me from the corners.
-            </hs-widget>
-            <div hs-widget hs-size='["50%", "50%"]'>
-                <br>2
-                <br>Move me along the top.
-                <br>Size me from the corners.
-            </div>
-            <hs-widget hs-pos='["25%", "50%"]' hs-size='["50%", "50%"]'>
-                <br>3
-                <br>Move me along the top.
-                <br>Size me from the corners.
-            </hs-widget>
-        </hs-layout>
+        <div style="height: 300px; padding:0;">
+            <hs-layout hs-moveable>
+                <hs-widget hs-size='["50%", "50%"]'>
+                    <br>1
+                    <br>Move me along the top.
+                    <br>Size me from the corners.
+                </hs-widget>
+                <div hs-widget hs-size='["50%", "50%"]'>
+                    <br>2
+                    <br>Move me along the top.
+                    <br>Size me from the corners.
+                </div>
+                <hs-widget hs-pos='["25%", "50%"]' hs-size='["50%", "50%"]'>
+                    <br>3
+                    <br>Move me along the top.
+                    <br>Size me from the corners.
+                </hs-widget>
+            </hs-layout>
+        </div>
     </file>
     <file name="style.css">
-        .well        { position: relative; height: 300px; padding:0; }
+        .well        { position: relative; }
         hs-layout    { background-color: #eee; }
-        hs-widget, [hs-widget] { 
+        .s-widget-pane { 
             background-color: #ffe; 
             text-align: center;
         }
@@ -57,36 +59,37 @@ angular.module('hsWidgets').directive('hsWidget', ['hsUtil', function(util) {
     
     var gEasing   = 'swing';  
     
-    function getVal(attr, def)  { return attr? removePercent(JSON.parse(attr)) : def; }
-    function removePercent(arr) { return [parseInt(arr[0].replace('%','')), parseInt(arr[1] .replace('%',''))]; }
+    function getVal(attr, def)  { return attr? JSON.parse(attr) : def; }
+    //function removePercent(arr) { return [parseInt(arr[0].replace('%','')), parseInt(arr[1] .replace('%',''))]; }
 
     function maximizeWindow(scope, widget) {
         var animate = true;
         return function() {
-            var t = widget.elem[0].style.top, l = widget.elem[0].style.left;
-            var w = widget.elem[0].style.width, h = widget.elem[0].style.height;
+            var t = widget.style.top, l = widget.style.left;
+            var w = widget.style.width, h = widget.style.height;
             var size;
             if (widget.org) {        // shrink widget to original size     
                 size = widget.org;  
                 widget.org = undefined;
-                widget.elem.removeClass('hs-widget-in-front');         
+                $(widget).removeClass('hs-widget-in-front');         
             } else {                // maximize widget to fill screen
                 widget.org = {top: t, left: l, width: w, height: h};  
                 size = {top: '0%', left: '0%', width: '100%', height: '100%'};  
-                widget.elem.addClass('hs-widget-in-front');  
+                $(widget).addClass('hs-widget-in-front');  
             }
             if (animate) {
-                widget.elem.animate(size, util.animationDuration, gEasing, function() {
+                $(widget).animate(size, util.animationDuration, gEasing, function() {
                     scope.$broadcast('hs-resize-end', size);
                 });       
                 scope.$broadcast('hs-resize-begin', size);
             } else {
                 scope.$broadcast('hs-resize-begin', size);
-                widget.elem.css(size);
+                $(widget).css(size);
                 scope.$broadcast('hs-resize-end', size);
             }
         };
     }
+    
    function doubleClick(handler) {
         var delay = 500;
         
@@ -118,18 +121,26 @@ angular.module('hsWidgets').directive('hsWidget', ['hsUtil', function(util) {
             }
         },
         link: function link(scope, elem, attrs, controller) {
+            $(elem).addClass('hs-widget-container');
+            elem[0].cfgSize = getVal(attrs['hsSize'], []);
+            elem[0].cfgPos = getVal(attrs['hsPos'], []);
+            if (controller) { scope.layItOut(); }
+            else { console.log('no layout controller found in widget'); }
+            $(elem).on('touchend mouseup', doubleClick(maximizeWindow(scope, elem[0])));
+        }
+/*        
+        link: function link(scope, elem, attrs, controller) {
             $(elem).wrap('<div class="hs-widget-container">');
             var widget = { elem: elem.parent() };
             elem.hsStruct = {attrs:attrs};
-            widget.size = getVal(attrs['hsSize'], ['100%','100%']);
+            widget.size = getVal(attrs['hsSize'], []);
             widget.pos = getVal(attrs['hsPos'], []);
-            if (controller) { controller.registerWidget(widget); }
-            else { 
-                console.log('no layout controller found in widget'); 
-            }
+            if (controller) { scope.layout.addWidget(widget); }
+            else { console.log('no layout controller found in widget'); }
 //            $(elem).on('mouseup', doubleClick(maximizeWindow(scope, widget)));
             $(elem).on('touchend mouseup', doubleClick(maximizeWindow(scope, widget)));
         }
+*/        
     };
 }]);
 

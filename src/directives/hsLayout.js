@@ -1,94 +1,121 @@
 /**
  * @ngdoc directive
  * @name hsWidgets.directive:hsLayout
- * @restrict EA
+ * @restrict E
  * @element ANY
- * @description hs-dashboard directive. Establishes a space in which {@link hsWidgets.directive:hsWidget widgets} live.
- @example
+ * @description hs-layout directive. Establishes a space in which 
+ * {@link hsWidgets.directive:hsWidget widgets} live.
+#Attributes
+All attributes are optional except where marked as required. For emphasis, optional attributes
+are wrapped in square brackets: `[...]`. When optional, the default value is <u>underlined</u>.
+- [**hs-type** = '<u>tiles</u> | columns | rows']
+    sets the type of layout. For options see below
+- [**hs-tiles**] create a {@link hsWidgets.object.HsTileLayout tile layout}
+- [**hs-columns='[<i>Array</i>, ]'**] 
+    Please see {@link hsWidgets.object.HsColumnsLayout columns layout} on avaliable options for `Array`
+- [**hs-rows='[<i>Array</i>, ]'**] 
+    Please see {@link hsWidgets.object.HsRowsLayout rows layout} on avaliable options for `Array`
+
+@example
 <example module="hsWidgets">
     <file name="index.html">
-        <hs-layout hs-moveable class='myHeight'>
-            <hs-widget hs-size='["50%", "50%"]'>
-                <br>1
-                <br>Move me along the top.
-                <br>Size me from the corners.
-            </hs-widget>
-            <hs-widget hs-size='["50%", "50%"]'>
-                <br>2
-                <br>Move me along the top.
-                <br>Size me from the corners.
-            </hs-widget>
-            <hs-widget hs-pos='["25%", "50%"]' hs-size='["50%", "50%"]'>
-                <br>3
-                <br>Move me along the top.
-                <br>Size me from the corners.
-            </hs-widget>
-        </hs-layout>
+        <div style="height: 300px; padding:0;">
+            <hs-layout>
+                <hs-widget>1</hs-widget>
+                <hs-widget>2</hs-widget>
+                <hs-widget>3</hs-widget>
+            </hs-layout>
+        </div>
     </file>
     <file name="style.css">
-        .well       { position: relative; height: 300px; padding:0; }
+        .well       { position: relative; }
         hs-layout   { background-color: #fafafa; }
-        hs-widget   { 
+        .hs-widget-pane   { 
             background-color: #ffe; 
             border: 1px solid #888; 
             text-align: center;
         }
-        hs-widget:first-of-type { background-color: #eef; }
+        hs-widget:first-of-type>.hs-widget-pane { background-color: #eef; }
+    </file>
+</example>
+#Fixing the size of widgets
+<example module="hsWidgets">
+    <file name="index.html">
+        <div style="height: 300px; padding:0;">
+            <hs-layout hs-moveable class='myHeight'>
+                <hs-widget hs-size='["50%", "50%"]'>
+                    <br>1
+                    <br>Move me along the top.
+                    <br>Size me from the corners.
+                </hs-widget>
+                <hs-widget hs-size='["50%", "50%"]'>
+                    <br>2
+                    <br>Move me along the top.
+                    <br>Size me from the corners.
+                </hs-widget>
+                <hs-widget hs-pos='["25%", "50%"]' hs-size='["50%", "50%"]'>
+                    <br>3
+                    <br>Move me along the top.
+                    <br>Size me from the corners.
+                </hs-widget>
+            </hs-layout>
+        </div>
+    </file>
+    <file name="style.css">
+        .well       { position: relative; }
+        hs-layout   { background-color: #fafafa; }
+        .hs-widget-pane   { 
+            background-color: #ffe; 
+            border: 1px solid #888; 
+            text-align: center;
+        }
+        hs-widget:first-of-type>.hs-widget-pane { background-color: #eef; }
     </file>
 </example>
  */
-angular.module('hsWidgets').directive('hsLayout', function() {
+angular.module('hsWidgets').directive('hsLayout', ['HsTileLayout', 'HsColumnsLayout', 'HsRowsLayout', function(HsTileLayout, HsColumnsLayout, HsRowsLayout) {
     "use strict";
     
-    function setWidgetPos(widget) {
-        var pos = [0,0];
-        var widgets = widget.layout.widgets;
-        if (widgets.length > 1) {
-            var w = widgets[widgets.length-2];
-            var wpos = w.pos;
-            var wsiz = w.size;
-            var siz = widget.size;
-            pos[0] = wpos[0] + wsiz[0];
-            pos[1] = wpos[1];
-
-            if (pos[0]+siz[0] > 100) {
-                pos[0] = 0; pos[1] += wsiz[1];
-            }
-        }
-        widget.pos = pos;
-    }
-
-    function setWidgetMargins(widget) {
-        var w  = widget.elem;
-        $(w).css('width',  widget.size[0] +'%');  
-        $(w).css('height', widget.size[1] +'%');
-        $(w).css('left',   widget.pos[0]  +'%');    
-        $(w).css('top',    widget.pos[1]  +'%');
-    }
-    
-    function registerWidget(layout) {
-        return function registerWidget(widget) {
-            layout.widgets.push(widget);
-            widget.layout = layout;
-            if (widget.pos.length === 0) { setWidgetPos(widget); }
-            setWidgetMargins(widget);
-        };
+    function getChildren(elem) {
+        var w = $(elem.children()).children();
+        return w;
     }
     
     return {
-        restrict: 'EA',
+        restrict: 'E',
         replace: false,
         transclude: true,
         template: '<div class="hs-layout-container" ng-transclude></div>',
         controller: function($scope, $element) {
-            this.widgets = [];
-            this.elem = $element;
-            this.registerWidget = registerWidget(this);
-            var e = $($element[0]);
-            this.width  = parseInt(e.css('width'));
-            this.height = parseInt(e.css('height'));
+            $scope.layItOut = function() { 
+                if ($scope.layout) { $scope.layout.layItOut(getChildren($element)); }
+            };
         },
-        link: function link(/*scope, elem, attrs*/) {}
+        link: function link(scope, elem, attrs) {
+            var type = 'tiles';
+            var dims = [];
+            if (attrs.hsType !== undefined) { 
+                type = attrs.hsType; 
+            } else if (attrs.hsTiles !== undefined) { 
+                type = 'tiles'; 
+            } else if (attrs.hsColumns !== undefined) {
+                type   = 'columns';
+                dims = attrs.hsColumns || '[]';
+            } else if (attrs.hsRows !== undefined) {
+                type   = 'rows';
+                dims = attrs.hsRows || '[]';
+            }
+            var lm;
+            switch(type) {
+                case 'columns': lm = new HsColumnsLayout(dims); break;
+                case 'rows':    lm = new HsRowsLayout(dims); break;
+                case 'tiles':   lm = new HsTileLayout(); break;
+                default:        lm = new HsTileLayout();
+            }
+            scope.layout = lm;
+            if (scope.$parent &&scope.$parent.layout) { scope.$parent.layItOut(); }
+            scope.layItOut();
+        }
     };
-});
+}]);
 

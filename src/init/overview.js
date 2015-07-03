@@ -3,11 +3,13 @@
  * @name hsWidgets
  * @module hsWidgets
  * @type {ngModule}
- * @file angular factory for providing ...
+ * @file angular factory for providing layouts and widgets
  * @copyright Helpful Scripts 2015
  * @description
- * Provides *AngularJS* directives to facilitate {@link hsWidgets.directive:hsWidget widgets} on a {@link hsWidgets.directive:hsLayout layout}.
- * Double clicking the widgets will toggle full-screen mode. add the {@link hsWidgets.directive:hsMoveable hs-moveable} attribute to allow
+ * Provides *AngularJS* directives to facilitate {@link hsWidgets.directive:hsWidget widgets} 
+ * on a {@link hsWidgets.directive:hsLayout layout}.
+ * Double clicking the widgets will toggle full-screen mode. 
+ * Add the {@link hsWidgets.directive:hsMoveable hs-moveable} attribute to allow
  * them to be moved or resized. 
  * 
 @example
@@ -47,5 +49,5 @@
  * Create the module by calling angular.module with dependency object [].
  * Subsequent additions to the module work by referncing the angular.module('hsWidgets') without [].
  */
-angular.module('hsWidgets', ['ngTouch', 'hs', 'ngRoute']);
+angular.module('hsWidgets', ['ngTouch', 'hs']);
 

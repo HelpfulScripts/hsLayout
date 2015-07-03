@@ -45,14 +45,11 @@ hs-layout, [hs-layout] {
 .hs-layout-container {
   position: absolute;
   left:0; right:0; top:0; bottom:0;
-  margin: @widget-margin/2;
+//  margin: @widget-margin/2;
 }
 
 hs-widget, [hs-widget] {
-  margin: @widget-margin/2;
-  box-sizing: content-box;
-  border-radius: 6px;
-  border: 1px solid #aaa; 
+  box-sizing: border-box;
   position: absolute;
   left: 0; right: 0;
   top: 0; bottom: 0;
@@ -71,7 +68,12 @@ hs-widget, [hs-widget] {
 /**
  *  wraps the content of a hs-widget directive. Not used for now.
  */
-.hs-widget-pane { position: absolute; left:0; right:0; top:0; bottom:0; }
+.hs-widget-pane { 
+  position: absolute; left:0; right:0; top:0; bottom:0; 
+  border-radius: 6px;
+  border: 1px solid #aaa; 
+  margin: @widget-margin/2;
+}
 
 /**
  * used to visualize the outline of a widget while moving or resizing
