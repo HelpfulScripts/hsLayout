@@ -1,17 +1,27 @@
-<a href="https://github.com/HelpfulScripts/hsWidgets.git/edit/master/src/directives/hsLayout.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/HelpfulScripts/hsWidgets.git/blob/422ecbb/src/directives/hsLayout.js#L40" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">hsLayout</code>
+<a href="https://github.com/HelpfulScripts/hsWidgets.git/edit/master/src/directives/hsLayout.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/HelpfulScripts/hsWidgets.git/blob/422ecbb/src/directives/hsLayout.js#L76" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">hsLayout</code>
 <div><span class="hint">directive in module <code ng:non-bindable="">hsWidgets</code>
 </span>
 </div>
 </h1>
 <div><h2 id="description">Description</h2>
-<div class="description"><div class="hswidgets-directive-page hswidgets-directive-hslayout-page"><p>hs-dashboard directive. Establishes a space in which <a href="#/api/hsWidgets.directive:hsWidget">widgets</a> live.</p>
+<div class="description"><div class="hswidgets-directive-page hswidgets-directive-hslayout-page"><p>hs-layout directive. Establishes a space in which
+<a href="#/api/hsWidgets.directive:hsWidget">widgets</a> live.</p>
+<h3 id="description_attributes">Attributes</h3>
+<p>All attributes are optional except where marked as required. For emphasis, optional attributes
+are wrapped in square brackets: <code>[...]</code>. When optional, the default value is <u>underlined</u>.</p>
+<ul>
+<li>[<strong>hs-type</strong> = &#39;<u>tiles</u> | columns | rows&#39;]
+  sets the type of layout. For options see below</li>
+<li>[<strong>hs-tiles</strong>] create a <a href="#/api/hsWidgets.object.HsTileLayout">tile layout</a></li>
+<li>[<strong>hs-columns=&#39;[<i>Array</i>, ]&#39;</strong>] 
+  Please see <a href="#/api/hsWidgets.object.HsColumnsLayout">columns layout</a> on avaliable options for <code>Array</code></li>
+<li>[<strong>hs-rows=&#39;[<i>Array</i>, ]&#39;</strong>] 
+  Please see <a href="#/api/hsWidgets.object.HsRowsLayout">rows layout</a> on avaliable options for <code>Array</code></li>
+</ul>
 </div></div>
 <h2 id="usage">Usage</h2>
 <div class="usage">as element:<pre class="prettyprint linenums">&lt;hs-layout&gt;
 &lt;/hs-layout&gt;</pre>
-as attribute<pre class="prettyprint linenums">&lt;ANY hs-layout&gt;
-   ...
-&lt;/ANY&gt;</pre>
 </div>
 <h2 id="example">Example</h2>
 <div class="example"><div class="hswidgets-directive-page hswidgets-directive-hslayout-page"><h4 id="example_source">Source</h4>
@@ -19,39 +29,71 @@ as attribute<pre class="prettyprint linenums">&lt;ANY hs-layout&gt;
 <div class="tabbable"><div class="tab-pane" title="index.html">
 <pre class="prettyprint linenums" ng-set-text="index.html" ng-html-wrap-loaded="hsWidgets angular.js"></pre>
 <script type="text/ng-template" id="index.html">
-    <hs-layout hs-moveable class='myHeight'>
-        <hs-widget hs-size='["50%", "50%"]'>
-            <br>1
-            <br>Move me along the top.
-            <br>Size me from the corners.
-        </hs-widget>
-        <hs-widget hs-size='["50%", "50%"]'>
-            <br>2
-            <br>Move me along the top.
-            <br>Size me from the corners.
-        </hs-widget>
-        <hs-widget hs-pos='["25%", "50%"]' hs-size='["50%", "50%"]'>
-            <br>3
-            <br>Move me along the top.
-            <br>Size me from the corners.
-        </hs-widget>
-    </hs-layout>
+    <div style="height: 300px; padding:0;">
+        <hs-layout>
+            <hs-widget>1</hs-widget>
+            <hs-widget>2</hs-widget>
+            <hs-widget>3</hs-widget>
+        </hs-layout>
+    </div>
 </script>
 </div>
 <div class="tab-pane" title="style.css">
 <pre class="prettyprint linenums" ng-set-text="style.css"></pre>
 <style type="text/css" id="style.css">
-    .well       { position: relative; height: 300px; padding:0; }
+    .well       { position: relative; }
     hs-layout   { background-color: #fafafa; }
-    hs-widget   { 
+    .hs-widget-pane   { 
         background-color: #ffe; 
         border: 1px solid #888; 
         text-align: center;
     }
-    hs-widget:first-of-type { background-color: #eef; }
+    hs-widget:first-of-type>.hs-widget-pane { background-color: #eef; }
 </style>
 </div>
 </div><h4 id="example_demo">Demo</h4>
 <div class="well doc-example-live animate-container" ng-embed-app="hsWidgets" ng-set-html="index.html" ng-eval-javascript=""></div>
+<h3 id="example_fixing-the-size-of-widgets">Fixing the size of widgets</h3>
+<h4 id="example_fixing-the-size-of-widgets_source">Source</h4>
+<div source-edit="hsWidgets" source-edit-deps="angular.js" source-edit-html="index.html-0" source-edit-css="style.css-1" source-edit-js="" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div class="tabbable"><div class="tab-pane" title="index.html">
+<pre class="prettyprint linenums" ng-set-text="index.html-0" ng-html-wrap-loaded="hsWidgets angular.js"></pre>
+<script type="text/ng-template" id="index.html-0">
+    <div style="height: 300px; padding:0;">
+        <hs-layout hs-moveable class='myHeight'>
+            <hs-widget hs-size='["50%", "50%"]'>
+                <br>1
+                <br>Move me along the top.
+                <br>Size me from the corners.
+            </hs-widget>
+            <hs-widget hs-size='["50%", "50%"]'>
+                <br>2
+                <br>Move me along the top.
+                <br>Size me from the corners.
+            </hs-widget>
+            <hs-widget hs-pos='["25%", "50%"]' hs-size='["50%", "50%"]'>
+                <br>3
+                <br>Move me along the top.
+                <br>Size me from the corners.
+            </hs-widget>
+        </hs-layout>
+    </div>
+</script>
+</div>
+<div class="tab-pane" title="style.css">
+<pre class="prettyprint linenums" ng-set-text="style.css-1"></pre>
+<style type="text/css" id="style.css-1">
+    .well       { position: relative; }
+    hs-layout   { background-color: #fafafa; }
+    .hs-widget-pane   { 
+        background-color: #ffe; 
+        border: 1px solid #888; 
+        text-align: center;
+    }
+    hs-widget:first-of-type>.hs-widget-pane { background-color: #eef; }
+</style>
+</div>
+</div><h4 id="example_fixing-the-size-of-widgets_demo">Demo</h4>
+<div class="well doc-example-live animate-container" ng-embed-app="hsWidgets" ng-set-html="index.html-0" ng-eval-javascript=""></div>
 </div></div>
 </div>

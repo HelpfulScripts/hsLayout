@@ -1,0 +1,129 @@
+<a href="https://github.com/HelpfulScripts/hsWidgets.git/edit/master/src/services/HsColumnsLayout.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/HelpfulScripts/hsWidgets.git/blob/422ecbb/src/services/HsColumnsLayout.js#L120" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">HsColumnsLayout</code>
+<div><span class="hint">service in module <code ng:non-bindable="">hsWidgets.object</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="hswidgets-object-hscolumnslayout-page"><p>Extends <a href="#/api/hsWidgets.object.HsLayout">HsLayout</a>.
+Columns layout divides the container horizontally into partitions according to the <code>Array</code> specifications. </p>
+<p><h4 id="description_cfg-options">cfg options:</h4><pre class="prettyprint linenums">
+</pre>
+</div></div>
+<h2 id="dependencies">Dependencies</h2>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="#/api/hsWidgets.object.HsLayout">HsLayout</a></code>
+</li>
+</ul>
+<h2 id="example">Example</h2>
+<div class="example"><div class="hswidgets-object-hscolumnslayout-page"><h3 id="example_equal-column-widths">Equal column widths</h3>
+<h4 id="example_equal-column-widths_source">Source</h4>
+<div source-edit="hsWidgets" source-edit-deps="angular.js" source-edit-html="index.html-8" source-edit-css="" source-edit-js="" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div class="tabbable"><div class="tab-pane" title="index.html">
+<pre class="prettyprint linenums" ng-set-text="index.html-8" ng-html-wrap-loaded="hsWidgets angular.js"></pre>
+<script type="text/ng-template" id="index.html-8">
+        <div style="height:300px; padding:0;">
+            <hs-layout hs-columns='[,"100px","100px"]'>
+                <hs-widget ng-repeat="w in [1,2,3]">
+                    <br>{{w}}
+                    <br>{{$last? "I fill the remaining space" : "10%"}}
+                </hs-widget>
+            </hs-layout>
+        </div>
+    </script>
+</div>
+</div><h4 id="example_equal-column-widths_demo">Demo</h4>
+<div class="well doc-example-live animate-container" ng-embed-app="hsWidgets" ng-set-html="index.html-8" ng-eval-javascript=""></div>
+<h4 id="example_equal-column-widths_source">Source</h4>
+<div source-edit="hsWidgets" source-edit-deps="angular.js" source-edit-html="index.html-9" source-edit-css="" source-edit-js="" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div class="tabbable"><div class="tab-pane" title="index.html">
+<pre class="prettyprint linenums" ng-set-text="index.html-9" ng-html-wrap-loaded="hsWidgets angular.js"></pre>
+<script type="text/ng-template" id="index.html-9">
+        <div style="height:300px; padding:0;">
+            <hs-layout hs-columns='[,"10%"]'>
+                <hs-widget ng-repeat="w in [1,2,3,4]">
+                    <br>{{w}}
+                    <br>{{$last? "10%" : "we share the remaining space"}}
+                </hs-widget>
+            </hs-layout>
+        </div>
+    </script>
+</div>
+</div><h4 id="example_equal-column-widths_demo">Demo</h4>
+<div class="well doc-example-live animate-container" ng-embed-app="hsWidgets" ng-set-html="index.html-9" ng-eval-javascript=""></div>
+<h4 id="example_equal-column-widths_source">Source</h4>
+<div source-edit="hsWidgets" source-edit-deps="angular.js" source-edit-html="index.html-10" source-edit-css="" source-edit-js="" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div class="tabbable"><div class="tab-pane" title="index.html">
+<pre class="prettyprint linenums" ng-set-text="index.html-10" ng-html-wrap-loaded="hsWidgets angular.js"></pre>
+<script type="text/ng-template" id="index.html-10">
+        <div style="height:300px; padding:0;">
+            <hs-layout hs-columns='["20%","10%",]'>
+                <hs-widget ng-repeat="w in [1,2,3,4]">
+                    <br>{{w}}
+                    <br>{{$first? "20%" : (($index==1)?"10%": "we share the remaining space")}}
+                </hs-widget>
+            </hs-layout>
+        </div>
+    </script>
+</div>
+</div><h4 id="example_equal-column-widths_demo">Demo</h4>
+<div class="well doc-example-live animate-container" ng-embed-app="hsWidgets" ng-set-html="index.html-10" ng-eval-javascript=""></div>
+<h3 id="example_nested-tile-layout-inside-a-column-layout">Nested tile layout inside a column layout</h3>
+<h4 id="example_nested-tile-layout-inside-a-column-layout_source">Source</h4>
+<div source-edit="hsWidgets" source-edit-deps="angular.js script.js" source-edit-html="index.html-11" source-edit-css="style.css-12" source-edit-js="script.js" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div class="tabbable"><div class="tab-pane" title="index.html">
+<pre class="prettyprint linenums" ng-set-text="index.html-11" ng-html-wrap-loaded="hsWidgets angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html-11">
+        <div ng-controller="myCtrl" style="height:300px; padding:0;">
+            <hs-layout hs-columns='["200px","100px",]'>
+                <hs-widget class='top'>
+                    <br>left panel
+                    <br>200px wide
+                </hs-widget>
+                <hs-widget class='top'>
+                    <br>middle panel
+                    <br>100px wide
+                </hs-widget>
+                <hs-layout hs-tiles>
+                    <hs-widget ng-repeat="w in widgets" class='repeated-item'>
+                        <br>{{w}}
+                    </hs-widget>
+                </hs-layout>
+            </hs-layout>
+         </div>
+    </script>
+</div>
+<div class="tab-pane" title="style.css">
+<pre class="prettyprint linenums" ng-set-text="style.css-12"></pre>
+<style type="text/css" id="style.css-12">
+        .well       { position: relative; }
+        hs-layout   { background-color: #fafafa; }
+        .top .hs-widget-pane {
+            background-color: #eef; 
+        }
+        .hs-widget-pane   { 
+            background-color: #ffe; 
+            border: 1px solid #888; 
+            text-align: center;
+        }
+    </style>
+</div>
+<div class="tab-pane" title="script.js">
+<pre class="prettyprint linenums" ng-set-text="script.js"></pre>
+<script type="text/ng-template" id="script.js">
+        angular.module('hsWidgets').controller('myCtrl', ['$scope', '$interval', function myCtrl($scope, $interval){
+            var i = -1;
+            $interval(function(){
+                i++;
+                if (i===0) { $scope.widgets = ['first'];}
+                else if (i<6)  { $scope.widgets.push(i+''); }
+                else { 
+                    $scope.widgets = [];
+                    i=-1;
+                }                
+            }, 1000);
+        }]);
+    </script>
+</div>
+</div><h4 id="example_nested-tile-layout-inside-a-column-layout_demo">Demo</h4>
+<div class="well doc-example-live animate-container" ng-embed-app="hsWidgets" ng-set-html="index.html-11" ng-eval-javascript="script.js"></div>
+</div></div>
+</div>

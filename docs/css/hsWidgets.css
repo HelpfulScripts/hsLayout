@@ -1,4 +1,4 @@
-/*! hsWidgets - v1.0.5 - 2015-06-09
+/*! hsWidgets - v1.0.5 - 2015-07-02
 * https://github.com/HelpfulScripts/hsWidgets
 * Copyright (c) 2015 Helpful Scripts; Licensed  */
 * {
@@ -45,14 +45,10 @@ hs-layout,
   right: 0;
   top: 0;
   bottom: 0;
-  margin: 2px;
 }
 hs-widget,
 [hs-widget] {
-  margin: 2px;
-  box-sizing: content-box;
-  border-radius: 6px;
-  border: 1px solid #aaa;
+  box-sizing: border-box;
   position: absolute;
   left: 0;
   right: 0;
@@ -79,6 +75,9 @@ hs-widget,
   right: 0;
   top: 0;
   bottom: 0;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  margin: 2px;
 }
 /**
  * used to visualize the outline of a widget while moving or resizing

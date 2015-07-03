@@ -1,4 +1,4 @@
-<a href="https://github.com/HelpfulScripts/hsWidgets.git/edit/master/src/directives/hsWidget.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/HelpfulScripts/hsWidgets.git/blob/422ecbb/src/directives/hsWidget.js#L55" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">hsWidget</code>
+<a href="https://github.com/HelpfulScripts/hsWidgets.git/edit/master/src/directives/hsWidget.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/HelpfulScripts/hsWidgets.git/blob/422ecbb/src/directives/hsWidget.js#L57" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">hsWidget</code>
 <div><span class="hint">directive in module <code ng:non-bindable="">hsWidgets</code>
 </span>
 </div>
@@ -35,41 +35,43 @@ as attribute<pre class="prettyprint linenums">&lt;ANY hs-widget&gt;
 </div>
 <h2 id="example">Example</h2>
 <div class="example"><div class="hswidgets-directive-page hswidgets-directive-hswidget-page"><h4 id="example_source">Source</h4>
-<div source-edit="hsWidgets" source-edit-deps="angular.js" source-edit-html="index.html-2" source-edit-css="style.css-3" source-edit-js="" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div source-edit="hsWidgets" source-edit-deps="angular.js" source-edit-html="index.html-4" source-edit-css="style.css-5" source-edit-js="" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-2" ng-html-wrap-loaded="hsWidgets angular.js"></pre>
-<script type="text/ng-template" id="index.html-2">
-    <hs-layout hs-moveable>
-        <hs-widget hs-size='["50%", "50%"]'>
-            <br>1
-            <br>Move me along the top.
-            <br>Size me from the corners.
-        </hs-widget>
-        <div hs-widget hs-size='["50%", "50%"]'>
-            <br>2
-            <br>Move me along the top.
-            <br>Size me from the corners.
-        </div>
-        <hs-widget hs-pos='["25%", "50%"]' hs-size='["50%", "50%"]'>
-            <br>3
-            <br>Move me along the top.
-            <br>Size me from the corners.
-        </hs-widget>
-    </hs-layout>
+<pre class="prettyprint linenums" ng-set-text="index.html-4" ng-html-wrap-loaded="hsWidgets angular.js"></pre>
+<script type="text/ng-template" id="index.html-4">
+    <div style="height: 300px; padding:0;">
+        <hs-layout hs-moveable>
+            <hs-widget hs-size='["50%", "50%"]'>
+                <br>1
+                <br>Move me along the top.
+                <br>Size me from the corners.
+            </hs-widget>
+            <div hs-widget hs-size='["50%", "50%"]'>
+                <br>2
+                <br>Move me along the top.
+                <br>Size me from the corners.
+            </div>
+            <hs-widget hs-pos='["25%", "50%"]' hs-size='["50%", "50%"]'>
+                <br>3
+                <br>Move me along the top.
+                <br>Size me from the corners.
+            </hs-widget>
+        </hs-layout>
+    </div>
 </script>
 </div>
 <div class="tab-pane" title="style.css">
-<pre class="prettyprint linenums" ng-set-text="style.css-3"></pre>
-<style type="text/css" id="style.css-3">
-    .well        { position: relative; height: 300px; padding:0; }
+<pre class="prettyprint linenums" ng-set-text="style.css-5"></pre>
+<style type="text/css" id="style.css-5">
+    .well        { position: relative; }
     hs-layout    { background-color: #eee; }
-    hs-widget, [hs-widget] { 
+    .s-widget-pane { 
         background-color: #ffe; 
         text-align: center;
     }
 </style>
 </div>
 </div><h4 id="example_demo">Demo</h4>
-<div class="well doc-example-live animate-container" ng-embed-app="hsWidgets" ng-set-html="index.html-2" ng-eval-javascript=""></div>
+<div class="well doc-example-live animate-container" ng-embed-app="hsWidgets" ng-set-html="index.html-4" ng-eval-javascript=""></div>
 </div></div>
 </div>

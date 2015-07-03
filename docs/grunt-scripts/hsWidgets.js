@@ -1,13 +1,13 @@
-/*! hsWidgets - v1.0.5 - 2015-06-09
+/*! hsWidgets - v1.0.5 - 2015-07-02
 * https://github.com/HelpfulScripts/hsWidgets
 * Copyright (c) 2015 Helpful Scripts; Licensed  */
 /*
  * Create the module by calling angular.module with dependency object [].
  * Subsequent additions to the module work by referncing the angular.module('hsWidgets') without [].
  */
-angular.module('hsWidgets', ['ngTouch', 'hs', 'ngRoute']);
+angular.module('hsWidgets', ['ngTouch', 'hs']);
 
-angular.module('hsWidgets').controller('hsMoveableCtrl', ['$scope', function(/*$scope*/) {
+angular.module('hsWidgets').controller('hsMoveableCtrl', [function() {
     "use strict";
     var gGrid = 12;
     var gRadius = 20;
@@ -155,60 +155,51 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', ['$scope', function(/*$
     };
 }]);
 
-angular.module('hsWidgets').directive('hsLayout', function() {
+angular.module('hsWidgets').directive('hsLayout', ['HsTileLayout', 'HsColumnsLayout', 'HsRowsLayout', function(HsTileLayout, HsColumnsLayout, HsRowsLayout) {
     "use strict";
     
-    function setWidgetPos(widget) {
-        var pos = [0,0];
-        var widgets = widget.layout.widgets;
-        if (widgets.length > 1) {
-            var w = widgets[widgets.length-2];
-            var wpos = w.pos;
-            var wsiz = w.size;
-            var siz = widget.size;
-            pos[0] = wpos[0] + wsiz[0];
-            pos[1] = wpos[1];
-
-            if (pos[0]+siz[0] > 100) {
-                pos[0] = 0; pos[1] += wsiz[1];
-            }
-        }
-        widget.pos = pos;
-    }
-
-    function setWidgetMargins(widget) {
-        var w  = widget.elem;
-        $(w).css('width',  widget.size[0] +'%');  
-        $(w).css('height', widget.size[1] +'%');
-        $(w).css('left',   widget.pos[0]  +'%');    
-        $(w).css('top',    widget.pos[1]  +'%');
-    }
-    
-    function registerWidget(layout) {
-        return function registerWidget(widget) {
-            layout.widgets.push(widget);
-            widget.layout = layout;
-            if (widget.pos.length === 0) { setWidgetPos(widget); }
-            setWidgetMargins(widget);
-        };
+    function getChildren(elem) {
+        var w = $(elem.children()).children();
+        return w;
     }
     
     return {
-        restrict: 'EA',
+        restrict: 'E',
         replace: false,
         transclude: true,
         template: '<div class="hs-layout-container" ng-transclude></div>',
         controller: function($scope, $element) {
-            this.widgets = [];
-            this.elem = $element;
-            this.registerWidget = registerWidget(this);
-            var e = $($element[0]);
-            this.width  = parseInt(e.css('width'));
-            this.height = parseInt(e.css('height'));
+            $scope.layItOut = function() { 
+                if ($scope.layout) { $scope.layout.layItOut(getChildren($element)); }
+            };
         },
-        link: function link(/*scope, elem, attrs*/) {}
+        link: function link(scope, elem, attrs) {
+            var type = 'tiles';
+            var dims = [];
+            if (attrs.hsType !== undefined) { 
+                type = attrs.hsType; 
+            } else if (attrs.hsTiles !== undefined) { 
+                type = 'tiles'; 
+            } else if (attrs.hsColumns !== undefined) {
+                type   = 'columns';
+                dims = attrs.hsColumns || '[]';
+            } else if (attrs.hsRows !== undefined) {
+                type   = 'rows';
+                dims = attrs.hsRows || '[]';
+            }
+            var lm;
+            switch(type) {
+                case 'columns': lm = new HsColumnsLayout(dims); break;
+                case 'rows':    lm = new HsRowsLayout(dims); break;
+                case 'tiles':   lm = new HsTileLayout(); break;
+                default:        lm = new HsTileLayout();
+            }
+            scope.layout = lm;
+            if (scope.$parent &&scope.$parent.layout) { scope.$parent.layItOut(); }
+            scope.layItOut();
+        }
     };
-});
+}]);
 
 angular.module('hsWidgets').directive('hsMoveable', function() {
     "use strict";
@@ -230,36 +221,37 @@ angular.module('hsWidgets').directive('hsWidget', ['hsUtil', function(util) {
     
     var gEasing   = 'swing';  
     
-    function getVal(attr, def)  { return attr? removePercent(JSON.parse(attr)) : def; }
-    function removePercent(arr) { return [parseInt(arr[0].replace('%','')), parseInt(arr[1] .replace('%',''))]; }
+    function getVal(attr, def)  { return attr? JSON.parse(attr) : def; }
+    //function removePercent(arr) { return [parseInt(arr[0].replace('%','')), parseInt(arr[1] .replace('%',''))]; }
 
     function maximizeWindow(scope, widget) {
         var animate = true;
         return function() {
-            var t = widget.elem[0].style.top, l = widget.elem[0].style.left;
-            var w = widget.elem[0].style.width, h = widget.elem[0].style.height;
+            var t = widget.style.top, l = widget.style.left;
+            var w = widget.style.width, h = widget.style.height;
             var size;
             if (widget.org) {        // shrink widget to original size     
                 size = widget.org;  
                 widget.org = undefined;
-                widget.elem.removeClass('hs-widget-in-front');         
+                $(widget).removeClass('hs-widget-in-front');         
             } else {                // maximize widget to fill screen
                 widget.org = {top: t, left: l, width: w, height: h};  
                 size = {top: '0%', left: '0%', width: '100%', height: '100%'};  
-                widget.elem.addClass('hs-widget-in-front');  
+                $(widget).addClass('hs-widget-in-front');  
             }
             if (animate) {
-                widget.elem.animate(size, util.animationDuration, gEasing, function() {
+                $(widget).animate(size, util.animationDuration, gEasing, function() {
                     scope.$broadcast('hs-resize-end', size);
                 });       
                 scope.$broadcast('hs-resize-begin', size);
             } else {
                 scope.$broadcast('hs-resize-begin', size);
-                widget.elem.css(size);
+                $(widget).css(size);
                 scope.$broadcast('hs-resize-end', size);
             }
         };
     }
+    
    function doubleClick(handler) {
         var delay = 500;
         
@@ -291,22 +283,343 @@ angular.module('hsWidgets').directive('hsWidget', ['hsUtil', function(util) {
             }
         },
         link: function link(scope, elem, attrs, controller) {
+            $(elem).addClass('hs-widget-container');
+            elem[0].cfgSize = getVal(attrs['hsSize'], []);
+            elem[0].cfgPos = getVal(attrs['hsPos'], []);
+            if (controller) { scope.layItOut(); }
+            else { console.log('no layout controller found in widget'); }
+            $(elem).on('touchend mouseup', doubleClick(maximizeWindow(scope, elem[0])));
+        }
+/*        
+        link: function link(scope, elem, attrs, controller) {
             $(elem).wrap('<div class="hs-widget-container">');
             var widget = { elem: elem.parent() };
             elem.hsStruct = {attrs:attrs};
-            widget.size = getVal(attrs['hsSize'], ['100%','100%']);
+            widget.size = getVal(attrs['hsSize'], []);
             widget.pos = getVal(attrs['hsPos'], []);
-            if (controller) { controller.registerWidget(widget); }
-            else { 
-                console.log('no layout controller found in widget'); 
-            }
+            if (controller) { scope.layout.addWidget(widget); }
+            else { console.log('no layout controller found in widget'); }
 //            $(elem).on('mouseup', doubleClick(maximizeWindow(scope, widget)));
             $(elem).on('touchend mouseup', doubleClick(maximizeWindow(scope, widget)));
         }
+*/        
     };
 }]);
 
-/*! hs - v0.9.5 - 2015-05-09
+angular.module('hsWidgets').factory('HsColumnsLayout', ['HsLayout', function HsComponentFactory(HsLayout) {
+    "use strict";
+    
+    return function(widths) {
+        function layItOut(widgets) {
+            var numWidgets = widgets.length;
+            var calcWidths = [];
+            var i,j;
+            var num = numWidgets;
+            var max = 100.0;
+            for (i=0; i<numWidgets; i++) { 
+                $(widgets[i]).css('top', 0);
+                $(widgets[i]).css('bottom', 0);
+                if (widths.length === 0) { 
+                    calcWidths.push({width:null}); 
+                } else if (widths.length === 1) { 
+                    calcWidths.push({width:widths[0]}); 
+                } else if (i===0 && firstWidthSet) { 
+                    calcWidths.push({width:widths[0]}); 
+                    num--; max -= widths[0]; 
+                } else if (i===numWidgets-1 && lastWidthSet)  { 
+                    calcWidths.push({width:widths[widths.length-1]}); 
+                    num--; max -= widths[widths.length-1];
+                } else if (i<widths.length-1 &&!isNaN(widths[i])) { 
+                    calcWidths.push({width:widths[i]}); 
+                    num--; max -= widths[i]; 
+                } else { calcWidths.push({width:null}); }
+            }
+            var defWidth;
+            var sumWidth = 0;
+            if (unit==='%') {
+                defWidth = max/num;
+                for (i=0; i<numWidgets; i++) { 
+                    var width = calcWidths[i].width || defWidth;
+                    $(widgets[i]).css('left', sumWidth+'%');
+                    sumWidth += width;
+                    if (i===numWidgets-1 && calcWidths[i].width == null) { $(widgets[i]).css('right', '0%'); }
+                                     else { $(widgets[i]).css('width', width+'%'); }
+                }
+            } else {  // units === px
+                defWidth = 100.0/numWidgets;
+                var startPattern = true;
+                i = 0;
+                if (firstWidthSet) { // work forwards through the widths
+                    while (i<numWidgets) { // pattern: [n, n, , , n, n]
+                        if (startPattern) { // so far, all widths explicitely set as px
+                            $(widgets[i]).css('left', sumWidth +'px');
+                            if (calcWidths[i].width === null) { 
+                                startPattern = false; 
+                                $(widgets[i]).css('right', (100-(i+1)*defWidth) + '%');
+                            } else {
+                                sumWidth += calcWidths[i].width;
+                                $(widgets[i]).css('width', calcWidths[i].width + 'px');
+                            }
+                        } else { // now, no widths are specified; use defaults
+                            $(widgets[i]).css('right', (100-(i+1)*defWidth) + '%');
+                            if (calcWidths[i].width !== null) { break; }    // lastWidthSet must be true
+                            $(widgets[i]).css('left', i*defWidth +'%');
+                        } 
+                        i++;
+                    }
+                }
+                j = numWidgets-1;
+                sumWidth = 0;
+                startPattern = true;
+                if (lastWidthSet) {  // work backwards through the widths
+                    while (j>=Math.max(0,i-1)) { 
+                        if (startPattern) { // so far, all widths explicitely set as px
+                            if (!firstWidthSet) { 
+//                                $(widgets[j]).css('left', 'auto'); 
+//                                $(widgets[j]).css('width', ''); 
+                            }
+                            $(widgets[j]).css('right', sumWidth + 'px');
+                            if (calcWidths[j].width === null) {
+                                startPattern = false;
+                                $(widgets[j]).css('width', ''); 
+                                if (firstWidthSet) { break; }
+                                $(widgets[j]).css('left', j*defWidth + '%');
+                            } else {
+                                sumWidth += calcWidths[j].width;
+                                $(widgets[j]).css('left', 'auto'); 
+                                $(widgets[j]).css('width', calcWidths[j].width + 'px');
+                            }
+                        } else { // now, no widths are specified; use defaults
+                            $(widgets[j]).css('right', (100-(j+1)*defWidth) + '%');
+                            if (calcWidths[j].width !== null) { break; }
+                            $(widgets[j]).css('left', j*defWidth +'%');
+                        }
+                        j--;
+                    }
+                }
+            }
+        }
+
+        var obj = new HsLayout("HsColumnsLayout");
+        obj.layItOut      = layItOut;
+        var unit = "%";
+        var firstWidthSet = false;
+        var lastWidthSet  = false;
+        if (widths.indexOf('px') >= 0) { unit = 'px'; }
+        widths = widths.replace(',,', ',"",').replace(',,', ',"",').
+                        replace('[,', '["",').replace(',]', ',""]').
+                        replace('%','').replace('px','');        
+        widths = JSON.parse(widths); 
+        var len = widths.length-1;
+        if (widths[0] && widths[0]!=="") { firstWidthSet = true; }          
+        if (len>0 && widths[len] && widths[len]!=="") { lastWidthSet = true; }          
+        for (var i=0; i<=len; i++) { widths[i] = parseFloat(widths[i]); }
+        return obj;
+    };
+}]);
+
+angular.module('hsWidgets').factory('HsLayout', ['HsConfigurable', function HsComponentFactory(HsConfigurable) {
+    "use strict";
+    
+    function setCSS(widget) {
+        $(widget).css('left',   widget.calcPos[0]);    
+        $(widget).css('top',    widget.calcPos[1]);
+        $(widget).css('width',  widget.calcSize[0]);  
+        $(widget).css('height', widget.calcSize[1]);
+    }
+    
+    return function(type) {    
+        var obj = new HsConfigurable(type);
+        obj.setWidgetPos  = function() {
+            console.log("HsLayout is an abstract base class. Select a different layout.");
+            return ['0','0'];
+        };
+        obj.setWidgetSize = function() {
+            console.log("HsLayout is an abstract base class. Select a different layout.");
+            return ['100%','100%'];
+        };
+        obj.layItOut =function layItOut(widgets) {
+            for (var w=0; w<widgets.length; w++) {
+                var widget = widgets[w];
+                if (widget.cfgSize && widget.cfgSize.length > 0) { 
+                    widget.calcSize = widget.cfgSize;
+                } else {
+                    widget.calcSize = obj.setWidgetSize(w, widgets);
+                } 
+                if (widget.cfgPos && widget.cfgPos.length > 0) { 
+                    widget.calcPos = widget.cfgPos;
+                } else {
+                    widget.calcPos = obj.setWidgetPos(w, widgets);
+                } 
+                setCSS(widget);
+            }
+        };
+        return obj;
+    };
+}]);
+
+angular.module('hsWidgets').factory('HsRowsLayout', ['HsLayout', function HsComponentFactory(HsLayout) {
+    "use strict";
+    
+    return function(heights) {
+        function layItOut(widgets) {
+            var numWidgets = widgets.length;
+            var calcHeights = [];
+            var i,j;
+            var num = numWidgets;
+            var max = 100.0;
+            for (i=0; i<numWidgets; i++) { 
+                $(widgets[i]).css('left', 0);
+                $(widgets[i]).css('right', 0);
+                if (heights.length === 0) { 
+                    calcHeights.push({height:null}); 
+                } else if (heights.length === 1) { 
+                    calcHeights.push({height:heights[0]}); 
+                } else if (i===0 && firstHeightSet) { 
+                    calcHeights.push({height:heights[0]}); 
+                    num--; max -= heights[0]; 
+                } else if (i===numWidgets-1 && lastHeightSet)  { 
+                    calcHeights.push({height:heights[heights.length-1]}); 
+                    num--; max -= heights[heights.length-1];
+                } else if (i<heights.length-1 &&!isNaN(heights[i])) { 
+                    calcHeights.push({height:heights[i]}); 
+                    num--; max -= heights[i]; 
+                } else { calcHeights.push({height:null}); }
+            }
+            var defHeight;
+            var sumHeight = 0;
+            if (unit==='%') {
+                defHeight = max/num;
+                for (i=0; i<numWidgets; i++) { 
+                    var height = calcHeights[i].height || defHeight;
+                    $(widgets[i]).css('top', sumHeight+'%');
+                    sumHeight += height;
+                    if (i===numWidgets-1 && calcHeights[i].height == null) { $(widgets[i]).css('bottom', '0%'); }
+                                     else { $(widgets[i]).css('height', height+'%'); }
+                }
+            } else {  // units === px
+                defHeight = 100.0/numWidgets;
+                var startPattern = true;
+                i = 0;
+                if (firstHeightSet) { // work forwards through the heights
+                    while (i<numWidgets) { // pattern: [n, n, , , n, n]
+                        if (startPattern) { // so far, all heights explicitely set as px
+                            $(widgets[i]).css('top', sumHeight +'px');
+                            if (calcHeights[i].height === null) { 
+                                startPattern = false; 
+                                $(widgets[i]).css('bottom', (100-(i+1)*defHeight) + '%');
+                            } else {
+                                sumHeight += calcHeights[i].height;
+                                $(widgets[i]).css('height', calcHeights[i].height + 'px');
+                            }
+                        } else { // now, no heights are specified; use defaults
+                            $(widgets[i]).css('bottom', (100-(i+1)*defHeight) + '%');
+                            if (calcHeights[i].height !== null) { break; }    // lastHeightSet must be true
+                            $(widgets[i]).css('top', i*defHeight +'%');
+                        } 
+                        i++;
+                    }
+                }
+                j = numWidgets-1;
+                sumHeight = 0;
+                startPattern = true;
+                if (lastHeightSet) {  // work backwards through the heights
+                    while (j>=Math.max(0,i-1)) { 
+                        if (startPattern) { // so far, all heights explicitely set as px
+                            if (!firstHeightSet) { 
+//                                $(widgets[j]).css('top', 'auto'); 
+//                                $(widgets[j]).css('height', ''); 
+                            }
+                            $(widgets[j]).css('bottom', sumHeight + 'px');
+                            if (calcHeights[j].height === null) {
+                                startPattern = false;
+                                $(widgets[j]).css('height', ''); 
+                                if (firstHeightSet) { break; }
+                                $(widgets[j]).css('top', j*defHeight + '%');
+                            } else {
+                                sumHeight += calcHeights[j].height;
+                                $(widgets[j]).css('top', 'auto'); 
+                                $(widgets[j]).css('height', calcHeights[j].height + 'px');
+                            }
+                        } else { // now, no heights are specified; use defaults
+                            $(widgets[j]).css('bottom', (100-(j+1)*defHeight) + '%');
+                            if (calcHeights[j].height !== null) { break; }
+                            $(widgets[j]).css('top', j*defHeight +'%');
+                        }
+                        j--;
+                    }
+                }
+            }
+        }
+
+        var obj = new HsLayout("HsColumnsLayout");
+        obj.layItOut      = layItOut;
+        var unit = "%";
+        var firstHeightSet = false;
+        var lastHeightSet  = false;
+        if (heights.indexOf('px') >= 0) { unit = 'px'; }
+        heights = heights.replace(',,', ',"",').replace(',,', ',"",').
+                          replace('[,', '["",').replace(',]', ',""]').
+                          replace('%','').replace('px','');        
+        heights = JSON.parse(heights); 
+        var len = heights.length-1;
+        if (heights[0] && heights[0]!=="") { firstHeightSet = true; }          
+        if (len>0 && heights[len] && heights[len]!=="") { lastHeightSet = true; }          
+        for (var i=0; i<=len; i++) { heights[i] = parseFloat(heights[i]); }
+        return obj;
+    };
+}]);
+
+angular.module('hsWidgets').factory('HsTileLayout', ['HsLayout', function HsComponentFactory(HsLayout) {
+    "use strict";
+    
+    return function() {
+        function setWidgetPos(i, widgets) {
+            var widget = widgets[i];
+            var pos = [0,0];
+            if (i>0) {
+                var w = widgets[i-1];
+                var wpos = w.calcPos;
+                var wsiz = w.calcSize;
+                var siz = widget.calcSize;
+                pos[0] = parseInt(wpos[0]) + parseInt(wsiz[0]);
+                pos[1] = parseInt(wpos[1]);
+    
+                if (pos[0]+parseInt(siz[0]) > 100) {
+                    pos[0] = 0; pos[1] += parseInt(wsiz[1]);
+                }
+            }
+            pos[0] += '%'; pos[1] += '%';
+            return pos;
+        }
+        
+        function setWidgetSize(i, widgets) {
+            var root = Math.sqrt(widgets.length);
+            var rows = parseInt(Math.round(root));
+            var cols = parseInt(root);
+            if (root > cols) { cols++; }
+            var size = [parseInt(100/cols), parseInt(100/rows)];
+            
+            // if last col: adjust width to remainin gsize
+            if (i%cols === cols-1 || i === widgets.length-1) {
+                var i0 = Math.floor(i/cols)*cols;
+                size[0] = 100;
+                for (var w=i0; w<i; w++) {
+                    size[0] -= parseInt(widgets[w].calcSize[0]); 
+                }
+            }
+            size[0] += '%'; size[1] += '%';
+            return size;
+        }
+        
+        var obj = new HsLayout("HsTileLayout");
+        obj.setWidgetPos  = setWidgetPos;
+        obj.setWidgetSize = setWidgetSize;
+        return obj;
+    };
+}]);
+
+/*! hs - v0.9.5 - 2015-06-21
 * https://github.com/HelpfulScripts/hs
 * Copyright (c) 2015 Helpful Scripts; Licensed  */
 
@@ -585,11 +898,11 @@ See `script.js` in the following example for
  * @description Base class for all HelpfulScripts objects. 
  * Can be used with or without new.
  * <pre>
- * var obj1 = HsObject();
- * var obj2 = new HsObject();	// identical result
+ * var obj1 = HsObject('<HsDerivedObject>');
+ * var obj2 = new HsObject('<HsDerivedObject>');	// identical result
  * </pre>
  * @param {string} type the object type or category
- * @param {string} name the object name
+ * @param {string=} name the object name
  * @param {HsObject=} parent If specified, adds this HsObject as a child to the parent.
  */
 angular.module('hs').factory('HsObject', function HsObject(){ 

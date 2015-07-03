@@ -7,14 +7,14 @@
 <div class="description"><div class="hs-object-hsobject-page"><p>Base class for all HelpfulScripts objects.
 Can be used with or without new.
 <pre class="prettyprint linenums">
-var obj1 = HsObject();
-var obj2 = new HsObject();	// identical result
+var obj1 = HsObject('&lt;HsDerivedObject&gt;');
+var obj2 = new HsObject('&lt;HsDerivedObject&gt;');	// identical result
 </pre>
 </div></div>
 <h2 id="usage">Usage</h2>
-<div class="usage"><pre class="prettyprint linenums">HsObject(type, name[, parent]);</pre>
+<div class="usage"><pre class="prettyprint linenums">HsObject(type[, name][, parent]);</pre>
 <h4 id="usage_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>type</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="hs-object-hsobject-page"><p>the object type or category</p>
-</div></td></tr><tr><td>name</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="hs-object-hsobject-page"><p>the object name</p>
+</div></td></tr><tr><td>name <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="hs-object-hsobject-page"><p>the object name</p>
 </div></td></tr><tr><td>parent <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-hsobject">HsObject</a></td><td><div class="hs-object-hsobject-page"><p>If specified, adds this HsObject as a child to the parent.</p>
 </div></td></tr></tbody></table></div>
 <div class="member method"><h2 id="methods">Methods</h2>
