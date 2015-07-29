@@ -1,4 +1,4 @@
-/*! hsWidgets - v1.0.5 - 2015-07-02
+/*! hsWidgets - v1.0.5 - 2015-07-28
 * https://github.com/HelpfulScripts/hsWidgets
 * Copyright (c) 2015 Helpful Scripts; Licensed  */
 /*
@@ -9,12 +9,12 @@ angular.module('hsWidgets', ['ngTouch', 'hs']);
 
 angular.module('hsWidgets').controller('hsMoveableCtrl', [function() {
     "use strict";
-    var gGrid = 12;
+    var gGrid = [12,12];
     var gRadius = 20;
     var gStart = null;
     var gUIHelper = "hs-widget-helper";
      
-    function quant(x, d)    { return Math.round(gGrid*x/d)*d/gGrid; }
+    function quant(x, d, i) { return Math.round(gGrid[i]*x/d)*d/gGrid[i]; }
     function get(e, a)      { return parseInt(e.css(a)); }
 
     function getEventType(x, y, dx, dy, r) {
@@ -58,16 +58,16 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', [function() {
         var size = { left:get(w, 'left'), top:get(w, 'top'), width:get(w, 'width'), height:get(w, 'height')};
 
         if (start.action === 'move') {
-            ix = quant(ex, start.dw-padding.left-padding.right)+padding.left; 
-            iy = quant(ey, start.dh-padding.top-padding.bottom)+padding.top;
+            ix = quant(ex, start.dw-padding.left-padding.right, 0)+padding.left; 
+            iy = quant(ey, start.dh-padding.top-padding.bottom, 1)+padding.top;
             // move hs-widget-helper outline smoothly:
             h.css('left',   (ex + padding.left)*100/start.dw+'%'); 
             h.css('top',    (ey + padding.top)*100/start.dh+'%'); 
             h.css('width',  size.width); 
             h.css('height', size.height); 
         } else {
-            ix = quant(ex, start.dw-padding.left-padding.right)-margin.left-margin.right; 
-            iy = quant(ey, start.dh-padding.top-padding.bottom)-margin.top-margin.bottom;
+            ix = quant(ex, start.dw-padding.left-padding.right, 0)-margin.left-margin.right; 
+            iy = quant(ey, start.dh-padding.top-padding.bottom, 1)-margin.top-margin.bottom;
             // move hs-widget-helper outline smoothly:
             h.css('left',   size.left + padding.left); 
             h.css('top',    size.top + padding.top); 
@@ -155,7 +155,8 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', [function() {
     };
 }]);
 
-angular.module('hsWidgets').directive('hsLayout', ['HsTileLayout', 'HsColumnsLayout', 'HsRowsLayout', function(HsTileLayout, HsColumnsLayout, HsRowsLayout) {
+angular.module('hsWidgets').directive('hsLayout', ['HsTileLayout', 'HsColumnsLayout', 'HsRowsLayout', 'HsRelativeLayout', 
+                function(HsTileLayout, HsColumnsLayout, HsRowsLayout, HsRelativeLayout) {
     "use strict";
     
     function getChildren(elem) {
@@ -180,6 +181,8 @@ angular.module('hsWidgets').directive('hsLayout', ['HsTileLayout', 'HsColumnsLay
                 type = attrs.hsType; 
             } else if (attrs.hsTiles !== undefined) { 
                 type = 'tiles'; 
+            } else if (attrs.hsRelative !== undefined) { 
+                type = 'relative'; 
             } else if (attrs.hsColumns !== undefined) {
                 type   = 'columns';
                 dims = attrs.hsColumns || '[]';
@@ -187,12 +190,14 @@ angular.module('hsWidgets').directive('hsLayout', ['HsTileLayout', 'HsColumnsLay
                 type   = 'rows';
                 dims = attrs.hsRows || '[]';
             }
+            var fillLastColumn = (attrs.hsFillLastCol !== undefined);
             var lm;
             switch(type) {
                 case 'columns': lm = new HsColumnsLayout(dims); break;
                 case 'rows':    lm = new HsRowsLayout(dims); break;
-                case 'tiles':   lm = new HsTileLayout(); break;
-                default:        lm = new HsTileLayout();
+                case 'tiles':   lm = new HsTileLayout(fillLastColumn); break;
+                case 'relative':lm = new HsRelativeLayout(); break;
+                default:        lm = new HsTileLayout(fillLastColumn);
             }
             scope.layout = lm;
             if (scope.$parent &&scope.$parent.layout) { scope.$parent.layItOut(); }
@@ -210,7 +215,17 @@ angular.module('hsWidgets').directive('hsMoveable', function() {
         controller: 'hsMoveableCtrl',
         link: function link(scope, elem, attrs, controller) {
             var moveable = parseInt(attrs['hsMoveable']) || 20;
-            var grid = parseInt(attrs['grid']) || 12;
+            var grid = [12,12];
+            if (attrs['grid'] !== undefined) {
+                grid = JSON.parse(attrs['grid']);
+                if (grid.length) {
+                    grid[0] = parseFloat(grid[0]);
+                    grid[1] = parseFloat(grid[1]);
+                } else {
+                    grid = parseFloat(grid);
+                    grid = [grid, grid];
+                }
+            }
             controller.moveable(elem, moveable, grid);
         }
     };
@@ -458,6 +473,27 @@ angular.module('hsWidgets').factory('HsLayout', ['HsConfigurable', function HsCo
     };
 }]);
 
+angular.module('hsWidgets').factory('HsRelativeLayout', ['HsLayout', function HsComponentFactory(HsLayout) {
+    "use strict";
+    
+    return function() {
+        var obj = new HsLayout("HsRelativeLayout");
+        obj.layItOut =function layItOut(widgets) {
+            for (var w=0; w<widgets.length; w++) {
+                var widget = widgets[w];
+                $(widget).css('position', 'relative'); 
+                $(widget).css('top', 'auto'); 
+                $(widget).css('bottom', 'auto'); 
+                $(widget).css('left', 'auto'); 
+                $(widget).css('right', 'auto'); 
+                $(widget).css('width', '100px'); 
+                $(widget).css('height', '50px'); 
+            }
+        };
+        return obj;
+    };
+}]);
+
 angular.module('hsWidgets').factory('HsRowsLayout', ['HsLayout', function HsComponentFactory(HsLayout) {
     "use strict";
     
@@ -573,8 +609,9 @@ angular.module('hsWidgets').factory('HsRowsLayout', ['HsLayout', function HsComp
 angular.module('hsWidgets').factory('HsTileLayout', ['HsLayout', function HsComponentFactory(HsLayout) {
     "use strict";
     
-    return function() {
+    return function(fillLastColumn) {
         function setWidgetPos(i, widgets) {
+            var units = ['%','%'];
             var widget = widgets[i];
             var pos = [0,0];
             if (i>0) {
@@ -582,14 +619,16 @@ angular.module('hsWidgets').factory('HsTileLayout', ['HsLayout', function HsComp
                 var wpos = w.calcPos;
                 var wsiz = w.calcSize;
                 var siz = widget.calcSize;
-                pos[0] = parseInt(wpos[0]) + parseInt(wsiz[0]);
-                pos[1] = parseInt(wpos[1]);
+                units[0] = siz[0].indexOf('px')>0? 'px' : '%';
+                units[1] = siz[1].indexOf('px')>0? 'px' : '%';
+                pos[0] = parseFloat(wpos[0]) + parseFloat(wsiz[0]);
+                pos[1] = parseFloat(wpos[1]);
     
-                if (pos[0]+parseInt(siz[0]) > 100) {
-                    pos[0] = 0; pos[1] += parseInt(wsiz[1]);
+                if (pos[0]+parseFloat(siz[0]) > 100) {
+                    pos[0] = 0; pos[1] += parseFloat(wsiz[1]);
                 }
             }
-            pos[0] += '%'; pos[1] += '%';
+            pos[0] += units[0]; pos[1] += units[1];
             return pos;
         }
         
@@ -601,11 +640,13 @@ angular.module('hsWidgets').factory('HsTileLayout', ['HsLayout', function HsComp
             var size = [parseInt(100/cols), parseInt(100/rows)];
             
             // if last col: adjust width to remainin gsize
-            if (i%cols === cols-1 || i === widgets.length-1) {
-                var i0 = Math.floor(i/cols)*cols;
-                size[0] = 100;
-                for (var w=i0; w<i; w++) {
-                    size[0] -= parseInt(widgets[w].calcSize[0]); 
+            if (fillLastColumn) {
+                if (i%cols === cols-1 || i === widgets.length-1) {
+                    var i0 = Math.floor(i/cols)*cols;
+                    size[0] = 100;
+                    for (var w=i0; w<i; w++) {
+                        size[0] -= parseInt(widgets[w].calcSize[0]); 
+                    }
                 }
             }
             size[0] += '%'; size[1] += '%';

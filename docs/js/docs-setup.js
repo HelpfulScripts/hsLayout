@@ -64,7 +64,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "hsWidgets",
       "shortDescription": "hs-layout directive. Establishes a space in which",
-      "keywords": "api array attributes avaliable background-color border brackets center class columns corners create css default directive eef emphasis establishes fafafa ffe fixing height hs-layout hs-moveable hs-pos hs-size hs-widget hs-widget-pane hscolumnslayout hsrowslayout hstilelayout hswidgets html layout live marked module myheight object optional options padding position relative required rows sets size solid space square style text-align tile top type widgets wrapped"
+      "keywords": "api applies array attributes avaliable background-color border brackets center class colum columns corners create css default directive eef emphasis establishes fafafa ffe fill fixing height horizontally hs-layout hs-moveable hs-pos hs-size hs-widget hs-widget-pane hscolumnslayout hsrowslayout hstilelayout hswidgets html layout live marked module myheight object optional options padding position relative remaining required rows sets size solid space square stretched style text-align tile tiles top type widgets wrapped"
     },
     {
       "section": "api",
@@ -104,6 +104,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "hsWidgets.object.HsRelativeLayout",
+      "shortName": "hsWidgets.object.HsRelativeLayout",
+      "type": "object",
+      "moduleName": "hsWidgets.object",
+      "shortDescription": "Extends HsLayout.",
+      "keywords": "api extends hslayout hsrelativelayout hswidgets layout natural object options places position relative widgets"
+    },
+    {
+      "section": "api",
       "id": "hsWidgets.object.HsRowsLayout",
       "shortName": "hsWidgets.object.HsRowsLayout",
       "type": "object",
@@ -118,7 +127,7 @@ NG_DOCS={
       "type": "object",
       "moduleName": "hsWidgets.object",
       "shortDescription": "Extends HsLayout.",
-      "keywords": "$interval $scope angular api arranged background-color border bottom center class container controller css equal extend extends fafafa fashion ffe fit fits function grow height horizontally hs-layout hs-tile hs-widget-pane hslayout hstilelayout hswidgets html js layout left linear module myctrl ng-controller ng-enter ng-enter-active ng-move ng-move-active ng-repeat number object opacity options padding position push relative remnaining repeated-item row script set sized solid square-like style text-align tile tiles top transition var vertically widget widgets width works"
+      "keywords": "$interval $scope angular api arranged background-color border bottom center class container controller css equal extend extends fafafa fashion ffe fit fits function grow height horizontally hs-fill-last-col hs-layout hs-tile hs-widget-pane hslayout hstilelayout hswidgets html js layout left linear module myctrl ng-controller ng-enter ng-enter-active ng-move ng-move-active ng-repeat number object opacity options padding position push relative remnaining repeated-item row script set sized solid square-like style text-align tile tiles top transition var vertically widget widgets width works"
     }
   ],
   "apis": {

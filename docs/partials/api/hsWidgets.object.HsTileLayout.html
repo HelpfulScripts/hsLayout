@@ -1,4 +1,4 @@
-<a href="https://github.com/HelpfulScripts/hsWidgets.git/edit/master/src/services/HsTileLayout.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/HelpfulScripts/hsWidgets.git/blob/937d17d/src/services/HsTileLayout.js#L56" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">HsTileLayout</code>
+<a href="https://github.com/HelpfulScripts/hsWidgets.git/edit/master/src/services/HsTileLayout.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/HelpfulScripts/hsWidgets.git/blob/9dfd2e7/src/services/HsTileLayout.js#L56" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">HsTileLayout</code>
 <div><span class="hint">service in module <code ng:non-bindable="">hsWidgets.object</code>
 </span>
 </div>
@@ -23,7 +23,7 @@ The width of the last widget in each row is set to fit the remnaining container 
 <pre class="prettyprint linenums" ng-set-text="index.html-19" ng-html-wrap-loaded="hsWidgets angular.js script.js"></pre>
 <script type="text/ng-template" id="index.html-19">
         <div ng-controller="myCtrl" style="height:300px">
-            <hs-layout hs-tile>
+            <hs-layout hs-tile hs-fill-last-col>
                 <hs-widget ng-repeat="w in widgets" class='repeated-item'>
                     <div>{{w}}</div>
                 </hs-widget>

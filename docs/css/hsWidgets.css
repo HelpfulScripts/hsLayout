@@ -1,4 +1,4 @@
-/*! hsWidgets - v1.0.5 - 2015-07-02
+/*! hsWidgets - v1.0.5 - 2015-07-28
 * https://github.com/HelpfulScripts/hsWidgets
 * Copyright (c) 2015 Helpful Scripts; Licensed  */
 * {
@@ -87,4 +87,8 @@ hs-widget,
   position: absolute;
   top: -1000px;
   left: -1000px;
+}
+[hs-scroll],
+.hs-scroll {
+  overflow: scroll;
 }
