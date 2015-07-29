@@ -6,28 +6,28 @@
  * Rows layout divides the container vertically into partitions according to the `Array` specifications. 
  * <h2>cfg options:</h2><pre>
  * </pre>
- * @todo ...
 #Attributes
-- **hs-rows='[<i>Array</i>, ]'**
+- **hs-rows='[<i>Array</i>]'**
     create a layout with rows specified by `Array`.
     Elements in `Array` will be used as height indicators for the widgets that are children of this layout. 
     All height have to be specified either in px or in %.
     The following options are supported for `Array`:
-    - '[]': An empty array; all widgets will be evenly spaced across the available height. 
-    - '[fw]': All widgets have the specified height (in px or %) and will fill the available space with from the top,
+    - []: An empty array; all widgets will be evenly spaced across the available height. 
+    - [fw]: All widgets have the specified height (in px or %) and will fill the available space with from the top,
         leaving any remaining unused space on the bottom. 
-    - '[fw,]': Sets the first (top) widget to a height of `fw`.
-        if `fw` is specified in %, the remaining n-1 widgets will have equal relative heights of `(100-fw)/(n-1)%` 
+    - [fw,]: Sets the first (top) widget to a height of `fw`.<br>
+        if `fw` is specified in %, the remaining n-1 widgets will have equal relative heights of `(100-fw)/(n-1)%`<br>
         if `fw` is specified in px, the remaining n-1 widgets will have their bottom borders at location `i*100/n%`, with i=1...n.
-    - '[,lw]': Sets the last (bottom) widget to a height of `lw`.
-        if `lw` is specified in %, the remaining n-1 widgets will have equal relative heights of `(100-lw)/(n-1)%` 
+    - [,lw]: Sets the last (bottom) widget to a height of `lw`.<br>
+        if `lw` is specified in %, the remaining n-1 widgets will have equal relative heights of `(100-lw)/(n-1)%`<br>
         if `lw` is specified in px, the remaining n-1 widgets will have their top borders at location `i*100/n%`, with i=0...n-1.
-    - '[fw,,lw]': Sets the first and last widget to a height of `fw`/`lw`. 
-        Both have to be specified either in px or in %.
-        if the unit is %, the remaining n-2 widgets will have equal relative heights of `(100-lw-fw)/(n-2)%` 
-        if the unit is px, the remaining n-2 widgets will have their top/bottom borders at location `i*100/n%`.
-    - '[1w, 2w, , w2, w1]': multiple heights can be specified in uninterrupted sequence both from the top and the bottom. 
+    - [fw,,lw]: Sets the first and last widget to a height of `fw`/`lw`.<br> 
+        Both have to be specified either in px or in %.<br>
+        if the unit is %, the remaining n-2 widgets will have equal relative heights of `(100-lw-fw)/(n-2)%`<br>
+        if the unit is px, the remaining n-2 widgets will have their top/bottom borders at location `i*100/n%`.<br>
+    - [1w, 2w, , w2, w1]: multiple heights can be specified in uninterrupted sequence both from the top and the bottom. 
 See also the description of attribute options in {@link hsWidgets.directive:hsLayout hsLayout}
+ * @todo ...
 @example
 #Equal column heights
 <example module="hsWidgets">
@@ -74,7 +74,7 @@ See also the description of attribute options in {@link hsWidgets.directive:hsLa
                 <hs-widget>
                     <br>Header:10px
                 </hs-widget>
-                <hs-layout hs-tiles>
+                <hs-layout hs-tiles class='top'>
                     <hs-widget ng-repeat="w in widgets" class='repeated-item'>
                         <br>{{w}}
                     </hs-widget>

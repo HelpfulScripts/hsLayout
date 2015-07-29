@@ -19,7 +19,6 @@ module.exports = function(config) {
       './lib/jquery/2.1.1/jquery.min.js',
       './lib/angularjs/1.3.5/angular.js',
       './lib/angularjs/1.3.5/angular-touch.js',
-      './lib/angularjs/1.3.5/angular-route.js',
       './lib/angularjs/1.3.5/angular-mocks.js',
       
       // hsWidget code

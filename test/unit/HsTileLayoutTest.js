@@ -12,7 +12,7 @@ describe("factory: HsTileLayout", function() {
     beforeEach(inject(function($compile, $rootScope) {
         scope = $rootScope.$new();
         scope.num = [1,2,3];
-        elem = '<hs-layout><hs-widget ng-repeat="w in num">{{w}}</hs-widget></hs-layout>';
+        elem = '<hs-layout hs-fill-last-col><hs-widget ng-repeat="w in num">{{w}}</hs-widget></hs-layout>';
         elem = $compile(elem)(scope);
         scope.$digest();
     }));

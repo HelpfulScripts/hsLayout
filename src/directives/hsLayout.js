@@ -15,6 +15,8 @@ are wrapped in square brackets: `[...]`. When optional, the default value is <u>
     Please see {@link hsWidgets.object.HsColumnsLayout columns layout} on avaliable options for `Array`
 - [**hs-rows='[<i>Array</i>, ]'**] 
     Please see {@link hsWidgets.object.HsRowsLayout rows layout} on avaliable options for `Array`
+- [**hs-fill-last-col**] applies to tile layout only; if specified, the last colum of tiles are stretched horizontally 
+    to fill the remaining space.
 
 @example
 <example module="hsWidgets">
@@ -73,7 +75,8 @@ are wrapped in square brackets: `[...]`. When optional, the default value is <u>
     </file>
 </example>
  */
-angular.module('hsWidgets').directive('hsLayout', ['HsTileLayout', 'HsColumnsLayout', 'HsRowsLayout', function(HsTileLayout, HsColumnsLayout, HsRowsLayout) {
+angular.module('hsWidgets').directive('hsLayout', ['HsTileLayout', 'HsColumnsLayout', 'HsRowsLayout', 'HsRelativeLayout', 
+                function(HsTileLayout, HsColumnsLayout, HsRowsLayout, HsRelativeLayout) {
     "use strict";
     
     function getChildren(elem) {
@@ -98,6 +101,8 @@ angular.module('hsWidgets').directive('hsLayout', ['HsTileLayout', 'HsColumnsLay
                 type = attrs.hsType; 
             } else if (attrs.hsTiles !== undefined) { 
                 type = 'tiles'; 
+            } else if (attrs.hsRelative !== undefined) { 
+                type = 'relative'; 
             } else if (attrs.hsColumns !== undefined) {
                 type   = 'columns';
                 dims = attrs.hsColumns || '[]';
@@ -105,12 +110,14 @@ angular.module('hsWidgets').directive('hsLayout', ['HsTileLayout', 'HsColumnsLay
                 type   = 'rows';
                 dims = attrs.hsRows || '[]';
             }
+            var fillLastColumn = (attrs.hsFillLastCol !== undefined);
             var lm;
             switch(type) {
                 case 'columns': lm = new HsColumnsLayout(dims); break;
                 case 'rows':    lm = new HsRowsLayout(dims); break;
-                case 'tiles':   lm = new HsTileLayout(); break;
-                default:        lm = new HsTileLayout();
+                case 'tiles':   lm = new HsTileLayout(fillLastColumn); break;
+                case 'relative':lm = new HsRelativeLayout(); break;
+                default:        lm = new HsTileLayout(fillLastColumn);
             }
             scope.layout = lm;
             if (scope.$parent &&scope.$parent.layout) { scope.$parent.layItOut(); }

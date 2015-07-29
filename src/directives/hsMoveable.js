@@ -46,7 +46,17 @@ angular.module('hsWidgets').directive('hsMoveable', function() {
         controller: 'hsMoveableCtrl',
         link: function link(scope, elem, attrs, controller) {
             var moveable = parseInt(attrs['hsMoveable']) || 20;
-            var grid = parseInt(attrs['grid']) || 12;
+            var grid = [12,12];
+            if (attrs['grid'] !== undefined) {
+                grid = JSON.parse(attrs['grid']);
+                if (grid.length) {
+                    grid[0] = parseFloat(grid[0]);
+                    grid[1] = parseFloat(grid[1]);
+                } else {
+                    grid = parseFloat(grid);
+                    grid = [grid, grid];
+                }
+            }
             controller.moveable(elem, moveable, grid);
         }
     };

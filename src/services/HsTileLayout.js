@@ -14,7 +14,7 @@ Shows how a tile layout works as the number of tiles grow.
 <example module="hsWidgets">
     <file name="index.html">
         <div ng-controller="myCtrl" style="height:300px">
-            <hs-layout hs-tile>
+            <hs-layout hs-tile hs-fill-last-col>
                 <hs-widget ng-repeat="w in widgets" class='repeated-item'>
                     <div>{{w}}</div>
                 </hs-widget>
@@ -56,8 +56,9 @@ Shows how a tile layout works as the number of tiles grow.
 angular.module('hsWidgets').factory('HsTileLayout', ['HsLayout', function HsComponentFactory(HsLayout) {
     "use strict";
     
-    return function() {
+    return function(fillLastColumn) {
         function setWidgetPos(i, widgets) {
+            var units = ['%','%'];
             var widget = widgets[i];
             var pos = [0,0];
             if (i>0) {
@@ -65,14 +66,16 @@ angular.module('hsWidgets').factory('HsTileLayout', ['HsLayout', function HsComp
                 var wpos = w.calcPos;
                 var wsiz = w.calcSize;
                 var siz = widget.calcSize;
-                pos[0] = parseInt(wpos[0]) + parseInt(wsiz[0]);
-                pos[1] = parseInt(wpos[1]);
+                units[0] = siz[0].indexOf('px')>0? 'px' : '%';
+                units[1] = siz[1].indexOf('px')>0? 'px' : '%';
+                pos[0] = parseFloat(wpos[0]) + parseFloat(wsiz[0]);
+                pos[1] = parseFloat(wpos[1]);
     
-                if (pos[0]+parseInt(siz[0]) > 100) {
-                    pos[0] = 0; pos[1] += parseInt(wsiz[1]);
+                if (pos[0]+parseFloat(siz[0]) > 100) {
+                    pos[0] = 0; pos[1] += parseFloat(wsiz[1]);
                 }
             }
-            pos[0] += '%'; pos[1] += '%';
+            pos[0] += units[0]; pos[1] += units[1];
             return pos;
         }
         
@@ -84,11 +87,13 @@ angular.module('hsWidgets').factory('HsTileLayout', ['HsLayout', function HsComp
             var size = [parseInt(100/cols), parseInt(100/rows)];
             
             // if last col: adjust width to remainin gsize
-            if (i%cols === cols-1 || i === widgets.length-1) {
-                var i0 = Math.floor(i/cols)*cols;
-                size[0] = 100;
-                for (var w=i0; w<i; w++) {
-                    size[0] -= parseInt(widgets[w].calcSize[0]); 
+            if (fillLastColumn) {
+                if (i%cols === cols-1 || i === widgets.length-1) {
+                    var i0 = Math.floor(i/cols)*cols;
+                    size[0] = 100;
+                    for (var w=i0; w<i; w++) {
+                        size[0] -= parseInt(widgets[w].calcSize[0]); 
+                    }
                 }
             }
             size[0] += '%'; size[1] += '%';

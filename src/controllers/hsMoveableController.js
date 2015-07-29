@@ -8,12 +8,12 @@
  */    
 angular.module('hsWidgets').controller('hsMoveableCtrl', [function() {
     "use strict";
-    var gGrid = 12;
+    var gGrid = [12,12];
     var gRadius = 20;
     var gStart = null;
     var gUIHelper = "hs-widget-helper";
      
-    function quant(x, d)    { return Math.round(gGrid*x/d)*d/gGrid; }
+    function quant(x, d, i) { return Math.round(gGrid[i]*x/d)*d/gGrid[i]; }
     function get(e, a)      { return parseInt(e.css(a)); }
 
     function getEventType(x, y, dx, dy, r) {
@@ -57,16 +57,16 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', [function() {
         var size = { left:get(w, 'left'), top:get(w, 'top'), width:get(w, 'width'), height:get(w, 'height')};
 
         if (start.action === 'move') {
-            ix = quant(ex, start.dw-padding.left-padding.right)+padding.left; 
-            iy = quant(ey, start.dh-padding.top-padding.bottom)+padding.top;
+            ix = quant(ex, start.dw-padding.left-padding.right, 0)+padding.left; 
+            iy = quant(ey, start.dh-padding.top-padding.bottom, 1)+padding.top;
             // move hs-widget-helper outline smoothly:
             h.css('left',   (ex + padding.left)*100/start.dw+'%'); 
             h.css('top',    (ey + padding.top)*100/start.dh+'%'); 
             h.css('width',  size.width); 
             h.css('height', size.height); 
         } else {
-            ix = quant(ex, start.dw-padding.left-padding.right)-margin.left-margin.right; 
-            iy = quant(ey, start.dh-padding.top-padding.bottom)-margin.top-margin.bottom;
+            ix = quant(ex, start.dw-padding.left-padding.right, 0)-margin.left-margin.right; 
+            iy = quant(ey, start.dh-padding.top-padding.bottom, 1)-margin.top-margin.bottom;
             // move hs-widget-helper outline smoothly:
             h.css('left',   size.left + padding.left); 
             h.css('top',    size.top + padding.top); 

@@ -6,28 +6,28 @@
  * Columns layout divides the container horizontally into partitions according to the `Array` specifications. 
  * <h2>cfg options:</h2><pre>
  * </pre>
- * @todo ...
 #Attributes
-- **hs-columns='[<i>Array</i>, ]'**
+- **hs-columns='[<i>Array</i>]'**
     create a layout with columns specified by `Array`.
     Elements in `Array` will be used as width indicators for the widgets that are children of this layout. 
     All widths have to be specified either in px or in %.
     The following options are supported for `Array`:
-    - '[]': An empty array; all widgets will be evenly spaced across the available width. 
-    - '[fw]': All widgets have the specified width (in px or %) and will fill the available space with from the left,
+    - []: An empty array; all widgets will be evenly spaced across the available width. 
+    - [fw]: All widgets have the specified width (in px or %) and will fill the available space with from the left,
         leaving any remaining unused space on the right. 
-    - '[fw,]': Sets the first (left) widget to a width of `fw`.
-        if `fw` is specified in %, the remaining n-1 widgets will have equal relative widths of `(100-fw)/(n-1)%` 
+    - [fw,]: Sets the first (left) widget to a width of `fw`.<br>
+        if `fw` is specified in %, the remaining n-1 widgets will have equal relative widths of `(100-fw)/(n-1)%`<br>
         if `fw` is specified in px, the remaining n-1 widgets will have their right borders at location `i*100/n%`, with i=1...n.
-    - '[,lw]': Sets the last (right) widget to a width of `lw`.
-        if `lw` is specified in %, the remaining n-1 widgets will have equal relative widths of `(100-lw)/(n-1)%` 
+    - [,lw]: Sets the last (right) widget to a width of `lw`.<br>
+        if `lw` is specified in %, the remaining n-1 widgets will have equal relative widths of `(100-lw)/(n-1)%`<br>
         if `lw` is specified in px, the remaining n-1 widgets will have their left borders at location `i*100/n%`, with i=0...n-1.
-    - '[fw,,lw]': Sets the first and last widget to a width of `fw`/`lw`. 
-        Both have to be specified either in px or in %.
-        if the unit is %, the remaining n-2 widgets will have equal relative widths of `(100-lw-fw)/(n-2)%` 
+    - [fw,,lw]: Sets the first and last widget to a width of `fw`/`lw`.<br>
+        Both have to be specified either in px or in %.<br>
+        if the unit is %, the remaining n-2 widgets will have equal relative widths of `(100-lw-fw)/(n-2)%`<br>
         if the unit is px, the remaining n-2 widgets will have their left/right borders at location `i*100/n%`.
-    - '[1w, 2w, , w2, w1]': multiple widths can be specified in uninterrupted sequence both from the left and the right. 
+    - [1w, 2w, , w2, w1]: multiple widths can be specified in uninterrupted sequence both from the left and the right. 
 See also the description of attribute options in {@link hsWidgets.directive:hsLayout hsLayout}
+ * @todo ...
 @example
 #Equal column widths
 <example module="hsWidgets">
