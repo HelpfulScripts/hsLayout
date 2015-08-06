@@ -19,7 +19,6 @@ describe("factory: HsColumnLayout", function() {
         
         beforeEach(function() {
             widgets = $.makeArray(elem.find('hs-widget'));
-console.log('5 ' + widgets.length); 
         });
     
         it('Should have a layout in the scope', function() {

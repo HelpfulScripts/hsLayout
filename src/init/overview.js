@@ -15,26 +15,28 @@
 @example
 <example module="hsWidgets">
     <file name="index.html">
-        <hs-layout hs-moveable>
-            <hs-widget hs-size='["50%", "50%"]'>
-                <br>1
-                <br>Move me along the top.
-                <br>Size me from the corners.
-            </hs-widget>
-            <div hs-widget hs-size='["50%", "50%"]'>
-                <br>2
-                <br>Move me along the top.
-                <br>Size me from the corners.
-            </div>
-            <div hs-widget hs-size='["100%", "50%"]'>
-                <br>3
-                <br>Move me along the top.
-                <br>Size me from the corners.
-            </div>
-        </hs-layout>
+        <div style="height:300px; padding:0;">
+            <hs-layout hs-moveable>
+                <hs-widget hs-size='["50%", "50%"]'>
+                    <br>1
+                    <br>Move me along the top.
+                    <br>Size me from the corners.
+                </hs-widget>
+                <div hs-widget hs-size='["50%", "50%"]'>
+                    <br>2
+                    <br>Move me along the top.
+                    <br>Size me from the corners.
+                </div>
+                <div hs-widget hs-size='["100%", "50%"]'>
+                    <br>3
+                    <br>Move me along the top.
+                    <br>Size me from the corners.
+                </div>
+            </hs-layout>
+        </div>
     </file>
     <file name="style.css">
-        .well        { position: relative; height: 300px; padding:0; }
+        .well        { position: relative; }
         hs-layout    { background-color: #eee; }
         hs-widget, [hs-widget] { 
             background-color: rgba(255, 255, 240, 1); 
