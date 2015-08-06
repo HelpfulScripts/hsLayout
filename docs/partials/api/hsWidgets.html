@@ -1,51 +1,71 @@
-<a href="https://github.com/HelpfulScripts/hsWidgets.git/edit/master/angular factory for providing layouts and widgets" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/HelpfulScripts/hsWidgets.git/blob/9dfd2e7/angular factory for providing layouts and widgets#L48" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable=""></code>
+<a href="https://github.com/HelpfulScripts/hsWidgets.git/edit/master/angular factory for providing layouts and widgets" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/HelpfulScripts/hsWidgets.git/blob/c2dccbb/angular factory for providing layouts and widgets#L65" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable=""></code>
 <div><span class="hint"></span>
 </div>
 </h1>
 <div><div class="hswidgets-page"><p>Provides <em>AngularJS</em> directives to facilitate <a href="#/api/hsWidgets.directive:hsWidget">widgets</a> 
-on a <a href="#/api/hsWidgets.directive:hsLayout">layout</a>.
+on a <a href="#/api/hsWidgets.directive:hsLayout">layout</a>. Available layouts include 
+<a href="#/api/hsWidgets.object.HsRowsLayout">row layouts</a>, <a href="#/api/hsWidgets.object.HsColumnsLayout">columns layouts</a>,
+and <a href="#/api/hsWidgets.object.HsTileLayout">tiles layouts</a>.
 Double clicking the widgets will toggle full-screen mode. 
 Add the <a href="#/api/hsWidgets.directive:hsMoveable">hs-moveable</a> attribute to allow
 them to be moved or resized. </p>
 </div><h2 id="example">Example</h2>
-<div class="example"><div class="hswidgets-page"><h4 id="example_source">Source</h4>
-<div source-edit="hsWidgets" source-edit-deps="angular.js" source-edit-html="index.html-6" source-edit-css="style.css-7" source-edit-js="" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div class="example"><div class="hswidgets-page"><h3 id="example_nested-tile-layout-inside-a-column-layout">Nested tile layout inside a column layout</h3>
+<h4 id="example_nested-tile-layout-inside-a-column-layout_source">Source</h4>
+<div source-edit="hsWidgets" source-edit-deps="angular.js script.js" source-edit-html="index.html-6" source-edit-css="style.css-7" source-edit-js="script.js" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-6" ng-html-wrap-loaded="hsWidgets angular.js"></pre>
+<pre class="prettyprint linenums" ng-set-text="index.html-6" ng-html-wrap-loaded="hsWidgets angular.js script.js"></pre>
 <script type="text/ng-template" id="index.html-6">
-    <div style="height:300px; padding:0;">
-        <hs-layout hs-moveable>
-            <hs-widget hs-size='["50%", "50%"]'>
-                <br>1
-                <br>Move me along the top.
-                <br>Size me from the corners.
-            </hs-widget>
-            <div hs-widget hs-size='["50%", "50%"]'>
-                <br>2
-                <br>Move me along the top.
-                <br>Size me from the corners.
-            </div>
-            <div hs-widget hs-size='["100%", "50%"]'>
-                <br>3
-                <br>Move me along the top.
-                <br>Size me from the corners.
-            </div>
-        </hs-layout>
-    </div>
-</script>
+        <div ng-controller="myCtrl" style="height:300px; padding:0;">
+            <hs-layout hs-rows='["100px",,"50px"]'>
+                <hs-widget>
+                    <br>Header:10px
+                </hs-widget>
+                <hs-layout hs-tiles class='top'>
+                    <hs-widget ng-repeat="w in widgets" class='repeated-item'>
+                        <br>{{w}}
+                    </hs-widget>
+                </hs-layout>
+                <hs-widget>
+                    <br>Footer:50px
+                </hs-widget>
+            </hs-layout>
+         </div>
+    </script>
 </div>
 <div class="tab-pane" title="style.css">
 <pre class="prettyprint linenums" ng-set-text="style.css-7"></pre>
 <style type="text/css" id="style.css-7">
-    .well        { position: relative; }
-    hs-layout    { background-color: #eee; }
-    hs-widget, [hs-widget] { 
-        background-color: rgba(255, 255, 240, 1); 
-        text-align: center;
-    }
-</style>
+        .well       { position: relative; }
+        hs-layout   { background-color: #fafafa; }
+        .top .hs-widget-pane {
+            background-color: #eef; 
+        }
+        .hs-widget-pane   { 
+            background-color: #ffe; 
+            border: 1px solid #888; 
+            text-align: center;
+        }
+    </style>
 </div>
-</div><h4 id="example_demo">Demo</h4>
-<div class="well doc-example-live animate-container" ng-embed-app="hsWidgets" ng-set-html="index.html-6" ng-eval-javascript=""></div>
+<div class="tab-pane" title="script.js">
+<pre class="prettyprint linenums" ng-set-text="script.js"></pre>
+<script type="text/ng-template" id="script.js">
+        angular.module('hsWidgets').controller('myCtrl', ['$scope', '$interval', function myCtrl($scope, $interval){
+            var i = -1;
+            $interval(function(){
+                i++;
+                if (i===0) { $scope.widgets = ['first'];}
+                else if (i<6)  { $scope.widgets.push(i+''); }
+                else { 
+                    $scope.widgets = [];
+                    i=-1;
+                }                
+            }, 1000);
+        }]);
+    </script>
+</div>
+</div><h4 id="example_nested-tile-layout-inside-a-column-layout_demo">Demo</h4>
+<div class="well doc-example-live animate-container" ng-embed-app="hsWidgets" ng-set-html="index.html-6" ng-eval-javascript="script.js"></div>
 </div></div>
 </div>

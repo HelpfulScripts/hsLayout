@@ -1,4 +1,4 @@
-/*! hsWidgets - v1.0.5 - 2015-07-28
+/*! hsWidgets - v1.1.0 - 2015-08-05
 * https://github.com/HelpfulScripts/hsWidgets
 * Copyright (c) 2015 Helpful Scripts; Licensed  */
 /*
