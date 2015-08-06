@@ -29,19 +29,20 @@
 See also the description of attribute options in {@link hsWidgets.directive:hsLayout hsLayout}
  * @todo ...
 @example
-#Equal column widths
+#Equal column widths, filled in on left
 <example module="hsWidgets">
     <file name="index.html">
         <div style="height:300px; padding:0;">
             <hs-layout hs-columns='[,"100px","100px"]'>
                 <hs-widget ng-repeat="w in [1,2,3]">
                     <br>{{w}}
-                    <br>{{$last? "I fill the remaining space" : "100px"}}
+                    <br>{{$first? "I fill the remaining space" : "100px"}}
                 </hs-widget>
             </hs-layout>
         </div>
     </file>
 </example>
+#Shared column widths, fixed width on right
 <example module="hsWidgets">
     <file name="index.html">
         <div style="height:300px; padding:0;">
@@ -54,6 +55,7 @@ See also the description of attribute options in {@link hsWidgets.directive:hsLa
         </div>
     </file>
 </example>
+#Fixed column widths, filled in on right
 <example module="hsWidgets">
     <file name="index.html">
         <div style="height:300px; padding:0;">
