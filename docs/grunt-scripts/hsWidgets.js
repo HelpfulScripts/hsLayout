@@ -1,4 +1,4 @@
-/*! hsWidgets - v1.1.0 - 2015-08-05
+/*! hsWidgets - v1.1.0 - 2015-08-08
 * https://github.com/HelpfulScripts/hsWidgets
 * Copyright (c) 2015 Helpful Scripts; Licensed  */
 /*
@@ -35,11 +35,17 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', [function() {
             start.dh        = get(layout, 'height');
             start.helper    = layout.find('.'+gUIHelper);
             start.layout = layout;
+            start.left   = get(start.widget, 'left');
+            start.top    = get(start.widget, 'top');
+            start.width  = get(start.widget, 'width');
+            start.height = get(start.widget, 'height');
     
-            if (start.action === 'move') { 
-                start.a1 = 'left'; start.a2 = 'top'; 
-            } else { 
-                start.a1 = 'width'; start.a2 = 'height'; 
+            switch (start.action) {
+                case 'move': start.a1 = 'left';  start.a2 = 'top';    break;
+                case 'br':   start.a1 = 'width'; start.a2 = 'height'; break;
+                case 'bl':   start.a1 = 'left';  start.a2 = 'height'; break;
+                case 'tr':   start.a1 = 'width'; start.a2 = 'top';    break;
+                case 'tl':   start.a1 = 'left';  start.a2 = 'top';    break;
             }
             var x = start.x, y = start.y;
             start.x -= get(start.widget, start.a1);
@@ -65,7 +71,10 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', [function() {
             h.css('top',    (ey + padding.top)*100/start.dh+'%'); 
             h.css('width',  size.width); 
             h.css('height', size.height); 
-        } else {
+            // move widget in steps of 1/gGrid of width/height:
+            w.css('left',   ix*100/start.dw+'%'); 
+            w.css('top',    iy*100/start.dh+'%');
+       } else if (start.action === 'br') {
             ix = quant(ex, start.dw-padding.left-padding.right, 0)-margin.left-margin.right; 
             iy = quant(ey, start.dh-padding.top-padding.bottom, 1)-margin.top-margin.bottom;
             // move hs-widget-helper outline smoothly:
@@ -73,10 +82,47 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', [function() {
             h.css('top',    size.top + padding.top); 
             h.css('width',  ex*100/start.dw+'%'); 
             h.css('height', ey*100/start.dh+'%'); 
+            // move widget in steps of 1/gGrid of width/height:
+            w.css('width',   ix*100/start.dw+'%'); 
+            w.css('height',  iy*100/start.dh+'%');
+        } else if (start.action === 'bl') {
+            ix = quant(ex, start.dw-padding.left-padding.right, 0)+padding.left;  
+            iy = quant(ey, start.dh-padding.top-padding.bottom, 1)-margin.top-margin.bottom;
+            // move hs-widget-helper outline smoothly:
+            h.css('left',   (ex + padding.left)*100/start.dw+'%'); 
+            h.css('top',    size.top + padding.top); 
+            h.css('width',  (start.width+start.left-ex)*100/start.dw+'%'); 
+            h.css('height', ey*100/start.dh+'%'); 
+            // move widget in steps of 1/gGrid of width/height:
+            w.css('left',   ix*100/start.dw+'%'); 
+            w.css('width',   (start.width + start.left - ix)*100/start.dw +'%'); 
+            w.css('height',  iy*100/start.dh+'%');
+        } else if (start.action === 'tl') {
+            ix = quant(ex, start.dw-padding.left-padding.right, 0)+padding.left;  
+            iy = quant(ey, start.dh-padding.top-padding.bottom, 1)+padding.top;
+            // move hs-widget-helper outline smoothly:
+            h.css('left',   (ex + padding.left)*100/start.dw+'%'); 
+            h.css('top',    (ey + padding.top)*100/start.dh+'%'); 
+            h.css('width',  (start.width+start.left-ex)*100/start.dw+'%'); 
+            h.css('height', (start.height+start.top-ey)*100/start.dh+'%'); 
+            // move widget in steps of 1/gGrid of width/height:
+            w.css('left',   ix*100/start.dw+'%'); 
+            w.css('top',    iy*100/start.dh+'%');
+            w.css('width',   (start.width + start.left - ix)*100/start.dw +'%'); 
+            w.css('height',  (start.height + start.top - iy)*100/start.dh+'%');
+        } else if (start.action === 'tr') {
+            ix = quant(ex, start.dw-padding.left-padding.right, 0)-margin.left-margin.right; 
+            iy = quant(ey, start.dh-padding.top-padding.bottom, 1)+padding.top;
+            // move hs-widget-helper outline smoothly:
+            h.css('left',   size.left + padding.left); 
+            h.css('top',    (ey + padding.top)*100/start.dh+'%'); 
+            h.css('width',  ex*100/start.dw+'%'); 
+            h.css('height', (start.height+start.top-ey)*100/start.dh+'%'); 
+            // move widget in steps of 1/gGrid of width/height:
+            w.css('top',    iy*100/start.dh+'%');
+            w.css('width',   ix*100/start.dw+'%'); 
+            w.css('height',  (start.height + start.top - iy)*100/start.dh+'%');
         }
-        // move widget in steps of 1/gGrid of width/height:
-        w.css(start.a1,   ix*100/start.dw+'%'); 
-        w.css(start.a2,    iy*100/start.dh+'%');
     }
 
     /**
@@ -242,7 +288,7 @@ angular.module('hsWidgets').directive('hsWidget', ['hsUtil', function(util) {
     function maximizeWindow(scope, widget) {
         var animate = true;
         return function() {
-            var t = widget.style.top, l = widget.style.left;
+            var t = widget.style.top, l = widget.style.left, r = widget.style.right, b = widget.style.bottom;
             var w = widget.style.width, h = widget.style.height;
             var size;
             if (widget.org) {        // shrink widget to original size     
@@ -250,8 +296,14 @@ angular.module('hsWidgets').directive('hsWidget', ['hsUtil', function(util) {
                 widget.org = undefined;
                 $(widget).removeClass('hs-widget-in-front');         
             } else {                // maximize widget to fill screen
-                widget.org = {top: t, left: l, width: w, height: h};  
-                size = {top: '0%', left: '0%', width: '100%', height: '100%'};  
+                size = {left: '0%'};  
+                widget.org = {};
+                if (b!=='' && b!=='auto') { widget.org.bottom = b; } 
+                if (r!=='' && r!=='auto') { widget.org.right = r; }   
+                if (t!=='' && t!=='auto') { widget.org.top = t; } else { size.bottom = '0%'; size.height = '100%'; }
+                if (l!=='' && l!=='auto') { widget.org.left = l; } else { size.right = '0%'; size.width = '100%'; }
+                if (w!=='' && w!=='auto') { widget.org.width = w; size.width = '100%'; } else { size.right = '0%'; }
+                if (h!=='' && h!=='auto') { widget.org.height = h; size.height = '100%'; } else { size.bottom = '0%'; }
                 $(widget).addClass('hs-widget-in-front');  
             }
             if (animate) {

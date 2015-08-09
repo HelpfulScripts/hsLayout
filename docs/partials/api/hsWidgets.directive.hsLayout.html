@@ -1,4 +1,4 @@
-<a href="https://github.com/HelpfulScripts/hsWidgets.git/edit/master/src/directives/hsLayout.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/HelpfulScripts/hsWidgets.git/blob/c2dccbb/src/directives/hsLayout.js#L78" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">hsLayout</code>
+<a href="https://github.com/HelpfulScripts/hsWidgets.git/edit/master/src/directives/hsLayout.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/HelpfulScripts/hsWidgets.git/blob/086c12e/src/directives/hsLayout.js#L73" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">hsLayout</code>
 <div><span class="hint">directive in module <code ng:non-bindable="">hsWidgets</code>
 </span>
 </div>
@@ -26,76 +26,71 @@ are wrapped in square brackets: <code>[...]</code>. When optional, the default v
 &lt;/hs-layout&gt;</pre>
 </div>
 <h2 id="example">Example</h2>
-<div class="example"><div class="hswidgets-directive-page hswidgets-directive-hslayout-page"><h4 id="example_source">Source</h4>
+<div class="example"><div class="hswidgets-directive-page hswidgets-directive-hslayout-page"><h3 id="example_autmatic-laoyout-of-widgets">Autmatic laoyout of widgets</h3>
+<h4 id="example_autmatic-laoyout-of-widgets_source">Source</h4>
 <div source-edit="hsWidgets" source-edit-deps="angular.js" source-edit-html="index.html" source-edit-css="style.css" source-edit-js="" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
 <pre class="prettyprint linenums" ng-set-text="index.html" ng-html-wrap-loaded="hsWidgets angular.js"></pre>
 <script type="text/ng-template" id="index.html">
-    <div style="height: 300px; padding:0;">
-        <hs-layout>
-            <hs-widget>1</hs-widget>
-            <hs-widget>2</hs-widget>
-            <hs-widget>3</hs-widget>
-        </hs-layout>
-    </div>
-</script>
+        <div style="height: 300px; padding:0;">
+            <hs-layout hs-fill-last-col>
+                <hs-widget>1</hs-widget>
+                <hs-widget>2</hs-widget>
+                <hs-widget>3</hs-widget>
+            </hs-layout>
+        </div>
+    </script>
 </div>
 <div class="tab-pane" title="style.css">
 <pre class="prettyprint linenums" ng-set-text="style.css"></pre>
 <style type="text/css" id="style.css">
-    .well       { position: relative; }
-    hs-layout   { background-color: #fafafa; }
-    .hs-widget-pane   { 
-        background-color: #ffe; 
-        border: 1px solid #888; 
-        text-align: center;
-    }
-    hs-widget:first-of-type>.hs-widget-pane { background-color: #eef; }
-</style>
+        .well       { position: relative; }
+        hs-layout   { background-color: #fafafa; }
+        .hs-widget-pane   { 
+            background-color: #ffe; 
+            border: 1px solid #888; 
+            text-align: center;
+        }
+        hs-widget:first-of-type>.hs-widget-pane { background-color: #eef; }
+    </style>
 </div>
-</div><h4 id="example_demo">Demo</h4>
+</div><h4 id="example_autmatic-laoyout-of-widgets_demo">Demo</h4>
 <div class="well doc-example-live animate-container" ng-embed-app="hsWidgets" ng-set-html="index.html" ng-eval-javascript=""></div>
-<h3 id="example_fixing-the-size-of-widgets">Fixing the size of widgets</h3>
-<h4 id="example_fixing-the-size-of-widgets_source">Source</h4>
+<h3 id="example_manual-layout-of-widgets">Manual layout of widgets</h3>
+<h4 id="example_manual-layout-of-widgets_source">Source</h4>
 <div source-edit="hsWidgets" source-edit-deps="angular.js" source-edit-html="index.html-0" source-edit-css="style.css-1" source-edit-js="" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
 <pre class="prettyprint linenums" ng-set-text="index.html-0" ng-html-wrap-loaded="hsWidgets angular.js"></pre>
 <script type="text/ng-template" id="index.html-0">
-    <div style="height: 300px; padding:0;">
-        <hs-layout hs-moveable class='myHeight'>
-            <hs-widget hs-size='["50%", "50%"]'>
-                <br>1
-                <br>Move me along the top.
-                <br>Size me from the corners.
-            </hs-widget>
-            <hs-widget hs-size='["50%", "50%"]'>
-                <br>2
-                <br>Move me along the top.
-                <br>Size me from the corners.
-            </hs-widget>
-            <hs-widget hs-pos='["25%", "50%"]' hs-size='["50%", "50%"]'>
-                <br>3
-                <br>Move me along the top.
-                <br>Size me from the corners.
-            </hs-widget>
-        </hs-layout>
-    </div>
-</script>
+        <div style="height: 300px; padding:0;">
+            <hs-layout class='myHeight'>
+                <hs-widget hs-size='["50%", "50%"]'>
+                    <br>1
+                </hs-widget>
+                <hs-widget hs-size='["50%", "50%"]'>
+                    <br>2
+                </hs-widget>
+                <hs-widget hs-pos='["25%", "40%"]' hs-size='["50%", "60%"]'>
+                    <br>3
+                </hs-widget>
+            </hs-layout>
+        </div>
+    </script>
 </div>
 <div class="tab-pane" title="style.css">
 <pre class="prettyprint linenums" ng-set-text="style.css-1"></pre>
 <style type="text/css" id="style.css-1">
-    .well       { position: relative; }
-    hs-layout   { background-color: #fafafa; }
-    .hs-widget-pane   { 
-        background-color: #ffe; 
-        border: 1px solid #888; 
-        text-align: center;
-    }
-    hs-widget:first-of-type>.hs-widget-pane { background-color: #eef; }
-</style>
+        .well       { position: relative; }
+        hs-layout   { background-color: #fafafa; }
+        .hs-widget-pane   { 
+            background-color: #ffe; 
+            border: 1px solid #888; 
+            text-align: center;
+        }
+        hs-widget:first-of-type>.hs-widget-pane { background-color: #eef; }
+    </style>
 </div>
-</div><h4 id="example_fixing-the-size-of-widgets_demo">Demo</h4>
+</div><h4 id="example_manual-layout-of-widgets_demo">Demo</h4>
 <div class="well doc-example-live animate-container" ng-embed-app="hsWidgets" ng-set-html="index.html-0" ng-eval-javascript=""></div>
 </div></div>
 </div>

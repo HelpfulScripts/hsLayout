@@ -45,8 +45,8 @@ NG_DOCS={
       "shortName": "hsWidgets",
       "type": "overview",
       "moduleName": "hsWidgets",
-      "shortDescription": "Provides AngularJS directives to facilitate widgets ",
-      "keywords": "$interval $scope add allow angular api attribute background-color border center class clicking column columns controller css directive directives double eef facilitate factory fafafa ffe full-screen function height helpful hs-layout hs-moveable hs-rows hs-tiles hs-widget-pane hscolumnslayout hsrowslayout hstilelayout hswidgets html include inside js layout layouts mode module moved myctrl nested ng-controller ng-repeat object overview padding position providing push relative repeated-item resized row script scripts solid style text-align tile tiles toggle top var widgets"
+      "shortDescription": "Angular Widget and Layout Library",
+      "keywords": "$interval $scope add allow angular api application attribute automatic background-color border browser center class clicking codebase column columns constraints container controller controls css deliberate directive directives display double eef element enables entire example facilitate factory fafafa ffe fill full-screen function gui height helpful hs-layout hs-moveable hs-rows hs-tiles hs-widget-pane hscolumnslayout hsrowslayout hstilelayout hswidgets html https include inside js layout layouts level library live locations manual manually maximize mode module moved myctrl nested ng-controller ng-repeat non-static object overview padding position providing push relative repeated-item resized reversibly row script scripts size solid style surrounding text-align tile tiles toggle top treating var widget widgets window"
     },
     {
       "section": "api",
@@ -64,7 +64,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "hsWidgets",
       "shortDescription": "hs-layout directive. Establishes a space in which",
-      "keywords": "api applies array attributes avaliable background-color border brackets center class colum columns corners create css default directive eef emphasis establishes fafafa ffe fill fixing height horizontally hs-layout hs-moveable hs-pos hs-size hs-widget hs-widget-pane hscolumnslayout hsrowslayout hstilelayout hswidgets html layout live marked module myheight object optional options padding position relative remaining required rows sets size solid space square stretched style text-align tile tiles top type widgets wrapped"
+      "keywords": "api applies array attributes autmatic avaliable background-color border brackets center class colum columns create css default directive eef emphasis establishes fafafa ffe fill height horizontally hs-fill-last-col hs-layout hs-pos hs-size hs-widget hs-widget-pane hscolumnslayout hsrowslayout hstilelayout hswidgets html laoyout layout live manual marked module myheight object optional options padding position relative remaining required rows sets solid space square stretched style text-align tile tiles type widgets wrapped"
     },
     {
       "section": "api",
