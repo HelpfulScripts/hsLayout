@@ -70,9 +70,9 @@ See also the description of attribute options in {@link hsWidgets.directive:hsLa
 <example module="hsWidgets">
     <file name="index.html">
         <div ng-controller="myCtrl" style="height:300px; padding:0;">
-            <hs-layout hs-rows='["100px",,"50px"]'>
+            <hs-layout hs-rows='["30px",,"50px"]'>
                 <hs-widget>
-                    <br>Header:10px
+                    <br>Header:30px
                 </hs-widget>
                 <hs-layout hs-tiles class='top'>
                     <hs-widget ng-repeat="w in widgets" class='repeated-item'>

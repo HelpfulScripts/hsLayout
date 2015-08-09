@@ -6,22 +6,31 @@
  * @file angular factory for providing layouts and widgets
  * @copyright Helpful Scripts 2015
  * @description
+ * #Angular Widget and Layout Library
  * Provides *AngularJS* directives to facilitate {@link hsWidgets.directive:hsWidget widgets} 
- * on a {@link hsWidgets.directive:hsLayout layout}. Available layouts include 
+ * and {@link hsWidgets.directive:hsLayout layouts}. 
+ * 
+ * Layouts can be manual or automatic. Available automatic layouts include 
  * {@link hsWidgets.object.HsRowsLayout row layouts}, {@link hsWidgets.object.HsColumnsLayout columns layouts},
  * and {@link hsWidgets.object.HsTileLayout tiles layouts}.
- * Double clicking the widgets will toggle full-screen mode. 
- * Add the {@link hsWidgets.directive:hsMoveable hs-moveable} attribute to allow
- * them to be moved or resized. 
+ * 
+ * Layouts can be nested - see example below. The top level layout will try to maximize its size within the 
+ * constraints of the surrounding container. For example, as first element with non-static position, a layout will fill 
+ * and make available the entire browser window. This enables treating the browser window as an application gui
+ * on which widgets (views, controls, etc.) can be placed in deliberate locations. 
+ * 
+ * Widgets live inside a layout. Double clicking the widgets will reversibly toggle its full-screen mode display. 
+ * Add the {@link hsWidgets.directive:hsMoveable hs-moveable} attribute to a widget to allow it to be manually moved or resized. 
+ * The codebase is available at {@link https://github.com/HelpfulScripts/hsWidgets}.
  * 
 @example
 #Nested tile layout inside a column layout
 <example module="hsWidgets">
     <file name="index.html">
         <div ng-controller="myCtrl" style="height:300px; padding:0;">
-            <hs-layout hs-rows='["100px",,"50px"]'>
+            <hs-layout hs-rows='["80px",,"50px"]'>
                 <hs-widget>
-                    <br>Header:10px
+                    <br>Header:80px
                 </hs-widget>
                 <hs-layout hs-tiles class='top'>
                     <hs-widget ng-repeat="w in widgets" class='repeated-item'>

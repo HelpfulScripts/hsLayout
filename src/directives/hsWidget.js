@@ -65,7 +65,7 @@ angular.module('hsWidgets').directive('hsWidget', ['hsUtil', function(util) {
     function maximizeWindow(scope, widget) {
         var animate = true;
         return function() {
-            var t = widget.style.top, l = widget.style.left;
+            var t = widget.style.top, l = widget.style.left, r = widget.style.right, b = widget.style.bottom;
             var w = widget.style.width, h = widget.style.height;
             var size;
             if (widget.org) {        // shrink widget to original size     
@@ -73,8 +73,14 @@ angular.module('hsWidgets').directive('hsWidget', ['hsUtil', function(util) {
                 widget.org = undefined;
                 $(widget).removeClass('hs-widget-in-front');         
             } else {                // maximize widget to fill screen
-                widget.org = {top: t, left: l, width: w, height: h};  
-                size = {top: '0%', left: '0%', width: '100%', height: '100%'};  
+                size = {left: '0%'};  
+                widget.org = {};
+                if (b!=='' && b!=='auto') { widget.org.bottom = b; } 
+                if (r!=='' && r!=='auto') { widget.org.right = r; }   
+                if (t!=='' && t!=='auto') { widget.org.top = t; } else { size.bottom = '0%'; size.height = '100%'; }
+                if (l!=='' && l!=='auto') { widget.org.left = l; } else { size.right = '0%'; size.width = '100%'; }
+                if (w!=='' && w!=='auto') { widget.org.width = w; size.width = '100%'; } else { size.right = '0%'; }
+                if (h!=='' && h!=='auto') { widget.org.height = h; size.height = '100%'; } else { size.bottom = '0%'; }
                 $(widget).addClass('hs-widget-in-front');  
             }
             if (animate) {

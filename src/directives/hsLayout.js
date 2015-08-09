@@ -19,10 +19,11 @@ are wrapped in square brackets: `[...]`. When optional, the default value is <u>
     to fill the remaining space.
 
 @example
+#Autmatic laoyout of widgets
 <example module="hsWidgets">
     <file name="index.html">
         <div style="height: 300px; padding:0;">
-            <hs-layout>
+            <hs-layout hs-fill-last-col>
                 <hs-widget>1</hs-widget>
                 <hs-widget>2</hs-widget>
                 <hs-widget>3</hs-widget>
@@ -40,25 +41,19 @@ are wrapped in square brackets: `[...]`. When optional, the default value is <u>
         hs-widget:first-of-type>.hs-widget-pane { background-color: #eef; }
     </file>
 </example>
-#Fixing the size of widgets
+#Manual layout of widgets
 <example module="hsWidgets">
     <file name="index.html">
         <div style="height: 300px; padding:0;">
-            <hs-layout hs-moveable class='myHeight'>
+            <hs-layout class='myHeight'>
                 <hs-widget hs-size='["50%", "50%"]'>
                     <br>1
-                    <br>Move me along the top.
-                    <br>Size me from the corners.
                 </hs-widget>
                 <hs-widget hs-size='["50%", "50%"]'>
                     <br>2
-                    <br>Move me along the top.
-                    <br>Size me from the corners.
                 </hs-widget>
-                <hs-widget hs-pos='["25%", "50%"]' hs-size='["50%", "50%"]'>
+                <hs-widget hs-pos='["25%", "40%"]' hs-size='["50%", "60%"]'>
                     <br>3
-                    <br>Move me along the top.
-                    <br>Size me from the corners.
                 </hs-widget>
             </hs-layout>
         </div>
