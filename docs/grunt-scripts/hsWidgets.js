@@ -1,4 +1,4 @@
-/*! hsWidgets - v1.1.0 - 2015-08-08
+/*! hsWidgets - v1.1.0 - 2015-08-14
 * https://github.com/HelpfulScripts/hsWidgets
 * Copyright (c) 2015 Helpful Scripts; Licensed  */
 /*
@@ -252,38 +252,10 @@ angular.module('hsWidgets').directive('hsLayout', ['HsTileLayout', 'HsColumnsLay
     };
 }]);
 
-angular.module('hsWidgets').directive('hsMoveable', function() {
+angular.module('hsWidgets').directive('hsMaximizable', ['hsUtil', function(util) {
     "use strict";
 
-    return {
-        restrict: 'A',
-        replace: false,
-        controller: 'hsMoveableCtrl',
-        link: function link(scope, elem, attrs, controller) {
-            var moveable = parseInt(attrs['hsMoveable']) || 20;
-            var grid = [12,12];
-            if (attrs['grid'] !== undefined) {
-                grid = JSON.parse(attrs['grid']);
-                if (grid.length) {
-                    grid[0] = parseFloat(grid[0]);
-                    grid[1] = parseFloat(grid[1]);
-                } else {
-                    grid = parseFloat(grid);
-                    grid = [grid, grid];
-                }
-            }
-            controller.moveable(elem, moveable, grid);
-        }
-    };
-});
-
-angular.module('hsWidgets').directive('hsWidget', ['hsUtil', function(util) {
-    "use strict";
-    
     var gEasing   = 'swing';  
-    
-    function getVal(attr, def)  { return attr? JSON.parse(attr) : def; }
-    //function removePercent(arr) { return [parseInt(arr[0].replace('%','')), parseInt(arr[1] .replace('%',''))]; }
 
     function maximizeWindow(scope, widget) {
         var animate = true;
@@ -298,12 +270,12 @@ angular.module('hsWidgets').directive('hsWidget', ['hsUtil', function(util) {
             } else {                // maximize widget to fill screen
                 size = {left: '0%'};  
                 widget.org = {};
-                if (b!=='' && b!=='auto') { widget.org.bottom = b; } 
-                if (r!=='' && r!=='auto') { widget.org.right = r; }   
-                if (t!=='' && t!=='auto') { widget.org.top = t; } else { size.bottom = '0%'; size.height = '100%'; }
-                if (l!=='' && l!=='auto') { widget.org.left = l; } else { size.right = '0%'; size.width = '100%'; }
-                if (w!=='' && w!=='auto') { widget.org.width = w; size.width = '100%'; } else { size.right = '0%'; }
-                if (h!=='' && h!=='auto') { widget.org.height = h; size.height = '100%'; } else { size.bottom = '0%'; }
+                if (b!=='' && b!=='auto') { widget.org.bottom = b; size.bottom = '0%'; } 
+                if (r!=='' && r!=='auto') { widget.org.right = r; size.right = '0%'; }
+                if (t!=='' && t!=='auto') { widget.org.top = t; size.top = '0%'; } 
+                if (l!=='' && l!=='auto') { widget.org.left = l; size.left = '0%'; } 
+                if (w!=='' && w!=='auto') { widget.org.width = w; size.width = '100%'; } 
+                if (h!=='' && h!=='auto') { widget.org.height = h; size.height = '100%'; } 
                 $(widget).addClass('hs-widget-in-front');  
             }
             if (animate) {
@@ -338,6 +310,47 @@ angular.module('hsWidgets').directive('hsWidget', ['hsUtil', function(util) {
     }
 
     return {
+        restrict: 'A',
+        replace: false,
+        controller: 'hsMoveableCtrl',
+        link: function link(scope, elem) {
+            $(elem).on('touchend mouseup', doubleClick(maximizeWindow(scope, elem[0])));
+        }
+    };
+}]);
+
+angular.module('hsWidgets').directive('hsMoveable', function() {
+    "use strict";
+
+    return {
+        restrict: 'A',
+        replace: false,
+        controller: 'hsMoveableCtrl',
+        link: function link(scope, elem, attrs, controller) {
+            var moveable = parseInt(attrs['hsMoveable']) || 20;
+            var grid = [12,12];
+            if (attrs['grid'] !== undefined) {
+                grid = JSON.parse(attrs['grid']);
+                if (grid.length) {
+                    grid[0] = parseFloat(grid[0]);
+                    grid[1] = parseFloat(grid[1]);
+                } else {
+                    grid = parseFloat(grid);
+                    grid = [grid, grid];
+                }
+            }
+            controller.moveable(elem, moveable, grid);
+        }
+    };
+});
+
+angular.module('hsWidgets').directive('hsWidget', function() {
+    "use strict";
+        
+    function getVal(attr, def)  { return attr? JSON.parse(attr) : def; }
+    //function removePercent(arr) { return [parseInt(arr[0].replace('%','')), parseInt(arr[1] .replace('%',''))]; }
+
+    return {
         restrict: 'EA',
         replace: false,
         require: '?^hsLayout',
@@ -355,23 +368,9 @@ angular.module('hsWidgets').directive('hsWidget', ['hsUtil', function(util) {
             elem[0].cfgPos = getVal(attrs['hsPos'], []);
             if (controller) { scope.layItOut(); }
             else { console.log('no layout controller found in widget'); }
-            $(elem).on('touchend mouseup', doubleClick(maximizeWindow(scope, elem[0])));
         }
-/*        
-        link: function link(scope, elem, attrs, controller) {
-            $(elem).wrap('<div class="hs-widget-container">');
-            var widget = { elem: elem.parent() };
-            elem.hsStruct = {attrs:attrs};
-            widget.size = getVal(attrs['hsSize'], []);
-            widget.pos = getVal(attrs['hsPos'], []);
-            if (controller) { scope.layout.addWidget(widget); }
-            else { console.log('no layout controller found in widget'); }
-//            $(elem).on('mouseup', doubleClick(maximizeWindow(scope, widget)));
-            $(elem).on('touchend mouseup', doubleClick(maximizeWindow(scope, widget)));
-        }
-*/        
     };
-}]);
+});
 
 angular.module('hsWidgets').factory('HsColumnsLayout', ['HsLayout', function HsComponentFactory(HsLayout) {
     "use strict";
@@ -712,7 +711,7 @@ angular.module('hsWidgets').factory('HsTileLayout', ['HsLayout', function HsComp
     };
 }]);
 
-/*! hs - v0.9.5 - 2015-06-21
+/*! hs - v0.9.5 - 2015-08-09
 * https://github.com/HelpfulScripts/hs
 * Copyright (c) 2015 Helpful Scripts; Licensed  */
 
@@ -1144,7 +1143,7 @@ angular.module('hs').factory('hsUtil', function() {
  * @ngdoc method
  * @name .#castData
  * @methodOf hs.hsUtil
- * @param {String} type ['date'|'percent'|'float'|<any>] The type to cast into. In case of <any>, no casting occurs.
+ * @param {String} type ['date' | 'percent' | 'float' | _any_] The type to cast into. In case of _any_, no casting occurs.
  * @param {Float} sample The value to cast.
  * @returns {Object} The result of the cast. 
  * @description Casts the sample to the specified data type.

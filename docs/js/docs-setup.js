@@ -19,7 +19,7 @@ NG_DOCS={
       "type": "service",
       "moduleName": "hs",
       "shortDescription": "Provides some shared utility functions",
-      "keywords": "api called calls case cast castdata casting casts categorical centuries century click convert converting corrected corrects corresponding data dates decision defaults detects determines difference double double-click double-tap doubleclick event events float floating function functions gettype handler hs hsutil interpreted interpreting jul july limityear method mouseup mozilla number object occurs parsed percent percentage point reacts represents result returns sample service shared str string strings supported todate touchend type types utility webkit year years"
+      "keywords": "_any_ api called calls case cast castdata casting casts categorical centuries century click convert converting corrected corrects corresponding data dates decision defaults detects determines difference double double-click double-tap doubleclick event events float floating function functions gettype handler hs hsutil interpreted interpreting jul july limityear method mouseup mozilla number object occurs parsed percent percentage point reacts represents result returns sample service shared str string strings supported todate touchend type types utility webkit year years"
     },
     {
       "section": "api",
@@ -68,12 +68,21 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "hsWidgets.directive:hsMaximizable",
+      "shortName": "hsMaximizable",
+      "type": "directive",
+      "moduleName": "hsWidgets",
+      "shortDescription": "adds the maximizable option to a widget or layout. Double clicking the widget will toggle it to fill the entire top-level",
+      "keywords": "adds api background-color center clicking css directive double eee entire ffe fill grid height hs-layout hs-maximizable hs-moveable hs-widget hswidgets html layout maximizable maximize module option original padding position relative shrink size space style text-align toggle top-level widget"
+    },
+    {
+      "section": "api",
       "id": "hsWidgets.directive:hsMoveable",
       "shortName": "hsMoveable",
       "type": "directive",
       "moduleName": "hsWidgets",
       "shortDescription": "Attributes",
-      "keywords": "allows api area attributes background-color brackets center corner corners css dashboard default determines direction directive eee emphasis ffe grid height horizontal hs-dashboard hs-layout hs-moveable hs-size hs-widget hswidgets html marked module moved moving number optional padding parameter pixel position relative required resizing scaled sensitive sets size sized snap square steps style supplied text-align top vertical widget widgets wrapped"
+      "keywords": "allows api area attributes background-color brackets center corner corners css dashboard default determines direction directive eee emphasis ffe grid height horizontal hs-layout hs-moveable hs-size hs-widget hswidgets html marked module moved moving number optional padding parameter pixel position relative required resizing scaled sensitive sets size sized snap square steps style supplied text-align top vertical widget widgets wrapped"
     },
     {
       "section": "api",
