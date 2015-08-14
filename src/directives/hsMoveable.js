@@ -2,7 +2,7 @@
  * @ngdoc directive
  * @name hsWidgets.directive:hsMoveable
  * @restrict A
- * @element ['hs-widget', 'hs-dashboard']
+ * @element ['hs-widget', 'hs-layout']
  * @description 
 #Attributes
 All attributes are optional except where marked as required. For emphasis, optional attributes

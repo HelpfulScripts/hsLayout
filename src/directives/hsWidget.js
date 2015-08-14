@@ -54,65 +54,11 @@ are wrapped in square brackets: `[...]`. When optional, the default value is <u>
     </file>
 </example>
  */
-angular.module('hsWidgets').directive('hsWidget', ['hsUtil', function(util) {
+angular.module('hsWidgets').directive('hsWidget', function() {
     "use strict";
-    
-    var gEasing   = 'swing';  
-    
+        
     function getVal(attr, def)  { return attr? JSON.parse(attr) : def; }
     //function removePercent(arr) { return [parseInt(arr[0].replace('%','')), parseInt(arr[1] .replace('%',''))]; }
-
-    function maximizeWindow(scope, widget) {
-        var animate = true;
-        return function() {
-            var t = widget.style.top, l = widget.style.left, r = widget.style.right, b = widget.style.bottom;
-            var w = widget.style.width, h = widget.style.height;
-            var size;
-            if (widget.org) {        // shrink widget to original size     
-                size = widget.org;  
-                widget.org = undefined;
-                $(widget).removeClass('hs-widget-in-front');         
-            } else {                // maximize widget to fill screen
-                size = {left: '0%'};  
-                widget.org = {};
-                if (b!=='' && b!=='auto') { widget.org.bottom = b; } 
-                if (r!=='' && r!=='auto') { widget.org.right = r; }   
-                if (t!=='' && t!=='auto') { widget.org.top = t; } else { size.bottom = '0%'; size.height = '100%'; }
-                if (l!=='' && l!=='auto') { widget.org.left = l; } else { size.right = '0%'; size.width = '100%'; }
-                if (w!=='' && w!=='auto') { widget.org.width = w; size.width = '100%'; } else { size.right = '0%'; }
-                if (h!=='' && h!=='auto') { widget.org.height = h; size.height = '100%'; } else { size.bottom = '0%'; }
-                $(widget).addClass('hs-widget-in-front');  
-            }
-            if (animate) {
-                $(widget).animate(size, util.animationDuration, gEasing, function() {
-                    scope.$broadcast('hs-resize-end', size);
-                });       
-                scope.$broadcast('hs-resize-begin', size);
-            } else {
-                scope.$broadcast('hs-resize-begin', size);
-                $(widget).css(size);
-                scope.$broadcast('hs-resize-end', size);
-            }
-        };
-    }
-    
-   function doubleClick(handler) {
-        var delay = 500;
-        
-        return function(event) {
-            var now = new Date().getTime();
-            var lastTouch = $(this).data('lastTouch') || now + 1; // the first time this will make delta a negativ number
-            var delta = now - lastTouch;
-            
-            if (delta > 0 && delta < delay && event.type === $(this).data('lastType')) {   // a double tap or click: call handler
-                handler(event);
-                return false;
-            }
-            $(this).data('lastTouch', now);
-            $(this).data('lastType', event.type);
-            return true;
-        };
-    }
 
     return {
         restrict: 'EA',
@@ -132,21 +78,7 @@ angular.module('hsWidgets').directive('hsWidget', ['hsUtil', function(util) {
             elem[0].cfgPos = getVal(attrs['hsPos'], []);
             if (controller) { scope.layItOut(); }
             else { console.log('no layout controller found in widget'); }
-            $(elem).on('touchend mouseup', doubleClick(maximizeWindow(scope, elem[0])));
         }
-/*        
-        link: function link(scope, elem, attrs, controller) {
-            $(elem).wrap('<div class="hs-widget-container">');
-            var widget = { elem: elem.parent() };
-            elem.hsStruct = {attrs:attrs};
-            widget.size = getVal(attrs['hsSize'], []);
-            widget.pos = getVal(attrs['hsPos'], []);
-            if (controller) { scope.layout.addWidget(widget); }
-            else { console.log('no layout controller found in widget'); }
-//            $(elem).on('mouseup', doubleClick(maximizeWindow(scope, widget)));
-            $(elem).on('touchend mouseup', doubleClick(maximizeWindow(scope, widget)));
-        }
-*/        
     };
-}]);
+});
 
