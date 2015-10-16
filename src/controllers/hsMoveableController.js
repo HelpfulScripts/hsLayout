@@ -1,12 +1,12 @@
 
 /**
  * @ngdoc controller
- * @name hsWidgets.controller:hsMoveableCtrl
+ * @name hsLayout.controller:hsMoveableCtrl
  * @restrict A
  * @scope
  * @description Controller to manage move and size events on widgets.
  */    
-angular.module('hsWidgets').controller('hsMoveableCtrl', [function() {
+angular.module('hsLayout').controller('hsMoveableCtrl', [function() {
     "use strict";
     var gGrid = [12,12];
     var gRadius = 20;
@@ -127,7 +127,7 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', [function() {
     /**
      * @ngdoc event
      * @name #mouseDown
-     * @eventOf hsWidgets.controller:hsMoveableCtrl
+     * @eventOf hsLayout.controller:hsMoveableCtrl
      * @description defines an move, size, or full-screen event-in-progress and shows the helper frame. 
      */
     function start(e) {
@@ -148,7 +148,7 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', [function() {
     /**
      * @ngdoc event
      * @name #mouseMove
-     * @eventOf hsWidgets.controller:hsMoveableCtrl
+     * @eventOf hsLayout.controller:hsMoveableCtrl
      * @description if an event is in progress, then adjusts the position or size of the widget
      */
     function move(e) {
@@ -158,7 +158,7 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', [function() {
     /**
      * @ngdoc event
      * @name #mouseUp
-     * @eventOf hsWidgets.controller:hsMoveableCtrl
+     * @eventOf hsLayout.controller:hsMoveableCtrl
      * @description hides the helper frame and clears the move in progress.
      * Also, the time of latest mouseUp is used to determine a double click
      */
@@ -172,7 +172,7 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', [function() {
     /**
      * @ngdoc method
      * @name moveable
-     * @methodOf hsWidgets.controller:hsMoveableCtrl
+     * @methodOf hsLayout.controller:hsMoveableCtrl
      * @param {jQuery selection} elem the element for which hs-moveable was defined
      */
     this.moveable = function moveable(elem, radius, grid) {

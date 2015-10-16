@@ -5,7 +5,7 @@ describe("Unit: Testing hsMoveable", function() {
     var $compile, $rootScope;
     var layout;
     
-    beforeEach(module('hsWidgets'));
+    beforeEach(module('hsLayout'));
     
     describe('moveableController', function(){
         var $controller;

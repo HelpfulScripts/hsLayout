@@ -19,8 +19,8 @@ module.exports = function() {
       './lib/angularjs/1.3.5/angular-route.js',
       './lib/angularjs/1.3.5/angular-mocks.js',
       
-      // hsWidget code
-      './dist/hsWidgets.js'
+      // hsLayout code
+      './dist/hsLayout.js'
     ],
     
     plugins: [

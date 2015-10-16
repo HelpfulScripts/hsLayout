@@ -21,8 +21,8 @@ module.exports = function(config) {
       './lib/angularjs/1.3.5/angular-touch.js',
       './lib/angularjs/1.3.5/angular-mocks.js',
       
-      // hsWidget code
-      'dist/hsWidgets.js',
+      // hsLayout code
+      'dist/hsLayout.js',
       'test/unit/*.js'
     ],
 

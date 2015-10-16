@@ -1,6 +1,6 @@
 /**
  * @ngdoc directive
- * @name hsWidgets.directive:hsMoveable
+ * @name hsLayout.directive:hsMoveable
  * @restrict A
  * @element ['hs-widget', 'hs-layout']
  * @description 
@@ -15,7 +15,7 @@ are wrapped in square brackets: `[...]`. When optional, the default value is <u>
     sets a grid to which the widgets will snap when moved or scaled. The grid value determines the 
     number of grid steps in horizontal or vertical direction on the dashboard.
 @example
-<example module="hsWidgets">
+<example module="hsLayout">
     <file name="index.html">
         <div style="height: 300px; padding:0; ">
             <hs-layout hs-moveable grid='20'>
@@ -37,7 +37,7 @@ are wrapped in square brackets: `[...]`. When optional, the default value is <u>
     </file>
 </example>
 */    
-angular.module('hsWidgets').directive('hsMoveable', function() {
+angular.module('hsLayout').directive('hsMoveable', function() {
     "use strict";
 
     return {

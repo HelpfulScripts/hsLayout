@@ -1,8 +1,8 @@
 /**
  * @ngdoc object
- * @name hsWidgets.object.HsTileLayout
- * @requires hsWidgets.object.HsLayout
- * @description Extends {@link hsWidgets.object.HsLayout HsLayout}.
+ * @name hsLayout.object.HsTileLayout
+ * @requires hsLayout.object.HsLayout
+ * @description Extends {@link hsLayout.object.HsLayout HsLayout}.
  * Tile layout fits widgets into equal sized tiles from left to right, and top to bottom.
  * Tiles are arranged in square-like fashion that extend first horizontally, then vertically.
  * The width of the last widget in each row is set to fit the remnaining container width.
@@ -11,7 +11,7 @@
  * @todo ...
 @example
 Shows how a tile layout works as the number of tiles grow.
-<example module="hsWidgets">
+<example module="hsLayout">
     <file name="index.html">
         <div ng-controller="myCtrl" style="height:300px">
             <hs-layout hs-tile hs-fill-last-col>
@@ -38,7 +38,7 @@ Shows how a tile layout works as the number of tiles grow.
         }
     </file>
     <file name="script.js">
-        angular.module('hsWidgets').controller('myCtrl', ['$scope', '$interval', function myCtrl($scope, $interval){
+        angular.module('hsLayout').controller('myCtrl', ['$scope', '$interval', function myCtrl($scope, $interval){
             var i = -1;
             $interval(function(){
                 i++;
@@ -53,7 +53,7 @@ Shows how a tile layout works as the number of tiles grow.
     </file>
 </example>
  */
-angular.module('hsWidgets').factory('HsTileLayout', ['HsLayout', function HsComponentFactory(HsLayout) {
+angular.module('hsLayout').factory('HsTileLayout', ['HsLayout', function HsComponentFactory(HsLayout) {
     "use strict";
     
     return function(fillLastColumn) {

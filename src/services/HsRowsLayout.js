@@ -1,8 +1,8 @@
 /**
  * @ngdoc object
- * @name hsWidgets.object.HsRowsLayout
- * @requires hsWidgets.object.HsLayout
- * @description Extends {@link hsWidgets.object.HsLayout HsLayout}.
+ * @name hsLayout.object.HsRowsLayout
+ * @requires hsLayout.object.HsLayout
+ * @description Extends {@link hsLayout.object.HsLayout HsLayout}.
  * Rows layout divides the container vertically into partitions according to the `Array` specifications. 
  * <h2>cfg options:</h2><pre>
  * </pre>
@@ -26,11 +26,11 @@
         if the unit is %, the remaining n-2 widgets will have equal relative heights of `(100-lw-fw)/(n-2)%`<br>
         if the unit is px, the remaining n-2 widgets will have their top/bottom borders at location `i*100/n%`.<br>
     - [1w, 2w, , w2, w1]: multiple heights can be specified in uninterrupted sequence both from the top and the bottom. 
-See also the description of attribute options in {@link hsWidgets.directive:hsLayout hsLayout}
+See also the description of attribute options in {@link hsLayout.directive:hsLayout hsLayout}
  * @todo ...
 @example
 #Equal column heights
-<example module="hsWidgets">
+<example module="hsLayout">
     <file name="index.html">
         <div style="height:300px; padding:0;">
             <hs-layout hs-rows='[,"50px","50px"]'>
@@ -42,7 +42,7 @@ See also the description of attribute options in {@link hsWidgets.directive:hsLa
         </div>
     </file>
 </example>
-<example module="hsWidgets">
+<example module="hsLayout">
     <file name="index.html">
         <div style="height:300px; padding:0;">
             <hs-layout hs-rows='[,"20%"]'>
@@ -54,7 +54,7 @@ See also the description of attribute options in {@link hsWidgets.directive:hsLa
         </div>
     </file>
 </example>
-<example module="hsWidgets">
+<example module="hsLayout">
     <file name="index.html">
         <div style="height:300px; padding:0;">
             <hs-layout hs-rows='["30%","20%",]'>
@@ -67,7 +67,7 @@ See also the description of attribute options in {@link hsWidgets.directive:hsLa
     </file>
 </example>
 #Nested tile layout inside a column layout
-<example module="hsWidgets">
+<example module="hsLayout">
     <file name="index.html">
         <div ng-controller="myCtrl" style="height:300px; padding:0;">
             <hs-layout hs-rows='["30px",,"50px"]'>
@@ -86,7 +86,7 @@ See also the description of attribute options in {@link hsWidgets.directive:hsLa
          </div>
     </file>
     <file name="script.js">
-        angular.module('hsWidgets').controller('myCtrl', ['$scope', '$interval', function myCtrl($scope, $interval){
+        angular.module('hsLayout').controller('myCtrl', ['$scope', '$interval', function myCtrl($scope, $interval){
             var i = -1;
             $interval(function(){
                 i++;
@@ -115,7 +115,7 @@ See also the description of attribute options in {@link hsWidgets.directive:hsLa
 
 
  */
-angular.module('hsWidgets').factory('HsRowsLayout', ['HsLayout', function HsComponentFactory(HsLayout) {
+angular.module('hsLayout').factory('HsRowsLayout', ['HsLayout', function HsComponentFactory(HsLayout) {
     "use strict";
     
     return function(heights) {

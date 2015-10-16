@@ -1,13 +1,13 @@
 {
-  "name": "hsWidgets",
+  "name": "hsLayout",
   "version": "1.2.0",
-  "description": "Helpful Scripts library to simplify UI widgets",
-  "homepage": "https://github.com/HelpfulScripts/hsWidgets",
+  "description": "Helpful Scripts library to simplify UI layouts",
+  "homepage": "https://github.com/HelpfulScripts/hsLayout",
   "author": {
     "name": "Helpful Scripts",
     "email": "helpfulscripts@gmail.com"
   },
-  "bugs": "https://github.com/HelpfulScripts/hsWidgets/issues",
+  "bugs": "https://github.com/HelpfulScripts/hsLayout/issues",
   "keywords": [
     "javascript",
     "gui",
@@ -16,7 +16,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/HelpfulScripts/hsWidgets.git"
+    "url": "https://github.com/HelpfulScripts/hsLayout.git"
   },
   "engines": {
     "node": ">= 0.10.0"

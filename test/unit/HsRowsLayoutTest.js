@@ -7,7 +7,7 @@ describe("factory: HsColumnLayout", function() {
     var scope;
     var widgets;
     
-    beforeEach(module('hsWidgets'));
+    beforeEach(module('hsLayout'));
  
     describe('when not specifying heights', function() {
         beforeEach(inject(function($compile, $rootScope) {

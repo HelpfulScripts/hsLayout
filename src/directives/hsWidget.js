@@ -1,9 +1,9 @@
 /**
  * @ngdoc directive
- * @name hsWidgets.directive:hsWidget
+ * @name hsLayout.directive:hsWidget
  * @restrict EA
  * @element ANY
- * @description hs-widget directive. Adds a widget to a {@link hsWidgets.directive:hsLayout layout}.
+ * @description hs-widget directive. Adds a widget to a {@link hsLayout.directive:hsLayout layout}.
  * For use within a hs-layout
 #Attributes
 All attributes are optional except where marked as required. For emphasis, optional attributes
@@ -22,7 +22,7 @@ are wrapped in square brackets: `[...]`. When optional, the default value is <u>
     A new command 'hs-include' is needed since ng-include clashes with the
     `transclude: true` statement needed in case the content is inline
 @example
-<example module="hsWidgets">
+<example module="hsLayout">
     <file name="index.html">
         <div style="height: 300px; padding:0;">
             <hs-layout hs-moveable>
@@ -54,7 +54,7 @@ are wrapped in square brackets: `[...]`. When optional, the default value is <u>
     </file>
 </example>
  */
-angular.module('hsWidgets').directive('hsWidget', function() {
+angular.module('hsLayout').directive('hsWidget', function() {
     "use strict";
         
     function getVal(attr, def)  { return attr? JSON.parse(attr) : def; }

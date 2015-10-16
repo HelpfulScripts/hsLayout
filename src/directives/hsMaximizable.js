@@ -1,12 +1,12 @@
 /**
  * @ngdoc directive
- * @name hsWidgets.directive:hsMaximizable
+ * @name hsLayout.directive:hsMaximizable
  * @restrict A
  * @element ['hs-widget', 'hs-layout']
  * @description adds the maximizable option to a widget or layout. Double clicking the widget will toggle it to fill the entire top-level 
  * layout space or shrink back to its original size.
 @example
-<example module="hsWidgets">
+<example module="hsLayout">
     <file name="index.html">
         <div style="height: 300px; padding:0; ">
             <hs-layout hs-moveable grid='20'>
@@ -31,7 +31,7 @@
     </file>
 </example>
 */    
-angular.module('hsWidgets').directive('hsMaximizable', ['hsUtil', function(util) {
+angular.module('hsLayout').directive('hsMaximizable', ['hsUtil', function(util) {
     "use strict";
 
     var gEasing   = 'swing';  

@@ -1,8 +1,8 @@
 /**
  * @ngdoc object
- * @name hsWidgets.object.HsColumnsLayout
- * @requires hsWidgets.object.HsLayout
- * @description Extends {@link hsWidgets.object.HsLayout HsLayout}.
+ * @name hsLayout.object.HsColumnsLayout
+ * @requires hsLayout.object.HsLayout
+ * @description Extends {@link hsLayout.object.HsLayout HsLayout}.
  * Columns layout divides the container horizontally into partitions according to the `Array` specifications. 
  * <h2>cfg options:</h2><pre>
  * </pre>
@@ -26,11 +26,11 @@
         if the unit is %, the remaining n-2 widgets will have equal relative widths of `(100-lw-fw)/(n-2)%`<br>
         if the unit is px, the remaining n-2 widgets will have their left/right borders at location `i*100/n%`.
     - [1w, 2w, , w2, w1]: multiple widths can be specified in uninterrupted sequence both from the left and the right. 
-See also the description of attribute options in {@link hsWidgets.directive:hsLayout hsLayout}
+See also the description of attribute options in {@link hsLayout.directive:hsLayout hsLayout}
  * @todo ...
 @example
 #Equal column widths, filled in on left
-<example module="hsWidgets">
+<example module="hsLayout">
     <file name="index.html">
         <div style="height:300px; padding:0;">
             <hs-layout hs-columns='[,"100px","100px"]'>
@@ -43,7 +43,7 @@ See also the description of attribute options in {@link hsWidgets.directive:hsLa
     </file>
 </example>
 #Shared column widths, fixed width on right
-<example module="hsWidgets">
+<example module="hsLayout">
     <file name="index.html">
         <div style="height:300px; padding:0;">
             <hs-layout hs-columns='[,"10%"]'>
@@ -56,7 +56,7 @@ See also the description of attribute options in {@link hsWidgets.directive:hsLa
     </file>
 </example>
 #Fixed column widths, filled in on right
-<example module="hsWidgets">
+<example module="hsLayout">
     <file name="index.html">
         <div style="height:300px; padding:0;">
             <hs-layout hs-columns='["20%","10%",]'>
@@ -69,7 +69,7 @@ See also the description of attribute options in {@link hsWidgets.directive:hsLa
     </file>
 </example>
 #Nested tile layout inside a column layout
-<example module="hsWidgets">
+<example module="hsLayout">
     <file name="index.html">
         <div ng-controller="myCtrl" style="height:300px; padding:0;">
             <hs-layout hs-columns='["200px","100px",]'>
@@ -90,7 +90,7 @@ See also the description of attribute options in {@link hsWidgets.directive:hsLa
          </div>
     </file>
     <file name="script.js">
-        angular.module('hsWidgets').controller('myCtrl', ['$scope', '$interval', function myCtrl($scope, $interval){
+        angular.module('hsLayout').controller('myCtrl', ['$scope', '$interval', function myCtrl($scope, $interval){
             var i = -1;
             $interval(function(){
                 i++;
@@ -119,7 +119,7 @@ See also the description of attribute options in {@link hsWidgets.directive:hsLa
 
 
  */
-angular.module('hsWidgets').factory('HsColumnsLayout', ['HsLayout', function HsComponentFactory(HsLayout) {
+angular.module('hsLayout').factory('HsColumnsLayout', ['HsLayout', function HsComponentFactory(HsLayout) {
     "use strict";
 
     var unit = "%";

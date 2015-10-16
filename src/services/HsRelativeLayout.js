@@ -1,14 +1,14 @@
 /**
  * @ngdoc object
- * @name hsWidgets.object.HsRelativeLayout
- * @requires hsWidgets.object.HsLayout
- * @description Extends {@link hsWidgets.object.HsLayout HsLayout}.
+ * @name hsLayout.object.HsRelativeLayout
+ * @requires hsLayout.object.HsLayout
+ * @description Extends {@link hsLayout.object.HsLayout HsLayout}.
  * Relative layout places widgets into their natural position.
  * <h2>cfg options:</h2><pre>
  * </pre>
  * @todo ...
  */
-angular.module('hsWidgets').factory('HsRelativeLayout', ['HsLayout', function HsComponentFactory(HsLayout) {
+angular.module('hsLayout').factory('HsRelativeLayout', ['HsLayout', function HsComponentFactory(HsLayout) {
     "use strict";
     
     return function() {

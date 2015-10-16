@@ -1,18 +1,18 @@
 /**
  * @ngdoc overview
- * @name hsWidgets
- * @module hsWidgets
+ * @name hsLayout
+ * @module hsLayout
  * @type {ngModule}
  * @file angular factory for providing layouts and widgets
  * @copyright Helpful Scripts 2015
  * @description
  * #Angular Widget and Layout Library
- * Provides *AngularJS* directives to facilitate {@link hsWidgets.directive:hsWidget widgets} 
- * and {@link hsWidgets.directive:hsLayout layouts}. 
+ * Provides *AngularJS* directives to facilitate {@link hsLayout.directive:hsWidget widgets} 
+ * and {@link hsLayout.directive:hsLayout layouts}. 
  * 
  * Layouts can be manual or automatic. Available automatic layouts include 
- * {@link hsWidgets.object.HsRowsLayout row layouts}, {@link hsWidgets.object.HsColumnsLayout columns layouts},
- * and {@link hsWidgets.object.HsTileLayout tiles layouts}.
+ * {@link hsLayout.object.HsRowsLayout row layouts}, {@link hsLayout.object.HsColumnsLayout columns layouts},
+ * and {@link hsLayout.object.HsTileLayout tiles layouts}.
  * 
  * Layouts can be nested - see example below. The top level layout will try to maximize its size within the 
  * constraints of the surrounding container. For example, as first element with non-static position, a layout will fill 
@@ -20,12 +20,12 @@
  * on which widgets (views, controls, etc.) can be placed in deliberate locations. 
  * 
  * Widgets live inside a layout. Double clicking the widgets will reversibly toggle its full-screen mode display. 
- * Add the {@link hsWidgets.directive:hsMoveable hs-moveable} attribute to a widget to allow it to be manually moved or resized. 
- * The codebase is available at {@link https://github.com/HelpfulScripts/hsWidgets}.
+ * Add the {@link hsLayout.directive:hsMoveable hs-moveable} attribute to a widget to allow it to be manually moved or resized. 
+ * The codebase is available at {@link https://github.com/HelpfulScripts/hsLayout}.
  * 
 @example
 #Nested tile layout inside a column layout
-<example module="hsWidgets">
+<example module="hsLayout">
     <file name="index.html">
         <div ng-controller="myCtrl" style="height:300px; padding:0;">
             <hs-layout hs-rows='["80px",,"50px"]'>
@@ -44,7 +44,7 @@
          </div>
     </file>
     <file name="script.js">
-        angular.module('hsWidgets').controller('myCtrl', ['$scope', '$interval', function myCtrl($scope, $interval){
+        angular.module('hsLayout').controller('myCtrl', ['$scope', '$interval', function myCtrl($scope, $interval){
             var i = -1;
             $interval(function(){
                 i++;
@@ -75,7 +75,7 @@
 
 /*
  * Create the module by calling angular.module with dependency object [].
- * Subsequent additions to the module work by referncing the angular.module('hsWidgets') without [].
+ * Subsequent additions to the module work by referncing the angular.module('hsLayout') without [].
  */
-angular.module('hsWidgets', ['ngTouch', 'hs']);
+angular.module('hsLayout', ['ngTouch', 'hs']);
 

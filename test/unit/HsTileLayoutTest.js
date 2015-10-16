@@ -7,7 +7,7 @@ describe("factory: HsTileLayout", function() {
     var scope;
     var widgets;
     
-    beforeEach(module('hsWidgets'));
+    beforeEach(module('hsLayout'));
  
     beforeEach(inject(function($compile, $rootScope) {
         scope = $rootScope.$new();

@@ -1,6 +1,6 @@
 /**
  * @ngdoc object
- * @name hsWidgets.object.HsLayout
+ * @name hsLayout.object.HsLayout
  * @requires hs.object.HsConfigurable
  * @description Extends {@link hs.object.HsConfigurable HsConfigurable}.
  * Standard layout: abstract base class. Override the functions obj.setWidgetPos and 
@@ -10,7 +10,7 @@
  * </pre>
  * @todo ...
  */
-angular.module('hsWidgets').factory('HsLayout', ['HsConfigurable', function HsLayout(HsConfigurable) {
+angular.module('hsLayout').factory('HsLayout', ['HsConfigurable', function HsLayout(HsConfigurable) {
     "use strict";
     
     function setCSS(widget) {

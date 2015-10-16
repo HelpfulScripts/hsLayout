@@ -1,26 +1,26 @@
 /**
  * @ngdoc directive
- * @name hsWidgets.directive:hsLayout
+ * @name hsLayout.directive:hsLayout
  * @restrict E
  * @element ANY
  * @description hs-layout directive. Establishes a space in which 
- * {@link hsWidgets.directive:hsWidget widgets} live.
+ * {@link hsLayout.directive:hsWidget widgets} live.
 #Attributes
 All attributes are optional except where marked as required. For emphasis, optional attributes
 are wrapped in square brackets: `[...]`. When optional, the default value is <u>underlined</u>.
 - [**hs-type** = '<u>tiles</u> | columns | rows']
     sets the type of layout. For options see below
-- [**hs-tiles**] create a {@link hsWidgets.object.HsTileLayout tile layout}
+- [**hs-tiles**] create a {@link hsLayout.object.HsTileLayout tile layout}
 - [**hs-columns='[<i>Array</i>, ]'**] 
-    Please see {@link hsWidgets.object.HsColumnsLayout columns layout} on avaliable options for `Array`
+    Please see {@link hsLayout.object.HsColumnsLayout columns layout} on avaliable options for `Array`
 - [**hs-rows='[<i>Array</i>, ]'**] 
-    Please see {@link hsWidgets.object.HsRowsLayout rows layout} on avaliable options for `Array`
+    Please see {@link hsLayout.object.HsRowsLayout rows layout} on avaliable options for `Array`
 - [**hs-fill-last-col**] applies to tile layout only; if specified, the last colum of tiles are stretched horizontally 
     to fill the remaining space.
 
 @example
 #Autmatic laoyout of widgets
-<example module="hsWidgets">
+<example module="hsLayout">
     <file name="index.html">
         <div style="height: 300px; padding:0;">
             <hs-layout hs-fill-last-col>
@@ -42,7 +42,7 @@ are wrapped in square brackets: `[...]`. When optional, the default value is <u>
     </file>
 </example>
 #Manual layout of widgets
-<example module="hsWidgets">
+<example module="hsLayout">
     <file name="index.html">
         <div style="height: 300px; padding:0;">
             <hs-layout class='myHeight'>
@@ -70,7 +70,7 @@ are wrapped in square brackets: `[...]`. When optional, the default value is <u>
     </file>
 </example>
  */
-angular.module('hsWidgets').directive('hsLayout', ['HsTileLayout', 'HsColumnsLayout', 'HsRowsLayout', 'HsRelativeLayout', 
+angular.module('hsLayout').directive('hsLayout', ['HsTileLayout', 'HsColumnsLayout', 'HsRowsLayout', 'HsRelativeLayout', 
                 function(HsTileLayout, HsColumnsLayout, HsRowsLayout, HsRelativeLayout) {
     "use strict";
     
