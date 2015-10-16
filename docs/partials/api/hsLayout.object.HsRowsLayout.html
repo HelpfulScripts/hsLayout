@@ -1,10 +1,10 @@
-<a href="https://github.com/HelpfulScripts/hsWidgets.git/edit/master/src/services/HsRowsLayout.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/HelpfulScripts/hsWidgets.git/blob/f8b1d96/src/services/HsRowsLayout.js#L118" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">HsRowsLayout</code>
-<div><span class="hint">service in module <code ng:non-bindable="">hsWidgets.object</code>
+<a href="https://github.com/HelpfulScripts/hsLayout.git/edit/master/src/services/HsRowsLayout.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/HelpfulScripts/hsLayout.git/blob/b81c296/src/services/HsRowsLayout.js#L118" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">HsRowsLayout</code>
+<div><span class="hint">service in module <code ng:non-bindable="">hsLayout.object</code>
 </span>
 </div>
 </h1>
 <div><h2 id="description">Description</h2>
-<div class="description"><div class="hswidgets-object-hsrowslayout-page"><p>Extends <a href="#/api/hsWidgets.object.HsLayout">HsLayout</a>.
+<div class="description"><div class="hslayout-object-hsrowslayout-page"><p>Extends <a href="#/api/hsLayout.object.HsLayout">HsLayout</a>.
 Rows layout divides the container vertically into partitions according to the <code>Array</code> specifications. </p>
 <p><h4 id="description_cfg-options">cfg options:</h4><pre class="prettyprint linenums">
 </pre>
@@ -29,21 +29,21 @@ Rows layout divides the container vertically into partitions according to the <c
   if the unit is %, the remaining n-2 widgets will have equal relative heights of <code>(100-lw-fw)/(n-2)%</code><br>
   if the unit is px, the remaining n-2 widgets will have their top/bottom borders at location <code>i*100/n%</code>.<br></li>
 <li>[1w, 2w, , w2, w1]: multiple heights can be specified in uninterrupted sequence both from the top and the bottom. 
-See also the description of attribute options in <a href="#/api/hsWidgets.directive:hsLayout">hsLayout</a></li>
+See also the description of attribute options in <a href="#/api/hsLayout.directive:hsLayout">hsLayout</a></li>
 </ul>
 </li>
 </ul>
 </div></div>
 <h2 id="dependencies">Dependencies</h2>
-<ul class="dependencies"><li><code ng:non-bindable=""><a href="#/api/hsWidgets.object.HsLayout">HsLayout</a></code>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="#/api/hsLayout.object.HsLayout">HsLayout</a></code>
 </li>
 </ul>
 <h2 id="example">Example</h2>
-<div class="example"><div class="hswidgets-object-hsrowslayout-page"><h3 id="example_equal-column-heights">Equal column heights</h3>
+<div class="example"><div class="hslayout-object-hsrowslayout-page"><h3 id="example_equal-column-heights">Equal column heights</h3>
 <h4 id="example_equal-column-heights_source">Source</h4>
-<div source-edit="hsWidgets" source-edit-deps="angular.js" source-edit-html="index.html-16" source-edit-css="" source-edit-js="" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div source-edit="hsLayout" source-edit-deps="angular.js" source-edit-html="index.html-16" source-edit-css="" source-edit-js="" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-16" ng-html-wrap-loaded="hsWidgets angular.js"></pre>
+<pre class="prettyprint linenums" ng-set-text="index.html-16" ng-html-wrap-loaded="hsLayout angular.js"></pre>
 <script type="text/ng-template" id="index.html-16">
         <div style="height:300px; padding:0;">
             <hs-layout hs-rows='[,"50px","50px"]'>
@@ -56,11 +56,11 @@ See also the description of attribute options in <a href="#/api/hsWidgets.direct
     </script>
 </div>
 </div><h4 id="example_equal-column-heights_demo">Demo</h4>
-<div class="well doc-example-live animate-container" ng-embed-app="hsWidgets" ng-set-html="index.html-16" ng-eval-javascript=""></div>
+<div class="well doc-example-live animate-container" ng-embed-app="hsLayout" ng-set-html="index.html-16" ng-eval-javascript=""></div>
 <h4 id="example_equal-column-heights_source">Source</h4>
-<div source-edit="hsWidgets" source-edit-deps="angular.js" source-edit-html="index.html-17" source-edit-css="" source-edit-js="" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div source-edit="hsLayout" source-edit-deps="angular.js" source-edit-html="index.html-17" source-edit-css="" source-edit-js="" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-17" ng-html-wrap-loaded="hsWidgets angular.js"></pre>
+<pre class="prettyprint linenums" ng-set-text="index.html-17" ng-html-wrap-loaded="hsLayout angular.js"></pre>
 <script type="text/ng-template" id="index.html-17">
         <div style="height:300px; padding:0;">
             <hs-layout hs-rows='[,"20%"]'>
@@ -73,11 +73,11 @@ See also the description of attribute options in <a href="#/api/hsWidgets.direct
     </script>
 </div>
 </div><h4 id="example_equal-column-heights_demo">Demo</h4>
-<div class="well doc-example-live animate-container" ng-embed-app="hsWidgets" ng-set-html="index.html-17" ng-eval-javascript=""></div>
+<div class="well doc-example-live animate-container" ng-embed-app="hsLayout" ng-set-html="index.html-17" ng-eval-javascript=""></div>
 <h4 id="example_equal-column-heights_source">Source</h4>
-<div source-edit="hsWidgets" source-edit-deps="angular.js" source-edit-html="index.html-18" source-edit-css="" source-edit-js="" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div source-edit="hsLayout" source-edit-deps="angular.js" source-edit-html="index.html-18" source-edit-css="" source-edit-js="" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-18" ng-html-wrap-loaded="hsWidgets angular.js"></pre>
+<pre class="prettyprint linenums" ng-set-text="index.html-18" ng-html-wrap-loaded="hsLayout angular.js"></pre>
 <script type="text/ng-template" id="index.html-18">
         <div style="height:300px; padding:0;">
             <hs-layout hs-rows='["30%","20%",]'>
@@ -90,12 +90,12 @@ See also the description of attribute options in <a href="#/api/hsWidgets.direct
     </script>
 </div>
 </div><h4 id="example_equal-column-heights_demo">Demo</h4>
-<div class="well doc-example-live animate-container" ng-embed-app="hsWidgets" ng-set-html="index.html-18" ng-eval-javascript=""></div>
+<div class="well doc-example-live animate-container" ng-embed-app="hsLayout" ng-set-html="index.html-18" ng-eval-javascript=""></div>
 <h3 id="example_nested-tile-layout-inside-a-column-layout">Nested tile layout inside a column layout</h3>
 <h4 id="example_nested-tile-layout-inside-a-column-layout_source">Source</h4>
-<div source-edit="hsWidgets" source-edit-deps="angular.js script.js" source-edit-html="index.html-19" source-edit-css="style.css-21" source-edit-js="script.js-20" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div source-edit="hsLayout" source-edit-deps="angular.js script.js" source-edit-html="index.html-19" source-edit-css="style.css-21" source-edit-js="script.js-20" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-19" ng-html-wrap-loaded="hsWidgets angular.js script.js"></pre>
+<pre class="prettyprint linenums" ng-set-text="index.html-19" ng-html-wrap-loaded="hsLayout angular.js script.js"></pre>
 <script type="text/ng-template" id="index.html-19">
         <div ng-controller="myCtrl" style="height:300px; padding:0;">
             <hs-layout hs-rows='["30px",,"50px"]'>
@@ -132,7 +132,7 @@ See also the description of attribute options in <a href="#/api/hsWidgets.direct
 <div class="tab-pane" title="script.js">
 <pre class="prettyprint linenums" ng-set-text="script.js-20"></pre>
 <script type="text/ng-template" id="script.js-20">
-        angular.module('hsWidgets').controller('myCtrl', ['$scope', '$interval', function myCtrl($scope, $interval){
+        angular.module('hsLayout').controller('myCtrl', ['$scope', '$interval', function myCtrl($scope, $interval){
             var i = -1;
             $interval(function(){
                 i++;
@@ -147,6 +147,6 @@ See also the description of attribute options in <a href="#/api/hsWidgets.direct
     </script>
 </div>
 </div><h4 id="example_nested-tile-layout-inside-a-column-layout_demo">Demo</h4>
-<div class="well doc-example-live animate-container" ng-embed-app="hsWidgets" ng-set-html="index.html-19" ng-eval-javascript="script.js-20"></div>
+<div class="well doc-example-live animate-container" ng-embed-app="hsLayout" ng-set-html="index.html-19" ng-eval-javascript="script.js-20"></div>
 </div></div>
 </div>

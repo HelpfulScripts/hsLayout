@@ -1,22 +1,22 @@
-<a href="https://github.com/HelpfulScripts/hsWidgets.git/edit/master/src/directives/hsLayout.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/HelpfulScripts/hsWidgets.git/blob/f8b1d96/src/directives/hsLayout.js#L73" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">hsLayout</code>
-<div><span class="hint">directive in module <code ng:non-bindable="">hsWidgets</code>
+<a href="https://github.com/HelpfulScripts/hsLayout.git/edit/master/src/directives/hsLayout.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/HelpfulScripts/hsLayout.git/blob/b81c296/src/directives/hsLayout.js#L73" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">hsLayout</code>
+<div><span class="hint">directive in module <code ng:non-bindable="">hsLayout</code>
 </span>
 </div>
 </h1>
 <div><h2 id="description">Description</h2>
-<div class="description"><div class="hswidgets-directive-page hswidgets-directive-hslayout-page"><p>hs-layout directive. Establishes a space in which
-<a href="#/api/hsWidgets.directive:hsWidget">widgets</a> live.</p>
+<div class="description"><div class="hslayout-directive-page hslayout-directive-hslayout-page"><p>hs-layout directive. Establishes a space in which
+<a href="#/api/hsLayout.directive:hsWidget">widgets</a> live.</p>
 <h3 id="description_attributes">Attributes</h3>
 <p>All attributes are optional except where marked as required. For emphasis, optional attributes
 are wrapped in square brackets: <code>[...]</code>. When optional, the default value is <u>underlined</u>.</p>
 <ul>
 <li>[<strong>hs-type</strong> = &#39;<u>tiles</u> | columns | rows&#39;]
   sets the type of layout. For options see below</li>
-<li>[<strong>hs-tiles</strong>] create a <a href="#/api/hsWidgets.object.HsTileLayout">tile layout</a></li>
+<li>[<strong>hs-tiles</strong>] create a <a href="#/api/hsLayout.object.HsTileLayout">tile layout</a></li>
 <li>[<strong>hs-columns=&#39;[<i>Array</i>, ]&#39;</strong>] 
-  Please see <a href="#/api/hsWidgets.object.HsColumnsLayout">columns layout</a> on avaliable options for <code>Array</code></li>
+  Please see <a href="#/api/hsLayout.object.HsColumnsLayout">columns layout</a> on avaliable options for <code>Array</code></li>
 <li>[<strong>hs-rows=&#39;[<i>Array</i>, ]&#39;</strong>] 
-  Please see <a href="#/api/hsWidgets.object.HsRowsLayout">rows layout</a> on avaliable options for <code>Array</code></li>
+  Please see <a href="#/api/hsLayout.object.HsRowsLayout">rows layout</a> on avaliable options for <code>Array</code></li>
 <li>[<strong>hs-fill-last-col</strong>] applies to tile layout only; if specified, the last colum of tiles are stretched horizontally 
   to fill the remaining space.</li>
 </ul>
@@ -26,11 +26,11 @@ are wrapped in square brackets: <code>[...]</code>. When optional, the default v
 &lt;/hs-layout&gt;</pre>
 </div>
 <h2 id="example">Example</h2>
-<div class="example"><div class="hswidgets-directive-page hswidgets-directive-hslayout-page"><h3 id="example_autmatic-laoyout-of-widgets">Autmatic laoyout of widgets</h3>
+<div class="example"><div class="hslayout-directive-page hslayout-directive-hslayout-page"><h3 id="example_autmatic-laoyout-of-widgets">Autmatic laoyout of widgets</h3>
 <h4 id="example_autmatic-laoyout-of-widgets_source">Source</h4>
-<div source-edit="hsWidgets" source-edit-deps="angular.js" source-edit-html="index.html" source-edit-css="style.css" source-edit-js="" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div source-edit="hsLayout" source-edit-deps="angular.js" source-edit-html="index.html" source-edit-css="style.css" source-edit-js="" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html" ng-html-wrap-loaded="hsWidgets angular.js"></pre>
+<pre class="prettyprint linenums" ng-set-text="index.html" ng-html-wrap-loaded="hsLayout angular.js"></pre>
 <script type="text/ng-template" id="index.html">
         <div style="height: 300px; padding:0;">
             <hs-layout hs-fill-last-col>
@@ -55,12 +55,12 @@ are wrapped in square brackets: <code>[...]</code>. When optional, the default v
     </style>
 </div>
 </div><h4 id="example_autmatic-laoyout-of-widgets_demo">Demo</h4>
-<div class="well doc-example-live animate-container" ng-embed-app="hsWidgets" ng-set-html="index.html" ng-eval-javascript=""></div>
+<div class="well doc-example-live animate-container" ng-embed-app="hsLayout" ng-set-html="index.html" ng-eval-javascript=""></div>
 <h3 id="example_manual-layout-of-widgets">Manual layout of widgets</h3>
 <h4 id="example_manual-layout-of-widgets_source">Source</h4>
-<div source-edit="hsWidgets" source-edit-deps="angular.js" source-edit-html="index.html-0" source-edit-css="style.css-1" source-edit-js="" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div source-edit="hsLayout" source-edit-deps="angular.js" source-edit-html="index.html-0" source-edit-css="style.css-1" source-edit-js="" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-0" ng-html-wrap-loaded="hsWidgets angular.js"></pre>
+<pre class="prettyprint linenums" ng-set-text="index.html-0" ng-html-wrap-loaded="hsLayout angular.js"></pre>
 <script type="text/ng-template" id="index.html-0">
         <div style="height: 300px; padding:0;">
             <hs-layout class='myHeight'>
@@ -91,6 +91,6 @@ are wrapped in square brackets: <code>[...]</code>. When optional, the default v
     </style>
 </div>
 </div><h4 id="example_manual-layout-of-widgets_demo">Demo</h4>
-<div class="well doc-example-live animate-container" ng-embed-app="hsWidgets" ng-set-html="index.html-0" ng-eval-javascript=""></div>
+<div class="well doc-example-live animate-container" ng-embed-app="hsLayout" ng-set-html="index.html-0" ng-eval-javascript=""></div>
 </div></div>
 </div>

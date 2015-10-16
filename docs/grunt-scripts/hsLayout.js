@@ -1,13 +1,13 @@
-/*! hsWidgets - v1.2.0 - 2015-10-15
-* https://github.com/HelpfulScripts/hsWidgets
+/*! hsLayout - v1.2.0 - 2015-10-15
+* https://github.com/HelpfulScripts/hsLayout
 * Copyright (c) 2015 Helpful Scripts; Licensed  */
 /*
  * Create the module by calling angular.module with dependency object [].
- * Subsequent additions to the module work by referncing the angular.module('hsWidgets') without [].
+ * Subsequent additions to the module work by referncing the angular.module('hsLayout') without [].
  */
-angular.module('hsWidgets', ['ngTouch', 'hs']);
+angular.module('hsLayout', ['ngTouch', 'hs']);
 
-angular.module('hsWidgets').controller('hsMoveableCtrl', [function() {
+angular.module('hsLayout').controller('hsMoveableCtrl', [function() {
     "use strict";
     var gGrid = [12,12];
     var gRadius = 20;
@@ -128,7 +128,7 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', [function() {
     /**
      * @ngdoc event
      * @name #mouseDown
-     * @eventOf hsWidgets.controller:hsMoveableCtrl
+     * @eventOf hsLayout.controller:hsMoveableCtrl
      * @description defines an move, size, or full-screen event-in-progress and shows the helper frame. 
      */
     function start(e) {
@@ -149,7 +149,7 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', [function() {
     /**
      * @ngdoc event
      * @name #mouseMove
-     * @eventOf hsWidgets.controller:hsMoveableCtrl
+     * @eventOf hsLayout.controller:hsMoveableCtrl
      * @description if an event is in progress, then adjusts the position or size of the widget
      */
     function move(e) {
@@ -159,7 +159,7 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', [function() {
     /**
      * @ngdoc event
      * @name #mouseUp
-     * @eventOf hsWidgets.controller:hsMoveableCtrl
+     * @eventOf hsLayout.controller:hsMoveableCtrl
      * @description hides the helper frame and clears the move in progress.
      * Also, the time of latest mouseUp is used to determine a double click
      */
@@ -173,7 +173,7 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', [function() {
     /**
      * @ngdoc method
      * @name moveable
-     * @methodOf hsWidgets.controller:hsMoveableCtrl
+     * @methodOf hsLayout.controller:hsMoveableCtrl
      * @param {jQuery selection} elem the element for which hs-moveable was defined
      */
     this.moveable = function moveable(elem, radius, grid) {
@@ -201,7 +201,7 @@ angular.module('hsWidgets').controller('hsMoveableCtrl', [function() {
     };
 }]);
 
-angular.module('hsWidgets').directive('hsLayout', ['HsTileLayout', 'HsColumnsLayout', 'HsRowsLayout', 'HsRelativeLayout', 
+angular.module('hsLayout').directive('hsLayout', ['HsTileLayout', 'HsColumnsLayout', 'HsRowsLayout', 'HsRelativeLayout', 
                 function(HsTileLayout, HsColumnsLayout, HsRowsLayout, HsRelativeLayout) {
     "use strict";
     
@@ -258,7 +258,7 @@ angular.module('hsWidgets').directive('hsLayout', ['HsTileLayout', 'HsColumnsLay
     };
 }]);
 
-angular.module('hsWidgets').directive('hsMaximizable', ['hsUtil', function(util) {
+angular.module('hsLayout').directive('hsMaximizable', ['hsUtil', function(util) {
     "use strict";
 
     var gEasing   = 'swing';  
@@ -328,7 +328,7 @@ angular.module('hsWidgets').directive('hsMaximizable', ['hsUtil', function(util)
     };
 }]);
 
-angular.module('hsWidgets').directive('hsMoveable', function() {
+angular.module('hsLayout').directive('hsMoveable', function() {
     "use strict";
 
     return {
@@ -353,7 +353,7 @@ angular.module('hsWidgets').directive('hsMoveable', function() {
     };
 });
 
-angular.module('hsWidgets').directive('hsWidget', function() {
+angular.module('hsLayout').directive('hsWidget', function() {
     "use strict";
         
     function getVal(attr, def)  { return attr? JSON.parse(attr) : def; }
@@ -381,7 +381,7 @@ angular.module('hsWidgets').directive('hsWidget', function() {
     };
 });
 
-angular.module('hsWidgets').factory('HsColumnsLayout', ['HsLayout', function HsComponentFactory(HsLayout) {
+angular.module('hsLayout').factory('HsColumnsLayout', ['HsLayout', function HsComponentFactory(HsLayout) {
     "use strict";
 
     var unit = "%";
@@ -511,7 +511,7 @@ angular.module('hsWidgets').factory('HsColumnsLayout', ['HsLayout', function HsC
     };
 }]);
 
-angular.module('hsWidgets').factory('HsLayout', ['HsConfigurable', function HsLayout(HsConfigurable) {
+angular.module('hsLayout').factory('HsLayout', ['HsConfigurable', function HsLayout(HsConfigurable) {
     "use strict";
     
     function setCSS(widget) {
@@ -554,7 +554,7 @@ angular.module('hsWidgets').factory('HsLayout', ['HsConfigurable', function HsLa
     };
 }]);
 
-angular.module('hsWidgets').factory('HsRelativeLayout', ['HsLayout', function HsComponentFactory(HsLayout) {
+angular.module('hsLayout').factory('HsRelativeLayout', ['HsLayout', function HsComponentFactory(HsLayout) {
     "use strict";
     
     return function() {
@@ -575,7 +575,7 @@ angular.module('hsWidgets').factory('HsRelativeLayout', ['HsLayout', function Hs
     };
 }]);
 
-angular.module('hsWidgets').factory('HsRowsLayout', ['HsLayout', function HsComponentFactory(HsLayout) {
+angular.module('hsLayout').factory('HsRowsLayout', ['HsLayout', function HsComponentFactory(HsLayout) {
     "use strict";
     
     return function(heights) {
@@ -687,7 +687,7 @@ angular.module('hsWidgets').factory('HsRowsLayout', ['HsLayout', function HsComp
     };
 }]);
 
-angular.module('hsWidgets').factory('HsTileLayout', ['HsLayout', function HsComponentFactory(HsLayout) {
+angular.module('hsLayout').factory('HsTileLayout', ['HsLayout', function HsComponentFactory(HsLayout) {
     "use strict";
     
     return function(fillLastColumn) {

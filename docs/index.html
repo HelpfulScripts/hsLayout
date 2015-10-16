@@ -11,7 +11,7 @@
                  Declarative templates with data-binding, MVC, dependency injection and great
                  testability story all implemented with pure client-side JavaScript!">
   <meta name="fragment" content="!">
-  <title ng-bind-template="hsWidgets: {{partialTitle}}">Docs</title>
+  <title ng-bind-template="hsLayout: {{partialTitle}}">Docs</title>
   <script type="text/javascript">
     // dynamically add base tag as well as css and javascript files.
     // we can't add css/js the usual way, because some browsers (FF) eagerly prefetch resources
@@ -32,7 +32,7 @@
       addTag('link', {rel: 'stylesheet', href: 'css/animations.css', type: 'text/css'});
 
       
-         addTag('link', {rel: 'stylesheet', href: 'css/hsWidgets.css', type: 'text/css'}, sync);
+         addTag('link', {rel: 'stylesheet', href: 'css/hsLayout.css', type: 'text/css'}, sync);
       
 
       addTag('script', {src: 'js/google-code-prettify.js'}, sync);
@@ -47,7 +47,7 @@
       
         addTag('script', {src: 'grunt-scripts/angular-animate.js'}, sync);
       
-        addTag('script', {src: 'grunt-scripts/hsWidgets.js'}, sync);
+        addTag('script', {src: 'grunt-scripts/hsLayout.js'}, sync);
       
       
       addTag('script', {src: 'js/angular-bootstrap.js'}, sync);
@@ -89,7 +89,7 @@
         <div class="container">
           
           
-            <a  class="brand">hsWidgets</a>
+            <a  class="brand">hsLayout</a>
           
           <ul class="nav">
             <li ng-repeat="(url, name) in sections" ng-class="{active: isActivePath(url)}">
