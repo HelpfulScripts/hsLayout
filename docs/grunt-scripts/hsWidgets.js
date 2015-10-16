@@ -1,4 +1,4 @@
-/*! hsWidgets - v1.1.0 - 2015-08-14
+/*! hsWidgets - v1.2.0 - 2015-10-15
 * https://github.com/HelpfulScripts/hsWidgets
 * Copyright (c) 2015 Helpful Scripts; Licensed  */
 /*
@@ -218,6 +218,11 @@ angular.module('hsWidgets').directive('hsLayout', ['HsTileLayout', 'HsColumnsLay
         controller: function($scope, $element) {
             $scope.layItOut = function() { 
                 if ($scope.layout) { $scope.layout.layItOut(getChildren($element)); }
+                if (!$scope.$parent || !$scope.$parent.layItOut) {
+                    var px = Math.min(parseInt($element.css('width')), parseInt($element.css('height')));
+                    px /= 30;
+                    $($element).css('font-size', px+'px');
+                }
             };
         },
         link: function link(scope, elem, attrs) {
@@ -239,15 +244,16 @@ angular.module('hsWidgets').directive('hsLayout', ['HsTileLayout', 'HsColumnsLay
             var fillLastColumn = (attrs.hsFillLastCol !== undefined);
             var lm;
             switch(type) {
-                case 'columns': lm = new HsColumnsLayout(dims); break;
-                case 'rows':    lm = new HsRowsLayout(dims); break;
-                case 'tiles':   lm = new HsTileLayout(fillLastColumn); break;
-                case 'relative':lm = new HsRelativeLayout(); break;
-                default:        lm = new HsTileLayout(fillLastColumn);
+                case 'columns': lm = new HsColumnsLayout(dims, elem); break;
+                case 'rows':    lm = new HsRowsLayout(dims, elem); break;
+                case 'tiles':   lm = new HsTileLayout(fillLastColumn, elem); break;
+                case 'relative':lm = new HsRelativeLayout(elem); break;
+                default:        lm = new HsTileLayout(fillLastColumn, elem);
             }
             scope.layout = lm;
-            if (scope.$parent &&scope.$parent.layout) { scope.$parent.layItOut(); }
-            scope.layItOut();
+            var base = scope;
+//            while (base.$parent && base.$parent.layItOut) { base = base.$parent; }
+            base.layItOut();
         }
     };
 }]);
@@ -257,19 +263,22 @@ angular.module('hsWidgets').directive('hsMaximizable', ['hsUtil', function(util)
 
     var gEasing   = 'swing';  
 
-    function maximizeWindow(scope, widget) {
+    function maximizeWindow(scope, elem) {
+        var widget = elem[0];
         var animate = true;
         return function() {
             var t = widget.style.top, l = widget.style.left, r = widget.style.right, b = widget.style.bottom;
-            var w = widget.style.width, h = widget.style.height;
+            var w = widget.style.width, h = widget.style.height, s = elem.css('font-size');
             var size;
             if (widget.org) {        // shrink widget to original size     
                 size = widget.org;  
                 widget.org = undefined;
                 $(widget).removeClass('hs-widget-in-front');         
             } else {                // maximize widget to fill screen
-                size = {left: '0%'};  
-                widget.org = {};
+                var ps = [window.innerWidth/parseInt(elem.css('width')), window.innerHeight/parseInt(elem.css('height'))];
+                var px = parseInt(s);
+                size = {left: '0%', "font-size": + px*Math.max(ps[0], ps[1]) + 'px'};  
+                widget.org = { "font-size": s};
                 if (b!=='' && b!=='auto') { widget.org.bottom = b; size.bottom = '0%'; } 
                 if (r!=='' && r!=='auto') { widget.org.right = r; size.right = '0%'; }
                 if (t!=='' && t!=='auto') { widget.org.top = t; size.top = '0%'; } 
@@ -314,7 +323,7 @@ angular.module('hsWidgets').directive('hsMaximizable', ['hsUtil', function(util)
         replace: false,
         controller: 'hsMoveableCtrl',
         link: function link(scope, elem) {
-            $(elem).on('touchend mouseup', doubleClick(maximizeWindow(scope, elem[0])));
+            $(elem).on('touchend mouseup', doubleClick(maximizeWindow(scope, elem)));
         }
     };
 }]);
@@ -374,9 +383,26 @@ angular.module('hsWidgets').directive('hsWidget', function() {
 
 angular.module('hsWidgets').factory('HsColumnsLayout', ['HsLayout', function HsComponentFactory(HsLayout) {
     "use strict";
-    
-    return function(widths) {
-        function layItOut(widgets) {
+
+    var unit = "%";
+    var firstWidthSet = false;
+    var lastWidthSet  = false;
+/*    
+    function setPercent(widgets, max, num, calcWidths) {
+        var sumWidth = 0;
+        var defWidth = max/num;
+        var numWidgets = widgets.length;
+        for (var i=0; i<numWidgets; i++) { 
+            var width = calcWidths[i].width || defWidth;
+            $(widgets[i]).css('left', sumWidth+'%');
+            sumWidth += width;
+            if (i===numWidgets-1 && calcWidths[i].width == null) { $(widgets[i]).css('right', '0%'); }
+                             else { $(widgets[i]).css('width', width+'%'); }
+        }
+    }
+*/
+    function layItOut(widths) {
+        return function(widgets) {
             var numWidgets = widgets.length;
             var calcWidths = [];
             var i,j;
@@ -402,7 +428,7 @@ angular.module('hsWidgets').factory('HsColumnsLayout', ['HsLayout', function HsC
             }
             var defWidth;
             var sumWidth = 0;
-            if (unit==='%') {
+            if (unit==='%') { 
                 defWidth = max/num;
                 for (i=0; i<numWidgets; i++) { 
                     var width = calcWidths[i].width || defWidth;
@@ -410,7 +436,7 @@ angular.module('hsWidgets').factory('HsColumnsLayout', ['HsLayout', function HsC
                     sumWidth += width;
                     if (i===numWidgets-1 && calcWidths[i].width == null) { $(widgets[i]).css('right', '0%'); }
                                      else { $(widgets[i]).css('width', width+'%'); }
-                }
+                }                
             } else {  // units === px
                 defWidth = 100.0/numWidgets;
                 var startPattern = true;
@@ -441,8 +467,8 @@ angular.module('hsWidgets').factory('HsColumnsLayout', ['HsLayout', function HsC
                     while (j>=Math.max(0,i-1)) { 
                         if (startPattern) { // so far, all widths explicitely set as px
                             if (!firstWidthSet) { 
-//                                $(widgets[j]).css('left', 'auto'); 
-//                                $(widgets[j]).css('width', ''); 
+    //                                $(widgets[j]).css('left', 'auto'); 
+    //                                $(widgets[j]).css('width', ''); 
                             }
                             $(widgets[j]).css('right', sumWidth + 'px');
                             if (calcWidths[j].width === null) {
@@ -464,27 +490,28 @@ angular.module('hsWidgets').factory('HsColumnsLayout', ['HsLayout', function HsC
                     }
                 }
             }
-        }
-
+        };
+    }
+    
+    return function(widths) {
         var obj = new HsLayout("HsColumnsLayout");
-        obj.layItOut      = layItOut;
-        var unit = "%";
-        var firstWidthSet = false;
-        var lastWidthSet  = false;
         if (widths.indexOf('px') >= 0) { unit = 'px'; }
         widths = widths.replace(',,', ',"",').replace(',,', ',"",').
                         replace('[,', '["",').replace(',]', ',""]').
                         replace('%','').replace('px','');        
         widths = JSON.parse(widths); 
+
         var len = widths.length-1;
         if (widths[0] && widths[0]!=="") { firstWidthSet = true; }          
         if (len>0 && widths[len] && widths[len]!=="") { lastWidthSet = true; }          
         for (var i=0; i<=len; i++) { widths[i] = parseFloat(widths[i]); }
+
+        obj.layItOut = layItOut(widths);
         return obj;
     };
 }]);
 
-angular.module('hsWidgets').factory('HsLayout', ['HsConfigurable', function HsComponentFactory(HsConfigurable) {
+angular.module('hsWidgets').factory('HsLayout', ['HsConfigurable', function HsLayout(HsConfigurable) {
     "use strict";
     
     function setCSS(widget) {
@@ -519,6 +546,9 @@ angular.module('hsWidgets').factory('HsLayout', ['HsConfigurable', function HsCo
                 } 
                 setCSS(widget);
             }
+        };
+        obj.containerSize = function(elem) {            
+            return [parseInt(elem.css('width')), parseInt(elem.css('height'))];
         };
         return obj;
     };
@@ -711,7 +741,138 @@ angular.module('hsWidgets').factory('HsTileLayout', ['HsLayout', function HsComp
     };
 }]);
 
-/*! hs - v0.9.5 - 2015-08-09
+/*! hs - v0.9.5 - 2015-09-27
+* https://github.com/HelpfulScripts/hs
+* Copyright (c) 2015 Helpful Scripts; Licensed  */
+/**
+ * @ngdoc object
+ * @name hs
+ * @description
+ * Provides a registry for modules. 
+ * Register new modules by calling 
+ * <pre>
+ * hs.register(<name>, <constructor>);  // register new modules
+ * hs(<name>);                          // access module
+ * new hs(<name>);                      // construct new instance of module
+ * </pre>
+ */
+
+//if (window === undefined || window.hs === undefined) {
+if (typeof hs === "undefined") {
+    hs = (function hs() {   // explicit global declaration
+        "use strict";
+        var registry = {};
+        
+        function register(name, fn) {
+//            if (registry[name] !== undefined) { console.log('duplicate definition of hs function \'' + name + '\''); }
+            if( Object.prototype.toString.call( fn ) !== '[object Array]' ) { fn = [fn]; }
+            registry[name] = fn; 
+        }
+        
+        function invoke(name) {
+            if (registry[name] === undefined) { console.log('unknown hs function \'' + name + '\''); }
+            else {
+                var def = registry[name];
+                var fn = def[def.length-1];
+                var params = [];
+                for (var i=0; i<def.length-1; i++) {
+                    params.push(invoke(def[i]));
+                }
+                var result = fn.apply(null, params);
+                return result;
+            } 
+        }
+        
+        var result = invoke;
+        result.register = register;    
+        return result;
+    })();
+};
+/**
+ * @ngdoc object
+ * @name hs.object.HsObject
+ * @description Base class for all HelpfulScripts objects. 
+ * Can be used with or without new.
+ * <pre>
+ * var obj1 = HsObject('<HsDerivedObject>');
+ * var obj2 = new HsObject('<HsDerivedObject>');    // identical result
+ * </pre>
+ * @param {string} type the object type or category
+ * @param {string=} name the object name
+ * @param {HsObject=} parent If specified, adds this HsObject as a child to the parent.
+ */
+hs.register('HsObject', function HsObject(){ 
+    "use strict";    
+    
+    function _children(obj) {
+        /** @ngdoc function
+         * @name children
+         * @methodOf hs.object.HsObject
+         * @param {HsObject|String=} child *String*: the parameter specifies an HsObject type and
+         * the function returns an array of children of this type.
+         * <br>*HsObject*: `child` will be added as a child to this parent and the child 
+         * returned.
+         * <br>*Unspecified*: the list of current children will be returned as an Array. 
+         * @param {Boolean=} remove if specified and true-ish, the specified *child* object will be removed 
+         * from the list of children. If *child* is a type string, *remove* will have no effect.
+         * @description retrieves the list of children, or sets or removes a specific child to this parent.
+         * In addition to maintaining an array of the children to this parent, this function also
+         * generates sub-arrays of children for each Object type.
+         * @returns {object} the child if a child HsObject was specified; 
+         * <br>or an array of children of a certain type, if a type string was specified;
+         * <br>or the array of children if no parameter was specified.
+         */
+        return function children(child, remove) { 
+            var list = obj.children.list;
+            var type = obj.type();
+            if (!child) {                           // no parameter specified
+                return list;                        //   --> return list of children
+            } else if (typeof child === 'string') { // type string specified
+                return list[type];                  //   --> return children of type
+            } else {                                // child object specified
+                var i = list.indexOf(child); 
+                if (i < 0) {                        // if not in array yet
+                    list.push(child);           // --> add to array
+                    var t = child.type();
+                    if (!t) { console.log('no object type set'); }
+                    else {
+                        var cat = list[t];
+                        if (!cat) { cat = list[t] = []; }
+                        cat.push(child);
+                        }
+                } else {                            // if in array and 'remove' is true
+                    if (remove) { list.splice(i, 1); }  // --> remove child
+                }
+                return child;                       //   --> return child
+            } 
+        };
+    }
+    
+    return function(type, name, parent) {
+        var obj = {};
+        var gName = name || "undefined";
+        
+        obj.type = function() { return type || "undefined"; };
+        obj.name = function(newName) { 
+            if (!newName) { return gName; }
+            else {
+                gName = gName;
+                return obj;
+            }
+            
+        };
+        
+        obj.children = _children(obj);
+        obj.children.list = [];
+        
+        if (parent) {   // if parent is specified, add obj to its children
+            parent.children(obj);
+        }
+        
+        return obj;
+    };
+});
+/*! hs - v0.9.5 - 2015-09-27
 * https://github.com/HelpfulScripts/hs
 * Copyright (c) 2015 Helpful Scripts; Licensed  */
 
@@ -984,89 +1145,9 @@ See `script.js` in the following example for
     };
 }]);
 ;
-/**
- * @ngdoc object
- * @name hs.object.HsObject
- * @description Base class for all HelpfulScripts objects. 
- * Can be used with or without new.
- * <pre>
- * var obj1 = HsObject('<HsDerivedObject>');
- * var obj2 = new HsObject('<HsDerivedObject>');	// identical result
- * </pre>
- * @param {string} type the object type or category
- * @param {string=} name the object name
- * @param {HsObject=} parent If specified, adds this HsObject as a child to the parent.
- */
 angular.module('hs').factory('HsObject', function HsObject(){ 
     "use strict";    
-    
-    function _children(obj) {
-        /** @ngdoc function
-         * @name children
-         * @methodOf hs.object.HsObject
-         * @param {HsObject|String=} child *String*: the parameter specifies an HsObject type and
-         * the function returns an array of children of this type.
-         * <br>*HsObject*: `child` will be added as a child to this parent and the child 
-         * returned.
-         * <br>*Unspecified*: the list of current children will be returned as an Array. 
-         * @param {Boolean=} remove if specified and true-ish, the specified *child* object will be removed 
-         * from the list of children. If *child* is a type string, *remove* will have no effect.
-         * @description retrieves the list of children, or sets or removes a specific child to this parent.
-         * In addition to maintaining an array of the children to this parent, this function also
-         * generates sub-arrays of children for each Object type.
-         * @returns {object} the child if a child HsObject was specified; 
-         * <br>or an array of children of a certain type, if a type string was specified;
-         * <br>or the array of children if no parameter was specified.
-         */
-        return function children(child, remove) { 
-            var list = obj.children.list;
-            var type = obj.type();
-            if (!child) {                           // no parameter specified
-                return list;                        //   --> return list of children
-            } else if (typeof child === 'string') { // type string specified
-                return list[type];                  //   --> return children of type
-            } else {                                // child object specified
-                var i = list.indexOf(child); 
-                if (i < 0) {                        // if not in array yet
-                    list.push(child);           // --> add to array
-                    var t = child.type();
-                    if (!t) { console.log('no object type set'); }
-                    else {
-                        var cat = list[t];
-                        if (!cat) { cat = list[t] = []; }
-                        cat.push(child);
-                        }
-                } else {                            // if in array and 'remove' is true
-                    if (remove) { list.splice(i, 1); }  // --> remove child
-                }
-                return child;                       //   --> return child
-            } 
-        };
-    }
-    
-	return function(type, name, parent) {
-		var obj = {};
-		var gName = name || "undefined";
-		
-        obj.type = function() { return type || "undefined"; };
-        obj.name = function(newName) { 
-            if (!newName) { return gName; }
-            else {
-                gName = gName;
-                return obj;
-            }
-            
-        };
-		
-        obj.children = _children(obj);
-        obj.children.list = [];
-        
-        if (parent) {   // if parent is specified, add obj to its children
-            parent.children(obj);
-        }
-        
-   		return obj;
-	};
+    return hs('HsObject');
 });
 ;
 /**
@@ -1076,95 +1157,6 @@ angular.module('hs').factory('HsObject', function HsObject(){
  */
 angular.module('hs').factory('hsUtil', function() {
     "use strict";    
-    
-/**
- * @ngdoc method
- * @name .#toDate
- * @methodOf hs.hsUtil
- * @param {String} str the string to convert to a data
- * @param {integer=} limitYear the year below which the century is corrected. Defaults to 1970.
- * @returns {Date} a new Date object parsed from `str`.
- * @description returns a new Date object parsed from `str` and corrects for a difference in 
- * interpreting centuries between webkit and mozilla in converting strings to Dates:
- * The string "15/7/03" will convert to Jul 15 1903 in Mozilla and July 15 2003 in Webkit.
- * If `limitYear` is not specified this method uses 1970 as the decision date: 
- * years 00-69 will be interpreted as 2000-2069, years 70-99 as 1970-1999.
- */
-	function toDate(str, limitYear) {
-	    limitYear = limitYear || 1970;
-		var d = new Date(str),
-			yy = d.getFullYear();				// to correct for century difference between Webkit and Firefox
-		if (yy<limitYear) { d.setFullYear(yy+100); }	// for short years in strings such as '1/1/14'
-		return d;
-	}
-    
-/**
- * @ngdoc method
- * @name .#getType
- * @methodOf hs.hsUtil
- * @param {Object} sample .
- * @returns {String} the type ('float', 'date', 'percent', 'categorical') corresponding to the sample
- * @description determines the data type. Supported types are
-* 'date':   sample represents a Date, either as a Date object or a String 
-* 'float':  sample represents a floating point number
-* 'percent': sample represents a percentage
-* 'categorical': sample represents a categorical value
- */
-    function getType(sample) {
-        if (sample!=="") {
-            if (sample instanceof Date) { return 'date'; }  // if sample is already a date:
-            if (!isNaN(sample))         { return 'float'; }
-
-            var d = toDate(sample);
-            if (d instanceof Date) { // sees ints as valid dates
-                if (!isNaN(d)) {
-                    if (d.getFullYear()>1900) { return 'date'; }
-                }
-            }
-
-//            if (!isNaN(parseFloat(sample))) { return 'float'; }
-            if (typeof sample === 'string' || sample instanceof String) { 
-                if (sample.indexOf('%') === sample.length-1) {
-                    if (!isNaN(parseFloat(sample))) { return 'percent'; }
-                }
-                if (!isNaN(+sample)) { return 'float'; }
-                switch (sample.toLowerCase()) {
-                    case "": break;
-                    case "null": break;
-                    case "#ref!": break;
-                    default: if (sample.length>0) { return 'categorical'; }
-                }
-            }
-        }
-        return null;
-    }
-        
-/**
- * @ngdoc method
- * @name .#castData
- * @methodOf hs.hsUtil
- * @param {String} type ['date' | 'percent' | 'float' | _any_] The type to cast into. In case of _any_, no casting occurs.
- * @param {Float} sample The value to cast.
- * @returns {Object} The result of the cast. 
- * @description Casts the sample to the specified data type.
- */
-    function castData(type, sample) {
-        var n;
-        switch (type) {
-            case 'date':    n = toDate(sample);
-                            if (isNaN(n.getTime())) { n = null; }
-                            break;
-            case 'percent': n = parseFloat(sample)/100;
-                            if (isNaN(n)) { n = null; }
-                            break;
-            case 'float':   n = parseFloat(sample); 
-                            if (isNaN(n)) { n = null; }
-                            break;
-            default:        n = sample;
-        }
-        return n;
-     }
-
 /**
  * @ngdoc method
  * @name .#doubleClick
@@ -1191,9 +1183,6 @@ angular.module('hs').factory('hsUtil', function() {
     }
 
     return {
-        toDate:         toDate,
-        getType:        getType,
-        castData:       castData,
         doubleClick:    doubleClick,
         animationDuration: 250
     };

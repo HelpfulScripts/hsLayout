@@ -7,28 +7,10 @@ NG_DOCS={
       "section": "api",
       "id": "hs",
       "shortName": "hs",
-      "type": "overview",
-      "moduleName": "hs",
-      "shortDescription": "Helpful Scripts utility services",
-      "keywords": "api helpful hs overview scripts services utility"
-    },
-    {
-      "section": "api",
-      "id": "hs.hsUtil",
-      "shortName": "hs.hsUtil",
-      "type": "service",
-      "moduleName": "hs",
-      "shortDescription": "Provides some shared utility functions",
-      "keywords": "_any_ api called calls case cast castdata casting casts categorical centuries century click convert converting corrected corrects corresponding data dates decision defaults detects determines difference double double-click double-tap doubleclick event events float floating function functions gettype handler hs hsutil interpreted interpreting jul july limityear method mouseup mozilla number object occurs parsed percent percentage point reacts represents result returns sample service shared str string strings supported todate touchend type types utility webkit year years"
-    },
-    {
-      "section": "api",
-      "id": "hs.object.HsConfigurable",
-      "shortName": "hs.object.HsConfigurable",
       "type": "object",
-      "moduleName": "hs.object",
-      "shortDescription": "inherits from HsObject and provides for a basic configuration mechanism;",
-      "keywords": "add adds allows angular api attrs basic call callback called calling calls category cb cfg cfgsave chaining child color completed configuration configure consists console data directive doubles ele example file function green hs hscfgsave hsconfigurable hsexample hsobject html inherits js json jsonfile key key1 key2 label link list literal loading log mechanism method module mylabel myname notation obj obj1 object pairs parameter parameters parent provided range replace replaces restrict result return returns save script setup specifies stringify type url value1 value2 var"
+      "moduleName": "hs",
+      "shortDescription": "Provides a registry for modules. ",
+      "keywords": "access api calling construct hs instance module modules object register registry"
     },
     {
       "section": "api",
