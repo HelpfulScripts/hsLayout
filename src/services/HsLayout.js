@@ -10,7 +10,7 @@
  * </pre>
  * @todo ...
  */
-angular.module('hsWidgets').factory('HsLayout', ['HsConfigurable', function HsComponentFactory(HsConfigurable) {
+angular.module('hsWidgets').factory('HsLayout', ['HsConfigurable', function HsLayout(HsConfigurable) {
     "use strict";
     
     function setCSS(widget) {
@@ -45,6 +45,9 @@ angular.module('hsWidgets').factory('HsLayout', ['HsConfigurable', function HsCo
                 } 
                 setCSS(widget);
             }
+        };
+        obj.containerSize = function(elem) {            
+            return [parseInt(elem.css('width')), parseInt(elem.css('height'))];
         };
         return obj;
     };

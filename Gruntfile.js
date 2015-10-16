@@ -45,7 +45,7 @@ module.exports = function(grunt) {
 				sourceMap: false
 			},
 			js: {
-				src: ['src/init/*.js', 'src/**/*.js', 'lib/hs/hs.js', '!src/hide/*.js'],
+				src: ['src/init/*.js', 'src/**/*.js', 'lib/hs/*.js', '!src/hide/*.js'],
 				dest: 'dist/<%= pkg.name %>.js'
 			},
 			less: {
@@ -139,8 +139,12 @@ module.exports = function(grunt) {
                 tasks: ['makeAll']
             },
             hs: {
-                files: ['lib/hs/hs.js'],
+                files: ['lib/hs/*.js'],
                 tasks: ['makeAll']
+            },
+            test: {
+                files: ['test/unit/*.js'],
+                tasks: ['test']
             }
 		}
 	});

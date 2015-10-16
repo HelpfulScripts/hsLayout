@@ -36,19 +36,22 @@ angular.module('hsWidgets').directive('hsMaximizable', ['hsUtil', function(util)
 
     var gEasing   = 'swing';  
 
-    function maximizeWindow(scope, widget) {
+    function maximizeWindow(scope, elem) {
+        var widget = elem[0];
         var animate = true;
         return function() {
             var t = widget.style.top, l = widget.style.left, r = widget.style.right, b = widget.style.bottom;
-            var w = widget.style.width, h = widget.style.height;
+            var w = widget.style.width, h = widget.style.height, s = elem.css('font-size');
             var size;
             if (widget.org) {        // shrink widget to original size     
                 size = widget.org;  
                 widget.org = undefined;
                 $(widget).removeClass('hs-widget-in-front');         
             } else {                // maximize widget to fill screen
-                size = {left: '0%'};  
-                widget.org = {};
+                var ps = [window.innerWidth/parseInt(elem.css('width')), window.innerHeight/parseInt(elem.css('height'))];
+                var px = parseInt(s);
+                size = {left: '0%', "font-size": + px*Math.max(ps[0], ps[1]) + 'px'};  
+                widget.org = { "font-size": s};
                 if (b!=='' && b!=='auto') { widget.org.bottom = b; size.bottom = '0%'; } 
                 if (r!=='' && r!=='auto') { widget.org.right = r; size.right = '0%'; }
                 if (t!=='' && t!=='auto') { widget.org.top = t; size.top = '0%'; } 
@@ -93,7 +96,7 @@ angular.module('hsWidgets').directive('hsMaximizable', ['hsUtil', function(util)
         replace: false,
         controller: 'hsMoveableCtrl',
         link: function link(scope, elem) {
-            $(elem).on('touchend mouseup', doubleClick(maximizeWindow(scope, elem[0])));
+            $(elem).on('touchend mouseup', doubleClick(maximizeWindow(scope, elem)));
         }
     };
 }]);

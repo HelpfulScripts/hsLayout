@@ -121,9 +121,26 @@ See also the description of attribute options in {@link hsWidgets.directive:hsLa
  */
 angular.module('hsWidgets').factory('HsColumnsLayout', ['HsLayout', function HsComponentFactory(HsLayout) {
     "use strict";
-    
-    return function(widths) {
-        function layItOut(widgets) {
+
+    var unit = "%";
+    var firstWidthSet = false;
+    var lastWidthSet  = false;
+/*    
+    function setPercent(widgets, max, num, calcWidths) {
+        var sumWidth = 0;
+        var defWidth = max/num;
+        var numWidgets = widgets.length;
+        for (var i=0; i<numWidgets; i++) { 
+            var width = calcWidths[i].width || defWidth;
+            $(widgets[i]).css('left', sumWidth+'%');
+            sumWidth += width;
+            if (i===numWidgets-1 && calcWidths[i].width == null) { $(widgets[i]).css('right', '0%'); }
+                             else { $(widgets[i]).css('width', width+'%'); }
+        }
+    }
+*/
+    function layItOut(widths) {
+        return function(widgets) {
             var numWidgets = widgets.length;
             var calcWidths = [];
             var i,j;
@@ -149,7 +166,7 @@ angular.module('hsWidgets').factory('HsColumnsLayout', ['HsLayout', function HsC
             }
             var defWidth;
             var sumWidth = 0;
-            if (unit==='%') {
+            if (unit==='%') { 
                 defWidth = max/num;
                 for (i=0; i<numWidgets; i++) { 
                     var width = calcWidths[i].width || defWidth;
@@ -157,7 +174,7 @@ angular.module('hsWidgets').factory('HsColumnsLayout', ['HsLayout', function HsC
                     sumWidth += width;
                     if (i===numWidgets-1 && calcWidths[i].width == null) { $(widgets[i]).css('right', '0%'); }
                                      else { $(widgets[i]).css('width', width+'%'); }
-                }
+                }                
             } else {  // units === px
                 defWidth = 100.0/numWidgets;
                 var startPattern = true;
@@ -188,8 +205,8 @@ angular.module('hsWidgets').factory('HsColumnsLayout', ['HsLayout', function HsC
                     while (j>=Math.max(0,i-1)) { 
                         if (startPattern) { // so far, all widths explicitely set as px
                             if (!firstWidthSet) { 
-//                                $(widgets[j]).css('left', 'auto'); 
-//                                $(widgets[j]).css('width', ''); 
+    //                                $(widgets[j]).css('left', 'auto'); 
+    //                                $(widgets[j]).css('width', ''); 
                             }
                             $(widgets[j]).css('right', sumWidth + 'px');
                             if (calcWidths[j].width === null) {
@@ -211,22 +228,23 @@ angular.module('hsWidgets').factory('HsColumnsLayout', ['HsLayout', function HsC
                     }
                 }
             }
-        }
-
+        };
+    }
+    
+    return function(widths) {
         var obj = new HsLayout("HsColumnsLayout");
-        obj.layItOut      = layItOut;
-        var unit = "%";
-        var firstWidthSet = false;
-        var lastWidthSet  = false;
         if (widths.indexOf('px') >= 0) { unit = 'px'; }
         widths = widths.replace(',,', ',"",').replace(',,', ',"",').
                         replace('[,', '["",').replace(',]', ',""]').
                         replace('%','').replace('px','');        
         widths = JSON.parse(widths); 
+
         var len = widths.length-1;
         if (widths[0] && widths[0]!=="") { firstWidthSet = true; }          
         if (len>0 && widths[len] && widths[len]!=="") { lastWidthSet = true; }          
         for (var i=0; i<=len; i++) { widths[i] = parseFloat(widths[i]); }
+
+        obj.layItOut = layItOut(widths);
         return obj;
     };
 }]);

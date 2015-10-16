@@ -87,6 +87,11 @@ angular.module('hsWidgets').directive('hsLayout', ['HsTileLayout', 'HsColumnsLay
         controller: function($scope, $element) {
             $scope.layItOut = function() { 
                 if ($scope.layout) { $scope.layout.layItOut(getChildren($element)); }
+                if (!$scope.$parent || !$scope.$parent.layItOut) {
+                    var px = Math.min(parseInt($element.css('width')), parseInt($element.css('height')));
+                    px /= 30;
+                    $($element).css('font-size', px+'px');
+                }
             };
         },
         link: function link(scope, elem, attrs) {
@@ -108,15 +113,16 @@ angular.module('hsWidgets').directive('hsLayout', ['HsTileLayout', 'HsColumnsLay
             var fillLastColumn = (attrs.hsFillLastCol !== undefined);
             var lm;
             switch(type) {
-                case 'columns': lm = new HsColumnsLayout(dims); break;
-                case 'rows':    lm = new HsRowsLayout(dims); break;
-                case 'tiles':   lm = new HsTileLayout(fillLastColumn); break;
-                case 'relative':lm = new HsRelativeLayout(); break;
-                default:        lm = new HsTileLayout(fillLastColumn);
+                case 'columns': lm = new HsColumnsLayout(dims, elem); break;
+                case 'rows':    lm = new HsRowsLayout(dims, elem); break;
+                case 'tiles':   lm = new HsTileLayout(fillLastColumn, elem); break;
+                case 'relative':lm = new HsRelativeLayout(elem); break;
+                default:        lm = new HsTileLayout(fillLastColumn, elem);
             }
             scope.layout = lm;
-            if (scope.$parent &&scope.$parent.layout) { scope.$parent.layItOut(); }
-            scope.layItOut();
+            var base = scope;
+//            while (base.$parent && base.$parent.layItOut) { base = base.$parent; }
+            base.layItOut();
         }
     };
 }]);
