@@ -45,7 +45,7 @@ module.exports = function(grunt) {
 				sourceMap: false
 			},
 			js: {
-				src: ['src/init/*.js', 'src/**/*.js', 'lib/hs/*.js', '!src/hide/*.js'],
+				src: ['lib/hs/hsng.js', 'lib/hs/hs.js', 'src/init/*.js', 'src/**/*.js', '!src/hide/*.js'],
 				dest: 'dist/<%= pkg.name %>.js'
 			},
 			less: {
@@ -168,7 +168,7 @@ module.exports = function(grunt) {
     grunt.registerTask('test', ['karma']);
 
 	// Default task.
-	grunt.registerTask('makeAll', ['jshint', 'clean', 'concat', 'less', 'cssmin', 'uglify', 'copy', 'ngdocs']);
+	grunt.registerTask('makeAll', ['jshint', 'test', 'clean', 'concat', 'less', 'cssmin', 'uglify', 'copy', 'ngdocs']);
     grunt.registerTask('default', ['makeAll']);
 
 };
