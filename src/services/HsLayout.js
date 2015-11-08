@@ -23,12 +23,12 @@ angular.module('hsLayout').factory('HsLayout', ['HsConfigurable', function HsLay
     return function(type) {    
         var obj = new HsConfigurable(type);
         obj.setWidgetPos  = function() {
-            console.log("HsLayout is an abstract base class. Select a different layout.");
-            return ['0','0'];
+            throw "HsLayout is an abstract base class. Select a different layout.";
+//            return ['0','0'];
         };
         obj.setWidgetSize = function() {
-            console.log("HsLayout is an abstract base class. Select a different layout.");
-            return ['100%','100%'];
+            throw "HsLayout is an abstract base class. Select a different layout.";
+//            return ['100%','100%'];
         };
         obj.layItOut =function layItOut(widgets) {
             for (var w=0; w<widgets.length; w++) {
