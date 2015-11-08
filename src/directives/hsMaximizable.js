@@ -60,12 +60,13 @@ angular.module('hsLayout').directive('hsMaximizable', ['hsUtil', function(util) 
                 if (h!=='' && h!=='auto') { widget.org.height = h; size.height = '100%'; } 
                 $(widget).addClass('hs-widget-in-front');  
             }
+/* istanbul ignore else: untestable */
             if (animate) {
                 $(widget).animate(size, util.animationDuration, gEasing, function() {
                     scope.$broadcast('hs-resize-end', size);
                 });       
                 scope.$broadcast('hs-resize-begin', size);
-            } else {
+            } else { 
                 scope.$broadcast('hs-resize-begin', size);
                 $(widget).css(size);
                 scope.$broadcast('hs-resize-end', size);
