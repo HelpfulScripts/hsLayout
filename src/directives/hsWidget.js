@@ -76,8 +76,9 @@ angular.module('hsLayout').directive('hsWidget', function() {
             $(elem).addClass('hs-widget-container');
             elem[0].cfgSize = getVal(attrs['hsSize'], []);
             elem[0].cfgPos = getVal(attrs['hsPos'], []);
+/* istanbul ignore else: untestable */            
             if (controller) { scope.layItOut(); }
-            else { console.log('no layout controller found in widget'); }
+            else { throw 'no layout controller found in widget'; }
         }
     };
 });
