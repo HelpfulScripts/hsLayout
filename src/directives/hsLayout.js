@@ -8,18 +8,19 @@
 #Attributes
 All attributes are optional except where marked as required. For emphasis, optional attributes
 are wrapped in square brackets: `[...]`. When optional, the default value is <u>underlined</u>.
-- [**hs-type** = '<u>tiles</u> | columns | rows']
+- [**hs-type** = '<u>tiles</u> | columns | rows | relative']
     sets the type of layout. For options see below
-- [**hs-tiles**] create a {@link hsLayout.object.HsTileLayout tile layout}
+- [**hs-tiles**] alternative to `hs-type=tiles`; creates a {@link hsLayout.object.HsTileLayout tile layout}
 - [**hs-columns='[<i>Array</i>, ]'**] 
     Please see {@link hsLayout.object.HsColumnsLayout columns layout} on avaliable options for `Array`
 - [**hs-rows='[<i>Array</i>, ]'**] 
     Please see {@link hsLayout.object.HsRowsLayout rows layout} on avaliable options for `Array`
+- [**hs-relative**] create a {@link hsLayout.object.HsRelativeLayout relative layout}
 - [**hs-fill-last-col**] applies to tile layout only; if specified, the last colum of tiles are stretched horizontally 
     to fill the remaining space.
 
 @example
-#Autmatic laoyout of widgets
+#Autmatic layout of widgets
 <example module="hsLayout">
     <file name="index.html">
         <div style="height: 300px; padding:0;">
@@ -87,11 +88,16 @@ angular.module('hsLayout').directive('hsLayout', ['HsTileLayout', 'HsColumnsLayo
         controller: function($scope, $element) {
             $scope.layItOut = function() { 
                 if ($scope.layout) { $scope.layout.layItOut(getChildren($element)); }
+/*                
                 if (!$scope.$parent || !$scope.$parent.layItOut) {
-                    var px = Math.min(parseInt($element.css('width')), parseInt($element.css('height')));
+                    var px = Math.max(parseInt($element.css('width')), parseInt($element.css('height')));
                     px /= 30;
+var parent = $($element).parent(); 
+console.log(parent);
+console.log('h=' + parent.css('width') + ', ' + parent.css('top') + ', ' + parent.css('bottom') + ', ' + parent.css('left') + ', ' + parent.css('right') + ', ' + px);                    
                     $($element).css('font-size', px+'px');
-                }
+                } 
+*/                
             };
         },
         link: function link(scope, elem, attrs) {
@@ -113,11 +119,11 @@ angular.module('hsLayout').directive('hsLayout', ['HsTileLayout', 'HsColumnsLayo
             var fillLastColumn = (attrs.hsFillLastCol !== undefined);
             var lm;
             switch(type) {
-                case 'columns': lm = new HsColumnsLayout(dims, elem); break;
-                case 'rows':    lm = new HsRowsLayout(dims, elem); break;
-                case 'tiles':   lm = new HsTileLayout(fillLastColumn, elem); break;
-                case 'relative':lm = new HsRelativeLayout(elem); break;
-                default:        lm = new HsTileLayout(fillLastColumn, elem);
+                case 'columns': lm = new HsColumnsLayout(dims); break;
+                case 'rows':    lm = new HsRowsLayout(dims); break;
+                case 'tiles':   lm = new HsTileLayout(fillLastColumn); break;
+                case 'relative':lm = new HsRelativeLayout(); break;
+                default:        lm = new HsTileLayout(fillLastColumn);
             }
             scope.layout = lm;
             var base = scope;
