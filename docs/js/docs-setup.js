@@ -5,12 +5,21 @@ NG_DOCS={
   "pages": [
     {
       "section": "api",
-      "id": "hs",
-      "shortName": "hs",
+      "id": "hs.hs",
+      "shortName": "hs.hs",
       "type": "object",
       "moduleName": "hs",
-      "shortDescription": "Provides a registry for modules. ",
-      "keywords": "access api calling construct hs instance module modules object register registry"
+      "shortDescription": "Provides a registry for modules, as well as a simpe injection mechanism that",
+      "keywords": "allows angular angular-style angularjs api array browser called calling dependencies element eliminates environments equivalent fashion fn function global hs injected injection injects invoke invokes mechanism module modules myexample myinstance mymodule myothermodule object parameters pattern register registered registers registry required result simpe usage var"
+    },
+    {
+      "section": "api",
+      "id": "hs.object.HsConfigurable",
+      "shortName": "hs.object.HsConfigurable",
+      "type": "object",
+      "moduleName": "hs.object",
+      "shortDescription": "inherits from HsObject and provides for a basic configuration mechanism;",
+      "keywords": "add adds allows angular api attrs basic call callback called calling calls category cb cfg chaining child color completed configuration configure consists console data directive doubles ele example file function green hs hsconfigurable hsexample hsobject html inherits js json jsonfile key key1 key2 label link list literal loading log mechanism method module mylabel myname notation obj obj1 object pairs parameter parameters parent provided range replace replaces restrict result return returns script setup specifies stringify type url value1 value2 var"
     },
     {
       "section": "api",
@@ -19,7 +28,7 @@ NG_DOCS={
       "type": "object",
       "moduleName": "hs.object",
       "shortDescription": "Base class for all HelpfulScripts objects.",
-      "keywords": "addition adds api array base category child children class current function generates helpfulscripts hs hsobject identical list maintaining obj1 obj2 object objects parameter parent remove removed removes result retrieves returned returns sets specific specifies string sub-arrays true-ish type var"
+      "keywords": "addition adds api array base called category chaining child children class current function generates helpfulscripts hs hsobject identical list maintaining newname obj1 obj2 object objects paramenter parameter parent provided remove removed removes result retrieves returned returns sets specific string sub-arrays true-ish type unspecified var"
     },
     {
       "section": "api",
@@ -46,7 +55,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "hsLayout",
       "shortDescription": "hs-layout directive. Establishes a space in which",
-      "keywords": "api applies array attributes autmatic avaliable background-color border brackets center class colum columns create css default directive eef emphasis establishes fafafa ffe fill height horizontally hs-fill-last-col hs-layout hs-pos hs-size hs-widget hs-widget-pane hscolumnslayout hslayout hsrowslayout hstilelayout html laoyout layout live manual marked module myheight object optional options padding position relative remaining required rows sets solid space square stretched style text-align tile tiles type widgets wrapped"
+      "keywords": "alternative api applies array attributes autmatic avaliable background-color border brackets center class colum columns create creates css default directive eef emphasis establishes fafafa ffe fill height horizontally hs-fill-last-col hs-layout hs-pos hs-size hs-type hs-widget hs-widget-pane hscolumnslayout hslayout hsrelativelayout hsrowslayout hstilelayout html layout live manual marked module myheight object optional options padding position relative remaining required rows sets solid space square stretched style text-align tile tiles type widgets wrapped"
     },
     {
       "section": "api",

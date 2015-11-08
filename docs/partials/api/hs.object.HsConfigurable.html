@@ -1,0 +1,103 @@
+<a href="https://github.com/HelpfulScripts/hsLayout.git/edit/master/lib/hs/hs.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/HelpfulScripts/hsLayout.git/blob/84b184f/lib/hs/hs.js#L105" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">HsConfigurable</code>
+<div><span class="hint">service in module <code ng:non-bindable="">hs.object</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="hs-object-hsconfigurable-page"><p>inherits from <a href="#/api/hs.object.HsObject">HsObject</a> and provides for a basic configuration mechanism;</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><pre class="prettyprint linenums">HsConfigurable(type, name[, parent]);</pre>
+<h4 id="usage_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>type</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="hs-object-hsconfigurable-page"><p>the object type or category</p>
+</div></td></tr><tr><td>name</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="hs-object-hsconfigurable-page"><p>the object name</p>
+</div></td></tr><tr><td>parent <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-hsobject">HsObject</a></td><td><div class="hs-object-hsconfigurable-page"><p>If specified, adds this HsObject as a child to the parent.</p>
+</div></td></tr></tbody></table></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><a href="https://github.com/HelpfulScripts/hsLayout.git/blob/84b184f/lib/hs/hs.js#L233" class="view-source icon-eye-open"> </a><h3 id="methods_cfg">cfg(d, cb)</h3>
+<div class="cfg"><div class="cfg-page"><p>Configuration function that doubles as a configuration object.
+This object consists of a list of key/value pairs in object literal notation:
+<pre class="prettyprint linenums">    { key1: value1, key2: value2, ...} </pre>
+<h4 id="methods_cfg_object-literal-configuration">Object Literal configuration</h4>
+<p>Calling cfg({...}) with an <em>object literal</em> adds or replaces the provided keys in the configuration object.
+Calling cfg(&quot;...&quot;) with a <em>string</em> returns the value of the specified key.
+Calling cfg() without a parameter returns the configuration object. </p>
+</div><h5 id="methods_cfg_object-literal-configuration_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>d <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="cfg-page"><p>specifies a JSON file or an Object literal containing key value pairs to add or replace in the cfg object.</p>
+</div></td></tr><tr><td>cb <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function</a></td><td><div class="cfg-page"><p>a callback function to call when loading of the configuration is completed.</p>
+</div></td></tr></tbody></table><h5 id="methods_cfg_object-literal-configuration_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-hsobject">HsObject</a></td><td><div class="cfg-page"><p>the configuration <a href="#/api/hs.object.HsObject">HsObject</a> when called without parameter, otherwise the HsObject itself.
+This allows chaining of method calls during setup.</p>
+</div></td></tr></table><h4 id="methods_cfg_example">Example</h4>
+<div class="example"><div class="cfg-page"><p>See <code>script.js</code> in the following example for 
+<h6 id="methods_cfg_example_source">Source</h6>
+<div source-edit="hs" source-edit-deps="angular.js script.js" source-edit-html="index.html-28" source-edit-css="" source-edit-js="script.js-27" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div class="tabbable"><div class="tab-pane" title="index.html">
+<pre class="prettyprint linenums" ng-set-text="index.html-28" ng-html-wrap-loaded="hs angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html-28">
+    <hs-example>           
+    </hs-example>
+  </script>
+</div>
+<div class="tab-pane" title="script.js">
+<pre class="prettyprint linenums" ng-set-text="script.js-27"></pre>
+<script type="text/ng-template" id="script.js-27">
+  angular.module('hs').directive('hsExample', ['HsConfigurable', function(HsConfigurable){
+        return {
+            restrict: 'E',
+            link: function(scope, ele, attrs) {
+                var result = "";
+                var o = new HsConfigurable().
+                    cfg({name: "myName", type: "myLabel"});
+                var cfg = o.cfg();
+                result += 'o.cfg().name = ' + o.cfg().name + '<br>';  
+                result += 'cfg.name = ' + cfg.name + '<br>';  
+                result += "o.cfg('name') = " + o.cfg('name') + '<br>';    
+                o.cfg().range = [-1, 1];
+                result += 'o.cfg().range[0] = ' + o.cfg().range[0] + '<br>'; 
+                result += "o.cfg('range')[0] = " + o.cfg('range')[0] + '<br>';
+                o.cfg({color: "green"});
+                result += 'o.cfg().name + o.cfg().color = ' + o.cfg().name + ' ' + o.cfg().color + '\n';      // > obj1
+                ele.html(result);
+            }
+        }; 
+  }]);
+  </script>
+</div>
+</div><h6 id="methods_cfg_example_demo">Demo</h6>
+<div class="well doc-example-live animate-container" ng-embed-app="hs" ng-set-html="index.html-28" ng-eval-javascript="script.js-27"></div>
+<h5 id="methods_cfg_example_json-file-configuration">JSON file configuration</h5>
+<p>Calling cfg(d) with a JSON file or JSON url will configure the object with the parameters from the JSON file. </p>
+</div></div>
+</div>
+</li>
+</ul>
+</div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="hs-object-hsconfigurable-page"><h4 id="example_source">Source</h4>
+<div source-edit="hs" source-edit-deps="angular.js script.js" source-edit-html="index.html-25" source-edit-css="" source-edit-js="script.js-26" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div class="tabbable"><div class="tab-pane" title="index.html">
+<pre class="prettyprint linenums" ng-set-text="index.html-25" ng-html-wrap-loaded="hs angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html-25">
+  <hs-example cfg='data/cfg.json'>           
+  </hs-example>
+</script>
+</div>
+<div class="tab-pane" title="script.js">
+<pre class="prettyprint linenums" ng-set-text="script.js-26"></pre>
+<script type="text/ng-template" id="script.js-26">
+  angular.module('hs').directive('hsExample', ['HsConfigurable', function(HsConfigurable) {
+      return {
+          restrict: 'E',
+          link: function(scope, ele, attrs) {
+              var jsonFile = attrs['cfg'];
+              var obj = new HsConfigurable();
+              obj.cfg(jsonFile, function(){
+                  ele.html(JSON.stringify(obj.cfg()));
+              });
+          }
+      }; 
+  }]);
+</script>
+</div>
+</div><h4 id="example_demo">Demo</h4>
+<div class="well doc-example-live animate-container" ng-embed-app="hs" ng-set-html="index.html-25" ng-eval-javascript="script.js-26"></div>
+</div></div>
+</div>
