@@ -125,41 +125,32 @@ angular.module('hsLayout').controller('hsMoveableCtrl', [function() {
     }
 
     /**
-     * @ngdoc event
-     * @name #mouseDown
-     * @eventOf hsLayout.controller:hsMoveableCtrl
-     * @description defines an move, size, or full-screen event-in-progress and shows the helper frame. 
+     * @description reacts to a mousedown event and starts a move, size, or full-screen event, showing the helper frame. 
      */
     function start(e) {
         if (gStart == null) {   // if no event in progress:
             var widget = $(e.target).closest('.hs-widget-container');
-            var x = (e.offsetX || e.clientX - $(e.target).offset().left),
-                y = (e.offsetY || e.clientY - $(e.target).offset().top);
+            var x = (e.offsetX || (e.clientX - $(e.target).offset().left)),
+                y = (e.offsetY || (e.clientY - $(e.target).offset().top));
             var action = getEventType(x, y, get(widget, 'width'), get(widget, 'height'), gRadius);
             if (action) {
                 gStart = { x:e.pageX, y:e.pageY, widget:widget, action: action };
                 startEvent(gStart);
-                if (action === 'toggleFullScreen') { end(); }
+//                if (action === 'toggleFullScreen') { end(); }
             }
             e.preventDefault();
         }
     }
 
     /**
-     * @ngdoc event
-     * @name #mouseMove
-     * @eventOf hsLayout.controller:hsMoveableCtrl
-     * @description if an event is in progress, then adjusts the position or size of the widget
+     * @description reacts to mousemove events; if a widget event is in progress, then adjusts the position or size of the widget
      */
     function move(e) {
         if (gStart != null) { setPosSize(gStart, e.pageX-gStart.x, e.pageY-gStart.y); }
     }
 
     /**
-     * @ngdoc event
-     * @name #mouseUp
-     * @eventOf hsLayout.controller:hsMoveableCtrl
-     * @description hides the helper frame and clears the move in progress.
+     * @description reacts to a mouseup event; hides the helper frame and clears the move in progress.
      * Also, the time of latest mouseUp is used to determine a double click
      */
     function end(/*e*/) {
