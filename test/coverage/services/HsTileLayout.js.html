@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for services/HsTileLayout.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../prettify.css">
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">services/HsTileLayout.js</span></h1>
+    <h2>
+        Statements: <span class="metric">100% <small>(41 / 41)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">81.25% <small>(13 / 16)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(4 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">100% <small>(37 / 37)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">services/</a> &#187; HsTileLayout.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">147</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">65</span>
+<span class="cline-any cline-yes">65</span>
+<span class="cline-any cline-yes">65</span>
+<span class="cline-any cline-yes">65</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">65</span>
+<span class="cline-any cline-yes">65</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">54</span>
+<span class="cline-any cline-yes">54</span>
+<span class="cline-any cline-yes">54</span>
+<span class="cline-any cline-yes">54</span>
+<span class="cline-any cline-yes">54</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">54</span>
+<span class="cline-any cline-yes">54</span>
+<span class="cline-any cline-yes">36</span>
+<span class="cline-any cline-yes">36</span>
+<span class="cline-any cline-yes">36</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">54</span>
+<span class="cline-any cline-yes">54</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * @ngdoc object
+ * @name hsLayout.object.HsTileLayout
+ * @requires hsLayout.object.HsLayout
+ * @description Extends {@link hsLayout.object.HsLayout HsLayout}.
+ * Tile layout fits widgets into equal sized tiles from left to right, and top to bottom.
+ * Tiles are arranged in square-like fashion that extend first horizontally, then vertically.
+ * The width of the last widget in each row is set to fit the remnaining container width.
+ * &lt;h2&gt;cfg options:&lt;/h2&gt;&lt;pre&gt;
+ * &lt;/pre&gt;
+ * @todo ...
+@example
+Shows how a tile layout works as the number of tiles grow.
+&lt;example module="hsLayout"&gt;
+    &lt;file name="index.html"&gt;
+        &lt;div ng-controller="myCtrl" style="height:300px"&gt;
+            &lt;hs-layout hs-tile hs-fill-last-col&gt;
+                &lt;hs-widget ng-repeat="w in widgets" class='repeated-item'&gt;
+                    &lt;div&gt;{{w}}&lt;/div&gt;
+                &lt;/hs-widget&gt;
+            &lt;/hs-layout&gt;
+        &lt;/div&gt;
+    &lt;/file&gt;
+    &lt;file name="style.css"&gt;
+        .well       { position: relative; padding:0; }
+        hs-layout   { background-color: #fafafa; }
+        .hs-widget-pane   { 
+            background-color: #ffe; 
+            border: 1px solid #888; 
+            text-align: center;
+        } 
+        .repeated-item.ng-enter, .repeated-item.ng-move {
+            transition:0.2s linear all;
+            opacity:0;
+        }
+        .repeated-item.ng-enter.ng-enter-active,.repeated-item.ng-move.ng-move-active {
+            opacity:1;
+        }
+    &lt;/file&gt;
+    &lt;file name="script.js"&gt;
+        angular.module('hsLayout').controller('myCtrl', ['$scope', '$interval', function myCtrl($scope, $interval){
+            var i = -1;
+            $interval(function(){
+                i++;
+                if (i===0) { $scope.widgets = ['first'];}
+                else if (i&lt;17)  { $scope.widgets.push(i+''); }
+                else { 
+                    $scope.widgets = [];
+                    i=-1;
+                }                
+            }, 1000);
+        }]);
+    &lt;/file&gt;
+&lt;/example&gt;
+ */
+angular.module('hsLayout').factory('HsTileLayout', ['HsLayout', function HsComponentFactory(HsLayout) {
+    "use strict";
+    
+    return function(fillLastColumn) {
+        function setWidgetPos(i, widgets) {
+            var units = ['%','%'];
+            var widget = widgets[i];
+            var pos = [0,0];
+            if (i&gt;0) {
+                var w = widgets[i-1];
+                var wpos = w.calcPos;
+                var wsiz = w.calcSize;
+                var siz = widget.calcSize;
+                units[0] = siz[0].indexOf('px')&gt;0? <span class="branch-0 cbranch-no" title="branch not covered" >'px' </span>: '%';
+                units[1] = siz[1].indexOf('px')&gt;0? <span class="branch-0 cbranch-no" title="branch not covered" >'px' </span>: '%';
+                pos[0] = parseFloat(wpos[0]) + parseFloat(wsiz[0]);
+                pos[1] = parseFloat(wpos[1]);
+    
+                if (pos[0]+parseFloat(siz[0]) &gt; 100) {
+                    pos[0] = 0; pos[1] += parseFloat(wsiz[1]);
+                }
+            }
+            pos[0] += units[0]; pos[1] += units[1];
+            return pos;
+        }
+        
+        function setWidgetSize(i, widgets) {
+            var root = Math.sqrt(widgets.length);
+            var rows = parseInt(Math.round(root));
+            var cols = parseInt(root);
+            if (root &gt; cols) { cols++; }
+            var size = [parseInt(100/cols), parseInt(100/rows)];
+            
+            // if last col: adjust width to remainin gsize
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (fillLastColumn) {
+                if (i%cols === cols-1 || i === widgets.length-1) {
+                    var i0 = Math.floor(i/cols)*cols;
+                    size[0] = 100;
+                    for (var w=i0; w&lt;i; w++) {
+                        size[0] -= parseInt(widgets[w].calcSize[0]); 
+                    }
+                }
+            }
+            size[0] += '%'; size[1] += '%';
+            return size;
+        }
+        
+        var obj = new HsLayout("HsTileLayout");
+        obj.setWidgetPos  = setWidgetPos;
+        obj.setWidgetSize = setWidgetSize;
+        return obj;
+    };
+}]);
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Nov 07 2015 18:44:05 GMT-0800 (PST)</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

@@ -25,7 +25,7 @@ describe("factory: HsColumnLayout", function() {
             expect(scope.layout).toBeDefined();
             layout = scope.layout;
         });
-        
+       
         describe('the widgets', function() {
             it('should be 3', function() {
                 expect(widgets.length).toBe(3);

@@ -20,28 +20,38 @@ module.exports = function(config) {
       './lib/angularjs/1.3.5/angular.js',
       './lib/angularjs/1.3.5/angular-touch.js',
       './lib/angularjs/1.3.5/angular-mocks.js',
+      './lib/hs/hsng.js',
+      './lib/hs/hs.js',
       
       // hsLayout code
-      'dist/hsLayout.js',
-      'test/unit/*.js'
+      './dist/hsLayout.css',
+      './src/init/*.js',
+      './src/**/*.js',
+      './test/unit/*.js'
     ],
 
 
     // list of files to exclude
-    exclude: [
-    ],
+    exclude: [ ],
 
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+        './src/**/*.js': ['coverage']
     },
 
+    coverageReporter: {
+      type : 'html',
+      dir : 'test/coverage/',
+      subdir: '.',
+      includeAllSources: true
+    },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
 
 
     // web server port
@@ -58,7 +68,7 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
+    autoWatch: false,
 
 
     // start these browsers
@@ -68,6 +78,6 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: true
   });
 };
