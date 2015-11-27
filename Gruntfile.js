@@ -168,7 +168,7 @@ module.exports = function(grunt) {
     grunt.registerTask('test', ['karma']);
 
 	// Default task.
-	grunt.registerTask('makeAll', ['jshint', 'test', 'clean', 'concat', 'less', 'cssmin', 'uglify', 'copy', 'ngdocs']);
+	grunt.registerTask('makeAll', ['jshint', 'clean', 'concat', 'less', 'cssmin', 'uglify', 'copy', 'ngdocs', 'test']);
     grunt.registerTask('default', ['makeAll']);
 
 };
