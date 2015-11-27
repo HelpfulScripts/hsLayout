@@ -19,8 +19,13 @@ are wrapped in square brackets: `[...]`. When optional, the default value is <u>
     <file name="index.html">
         <div style="height: 300px; padding:0; ">
             <hs-layout hs-moveable grid='20'>
-                <hs-widget hs-size='["50%", "50%"]'>
+                <hs-widget>
                     <br>1
+                    <br>Move me along the top.
+                    <br>Size me from the corners.
+                </hs-widget>
+                <hs-widget>
+                    <br>2
                     <br>Move me along the top.
                     <br>Size me from the corners.
                 </hs-widget>
