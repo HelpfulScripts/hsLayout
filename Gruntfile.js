@@ -92,6 +92,7 @@ module.exports = function(grunt) {
 				styles: [
 						  './dist/<%= pkg.name %>.css'
 				],
+				sourceLink: 'https://github.com/HelpfulScripts/hsLayout/blob/master/{{file}}#L{{codeline}}',
 				title: "<%= pkg.name %>",
 				bestMatch: true
 			},
