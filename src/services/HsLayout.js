@@ -2,7 +2,7 @@
  * @ngdoc object
  * @name hsLayout.object.HsLayout
  * @requires hs.object.HsConfigurable
- * @description Extends {@link hs.object.HsConfigurable HsConfigurable}.
+ * @description Extends {@link #hs/hs.object.HsConfigurable HsConfigurable}.
  * Standard layout: abstract base class. Override the functions obj.setWidgetPos and 
  * obj.setWidgetSize in layout instantiations. The layout only affects the `size` and `pos` 
  * fields of widgets that don't have them explicitely set.

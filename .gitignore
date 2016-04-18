@@ -1,5 +1,5 @@
 docs
 dist
 node_modules
-hide
-test/coverage/**
+extlib
+.DS_Store
