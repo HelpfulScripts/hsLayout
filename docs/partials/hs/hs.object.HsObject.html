@@ -1,0 +1,68 @@
+<a href="https://github.com/HelpfulScripts/hsLayout/blob/master/../hs/src/HsObject.js#L62" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">HsObject</code>
+<div><span class="hint">service in module <code ng:non-bindable="">hs.object</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="hs-object-hsobject-page"><p>Base class for all HelpfulScripts objects.
+Can be used with or without new.
+<pre class="prettyprint linenums">
+var HsObject = hs('HsObject');
+var Person = new HsObject('Person');
+var parent = new Person('John');
+var child  = HsObject('Person', 'Jane', parent);
+</pre>
+Objects derived from HsObject can be called as a function.
+Override <a href="#/hs/hs.object.HsObject#methods__outerfunction">_outerFunction</a> to customize behavior. 
+See <a href="#/hs/hs.object">hs.object overview</a> for an example.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage"><pre class="prettyprint linenums">HsObject(type[, name][, parent]);</pre>
+<h4 id="usage_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>type</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="hs-object-hsobject-page"><p>the object type or category</p>
+</div></td></tr><tr><td>name <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="hs-object-hsobject-page"><p>the object name</p>
+</div></td></tr><tr><td>parent <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-hsobject">HsObject</a></td><td><div class="hs-object-hsobject-page"><p>an optional parent object</p>
+</div></td></tr></tbody></table></div>
+<div class="member method"><h2 id="methods">Methods</h2>
+<ul class="methods"><li><a href="https://github.com/HelpfulScripts/hsLayout/blob/master/../hs/src/HsObject.js#L141" class="view-source icon-eye-open"> </a><h3 id="methods__outerfunction">_outerFunction(args)</h3>
+<div class="_outerfunction"><div class="-outerfunction-page"><p>implements the function that is called directly on an HsObject.
+See <a href="#/hs/hs.object">hs.object overview</a> for an example.</p>
+</div><h5 id="methods__outerfunction_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>args</td><td><a href="" class="label type-hint type-hint-object">[*]</a></td><td><div class="-outerfunction-page"><p>any arguments, passed in as an array</p>
+</div></td></tr></tbody></table></div>
+</li>
+<li><a href="https://github.com/HelpfulScripts/hsLayout/blob/master/../hs/src/HsObject.js#L85" class="view-source icon-eye-open"> </a><h3 id="methods_children">children(child, remove)</h3>
+<div class="children"><div class="children-page"><ul>
+<li>#.children() retrieves the list of children, </li>
+<li>#.children(<HsObject>child) adds a child to this parent and returns the child.</li>
+<li>#.children(<HsObject>child, true) removes a child from the parent and returns the child.</li>
+<li>#.children(<String>type) returns all children of the specified type.</li>
+</ul>
+</div><h5 id="methods_children_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>child <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-hsobject">HsObject</a><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="children-page"><p>object or type string.<pre class="prettyprint linenums">
+HsObject: `child` will be added as a child to this parent and the child returned.
+string: returns an array of all children of the specified type.
+Unspecified: returns an array of all current children 
+</pre>
+</div></td></tr><tr><td>remove <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-boolean">Boolean</a></td><td><div class="children-page"><p>if specified and true-ish, the specified <em>child</em> object will be removed
+from the list of children. If <em>child</em> is a type string, <em>remove</em> will have no effect.</p>
+</div></td></tr></tbody></table><h5 id="methods_children_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-hsobject">HsObject | [HsObject]</a></td><td><div class="children-page"><p>the child or the list of children;</p>
+</div></td></tr></table></div>
+</li>
+<li><a href="https://github.com/HelpfulScripts/hsLayout/blob/master/../hs/src/HsObject.js#L114" class="view-source icon-eye-open"> </a><h3 id="methods_getname">getName()</h3>
+<div class="getname"><div class="getname-page"><p>gets the name of the object.</p>
+</div><h5 id="methods_getname_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="getname-page"><p>the name of the object</p>
+</div></td></tr></table></div>
+</li>
+<li><a href="https://github.com/HelpfulScripts/hsLayout/blob/master/../hs/src/HsObject.js#L132" class="view-source icon-eye-open"> </a><h3 id="methods_gettype">getType()</h3>
+<div class="gettype"><div class="gettype-page"><p>sets or gets the name of the object.</p>
+</div><h5 id="methods_gettype_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-string">string | HsObject</a></td><td><div class="gettype-page"><p>the name of the object if called without paramenter,
+or the object itself for chaining.</p>
+</div></td></tr></table></div>
+</li>
+<li><a href="https://github.com/HelpfulScripts/hsLayout/blob/master/../hs/src/HsObject.js#L123" class="view-source icon-eye-open"> </a><h3 id="methods_setname">setName(newName)</h3>
+<div class="setname"><div class="setname-page"><p>sets the name of the object.</p>
+</div><h5 id="methods_setname_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>newName</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="setname-page"><p>sets a new name for the object.</p>
+</div></td></tr></tbody></table><h5 id="methods_setname_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-hsobject">HsObject</a></td><td><div class="setname-page"><p>the object itself for chaining.</p>
+</div></td></tr></table></div>
+</li>
+</ul>
+</div>
+</div>

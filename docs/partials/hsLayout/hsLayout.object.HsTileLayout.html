@@ -1,10 +1,10 @@
-<a href="https://github.com/HelpfulScripts/hsLayout.git/edit/master/src/services/HsTileLayout.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/HelpfulScripts/hsLayout.git/blob/84b184f/src/services/HsTileLayout.js#L56" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">HsTileLayout</code>
+<a href="https://github.com/HelpfulScripts/hsLayout/blob/master/src/services/HsTileLayout.js#L56" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">HsTileLayout</code>
 <div><span class="hint">service in module <code ng:non-bindable="">hsLayout.object</code>
 </span>
 </div>
 </h1>
 <div><h2 id="description">Description</h2>
-<div class="description"><div class="hslayout-object-hstilelayout-page"><p>Extends <a href="#/api/hsLayout.object.HsLayout">HsLayout</a>.
+<div class="description"><div class="hslayout-object-hstilelayout-page"><p>Extends <a href="#/hsLayout/hsLayout.object.HsLayout">HsLayout</a>.
 Tile layout fits widgets into equal sized tiles from left to right, and top to bottom.
 Tiles are arranged in square-like fashion that extend first horizontally, then vertically.
 The width of the last widget in each row is set to fit the remnaining container width.</p>
@@ -12,16 +12,16 @@ The width of the last widget in each row is set to fit the remnaining container 
 </pre>
 </div></div>
 <h2 id="dependencies">Dependencies</h2>
-<ul class="dependencies"><li><code ng:non-bindable=""><a href="#/api/hsLayout.object.HsLayout">HsLayout</a></code>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="#/hsLayout/hsLayout.object.HsLayout">HsLayout</a></code>
 </li>
 </ul>
 <h2 id="example">Example</h2>
 <div class="example"><div class="hslayout-object-hstilelayout-page"><p>Shows how a tile layout works as the number of tiles grow.
 <h4 id="example_source">Source</h4>
-<div source-edit="hsLayout" source-edit-deps="angular.js script.js" source-edit-html="index.html-22" source-edit-css="style.css-23" source-edit-js="script.js-24" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div source-edit="hsLayout" source-edit-deps="angular.js script.js" source-edit-html="index.html-30" source-edit-css="style.css-31" source-edit-js="script.js-32" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-22" ng-html-wrap-loaded="hsLayout angular.js script.js"></pre>
-<script type="text/ng-template" id="index.html-22">
+<pre class="prettyprint linenums" ng-set-text="index.html-30" ng-html-wrap-loaded="hsLayout angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html-30">
         <div ng-controller="myCtrl" style="height:300px">
             <hs-layout hs-tile hs-fill-last-col>
                 <hs-widget ng-repeat="w in widgets" class='repeated-item'>
@@ -32,8 +32,8 @@ The width of the last widget in each row is set to fit the remnaining container 
     </script>
 </div>
 <div class="tab-pane" title="style.css">
-<pre class="prettyprint linenums" ng-set-text="style.css-23"></pre>
-<style type="text/css" id="style.css-23">
+<pre class="prettyprint linenums" ng-set-text="style.css-31"></pre>
+<style type="text/css" id="style.css-31">
         .well       { position: relative; padding:0; }
         hs-layout   { background-color: #fafafa; }
         .hs-widget-pane   { 
@@ -51,8 +51,8 @@ The width of the last widget in each row is set to fit the remnaining container 
     </style>
 </div>
 <div class="tab-pane" title="script.js">
-<pre class="prettyprint linenums" ng-set-text="script.js-24"></pre>
-<script type="text/ng-template" id="script.js-24">
+<pre class="prettyprint linenums" ng-set-text="script.js-32"></pre>
+<script type="text/ng-template" id="script.js-32">
         angular.module('hsLayout').controller('myCtrl', ['$scope', '$interval', function myCtrl($scope, $interval){
             var i = -1;
             $interval(function(){
@@ -68,6 +68,6 @@ The width of the last widget in each row is set to fit the remnaining container 
     </script>
 </div>
 </div><h4 id="example_demo">Demo</h4>
-<div class="well doc-example-live animate-container" ng-embed-app="hsLayout" ng-set-html="index.html-22" ng-eval-javascript="script.js-24"></div>
+<div class="well doc-example-live animate-container" ng-embed-app="hsLayout" ng-set-html="index.html-30" ng-eval-javascript="script.js-32"></div>
 </div></div>
 </div>

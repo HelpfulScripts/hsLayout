@@ -1,4 +1,4 @@
-<a href="https://github.com/HelpfulScripts/hsLayout.git/edit/master/lib/hs/hs.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/HelpfulScripts/hsLayout.git/blob/84b184f/lib/hs/hs.js#L14" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">hs</code>
+<a href="https://github.com/HelpfulScripts/hsLayout/blob/master/../hs/src/hs.js#L45" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">hs</code>
 <div><span class="hint">service in module <code ng:non-bindable="">hs</code>
 </span>
 </div>
@@ -10,19 +10,20 @@ has similar usage pattern to angularjs.</p>
 dependencies on angular. </p>
 </div></div>
 <div class="member method"><h2 id="methods">Methods</h2>
-<ul class="methods"><li><a href="https://github.com/HelpfulScripts/hsLayout.git/blob/84b184f/lib/hs/hs.js#L57" class="view-source icon-eye-open"> </a><h3 id="methods_invoke">invoke(name)</h3>
+<ul class="methods"><li><a href="https://github.com/HelpfulScripts/hsLayout/blob/master/../hs/src/hs.js#L91" class="view-source icon-eye-open"> </a><h3 id="methods_invoke">invoke(name)</h3>
 <div class="invoke"><div class="invoke-page"><p>invokes registered modules and injects required parameters.
 The <code>invoke</code> function will not be called by its name, but rather, by calling 
 the global <code>hs</code> function. Calling with or without <code>new</code> is equivalent.
 Usage: <pre class="prettyprint linenums">
-var MyExample = hs('MyExample');  
-var MyInstance = new hs('MyExample');
+hs.register('MyExample', function() {...});
+var MyInstance1 = hs('MyExample');  
+var MyInstance2 = new hs('MyExample');
 </pre>
 </div><h5 id="methods_invoke_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>name</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="invoke-page"><p>name of the module</p>
 </div></td></tr></tbody></table><h5 id="methods_invoke_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">*</a></td><td><div class="invoke-page"><p>the result of calling the constructor function.</p>
 </div></td></tr></table></div>
 </li>
-<li><a href="https://github.com/HelpfulScripts/hsLayout.git/blob/84b184f/lib/hs/hs.js#L38" class="view-source icon-eye-open"> </a><h3 id="methods_register">register(name, fn)</h3>
+<li><a href="https://github.com/HelpfulScripts/hsLayout/blob/master/../hs/src/hs.js#L70" class="view-source icon-eye-open"> </a><h3 id="methods_register">register(name, fn)</h3>
 <div class="register"><div class="register-page"><p>Registers new modules in an angular-style fashion. Usage:
 <pre class="prettyprint linenums">
 hs.register('MyModule', function() {...});  
