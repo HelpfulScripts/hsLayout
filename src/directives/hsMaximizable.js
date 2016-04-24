@@ -31,10 +31,11 @@
     </file>
 </example>
 */    
-angular.module('hsLayout').directive('hsMaximizable', ['hsUtil', function(util) {
+angular.module('hsLayout').directive('hsMaximizable', function() {
     "use strict";
 
     var gEasing   = 'swing';  
+    var ANIMATION_DURATION = 100;
 
     function maximizeWindow(scope, elem) {
         var widget = elem[0];
@@ -62,7 +63,7 @@ angular.module('hsLayout').directive('hsMaximizable', ['hsUtil', function(util) 
             }
 /* istanbul ignore else: untestable */
             if (animate) {
-                $(widget).animate(size, util.animationDuration, gEasing, function() {
+                $(widget).animate(size, ANIMATION_DURATION, gEasing, function() {
                     scope.$broadcast('hs-resize-end', size);
                 });       
                 scope.$broadcast('hs-resize-begin', size);
@@ -100,5 +101,5 @@ angular.module('hsLayout').directive('hsMaximizable', ['hsUtil', function(util) 
             $(elem).on('touchend mouseup', doubleClick(maximizeWindow(scope, elem)));
         }
     };
-}]);
+});
 
