@@ -73,9 +73,7 @@
 */
 
 
-/*
- * Create the module by calling angular.module with dependency object [].
- * Subsequent additions to the module work by referncing the angular.module('hsLayout') without [].
- */
+// Create the module by calling angular.module with dependency object [].
+// Subsequent additions to the module work by referncing the angular.module('hsLayout') without [].
 angular.module('hsLayout', ['ngTouch', 'hs']);
 

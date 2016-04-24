@@ -32,7 +32,7 @@ module.exports = function(grunt) {
             },
             css: {
                 files: {
-                    'dist/<%= pkg.name %>.css': 'dist/<%= pkg.name %>.less',
+                    'dist/<%= pkg.name %>.css': 'dist/<%= pkg.name %>.less'
                 }
             }
         }, 
@@ -50,7 +50,7 @@ module.exports = function(grunt) {
 			},
 			less: {
 				src: 'src/css/*.less',
-				dest: 'dist/<%= pkg.name %>.less',
+				dest: 'dist/<%= pkg.name %>.less'
 			}
 		},
         cssmin: {
@@ -83,10 +83,10 @@ module.exports = function(grunt) {
 				html5Mode: false,
 				startPage: '#/api/<%= pkg.name %>',
 				scripts: [
-						  './extlib/jquery/2.2.0/jquery.min.js',
-                          './extlib/angularjs/1.5.0/angular.js',
-                          './extlib/angularjs/1.5.0/angular-touch.js',
-                          './extlib/angularjs/1.5.0/angular-animate.js',
+						  './lib/jquery/2.2.0/jquery.min.js',
+                          './lib/angularjs/1.5.0/angular.js',
+                          './lib/angularjs/1.5.0/angular-touch.js',
+                          './lib/angularjs/1.5.0/angular-animate.js',
 						  './dist/<%= pkg.name %>.js'
 				],
 				styles: [
@@ -108,12 +108,7 @@ module.exports = function(grunt) {
 			}
 		},
 		copy: {
-            pre: { 
-	            expand: true,
-	            flatten:true,
-	            src: '../lib/hs.js*',  
-	            dest: 'lib/'
-	        },
+            pre: { },
 			docs: { files: [	{
     				expand: true,
     				src: 'dist/*.js.map',	// copy js.maps
@@ -129,12 +124,17 @@ module.exports = function(grunt) {
     				src: 'data/**/*',		// copy data
     				dest: 'docs/'
     				
+    			}, {
+    				expand: true,
+    				src: 'docs/**/*',		// copy data
+    				dest: './lib/hsLayout/'
+    				
     			}
 			]},
 			post: {
 	            files: [{
 	                expand: true, flatten: true,
-	                src: ['dist/*'],    dest: '../lib/'
+	                src: ['dist/*'],    dest: './lib/hsLayout/'
 	            }]
             }
 		},
@@ -153,7 +153,7 @@ module.exports = function(grunt) {
                 tasks: ['makeAll']
             },
             lib: {
-                files: ['lib/**/*.js'],
+                files: ['lib/hs/hs.js'],
                 tasks: ['makeAll']
             }
 		}
@@ -173,7 +173,7 @@ module.exports = function(grunt) {
     // ngDoc only.
     grunt.registerTask('makeDocs', ['ngdocs']);
 	// Default task.
-	grunt.registerTask('makeAll', ['copy:pre', 'jshint', 'clean', 'concat', 'less', 'cssmin', 'uglify', 'ngdocs']);
+	grunt.registerTask('makeAll', ['copy:pre', 'jshint', 'clean', 'concat', 'less', 'cssmin', 'uglify', "copy:post", 'ngdocs', "copy:docs"]);
     grunt.registerTask('default', ['makeAll']);
 
 };
