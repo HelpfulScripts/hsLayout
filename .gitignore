@@ -1,5 +1,5 @@
 docs
 dist
 node_modules
-extlib
+lib
 .DS_Store
