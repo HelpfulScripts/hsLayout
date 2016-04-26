@@ -73,7 +73,7 @@ NG_DOCS={
       "shortName": "hsLayout",
       "type": "overview",
       "moduleName": "hsLayout",
-      "shortDescription": "#Angular Widget and Layout Library",
+      "shortDescription": "Angular Widget and Layout Library",
       "keywords": "$interval $scope add allow angular application attribute automatic background-color border browser center class clicking codebase column columns constraints container controller controls css deliberate directive directives display double eef element enables entire example facilitate factory fafafa ffe fill full-screen function gui height helpful hs-layout hs-moveable hs-rows hs-tiles hs-widget-pane hscolumnslayout hslayout hsrowslayout hstilelayout html https include inside js layout layouts level library live locations manual manually maximize mode module moved myctrl nested ng-controller ng-repeat non-static object overview padding position providing push relative repeated-item resized reversibly row script scripts size solid style surrounding text-align tile tiles toggle top treating var widget widgets window"
     },
     {
@@ -109,7 +109,7 @@ NG_DOCS={
       "shortName": "hsMoveable",
       "type": "directive",
       "moduleName": "hsLayout",
-      "shortDescription": "#Attributes",
+      "shortDescription": "Attributes",
       "keywords": "allows area attributes background-color brackets center corner corners css dashboard default determines direction directive eee emphasis ffe grid height horizontal hs-layout hs-moveable hs-widget hslayout html marked module moved moving number optional padding parameter pixel position relative required resizing scaled sensitive sets size sized snap square steps style supplied text-align top vertical widget widgets wrapped"
     },
     {
