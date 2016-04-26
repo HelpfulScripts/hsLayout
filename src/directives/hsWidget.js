@@ -5,7 +5,7 @@
  * @element ANY
  * @description hs-widget directive. Adds a widget to a {@link hsLayout.directive:hsLayout layout}.
  * For use within a hs-layout
-#Attributes
+# Attributes
 All attributes are optional except where marked as required. For emphasis, optional attributes
 are wrapped in square brackets: `[...]`. When optional, the default value is <u>underlined</u>.
 - [**hs-size** = '[<u>"100%"</u>, <u>"100%"</u>]']

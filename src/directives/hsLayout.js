@@ -5,7 +5,7 @@
  * @element ANY
  * @description hs-layout directive. Establishes a space in which 
  * {@link hsLayout.directive:hsWidget widgets} live.
-#Attributes
+# Attributes
 All attributes are optional except where marked as required. For emphasis, optional attributes
 are wrapped in square brackets: `[...]`. When optional, the default value is <u>underlined</u>.
 - [**hs-type** = '<u>tiles</u> | columns | rows | relative']
@@ -20,7 +20,7 @@ are wrapped in square brackets: `[...]`. When optional, the default value is <u>
     to fill the remaining space.
 
 @example
-#Autmatic layout of widgets
+# Autmatic layout of widgets
 <example module="hsLayout">
     <file name="index.html">
         <div style="height: 300px; padding:0;">
@@ -42,7 +42,7 @@ are wrapped in square brackets: `[...]`. When optional, the default value is <u>
         hs-widget:first-of-type>.hs-widget-pane { background-color: #eef; }
     </file>
 </example>
-#Manual layout of widgets
+# Manual layout of widgets
 <example module="hsLayout">
     <file name="index.html">
         <div style="height: 300px; padding:0;">

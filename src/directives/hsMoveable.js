@@ -4,7 +4,7 @@
  * @restrict A
  * @element ['hs-widget', 'hs-layout']
  * @description 
-#Attributes
+# Attributes
 All attributes are optional except where marked as required. For emphasis, optional attributes
 are wrapped in square brackets: `[...]`. When optional, the default value is <u>underlined</u>.
 - [ **hs-moveable** = <u>'20'</u> ]

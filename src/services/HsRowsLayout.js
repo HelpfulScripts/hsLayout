@@ -6,7 +6,7 @@
  * Rows layout divides the container vertically into partitions according to the `Array` specifications. 
  * <h2>cfg options:</h2><pre>
  * </pre>
-#Attributes
+# Attributes
 - **hs-rows='[<i>Array</i>]'**
     create a layout with rows specified by `Array`.
     Elements in `Array` will be used as height indicators for the widgets that are children of this layout. 
@@ -29,7 +29,7 @@
 See also the description of attribute options in {@link hsLayout.directive:hsLayout hsLayout}
  * @todo ...
 @example
-#Equal column heights
+# Equal column heights
 <example module="hsLayout">
     <file name="index.html">
         <div style="height:300px; padding:0;">
@@ -66,7 +66,7 @@ See also the description of attribute options in {@link hsLayout.directive:hsLay
         </div>
     </file>
 </example>
-#Nested tile layout inside a column layout
+# Nested tile layout inside a column layout
 <example module="hsLayout">
     <file name="index.html">
         <div ng-controller="myCtrl" style="height:300px; padding:0;">

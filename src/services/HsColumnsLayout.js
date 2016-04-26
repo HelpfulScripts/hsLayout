@@ -6,7 +6,7 @@
  * Columns layout divides the container horizontally into partitions according to the `Array` specifications. 
  * <h2>cfg options:</h2><pre>
  * </pre>
-#Attributes
+# Attributes
 - **hs-columns='[<i>Array</i>]'**
     create a layout with columns specified by `Array`.
     Elements in `Array` will be used as width indicators for the widgets that are children of this layout. 
@@ -29,7 +29,7 @@
 See also the description of attribute options in {@link hsLayout.directive:hsLayout hsLayout}
  * @todo ...
 @example
-#Equal column widths, filled in on left
+# Equal column widths, filled in on left
 <example module="hsLayout">
     <file name="index.html">
         <div style="height:300px; padding:0;">
@@ -42,7 +42,7 @@ See also the description of attribute options in {@link hsLayout.directive:hsLay
         </div>
     </file>
 </example>
-#Shared column widths, fixed width on right
+# Shared column widths, fixed width on right
 <example module="hsLayout">
     <file name="index.html">
         <div style="height:300px; padding:0;">
@@ -55,7 +55,7 @@ See also the description of attribute options in {@link hsLayout.directive:hsLay
         </div>
     </file>
 </example>
-#Fixed column widths, filled in on right
+# Fixed column widths, filled in on right
 <example module="hsLayout">
     <file name="index.html">
         <div style="height:300px; padding:0;">
@@ -68,7 +68,7 @@ See also the description of attribute options in {@link hsLayout.directive:hsLay
         </div>
     </file>
 </example>
-#Nested tile layout inside a column layout
+# Nested tile layout inside a column layout
 <example module="hsLayout">
     <file name="index.html">
         <div ng-controller="myCtrl" style="height:300px; padding:0;">

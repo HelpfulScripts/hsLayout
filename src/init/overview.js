@@ -6,7 +6,7 @@
  * @file angular factory for providing layouts and widgets
  * @copyright Helpful Scripts 2015
  * @description
- * #Angular Widget and Layout Library
+ * # Angular Widget and Layout Library
  * Provides *AngularJS* directives to facilitate {@link hsLayout.directive:hsWidget widgets} 
  * and {@link hsLayout.directive:hsLayout layouts}. 
  * 
@@ -24,7 +24,7 @@
  * The codebase is available at {@link https://github.com/HelpfulScripts/hsLayout}.
  * 
 @example
-#Nested tile layout inside a column layout
+# Nested tile layout inside a column layout
 <example module="hsLayout">
     <file name="index.html">
         <div ng-controller="myCtrl" style="height:300px; padding:0;">
