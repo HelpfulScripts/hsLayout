@@ -45,7 +45,7 @@ module.exports = function(grunt) {
 				sourceMap: false
 			},
 			js: {
-				src: ['lib/hs/hsng.js', 'lib/hs/hs.js', 'src/init/*.js', 'src/**/*.js', '!src/hide/*.js'],
+				src: ['src/init/*.js', 'src/**/*.js', '!src/hide/*.js'],
 				dest: 'dist/<%= pkg.name %>.js'
 			},
 			less: {
