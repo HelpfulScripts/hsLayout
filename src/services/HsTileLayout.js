@@ -96,7 +96,9 @@ angular.module('hsLayout').factory('HsTileLayout', ['HsLayout', function HsCompo
                     }
                 }
             }
-            size[0] += '%'; size[1] += '%';
+            var pct = '%';
+            size[0] += pct;
+            size[1] += pct;
             return size;
         }
         
