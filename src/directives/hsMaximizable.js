@@ -97,9 +97,12 @@ angular.module('hsLayout').directive('hsMaximizable', function() {
         restrict: 'A',
         replace: false,
         controller: 'hsMoveableCtrl',
-        link: function link(scope, elem) {
-            $(elem).on('touchend mouseup', doubleClick(maximizeWindow(scope, elem)));
-        }
+        compile: function compile() {
+    		
+	    	return function link(scope, elem) {
+	            $(elem).on('touchend mouseup', doubleClick(maximizeWindow(scope, elem)));
+	        };
+    	}
     };
 });
 

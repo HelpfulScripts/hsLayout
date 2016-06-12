@@ -87,6 +87,7 @@ module.exports = function(grunt) {
                           './lib/angularjs/1.5.0/angular.js',
                           './lib/angularjs/1.5.0/angular-touch.js',
                           './lib/angularjs/1.5.0/angular-animate.js',
+						  './lib/hs/hs.js',
 						  './dist/<%= pkg.name %>.js'
 				],
 				styles: [

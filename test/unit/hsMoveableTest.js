@@ -56,17 +56,17 @@ describe("hsMoveable", function() {
             expect(helper.length).toBe(1);
         });
                 
-        it('should have layout size top', 	function() { expect(layout.css('top')).toBe('0px'); });
-        it('should have layout size bottom',function() { expect(layout.css('bottom')).toBe('0px'); });
-        it('should have layout size left', 	function() { expect(layout.css('left')).toBe('0px'); });
+        it('should have layout size top', 	function() { expect(layout.css('top')).toBe('auto'/*0px'*/); });
+        it('should have layout size bottom',function() { expect(layout.css('bottom')).toBe('auto'/*0px'*/); });
+        it('should have layout size left', 	function() { expect(layout.css('left')).toBe('auto'/*0px'*/); });
         it('should have layout size width', function() { expect(layout.css('width')).toBe('1000px'); });
         it('should have layout size height',function() { expect(layout.css('height')).toBe('700px'); });
        
         
         it('should have widget top', function() { expect(widget.css('top')).toBe('0%');});
-        it('should have widget bottom', function() { expect(widget.css('bottom')).toBe('0px');});
+        it('should have widget bottom', function() { expect(widget.css('bottom')).toBe('auto'/*0%'*/);});
         it('should have widget left', function() { expect(widget.css('left')).toBe('0%');});
-        it('should have widget right', function() { expect(widget.css('right')).toBe('0px');});
+        it('should have widget right', function() { expect(widget.css('right')).toBe('auto'/*0px'*/);});
         it('should have widget width', function() { expect(widget.css('width')).toBe('50%');});
         it('should have widget height', function() { expect(widget.css('height')).toBe('50%');});
         
@@ -83,9 +83,9 @@ describe("hsMoveable", function() {
             });
             
             it('should have moved top', 	function(done) {  expect(widget.css('top')).toBe('30%'); done(); });
-            it('should have moved bottom', 	function(done) {  expect(widget.css('bottom')).toBe('0px'); done(); });
+            it('should have moved bottom', 	function(done) {  expect(widget.css('bottom')).toBe('auto'/*'0px'*/); done(); });
             it('should have moved left ', 	function(done) {  expect(widget.css('left')).toBe('20%'); done(); });
-            it('should have moved right ', 	function(done) {  expect(widget.css('right')).toBe('0px'); done(); });
+            it('should have moved right ', 	function(done) {  expect(widget.css('right')).toBe('auto'/*0px'*/); done(); });
             it('should have moved width', 	function(done) {  expect(widget.css('width')).toBe('50%'); done(); });
             it('should have moved height', 	function(done) {  expect(widget.css('height')).toBe('50%'); done(); });             
         });
@@ -104,7 +104,7 @@ describe("hsMoveable", function() {
             });
             
             it('should have moved top', 	function(done) {  expect(widget.css('top')).toBe('30%'); done(); });
-            it('should have moved bottom', 	function(done) {  expect(widget.css('bottom')).toBe('0px'); done(); });
+            it('should have moved bottom', 	function(done) {  expect(widget.css('bottom')).toBe('auto'/*0px'*/); done(); });
             it('should have moved left ', 	function(done) {  expect(widget.css('left')).toBe('20%'); done(); });
             it('should have moved width', 	function(done) {  expect(widget.css('width')).toBe('0%'); done(); });
             it('should have moved height', 	function(done) {  expect(widget.css('height')).toBe('0%'); done(); });             
@@ -126,7 +126,7 @@ describe("hsMoveable", function() {
             });
             
             it('should have moved top', 	function(done) {  expect(widget.css('top')).toBe('30%'); done(); });
-            it('should have moved bottom', 	function(done) {  expect(widget.css('bottom')).toBe('0px'); done(); });
+            it('should have moved bottom', 	function(done) {  expect(widget.css('bottom')).toBe('auto'/*0px'*/); done(); });
             it('should have moved left ', 	function(done) {  expect(widget.css('left')).toBe('0%'); done(); });
             it('should have moved width', 	function(done) {  expect(widget.css('width')).toBe('5%'); done(); });
             it('should have moved height', 	function(done) {  expect(widget.css('height')).toBe('0%'); done(); });              
@@ -147,7 +147,7 @@ describe("hsMoveable", function() {
             });
             
             it('should have moved top', 	function(done) {  expect(widget.css('top')).toBe('0%'); done(); });
-            it('should have moved bottom', 	function(done) {  expect(widget.css('bottom')).toBe('0px'); done(); });
+            it('should have moved bottom', 	function(done) {  expect(widget.css('bottom')).toBe('auto'/*0px'*/); done(); });
             it('should have moved left ', 	function(done) {  expect(widget.css('left')).toBe('5%'); done(); });
             it('should have moved width', 	function(done) {  expect(widget.css('width')).toBe('0%'); done(); });
             it('should have moved height', 	function(done) {  expect(widget.css('height')).toBe('30%'); done(); });              
@@ -168,7 +168,7 @@ describe("hsMoveable", function() {
             });
             
             it('should have moved top', 	function(done) {  expect(widget.css('top')).toBe('0%'); done(); });
-            it('should have moved bottom', 	function(done) {  expect(widget.css('bottom')).toBe('0px'); done(); });
+            it('should have moved bottom', 	function(done) {  expect(widget.css('bottom')).toBe('auto'/*0px'*/); done(); });
             it('should have moved left ', 	function(done) {  expect(widget.css('left')).toBe('0%'); done(); });
             it('should have moved width', 	function(done) {  expect(widget.css('width')).toBe('5%'); done(); });
             it('should have moved height', 	function(done) {  expect(widget.css('height')).toBe('30%'); done(); });
