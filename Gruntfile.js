@@ -112,12 +112,12 @@ module.exports = function(grunt) {
             pre: { },
 			docs: { files: [	{
     				expand: true,
-    				src: 'dist/*.js.map',	// copy js.maps
+    				src: 'lib/hs*/*.js.map',	// copy js.maps
     				dest: 'docs/grunt-scripts',
     				flatten: true
     			}, {
     				expand: true,
-    				src: 'dist/*.css.map',	// copy css.maps
+    				src: 'lib/hs*/*.css.map',	// copy css.maps
     				dest: 'docs/css',
     				flatten: true
     			}, {
@@ -127,7 +127,7 @@ module.exports = function(grunt) {
     				
     			}, {
     				expand: true,
-    				src: 'docs/**/*',		// copy data
+    				src: 'docs/**/*',		// copy all docs
     				dest: './lib/hsLayout/'
     				
     			}
