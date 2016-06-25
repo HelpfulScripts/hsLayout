@@ -1,4 +1,4 @@
-<a href="https://github.com/HelpfulScripts/hsLayout/blob/master/../hs/src/HsConfigurable.js#L31" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">HsConfigurable</code>
+<a href="https://github.com/HelpfulScripts/hsLayout/blob/master/../hs/src/HsConfigurable.js#L9" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">HsConfigurable</code>
 <div><span class="hint">service in module <code ng:non-bindable="">hs.object</code>
 </span>
 </div>
@@ -13,7 +13,7 @@
 </div></td></tr><tr><td>parent <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-hsobject">HsObject</a></td><td><div class="hs-object-hsconfigurable-page"><p>If specified, adds this HsObject as a child to the parent.</p>
 </div></td></tr></tbody></table></div>
 <div class="member method"><h2 id="methods">Methods</h2>
-<ul class="methods"><li><a href="https://github.com/HelpfulScripts/hsLayout/blob/master/../hs/src/HsConfigurable.js#L112" class="view-source icon-eye-open"> </a><h3 id="methods_cfg">cfg(d, cb)</h3>
+<ul class="methods"><li><a href="https://github.com/HelpfulScripts/hsLayout/blob/master/../hs/src/HsConfigurable.js#L90" class="view-source icon-eye-open"> </a><h3 id="methods_cfg">cfg(d, cb)</h3>
 <div class="cfg"><div class="cfg-page"><p>Configuration function that doubles as a configuration object.
 This object consists of a list of key/value pairs in object literal notation:
 <pre class="prettyprint linenums">    { key1: value1, key2: value2, ...} </pre>
@@ -28,17 +28,17 @@ This allows chaining of method calls during setup.</p>
 </div></td></tr></table><h4 id="methods_cfg_example">Example</h4>
 <div class="example"><div class="cfg-page"><p>See <code>script.js</code> in the following example for 
 <h6 id="methods_cfg_example_source">Source</h6>
-<div source-edit="hs" source-edit-deps="angular.js script.js" source-edit-html="index.html-1" source-edit-css="" source-edit-js="script.js-0" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div source-edit="hs" source-edit-deps="angular.js script.js" source-edit-html="index.html" source-edit-css="" source-edit-js="script.js" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-1" ng-html-wrap-loaded="hs angular.js script.js"></pre>
-<script type="text/ng-template" id="index.html-1">
+<pre class="prettyprint linenums" ng-set-text="index.html" ng-html-wrap-loaded="hs angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html">
     <hs-example>           
     </hs-example>
   </script>
 </div>
 <div class="tab-pane" title="script.js">
-<pre class="prettyprint linenums" ng-set-text="script.js-0"></pre>
-<script type="text/ng-template" id="script.js-0">
+<pre class="prettyprint linenums" ng-set-text="script.js"></pre>
+<script type="text/ng-template" id="script.js">
   angular.module('hs').directive('hsExample', ['HsConfigurable', function(HsConfigurable){
         return {
             restrict: 'E',
@@ -60,7 +60,7 @@ This allows chaining of method calls during setup.</p>
   </script>
 </div>
 </div><h6 id="methods_cfg_example_demo">Demo</h6>
-<div class="well doc-example-live animate-container" ng-embed-app="hs" ng-set-html="index.html-1" ng-eval-javascript="script.js-0"></div>
+<div class="well doc-example-live animate-container" ng-embed-app="hs" ng-set-html="index.html" ng-eval-javascript="script.js"></div>
 <h5 id="methods_cfg_example_json-file-configuration">JSON file configuration</h5>
 <p>Calling cfg(d) with a JSON file or JSON url will configure the object with the parameters from the JSON file. </p>
 </div></div>
@@ -68,34 +68,4 @@ This allows chaining of method calls during setup.</p>
 </li>
 </ul>
 </div>
-<h2 id="example">Example</h2>
-<div class="example"><div class="hs-object-hsconfigurable-page"><h4 id="example_source">Source</h4>
-<div source-edit="hs" source-edit-deps="angular.js script.js" source-edit-html="index.html" source-edit-css="" source-edit-js="script.js" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
-<div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html" ng-html-wrap-loaded="hs angular.js script.js"></pre>
-<script type="text/ng-template" id="index.html">
-  <hs-example cfg='data/cfg.json'>           
-  </hs-example>
-</script>
-</div>
-<div class="tab-pane" title="script.js">
-<pre class="prettyprint linenums" ng-set-text="script.js"></pre>
-<script type="text/ng-template" id="script.js">
-  angular.module('hs').directive('hsExample', ['HsConfigurable', function(HsConfigurable) {
-      return {
-          restrict: 'E',
-          link: function(scope, ele, attrs) {
-              var jsonFile = attrs['cfg'];
-              var obj = new HsConfigurable();
-              obj.cfg(jsonFile, function(){
-                  ele.html(JSON.stringify(obj.cfg()));
-              });
-          }
-      }; 
-  }]);
-</script>
-</div>
-</div><h4 id="example_demo">Demo</h4>
-<div class="well doc-example-live animate-container" ng-embed-app="hs" ng-set-html="index.html" ng-eval-javascript="script.js"></div>
-</div></div>
 </div>

@@ -1,4 +1,4 @@
-/*! hsLayout - v1.2.0 - 2016-04-25
+/*! hsLayout - v1.2.0 - 2016-06-12
 * https://github.com/HelpfulScripts/hsLayout
 * Copyright (c) 2016 Helpful Scripts; Licensed  */
 * {
@@ -91,4 +91,21 @@ hs-widget,
 [hs-scroll],
 .hs-scroll {
   overflow: scroll;
+}
+.hs-cfg-card {
+  visibility: hidden;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(1, 1, 1, 0.5);
+}
+.hs-cfg-card-content {
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  width: 60%;
+  height: 60%;
+  background-color: #fff;
 }

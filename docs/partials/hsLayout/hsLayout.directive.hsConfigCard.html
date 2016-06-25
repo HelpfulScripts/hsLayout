@@ -1,0 +1,47 @@
+<a href="https://github.com/HelpfulScripts/hsLayout/blob/master/src/directives/hsConfigCard.js#L32" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">hsConfigCard</code>
+<div><span class="hint">directive in module <code ng:non-bindable="">hsLayout</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="hslayout-directive-page hslayout-directive-hsconfigcard-page"><p>adds the configurable option to a widget or layout. Click-and-holding....</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage">as attribute<pre class="prettyprint linenums">&lt;['hs-widget', 'hs-layout'] hs-config-card&gt;
+   ...
+&lt;/['hs-widget', 'hs-layout']&gt;</pre>
+</div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="hslayout-directive-page hslayout-directive-hsconfigcard-page"><h4 id="example_source">Source</h4>
+<div source-edit="hsLayout" source-edit-deps="angular.js" source-edit-html="index.html-6" source-edit-css="style.css" source-edit-js="" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div class="tabbable"><div class="tab-pane" title="index.html">
+<pre class="prettyprint linenums" ng-set-text="index.html-6" ng-html-wrap-loaded="hsLayout angular.js"></pre>
+<script type="text/ng-template" id="index.html-6">
+    <div style="height: 300px; padding:0; ">
+        <hs-layout hs-moveable grid='20'>
+            <hs-widget hs-config-card="data/myCard.html">
+                <br>1
+                <br>Click-and-hold to open config popover.
+            </hs-widget>
+            <hs-widget>
+                <br>2
+            </hs-widget>
+        </hs-layout>
+    </div>
+</script>
+</div>
+<div class="tab-pane" title="style.css">
+<pre class="prettyprint linenums" ng-set-text="style.css"></pre>
+<style type="text/css" id="style.css">
+    .well           { position: relative; }
+    hs-layout       { background-color: #eee; }
+    hs-widget, [hs-widget] { 
+        background-color: #ffe; 
+        text-align: center;
+    }
+</style>
+</div>
+</div><h4 id="example_demo">Demo</h4>
+<div class="well doc-example-live animate-container" ng-embed-app="hsLayout" ng-set-html="index.html-6" ng-eval-javascript=""></div>
+</div></div>
+</div>

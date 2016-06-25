@@ -29,7 +29,7 @@ NG_DOCS={
       "type": "object",
       "moduleName": "hs",
       "shortDescription": "Provides a registry for modules, as well as a simpe injection mechanism that",
-      "keywords": "allows angular angular-style angularjs array browser called calling dependencies element eliminates environments equivalent fashion fn function global hs injected injection injects invoke invokes mechanism module modules myexample myinstance1 myinstance2 mymodule myothermodule object parameters pattern register registered registers registry required result simpe usage var"
+      "keywords": "allows angular angular-style angularjs array browser called calling components dependencies element eliminates environments equivalent fashion fn function global hs initial injected injection injects invoke invokes mechanism module modules myexample myinstance1 myinstance2 mymodule myothermodule object parameters pattern register registered registers registry removed required reset resets result simpe usage var"
     },
     {
       "section": "hs",
@@ -56,7 +56,7 @@ NG_DOCS={
       "type": "object",
       "moduleName": "hs.object",
       "shortDescription": "inherits from HsObject and provides for a basic configuration mechanism;",
-      "keywords": "add adds allows angular attrs basic call callback called calling calls category cb cfg chaining child color completed configuration configure consists console data directive doubles ele example file function green hs hsconfigurable hsexample hsobject html inherits js json jsonfile key key1 key2 label link list literal loading log mechanism method module mylabel myname notation obj obj1 object pairs parameter parameters parent provided range replace replaces restrict result return returns script setup specifies stringify type url value1 value2 var"
+      "keywords": "add adds allows angular attrs basic call callback called calling calls category cb cfg chaining child color completed configuration configure consists console directive doubles ele example file function green hs hsconfigurable hsexample hsobject html inherits js json key key1 key2 label link list literal loading log mechanism method module mylabel myname notation obj1 object pairs parameter parameters parent provided range replace replaces restrict result return returns script setup specifies type url value1 value2 var"
     },
     {
       "section": "hs",
@@ -66,6 +66,15 @@ NG_DOCS={
       "moduleName": "hs.object",
       "shortDescription": "Base class for all HelpfulScripts objects.",
       "keywords": "_outerfunction adds args arguments array base behavior called category chaining child children class current customize derived directly example function getname gettype helpfulscripts hs hsobject implements jane john list methods__outerfunction newname object objects optional override overview paramenter parent passed person remove removed removes retrieves returned returns setname sets string true true-ish type unspecified var"
+    },
+    {
+      "section": "hs",
+      "id": "hs.object.HsPromise",
+      "shortName": "hs.object.HsPromise",
+      "type": "object",
+      "moduleName": "hs.object",
+      "shortDescription": "implements a Promise mechanism following the template published at https://www.promisejs.org/",
+      "keywords": "$scope addition allows angular appropriate asynchronously call called chaining completes controller convenient create creating data error execution fulfilled fulfillment function functions handler handlers hs hsobject hspromise html https implements js mechanism module myctrl mypromisectrl ng-controller object onfailure onfulfilled onrejected onsuccess org parse promise promisejs promises provided published readfile registers rejected rejection resolver result returns script success successful template var works"
     },
     {
       "section": "hsLayout",
@@ -78,12 +87,30 @@ NG_DOCS={
     },
     {
       "section": "hsLayout",
+      "id": "hsLayout.controller:hsConfigCardCtrl",
+      "shortName": "hsConfigCardCtrl",
+      "type": "controller",
+      "moduleName": "hsLayout",
+      "shortDescription": "Controller to manage move and size events on widgets.",
+      "keywords": "controller events hslayout manage move size widgets"
+    },
+    {
+      "section": "hsLayout",
       "id": "hsLayout.controller:hsMoveableCtrl",
       "shortName": "hsMoveableCtrl",
       "type": "controller",
       "moduleName": "hsLayout",
       "shortDescription": "Controller to manage move and size events on widgets.",
       "keywords": "controller defined elem element events hs-moveable hslayout manage method move moveable selection size widgets"
+    },
+    {
+      "section": "hsLayout",
+      "id": "hsLayout.directive:hsConfigCard",
+      "shortName": "hsConfigCard",
+      "type": "directive",
+      "moduleName": "hsLayout",
+      "shortDescription": "adds the configurable option to a widget or layout. Click-and-holding....",
+      "keywords": "adds background-color center click-and-holding config configurable css data directive eee ffe grid height hs-config-card hs-layout hs-moveable hs-widget hslayout html layout module open option padding popover position relative style text-align widget"
     },
     {
       "section": "hsLayout",
@@ -179,6 +206,7 @@ NG_DOCS={
     "angular.js",
     "angular-touch.js",
     "angular-animate.js",
+    "hs.js",
     "hsLayout.js"
   ]
 };

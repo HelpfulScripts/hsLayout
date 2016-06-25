@@ -18,10 +18,10 @@ The codebase is available at <a href="https://github.com/HelpfulScripts/hsLayout
 </div><h2 id="example">Example</h2>
 <div class="example"><div class="hslayout-page"><h3 id="example_nested-tile-layout-inside-a-column-layout">Nested tile layout inside a column layout</h3>
 <h4 id="example_nested-tile-layout-inside-a-column-layout_source">Source</h4>
-<div source-edit="hsLayout" source-edit-deps="angular.js script.js" source-edit-html="index.html-15" source-edit-css="style.css-17" source-edit-js="script.js-16" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div source-edit="hsLayout" source-edit-deps="angular.js script.js" source-edit-html="index.html-17" source-edit-css="style.css-19" source-edit-js="script.js-18" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-15" ng-html-wrap-loaded="hsLayout angular.js script.js"></pre>
-<script type="text/ng-template" id="index.html-15">
+<pre class="prettyprint linenums" ng-set-text="index.html-17" ng-html-wrap-loaded="hsLayout angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html-17">
         <div ng-controller="myCtrl" style="height:300px; padding:0;">
             <hs-layout hs-rows='["80px",,"50px"]'>
                 <hs-widget>
@@ -40,8 +40,8 @@ The codebase is available at <a href="https://github.com/HelpfulScripts/hsLayout
     </script>
 </div>
 <div class="tab-pane" title="style.css">
-<pre class="prettyprint linenums" ng-set-text="style.css-17"></pre>
-<style type="text/css" id="style.css-17">
+<pre class="prettyprint linenums" ng-set-text="style.css-19"></pre>
+<style type="text/css" id="style.css-19">
         .well       { position: relative; }
         hs-layout   { background-color: #fafafa; }
         .top .hs-widget-pane {
@@ -55,8 +55,8 @@ The codebase is available at <a href="https://github.com/HelpfulScripts/hsLayout
     </style>
 </div>
 <div class="tab-pane" title="script.js">
-<pre class="prettyprint linenums" ng-set-text="script.js-16"></pre>
-<script type="text/ng-template" id="script.js-16">
+<pre class="prettyprint linenums" ng-set-text="script.js-18"></pre>
+<script type="text/ng-template" id="script.js-18">
         angular.module('hsLayout').controller('myCtrl', ['$scope', '$interval', function myCtrl($scope, $interval){
             var i = -1;
             $interval(function(){
@@ -72,6 +72,6 @@ The codebase is available at <a href="https://github.com/HelpfulScripts/hsLayout
     </script>
 </div>
 </div><h4 id="example_nested-tile-layout-inside-a-column-layout_demo">Demo</h4>
-<div class="well doc-example-live animate-container" ng-embed-app="hsLayout" ng-set-html="index.html-15" ng-eval-javascript="script.js-16"></div>
+<div class="well doc-example-live animate-container" ng-embed-app="hsLayout" ng-set-html="index.html-17" ng-eval-javascript="script.js-18"></div>
 </div></div>
 </div>

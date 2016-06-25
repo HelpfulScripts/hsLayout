@@ -29,51 +29,15 @@ are wrapped in square brackets: <code>[...]</code>. When optional, the default v
 <h2 id="example">Example</h2>
 <div class="example"><div class="hslayout-directive-page hslayout-directive-hslayout-page"><h3 id="example_autmatic-layout-of-widgets">Autmatic layout of widgets</h3>
 <h4 id="example_autmatic-layout-of-widgets_source">Source</h4>
-<div source-edit="hsLayout" source-edit-deps="angular.js" source-edit-html="index.html-6" source-edit-css="style.css" source-edit-js="" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
-<div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-6" ng-html-wrap-loaded="hsLayout angular.js"></pre>
-<script type="text/ng-template" id="index.html-6">
-        <div style="height: 300px; padding:0;">
-            <hs-layout hs-fill-last-col>
-                <hs-widget>1</hs-widget>
-                <hs-widget>2</hs-widget>
-                <hs-widget>3</hs-widget>
-            </hs-layout>
-        </div>
-    </script>
-</div>
-<div class="tab-pane" title="style.css">
-<pre class="prettyprint linenums" ng-set-text="style.css"></pre>
-<style type="text/css" id="style.css">
-        .well       { position: relative; }
-        hs-layout   { background-color: #fafafa; }
-        .hs-widget-pane   { 
-            background-color: #ffe; 
-            border: 1px solid #888; 
-            text-align: center;
-        }
-        hs-widget:first-of-type>.hs-widget-pane { background-color: #eef; }
-    </style>
-</div>
-</div><h4 id="example_autmatic-layout-of-widgets_demo">Demo</h4>
-<div class="well doc-example-live animate-container" ng-embed-app="hsLayout" ng-set-html="index.html-6" ng-eval-javascript=""></div>
-<h3 id="example_manual-layout-of-widgets">Manual layout of widgets</h3>
-<h4 id="example_manual-layout-of-widgets_source">Source</h4>
 <div source-edit="hsLayout" source-edit-deps="angular.js" source-edit-html="index.html-7" source-edit-css="style.css-8" source-edit-js="" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
 <pre class="prettyprint linenums" ng-set-text="index.html-7" ng-html-wrap-loaded="hsLayout angular.js"></pre>
 <script type="text/ng-template" id="index.html-7">
         <div style="height: 300px; padding:0;">
-            <hs-layout class='myHeight'>
-                <hs-widget hs-size='["50%", "50%"]'>
-                    <br>1
-                </hs-widget>
-                <hs-widget hs-size='["50%", "50%"]'>
-                    <br>2
-                </hs-widget>
-                <hs-widget hs-pos='["25%", "40%"]' hs-size='["50%", "60%"]'>
-                    <br>3
-                </hs-widget>
+            <hs-layout hs-fill-last-col>
+                <hs-widget>1</hs-widget>
+                <hs-widget>2</hs-widget>
+                <hs-widget>3</hs-widget>
             </hs-layout>
         </div>
     </script>
@@ -91,7 +55,43 @@ are wrapped in square brackets: <code>[...]</code>. When optional, the default v
         hs-widget:first-of-type>.hs-widget-pane { background-color: #eef; }
     </style>
 </div>
-</div><h4 id="example_manual-layout-of-widgets_demo">Demo</h4>
+</div><h4 id="example_autmatic-layout-of-widgets_demo">Demo</h4>
 <div class="well doc-example-live animate-container" ng-embed-app="hsLayout" ng-set-html="index.html-7" ng-eval-javascript=""></div>
+<h3 id="example_manual-layout-of-widgets">Manual layout of widgets</h3>
+<h4 id="example_manual-layout-of-widgets_source">Source</h4>
+<div source-edit="hsLayout" source-edit-deps="angular.js" source-edit-html="index.html-9" source-edit-css="style.css-10" source-edit-js="" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div class="tabbable"><div class="tab-pane" title="index.html">
+<pre class="prettyprint linenums" ng-set-text="index.html-9" ng-html-wrap-loaded="hsLayout angular.js"></pre>
+<script type="text/ng-template" id="index.html-9">
+        <div style="height: 300px; padding:0;">
+            <hs-layout class='myHeight'>
+                <hs-widget hs-size='["50%", "50%"]'>
+                    <br>1
+                </hs-widget>
+                <hs-widget hs-size='["50%", "50%"]'>
+                    <br>2
+                </hs-widget>
+                <hs-widget hs-pos='["25%", "40%"]' hs-size='["50%", "60%"]'>
+                    <br>3
+                </hs-widget>
+            </hs-layout>
+        </div>
+    </script>
+</div>
+<div class="tab-pane" title="style.css">
+<pre class="prettyprint linenums" ng-set-text="style.css-10"></pre>
+<style type="text/css" id="style.css-10">
+        .well       { position: relative; }
+        hs-layout   { background-color: #fafafa; }
+        .hs-widget-pane   { 
+            background-color: #ffe; 
+            border: 1px solid #888; 
+            text-align: center;
+        }
+        hs-widget:first-of-type>.hs-widget-pane { background-color: #eef; }
+    </style>
+</div>
+</div><h4 id="example_manual-layout-of-widgets_demo">Demo</h4>
+<div class="well doc-example-live animate-container" ng-embed-app="hsLayout" ng-set-html="index.html-9" ng-eval-javascript=""></div>
 </div></div>
 </div>
