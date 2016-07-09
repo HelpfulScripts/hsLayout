@@ -77,6 +77,52 @@ module.exports = function(grunt) {
 				dest: 'dist/<%= pkg.name %>.min.js'
 			}
 		},
+        karma: {
+			options: {
+			    basePath: './',
+				frameworks: ['jasmine'],
+				exclude: [ ],
+				coverageReporter: { 
+				   type : 'html',
+				   dir : 'coverage/',
+				   subdir: '', 
+				   includeAllSources: true
+				},
+				htmlReporter: {
+				    outputDir: 'coverage', // where to put the reports 
+				    templatePath: null, // set if you moved jasmine_template.html
+				    focusOnFailures: true, // reports show failures on start
+				    namedFiles: true, // name files instead of creating sub-directories
+				    pageTitle: "My Tests", // page title for reports; browser info by default
+				    urlFriendlyName: false, // simply replaces spaces with _ for files/dirs
+				    reportName: 'test-performed', // report summary filename; browser info by default
+				    // experimental
+				    preserveDescribeNesting: false, // folded suites stay folded 
+				    foldAll: false // reports start folded (only with preserveDescribeNesting)
+				  },
+				reporters: ['progress', 'coverage'],
+				port: 9876,
+				logLevel: 'WARN',  // OFF, ERROR, WARN, INFO, DEBUG
+				autoWatch: false,
+				browsers: ['Firefox'],
+				singleRun: true
+			},
+		    allNg: {
+				coverageReporter: { subdir: './allNg' },
+			    preprocessors: {'src/**/*.js': ['coverage']},
+			    files: [{src: ['lib/jquery/2.2.0/jquery.min.js', 
+				               'lib/angularjs/1.5.0/angular.js',
+			                   'lib/angularjs/1.5.0/angular-touch.js',
+				               'lib/angularjs/1.5.0/angular-animate.js',
+			                   'lib/angularjs/1.5.0/angular-mocks.js',
+			                   'lib/angular-ui/1.1.2/ui-bootstrap-tpls.js.css',
+			                   'lib/d3js/3.5.3/d3.min.js',
+			                   'lib/hs/hs.js', 'src/**/init/*.js', 'src/**/*.js',
+			                   'test/unit/*.js'
+			                   ]}]
+			}
+		},
+
 		ngdocs: {
 			options: {
 				dest: 'docs',
@@ -167,9 +213,13 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-ngdocs');
+    grunt.loadNpmTasks('grunt-karma');
 	grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-less');
+
+	// test only.
+	grunt.registerTask('test', ['karma']);
 
     // ngDoc only.
     grunt.registerTask('makeDocs', ['ngdocs']);
