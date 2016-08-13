@@ -9,7 +9,7 @@ module.exports = function(grunt) {
 				'<%= grunt.template.today("yyyy-mm-dd") %>\n' +
 				'<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
 				'* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-				' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
+				' Licensed <%= _.map(pkg.licenses, "type").join(", ") %> */\n',
 		// Task configuration.
 		jshint: {
 			options: {
@@ -104,7 +104,7 @@ module.exports = function(grunt) {
 				port: 9876,
 				logLevel: 'WARN',  // OFF, ERROR, WARN, INFO, DEBUG
 				autoWatch: false,
-				browsers: ['Firefox'],
+				browsers: ['Firefox' /*, 'Safari'*/],
 				singleRun: true
 			},
 		    allNg: {
@@ -225,6 +225,6 @@ module.exports = function(grunt) {
     grunt.registerTask('makeDocs', ['ngdocs']);
 	// Default task.
 	grunt.registerTask('makeAll', ['copy:pre', 'jshint', 'clean', 'concat', 'less', 'cssmin', 'uglify', "copy:post", 'ngdocs', "copy:docs"]);
-    grunt.registerTask('default', ['makeAll']);
+    grunt.registerTask('default', ['makeAll', 'test']);
 
 };

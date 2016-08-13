@@ -119,7 +119,22 @@ angular.module('hsLayout').factory('HsRowsLayout', ['HsLayout', function HsCompo
     "use strict";
     
     return function(heights) {
-        function layItOut(widgets) {
+        var obj = new HsLayout("HsColumnsLayout");
+        var unit = "%";
+        var firstHeightSet = false;
+        var lastHeightSet  = false;
+
+        if (heights.indexOf('px') >= 0) { unit = 'px'; }
+        heights = heights.replace(',,', ',"",').replace(',,', ',"",').
+                          replace('[,', '["",').replace(',]', ',""]').
+                          replace('%','').replace('px','');        
+        heights = JSON.parse(heights); 
+        var len = heights.length-1;
+        if (heights[0] && heights[0]!=="") { firstHeightSet = true; }          
+        if (len>0 && heights[len] && heights[len]!=="") { lastHeightSet = true; }          
+        for (var i=0; i<=len; i++) { heights[i] = parseFloat(heights[i]); }
+
+        obj.layItOut = function layItOut(widgets) {
             var numWidgets = widgets.length;
             var calcHeights = [];
             var i,j;
@@ -207,22 +222,7 @@ angular.module('hsLayout').factory('HsRowsLayout', ['HsLayout', function HsCompo
                     }
                 }
             }
-        }
-
-        var obj = new HsLayout("HsColumnsLayout");
-        obj.layItOut      = layItOut;
-        var unit = "%";
-        var firstHeightSet = false;
-        var lastHeightSet  = false;
-        if (heights.indexOf('px') >= 0) { unit = 'px'; }
-        heights = heights.replace(',,', ',"",').replace(',,', ',"",').
-                          replace('[,', '["",').replace(',]', ',""]').
-                          replace('%','').replace('px','');        
-        heights = JSON.parse(heights); 
-        var len = heights.length-1;
-        if (heights[0] && heights[0]!=="") { firstHeightSet = true; }          
-        if (len>0 && heights[len] && heights[len]!=="") { lastHeightSet = true; }          
-        for (var i=0; i<=len; i++) { heights[i] = parseFloat(heights[i]); }
+        };
         return obj;
     };
 }]);

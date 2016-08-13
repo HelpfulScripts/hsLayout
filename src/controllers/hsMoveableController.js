@@ -26,33 +26,6 @@ angular.module('hsLayout').controller('hsMoveableCtrl', [function() {
         return ''; 
     }
 
-    function startEvent(start) {
-        var layout = start.widget.closest('hs-layout');
-
-        if (start.action !== '') {    // start a move:
-            start.dw        = get(layout, 'width');
-            start.dh        = get(layout, 'height');
-            start.helper    = layout.find('.'+gUIHelper);
-            start.layout = layout;
-            start.left   = get(start.widget, 'left');
-            start.top    = get(start.widget, 'top');
-            start.width  = get(start.widget, 'width');
-            start.height = get(start.widget, 'height');
-    
-            switch (start.action) {
-                case 'move': start.a1 = 'left';  start.a2 = 'top';    break;
-                case 'br':   start.a1 = 'width'; start.a2 = 'height'; break;
-                case 'bl':   start.a1 = 'left';  start.a2 = 'height'; break;
-                case 'tr':   start.a1 = 'width'; start.a2 = 'top';    break;
-                case 'tl':   start.a1 = 'left';  start.a2 = 'top';    break;
-            }
-            var x = start.x, y = start.y;
-            start.x -= get(start.widget, start.a1);
-            start.y -= get(start.widget, start.a2);
-            setPosSize(start, x-start.x, y-start.y);
-        }
-    }
-       
     function setPosSize(start, ex, ey) {
         var ix, iy;
         var w = start.widget, h = start.helper, db = start.layout;
@@ -124,6 +97,33 @@ angular.module('hsLayout').controller('hsMoveableCtrl', [function() {
         }
     }
 
+    function startEvent(start) {
+        var layout = start.widget.closest('hs-layout');
+
+        if (start.action !== '') {    // start a move:
+            start.dw        = get(layout, 'width');
+            start.dh        = get(layout, 'height');
+            start.helper    = layout.find('.'+gUIHelper);
+            start.layout = layout;
+            start.left   = get(start.widget, 'left');
+            start.top    = get(start.widget, 'top');
+            start.width  = get(start.widget, 'width');
+            start.height = get(start.widget, 'height');
+    
+            switch (start.action) {
+                case 'move': start.a1 = 'left';  start.a2 = 'top';    break;
+                case 'br':   start.a1 = 'width'; start.a2 = 'height'; break;
+                case 'bl':   start.a1 = 'left';  start.a2 = 'height'; break;
+                case 'tr':   start.a1 = 'width'; start.a2 = 'top';    break;
+                case 'tl':   start.a1 = 'left';  start.a2 = 'top';    break;
+            }
+            var x = start.x, y = start.y;
+            start.x -= get(start.widget, start.a1);
+            start.y -= get(start.widget, start.a2);
+            setPosSize(start, x-start.x, y-start.y);
+        }
+    }
+       
     /**
      * @description reacts to a mousedown event and starts a move, size, or full-screen event, showing the helper frame. 
      */

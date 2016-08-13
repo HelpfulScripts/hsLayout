@@ -29,6 +29,32 @@
 See also the description of attribute options in {@link hsLayout.directive:hsLayout hsLayout}
  * @todo ...
 @example
+# Equal column widths, empty space on right
+<example module="hsLayout">
+    <file name="index.html">
+        <div style="height:300px; padding:0;">
+            <hs-layout hs-columns>
+                <hs-widget ng-repeat="w in [1,2,3]">
+                    <br>{{w}}
+                    <br>{{I am 10% wide"}}
+                </hs-widget>
+            </hs-layout>
+        </div>
+    </file>
+</example>
+# Equal column widths, empty space on right
+<example module="hsLayout">
+    <file name="index.html">
+        <div style="height:300px; padding:0;">
+            <hs-layout hs-columns='["10%"]'>
+                <hs-widget ng-repeat="w in [1,2,3]">
+                    <br>{{w}}
+                    <br>{{I am 10% wide"}}
+                </hs-widget>
+            </hs-layout>
+        </div>
+    </file>
+</example>
 # Equal column widths, filled in on left
 <example module="hsLayout">
     <file name="index.html">

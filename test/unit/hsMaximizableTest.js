@@ -25,8 +25,8 @@ describe("Unit: Testing hsMaximizable", function() {
             expect(elem.html()).toMatch('');
         });
         
-        it('should have a window width of 1280', function(done) {
-            expect(window.innerWidth).toBe(1280);
+        it('should have a window width of >1000', function(done) {
+            expect(window.innerWidth).toBeGreaterThan(1000);
             done();
         });
 
@@ -55,7 +55,8 @@ describe("Unit: Testing hsMaximizable", function() {
             });
 
             it('should have font-size', function(done) {
-                expect(elem.css('font-size')).toBe('76.8px');	// 1280/200 * 12
+            	var px = window.innerWidth*12/200;
+                expect(elem.css('font-size')).toBe(px+'px');	// 1280/200 * 12
                 done();
             });
             	
