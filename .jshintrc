@@ -10,6 +10,7 @@
 "unused": true,
 "boss": true,
 "eqnull": true,
+"esversion": 6,
 "browser": true,
 "globals": { "angular":false, "$":false, "d3":false, "console":false}
 }
