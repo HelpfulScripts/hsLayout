@@ -1,80 +1,89 @@
 NG_DOCS={
   "sections": {
-    "hs": "hs",
+    "hsBase": "hsBase",
     "hsLayout": "hsLayout"
   },
   "pages": [
     {
-      "section": "hs",
+      "section": "hsBase",
       "id": "index",
       "shortName": "index",
       "type": "overview",
       "moduleName": "index",
       "shortDescription": "HelpfulScripts foundational services",
-      "keywords": "angular angularjs base configuration dependencies dependency deprecation foundational helpful helpfulscripts higher hs hsconfigurable hsdeprecated hsobject https inheritance injection integration js message model modules object optional options overview registry scripts service services simple"
+      "keywords": "angular angularjs base border configuration dependencies dependency deprecation firefox foundational height helpful helpfulscripts higher hs hsbase hsconfigurable hsdeprecated hsobject html https inheritance injection integration js message model modules object optional options overview registry scripts service services simple src status style test tested width"
     },
     {
-      "section": "hs",
-      "id": "hs",
-      "shortName": "hs",
+      "section": "hsBase",
+      "id": "hsBase",
+      "shortName": "hsBase",
       "type": "overview",
-      "moduleName": "hs",
-      "shortDescription": "hs",
-      "keywords": "$scope angular cities city controller dependency function hs hsobject html injection js length london mechanism module myctrl myobj ng-controller ng-repeat overview paris register registry return script service simple var"
+      "moduleName": "hsBase",
+      "shortDescription": "hsBase",
+      "keywords": "$scope angular bridge cities city configuration controller dependency e6 function hs hsbase hsconfigurable hsobject hspromise html implementation inheritance injection js length london mechanism model module myctrl myobj ng-controller ng-repeat object overview paris promise register registry return script service simple var"
     },
     {
-      "section": "hs",
-      "id": "hs.hs",
-      "shortName": "hs.hs",
+      "section": "hsBase",
+      "id": "hsBase.hs",
+      "shortName": "hsBase.hs",
       "type": "object",
-      "moduleName": "hs",
-      "shortDescription": "Provides a registry for modules, as well as a simpe injection mechanism that",
-      "keywords": "allows angular angular-style angularjs array browser called calling components dependencies element eliminates environments equivalent fashion fn function global hs initial injected injection injects invoke invokes mechanism module modules myexample myinstance1 myinstance2 mymodule myothermodule object parameters pattern register registered registers registry removed required reset resets result simpe usage var"
+      "moduleName": "hsBase",
+      "shortDescription": "Provides a registry for modules, as well as a simple injection mechanism that",
+      "keywords": "allows angular angular-style angularjs array browser called calling components dependencies element eliminates environments equivalent fashion fn function global hs hsbase initial injected injection injects invoke invokes mechanism module modules myexample myinstance1 myinstance2 mymodule myothermodule object parameters pattern register registered registers registry removed required reset resets result simple usage var"
     },
     {
-      "section": "hs",
-      "id": "hs.hsDeprecated",
-      "shortName": "hs.hsDeprecated",
+      "section": "hsBase",
+      "id": "hsBase.hsDeprecated",
+      "shortName": "hsBase.hsDeprecated",
       "type": "object",
-      "moduleName": "hs",
+      "moduleName": "hsBase",
       "shortDescription": "a utility component to mark deprecated pieces of code.",
-      "keywords": "bar boolean call code component console create default deprecated foo function generate hs hsdeprecated hsdeprected implementation indicate inject mark message object occured pieces print printmessage prints printtrace produce reporting stack trace true utility var"
+      "keywords": "bar boolean call code component console create default deprecated foo function generate hs hsbase hsdeprecated hsdeprected implementation indicate inject mark message object occured pieces print printmessage prints printtrace produce reporting stack trace true utility var"
     },
     {
-      "section": "hs",
-      "id": "hs.object",
-      "shortName": "hs.object",
+      "section": "hsBase",
+      "id": "hsBase.object",
+      "shortName": "hsBase.object",
       "type": "overview",
-      "moduleName": "hs.object",
-      "shortDescription": "hs.object",
-      "keywords": "$scope _outerfunction adds angular attributes base child children configuration controller female function gender getname hold hs hsconfigurable hsobject html includes inheritance jane john js key-value length male model module myctrl ng-controller ng-repeat object overview parent parent-child people person push register relationship ren return script simple type var"
+      "moduleName": "hsBase.object",
+      "shortDescription": "hsBase.object",
+      "keywords": "$scope _outerfunction adds angular attributes base child children configuration controller female function gender getname hold hs hsbase hsconfigurable hsobject html includes inheritance jane john js key-value length male model module myctrl ng-controller ng-repeat object overview parent parent-child people person push register relationship ren return script simple type var"
     },
     {
-      "section": "hs",
-      "id": "hs.object.HsConfigurable",
-      "shortName": "hs.object.HsConfigurable",
+      "section": "hsBase",
+      "id": "hsBase.object.HsConfigurable",
+      "shortName": "hsBase.object.HsConfigurable",
       "type": "object",
-      "moduleName": "hs.object",
+      "moduleName": "hsBase.object",
       "shortDescription": "inherits from HsObject and provides for a basic configuration mechanism;",
-      "keywords": "add adds allows angular attrs basic call callback called calling calls category cb cfg chaining child color completed configuration configure consists console directive doubles ele example file function green hs hsconfigurable hsexample hsobject html inherits js json key key1 key2 label link list literal loading log mechanism method module mylabel myname notation obj1 object pairs parameter parameters parent provided range replace replaces restrict result return returns script setup specifies type url value1 value2 var"
+      "keywords": "add adds allows angular attrs basic call callback called calling calls category cb cfg chaining child color completed configuration configure consists console directive doubles ele example file function green hs hsbase hsconfigurable hsexample hsobject html inherits js json key key1 key2 label link list literal loading log mechanism method module mylabel myname notation obj1 object pairs parameter parameters parent provided range replace replaces restrict result return returns script setup specifies type url value1 value2 var"
     },
     {
-      "section": "hs",
-      "id": "hs.object.HsObject",
-      "shortName": "hs.object.HsObject",
+      "section": "hsBase",
+      "id": "hsBase.object.HsObject",
+      "shortName": "hsBase.object.HsObject",
       "type": "object",
-      "moduleName": "hs.object",
+      "moduleName": "hsBase.object",
       "shortDescription": "Base class for all HelpfulScripts objects.",
-      "keywords": "_outerfunction adds args arguments array base behavior called category chaining child children class current customize derived directly example function getname gettype helpfulscripts hs hsobject implements jane john list methods__outerfunction newname object objects optional override overview paramenter parent passed person remove removed removes retrieves returned returns setname sets string true true-ish type unspecified var"
+      "keywords": "_outerfunction adds args arguments array base behavior called category chaining child children class current customize derived directly example function getname gettype helpfulscripts hs hsbase hsobject implements jane john list methods__outerfunction newname object objects optional override overview paramenter parent passed person remove removed removes retrieves returned returns setname sets string true true-ish type unspecified var"
     },
     {
-      "section": "hs",
-      "id": "hs.object.HsPromise",
-      "shortName": "hs.object.HsPromise",
+      "section": "hsBase",
+      "id": "hsBase.object.HsPromise",
+      "shortName": "hsBase.object.HsPromise",
       "type": "object",
-      "moduleName": "hs.object",
+      "moduleName": "hsBase.object",
       "shortDescription": "implements a Promise mechanism following the template published at https://www.promisejs.org/",
-      "keywords": "$scope addition allows angular appropriate asynchronously call called chaining completes controller convenient create creating data error execution fulfilled fulfillment function functions handler handlers hs hsobject hspromise html https implements js mechanism module myctrl mypromisectrl ng-controller object onfailure onfulfilled onrejected onsuccess org parse promise promisejs promises provided published readfile registers rejected rejection resolver result returns script success successful template var works"
+      "keywords": "$scope addition allows angular appropriate asynchronously call called chaining completes controller convenient create creating data error execution fulfilled fulfillment function functions handler handlers hs hsbase hsobject hspromise html https implements js mechanism module myctrl mypromisectrl ng-controller object onfailure onfulfilled onrejected onsuccess org parse promise promisejs promises provided published readfile registers rejected rejection resolver result returns script success successful template var works"
+    },
+    {
+      "section": "hsLayout",
+      "id": "index",
+      "shortName": "index",
+      "type": "overview",
+      "moduleName": "index",
+      "shortDescription": "Angular Widget and Layout Library",
+      "keywords": "angular border directive directives example example_nested-tile-layout-inside-a-column-layout_demo facilitate firefox height hslayout html layout layouts library overview src status style test tested widget widgets width"
     },
     {
       "section": "hsLayout",
@@ -82,8 +91,8 @@ NG_DOCS={
       "shortName": "hsLayout",
       "type": "overview",
       "moduleName": "hsLayout",
-      "shortDescription": "Angular Widget and Layout Library",
-      "keywords": "$interval $scope add allow angular application attribute automatic background-color border browser center class clicking codebase column columns constraints container controller controls css deliberate directive directives display double eef element enables entire example facilitate factory fafafa ffe fill full-screen function gui height helpful hs-layout hs-moveable hs-rows hs-tiles hs-widget-pane hscolumnslayout hslayout hsrowslayout hstilelayout html https include inside js layout layouts level library live locations manual manually maximize mode module moved myctrl nested ng-controller ng-repeat non-static object overview padding position providing push relative repeated-item resized reversibly row script scripts size solid style surrounding text-align tile tiles toggle top treating var widget widgets window"
+      "shortDescription": "hsLayout",
+      "keywords": "$interval $scope add allow angular application attribute automatic background-color border browser center class clicking codebase column columns constraints container controller controls css deliberate directive display double eef element enables entire example factory fafafa ffe fill full-screen function gui height helpful hs-layout hs-moveable hs-rows hs-tiles hs-widget-pane hscolumnslayout hslayout hsrowslayout hstilelayout html https include inside js layout layouts level live locations manual manually maximize mode module moved myctrl nested ng-controller ng-repeat non-static object overview padding position providing push relative repeated-item resized reversibly row script scripts size solid style surrounding text-align tile tiles toggle top treating var widget widgets window"
     },
     {
       "section": "hsLayout",
@@ -155,7 +164,7 @@ NG_DOCS={
       "type": "object",
       "moduleName": "hsLayout.object",
       "shortDescription": "Extends HsLayout.",
-      "keywords": "$interval $scope angular array attribute attributes background-color border borders center children class column columns container controller create css description directive divides eef elements empty equal evenly extends fafafa ffe fill filled fixed function fw height horizontally hs-columns hs-layout hs-tiles hs-widget-pane hscolumnslayout hslayout html indicators inside js layout leaving left location lw module multiple myctrl n-1 n-2 nested ng-controller ng-repeat object options padding panel partitions position push px relative remaining repeated-item script sequence sets share shared solid space spaced specifications style supported text-align tile top uninterrupted unit unused var w1 w2 widget widgets width widths"
+      "keywords": "$interval $scope angular array attribute attributes background-color border borders center children class column columns container controller create css description directive divides eef elements empty equal evenly extends fafafa ffe fill filled fixed function fw height horizontally hs-columns hs-layout hs-tiles hs-widget-pane hscolumnslayout hslayout html indicators inside js layout leaving left location lw module multiple myctrl n-1 n-2 nested ng-controller ng-repeat object options padding panel partitions position push px relative remaining repeated-item script sequence sets share shared solid space spaced specifications style supported text-align tile top uninterrupted unit unused var w1 w2 wide widget widgets width widths"
     },
     {
       "section": "hsLayout",
@@ -164,7 +173,7 @@ NG_DOCS={
       "type": "object",
       "moduleName": "hsLayout.object",
       "shortDescription": "Extends HsConfigurable.",
-      "keywords": "abstract base class don explicitely extends fields functions hs hsconfigurable hslayout instantiations layout obj object options override pos set setwidgetpos setwidgetsize size standard widgets"
+      "keywords": "abstract base class don explicitely extends fields functions hsbase hsconfigurable hslayout instantiations layout obj object options override pos set setwidgetpos setwidgetsize size standard widgets"
     },
     {
       "section": "hsLayout",
@@ -182,7 +191,7 @@ NG_DOCS={
       "type": "object",
       "moduleName": "hsLayout.object",
       "shortDescription": "Extends HsLayout.",
-      "keywords": "$interval $scope angular array attribute attributes background-color border borders bottom center children class column container controller create css description directive divides eef elements empty equal evenly extends fafafa ffe fill function fw height heights hs-layout hs-rows hs-tiles hs-widget-pane hslayout hsrowslayout html indicators inside js layout leaving location lw module multiple myctrl n-1 n-2 nested ng-controller ng-repeat object options padding partitions position push px relative remaining repeated-item rows script sequence sets share solid space spaced specifications style supported text-align tile top uninterrupted unit unused var vertically w1 w2 widget widgets"
+      "keywords": "$interval $scope angular array attribute attributes background-color border borders bottom center children class column container controller create css description directive divides eef elements empty equal evenly extends fafafa ffe fill function fw header height heights hs-layout hs-rows hs-tiles hs-widget-pane hslayout hsrowslayout html indicators inside js layout leaving location lw module multiple myctrl n-1 n-2 nested ng-controller ng-repeat object options padding partitions position push px relative remaining repeated-item rows script sequence sets share solid space spaced specifications style supported text-align tile top uninterrupted unit unused var vertically w1 w2 widget widgets"
     },
     {
       "section": "hsLayout",
@@ -195,7 +204,7 @@ NG_DOCS={
     }
   ],
   "apis": {
-    "hs": true,
+    "hsBase": true,
     "hsLayout": true
   },
   "html5Mode": false,

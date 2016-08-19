@@ -1,10 +1,8 @@
-<a href="https://github.com/HelpfulScripts/hsLayout/blob/master/angular factory for providing layouts and widgets#L74" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable=""></code>
+<a href="https://github.com/HelpfulScripts/hsLayout/blob/master/{{file}}#L{{codeline}}" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable=""></code>
 <div><span class="hint"></span>
 </div>
 </h1>
-<div><div class="hslayout-page"><h2 id="angular-widget-and-layout-library">Angular Widget and Layout Library</h2>
-<p>Provides <em>AngularJS</em> directives to facilitate <a href="#/hsLayout/hsLayout.directive:hsWidget">widgets</a> 
-and <a href="#/hsLayout/hsLayout.directive:hsLayout">layouts</a>. </p>
+<div><div class="hslayout-page"><h2 id="hslayout">hsLayout</h2>
 <p>Layouts can be manual or automatic. Available automatic layouts include 
 <a href="#/hsLayout/hsLayout.object.HsRowsLayout">row layouts</a>, <a href="#/hsLayout/hsLayout.object.HsColumnsLayout">columns layouts</a>,
 and <a href="#/hsLayout/hsLayout.object.HsTileLayout">tiles layouts</a>.</p>
@@ -18,11 +16,12 @@ The codebase is available at <a href="https://github.com/HelpfulScripts/hsLayout
 </div><h2 id="example">Example</h2>
 <div class="example"><div class="hslayout-page"><h3 id="example_nested-tile-layout-inside-a-column-layout">Nested tile layout inside a column layout</h3>
 <h4 id="example_nested-tile-layout-inside-a-column-layout_source">Source</h4>
-<div source-edit="hsLayout" source-edit-deps="angular.js script.js" source-edit-html="index.html-17" source-edit-css="style.css-19" source-edit-js="script.js-18" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div source-edit="hsLayout" source-edit-deps="angular.js script.js" source-edit-html="index.html-6" source-edit-css="style.css" source-edit-js="script.js-7" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-17" ng-html-wrap-loaded="hsLayout angular.js script.js"></pre>
-<script type="text/ng-template" id="index.html-17">
-        <div ng-controller="myCtrl" style="height:300px; padding:0;">
+<pre class="prettyprint linenums" ng-set-text="index.html-6" ng-html-wrap-loaded="hsLayout angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html-6">
+        <div style="height:300px; padding:0;">
+        <div ng-controller="myCtrl">
             <hs-layout hs-rows='["80px",,"50px"]'>
                 <hs-widget>
                     <br>Header:80px
@@ -36,12 +35,12 @@ The codebase is available at <a href="https://github.com/HelpfulScripts/hsLayout
                     <br>Footer:50px
                 </hs-widget>
             </hs-layout>
-         </div>
+         </div></div>
     </script>
 </div>
 <div class="tab-pane" title="style.css">
-<pre class="prettyprint linenums" ng-set-text="style.css-19"></pre>
-<style type="text/css" id="style.css-19">
+<pre class="prettyprint linenums" ng-set-text="style.css"></pre>
+<style type="text/css" id="style.css">
         .well       { position: relative; }
         hs-layout   { background-color: #fafafa; }
         .top .hs-widget-pane {
@@ -55,8 +54,8 @@ The codebase is available at <a href="https://github.com/HelpfulScripts/hsLayout
     </style>
 </div>
 <div class="tab-pane" title="script.js">
-<pre class="prettyprint linenums" ng-set-text="script.js-18"></pre>
-<script type="text/ng-template" id="script.js-18">
+<pre class="prettyprint linenums" ng-set-text="script.js-7"></pre>
+<script type="text/ng-template" id="script.js-7">
         angular.module('hsLayout').controller('myCtrl', ['$scope', '$interval', function myCtrl($scope, $interval){
             var i = -1;
             $interval(function(){
@@ -72,6 +71,6 @@ The codebase is available at <a href="https://github.com/HelpfulScripts/hsLayout
     </script>
 </div>
 </div><h4 id="example_nested-tile-layout-inside-a-column-layout_demo">Demo</h4>
-<div class="well doc-example-live animate-container" ng-embed-app="hsLayout" ng-set-html="index.html-17" ng-eval-javascript="script.js-18"></div>
+<div class="well doc-example-live animate-container" ng-embed-app="hsLayout" ng-set-html="index.html-6" ng-eval-javascript="script.js-7"></div>
 </div></div>
 </div>

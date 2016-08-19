@@ -1,6 +1,79 @@
-/*! hsLayout - v1.2.0 - 2016-06-12
+/*! hsLayout - v1.2.0 - 2016-08-19
 * https://github.com/HelpfulScripts/hsLayout
 * Copyright (c) 2016 Helpful Scripts; Licensed  */
+/**
+ * @ngdoc overview
+ * @name hsLayout
+ * @module hsLayout
+ * @type {ngModule}
+ * @file angular factory for providing layouts and widgets
+ * @copyright Helpful Scripts 2015
+ * @description 
+ * # hsLayout
+ * Layouts can be manual or automatic. Available automatic layouts include 
+ * {@link hsLayout.object.HsRowsLayout row layouts}, {@link hsLayout.object.HsColumnsLayout columns layouts},
+ * and {@link hsLayout.object.HsTileLayout tiles layouts}.
+ * 
+ * Layouts can be nested - see example below. The top level layout will try to maximize its size within the 
+ * constraints of the surrounding container. For example, as first element with non-static position, a layout will fill 
+ * and make available the entire browser window. This enables treating the browser window as an application gui
+ * on which widgets (views, controls, etc.) can be placed in deliberate locations. 
+ * 
+ * Widgets live inside a layout. Double clicking the widgets will reversibly toggle its full-screen mode display. 
+ * Add the {@link hsLayout.directive:hsMoveable hs-moveable} attribute to a widget to allow it to be manually moved or resized. 
+ * The codebase is available at {@link https://github.com/HelpfulScripts/hsLayout}.
+ * 
+@example
+# Nested tile layout inside a column layout
+<example module="hsLayout">
+    <file name="index.html">
+        <div style="height:300px; padding:0;">
+        <div ng-controller="myCtrl">
+            <hs-layout hs-rows='["80px",,"50px"]'>
+                <hs-widget>
+                    <br>Header:80px
+                </hs-widget>
+                <hs-layout hs-tiles class='top'>
+                    <hs-widget ng-repeat="w in widgets" class='repeated-item'>
+                        <br>{{w}}
+                    </hs-widget>
+                </hs-layout>
+                <hs-widget>
+                    <br>Footer:50px
+                </hs-widget>
+            </hs-layout>
+         </div></div>
+    </file>
+    <file name="script.js">
+        angular.module('hsLayout').controller('myCtrl', ['$scope', '$interval', function myCtrl($scope, $interval){
+            var i = -1;
+            $interval(function(){
+                i++;
+                if (i===0) { $scope.widgets = ['first'];}
+                else if (i<6)  { $scope.widgets.push(i+''); }
+                else { 
+                    $scope.widgets = [];
+                    i=-1;
+                }                
+            }, 1000);
+        }]);
+    </file>
+    <file name="style.css">
+        .well       { position: relative; }
+        hs-layout   { background-color: #fafafa; }
+        .top .hs-widget-pane {
+            background-color: #eef; 
+        }
+        .hs-widget-pane   { 
+            background-color: #ffe; 
+            border: 1px solid #888; 
+            text-align: center;
+        }
+    </file>
+</example>
+*/
+
+
 // Create the module by calling angular.module with dependency object [].
 // Subsequent additions to the module work by referncing the angular.module('hsLayout') without [].
 angular.module('hsLayout', ['ngTouch', 'hs']);
@@ -70,33 +143,6 @@ angular.module('hsLayout').controller('hsMoveableCtrl', [function() {
         return ''; 
     }
 
-    function startEvent(start) {
-        var layout = start.widget.closest('hs-layout');
-
-        if (start.action !== '') {    // start a move:
-            start.dw        = get(layout, 'width');
-            start.dh        = get(layout, 'height');
-            start.helper    = layout.find('.'+gUIHelper);
-            start.layout = layout;
-            start.left   = get(start.widget, 'left');
-            start.top    = get(start.widget, 'top');
-            start.width  = get(start.widget, 'width');
-            start.height = get(start.widget, 'height');
-    
-            switch (start.action) {
-                case 'move': start.a1 = 'left';  start.a2 = 'top';    break;
-                case 'br':   start.a1 = 'width'; start.a2 = 'height'; break;
-                case 'bl':   start.a1 = 'left';  start.a2 = 'height'; break;
-                case 'tr':   start.a1 = 'width'; start.a2 = 'top';    break;
-                case 'tl':   start.a1 = 'left';  start.a2 = 'top';    break;
-            }
-            var x = start.x, y = start.y;
-            start.x -= get(start.widget, start.a1);
-            start.y -= get(start.widget, start.a2);
-            setPosSize(start, x-start.x, y-start.y);
-        }
-    }
-       
     function setPosSize(start, ex, ey) {
         var ix, iy;
         var w = start.widget, h = start.helper, db = start.layout;
@@ -168,6 +214,33 @@ angular.module('hsLayout').controller('hsMoveableCtrl', [function() {
         }
     }
 
+    function startEvent(start) {
+        var layout = start.widget.closest('hs-layout');
+
+        if (start.action !== '') {    // start a move:
+            start.dw        = get(layout, 'width');
+            start.dh        = get(layout, 'height');
+            start.helper    = layout.find('.'+gUIHelper);
+            start.layout = layout;
+            start.left   = get(start.widget, 'left');
+            start.top    = get(start.widget, 'top');
+            start.width  = get(start.widget, 'width');
+            start.height = get(start.widget, 'height');
+    
+            switch (start.action) {
+                case 'move': start.a1 = 'left';  start.a2 = 'top';    break;
+                case 'br':   start.a1 = 'width'; start.a2 = 'height'; break;
+                case 'bl':   start.a1 = 'left';  start.a2 = 'height'; break;
+                case 'tr':   start.a1 = 'width'; start.a2 = 'top';    break;
+                case 'tl':   start.a1 = 'left';  start.a2 = 'top';    break;
+            }
+            var x = start.x, y = start.y;
+            start.x -= get(start.widget, start.a1);
+            start.y -= get(start.widget, start.a2);
+            setPosSize(start, x-start.x, y-start.y);
+        }
+    }
+       
     /**
      * @description reacts to a mousedown event and starts a move, size, or full-screen event, showing the helper frame. 
      */
@@ -642,7 +715,22 @@ angular.module('hsLayout').factory('HsRowsLayout', ['HsLayout', function HsCompo
     "use strict";
     
     return function(heights) {
-        function layItOut(widgets) {
+        var obj = new HsLayout("HsColumnsLayout");
+        var unit = "%";
+        var firstHeightSet = false;
+        var lastHeightSet  = false;
+
+        if (heights.indexOf('px') >= 0) { unit = 'px'; }
+        heights = heights.replace(',,', ',"",').replace(',,', ',"",').
+                          replace('[,', '["",').replace(',]', ',""]').
+                          replace('%','').replace('px','');        
+        heights = JSON.parse(heights); 
+        var len = heights.length-1;
+        if (heights[0] && heights[0]!=="") { firstHeightSet = true; }          
+        if (len>0 && heights[len] && heights[len]!=="") { lastHeightSet = true; }          
+        for (var i=0; i<=len; i++) { heights[i] = parseFloat(heights[i]); }
+
+        obj.layItOut = function layItOut(widgets) {
             var numWidgets = widgets.length;
             var calcHeights = [];
             var i,j;
@@ -730,22 +818,7 @@ angular.module('hsLayout').factory('HsRowsLayout', ['HsLayout', function HsCompo
                     }
                 }
             }
-        }
-
-        var obj = new HsLayout("HsColumnsLayout");
-        obj.layItOut      = layItOut;
-        var unit = "%";
-        var firstHeightSet = false;
-        var lastHeightSet  = false;
-        if (heights.indexOf('px') >= 0) { unit = 'px'; }
-        heights = heights.replace(',,', ',"",').replace(',,', ',"",').
-                          replace('[,', '["",').replace(',]', ',""]').
-                          replace('%','').replace('px','');        
-        heights = JSON.parse(heights); 
-        var len = heights.length-1;
-        if (heights[0] && heights[0]!=="") { firstHeightSet = true; }          
-        if (len>0 && heights[len] && heights[len]!=="") { lastHeightSet = true; }          
-        for (var i=0; i<=len; i++) { heights[i] = parseFloat(heights[i]); }
+        };
         return obj;
     };
 }]);

@@ -11,14 +11,14 @@
                  Declarative templates with data-binding, MVC, dependency injection and great
                  testability story all implemented with pure client-side JavaScript!">
   <meta name="fragment" content="!">
-  <title ng-bind-template="hsLayout: {{partialTitle}}">Docs</title>
+  <title ng-bind-template="hsDocs: {{partialTitle}}">Docs</title>
   <script type="text/javascript">
     // dynamically add base tag as well as css and javascript files.
     // we can't add css/js the usual way, because some browsers (FF) eagerly prefetch resources
     // before the base attribute is added, causing 404 and terribly slow loading of the docs app.
     (function() {
       var indexFile = (location.pathname.match(/\/(index[^\.]*\.html)/) || ['', ''])[1],
-          origin, baseUrl, rUrl = /(\/?#!\/.*|\/(hs|hsLayout)\/?(\?.*)*|\/index[^\.]*\.html.*)$/,
+          origin, baseUrl, rUrl = /(\/?#!\/.*|\/(hsBase|hsLayout)\/?(\?.*)*|\/index[^\.]*\.html.*)$/,
           headEl = document.getElementsByTagName('head')[0],
           sync = true;
 
@@ -97,7 +97,7 @@
         <div class="container">
           
           
-            <a  class="brand">hsLayout</a>
+            <a  class="brand">hsDocs</a>
           
           <ul class="nav">
             <li ng-repeat="(url, name) in sections" ng-class="{active: isActivePath(url)}">
