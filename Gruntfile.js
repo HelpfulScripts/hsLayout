@@ -84,27 +84,15 @@ module.exports = function(grunt) {
 				exclude: [ ],
 				coverageReporter: { 
 				   type : 'html',
-				   dir : 'coverage/',
+				   dir : './lib/hsLayout/tests/',
 				   subdir: '', 
 				   includeAllSources: true
 				},
-				htmlReporter: {
-				    outputDir: 'coverage', // where to put the reports 
-				    templatePath: null, // set if you moved jasmine_template.html
-				    focusOnFailures: true, // reports show failures on start
-				    namedFiles: true, // name files instead of creating sub-directories
-				    pageTitle: "My Tests", // page title for reports; browser info by default
-				    urlFriendlyName: false, // simply replaces spaces with _ for files/dirs
-				    reportName: 'test-performed', // report summary filename; browser info by default
-				    // experimental
-				    preserveDescribeNesting: false, // folded suites stay folded 
-				    foldAll: false // reports start folded (only with preserveDescribeNesting)
-				  },
 				reporters: ['progress', 'coverage'],
 				port: 9876,
 				logLevel: 'WARN',  // OFF, ERROR, WARN, INFO, DEBUG
 				autoWatch: false,
-				browsers: ['Firefox' /*, 'Safari'*/],
+				browsers: ['Firefox'],
 				singleRun: true
 			},
 		    allNg: {
@@ -117,7 +105,7 @@ module.exports = function(grunt) {
 			                   'lib/angularjs/1.5.0/angular-mocks.js',
 			                   'lib/angular-ui/1.1.2/ui-bootstrap-tpls.js.css',
 			                   'lib/d3js/3.5.3/d3.min.js',
-			                   'lib/hs/hs.js', 'src/**/init/*.js', 'src/**/*.js',
+			                   'lib/hs/hs.js', 'src/init/*.js', 'src/**/*.js',
 			                   'test/unit/*.js'
 			                   ]}]
 			}
@@ -125,7 +113,7 @@ module.exports = function(grunt) {
 
 		ngdocs: {
 			options: {
-				dest: 'docs',
+				dest: './lib/hsLayout/docs',
 				html5Mode: false,
 				startPage: '#/api/<%= pkg.name %>',
 				scripts: [
@@ -149,41 +137,19 @@ module.exports = function(grunt) {
 				api:true
 			},
 			hsLayout: {
-				src: ['src/**/*.js'],
+				src: ['src/init/overview.js', 'src/**/*.js'],
 				title: 'hsLayout',
 				api:true
 			}
 		},
 		copy: {
-            pre: { },
-			docs: { files: [	{
-    				expand: true,
-    				src: 'lib/hs*/*.js.map',	// copy js.maps
-    				dest: 'docs/grunt-scripts',
-    				flatten: true
-    			}, {
-    				expand: true,
-    				src: 'lib/hs*/*.css.map',	// copy css.maps
-    				dest: 'docs/css',
-    				flatten: true
-    			}, {
-    				expand: true,
-    				src: 'data/**/*',		// copy data
-    				dest: 'docs/'
-    				
-    			}, {
-    				expand: true,
-    				src: 'docs/**/*',		// copy all docs
-    				dest: './lib/hsLayout/'
-    				
-    			}
-			]},
+            pre: { },          
 			post: {
 	            files: [{
 	                expand: true, flatten: true,
 	                src: ['dist/*'],    dest: './lib/hsLayout/'
 	            }]
-            }
+			}
 		},
     
         watch: {
@@ -222,9 +188,9 @@ module.exports = function(grunt) {
 	grunt.registerTask('test', ['karma']);
 
     // ngDoc only.
-    grunt.registerTask('makeDocs', ['ngdocs']);
+    grunt.registerTask('docs', ['ngdocs']);
 	// Default task.
-	grunt.registerTask('makeAll', ['copy:pre', 'jshint', 'clean', 'concat', 'less', 'cssmin', 'uglify', "copy:post", 'ngdocs', "copy:docs"]);
+	grunt.registerTask('makeAll', ['copy:pre', 'jshint', 'clean', 'concat', 'less', 'cssmin', 'uglify', "copy:post", 'ngdocs']);
     grunt.registerTask('default', ['makeAll', 'test']);
 
 };

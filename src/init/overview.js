@@ -1,15 +1,29 @@
 /**
  * @ngdoc overview
+ * @name index
+ * @description 
+ * # Angular Widget and Layout Library
+ * Provides *AngularJS* directives to facilitate {@link hsLayout.directive:hsWidget widgets} 
+ * and {@link hsLayout.directive:hsLayout layouts}. 
+ * See {@link #/hsLayout/hsLayout hsLayout overview} for an {@link #/hsLayout/hsLayout#example_nested-tile-layout-inside-a-column-layout_demo example}
+ * 
+ * # Test Status 
+ * Tested for Firefox
+ * <iframe src='../../hsLayout/tests/allNg/index.html' 
+ * 		style="border:none; "
+ * 		width="130%" height="500px">
+ * </iframe> 
+*/
+
+/**
+ * @ngdoc overview
  * @name hsLayout
  * @module hsLayout
  * @type {ngModule}
  * @file angular factory for providing layouts and widgets
  * @copyright Helpful Scripts 2015
- * @description
- * # Angular Widget and Layout Library
- * Provides *AngularJS* directives to facilitate {@link hsLayout.directive:hsWidget widgets} 
- * and {@link hsLayout.directive:hsLayout layouts}. 
- * 
+ * @description 
+ * # hsLayout
  * Layouts can be manual or automatic. Available automatic layouts include 
  * {@link hsLayout.object.HsRowsLayout row layouts}, {@link hsLayout.object.HsColumnsLayout columns layouts},
  * and {@link hsLayout.object.HsTileLayout tiles layouts}.
@@ -27,7 +41,8 @@
 # Nested tile layout inside a column layout
 <example module="hsLayout">
     <file name="index.html">
-        <div ng-controller="myCtrl" style="height:300px; padding:0;">
+        <div style="height:300px; padding:0;">
+        <div ng-controller="myCtrl">
             <hs-layout hs-rows='["80px",,"50px"]'>
                 <hs-widget>
                     <br>Header:80px
@@ -41,7 +56,7 @@
                     <br>Footer:50px
                 </hs-widget>
             </hs-layout>
-         </div>
+         </div></div>
     </file>
     <file name="script.js">
         angular.module('hsLayout').controller('myCtrl', ['$scope', '$interval', function myCtrl($scope, $interval){
