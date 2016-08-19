@@ -9,7 +9,7 @@
  * 
  * # Test Status 
  * Tested for Firefox
- * <iframe src='../../hsLayout/tests/allNg/index.html' 
+ * <iframe src='../../hsLayout/docs/tests/allNg/index.html' 
  * 		style="border:none; "
  * 		width="130%" height="500px">
  * </iframe> 

@@ -84,7 +84,7 @@ module.exports = function(grunt) {
 				exclude: [ ],
 				coverageReporter: { 
 				   type : 'html',
-				   dir : './lib/hsLayout/tests/',
+				   dir : './lib/hsLayout/docs/tests/',
 				   subdir: '', 
 				   includeAllSources: true
 				},
