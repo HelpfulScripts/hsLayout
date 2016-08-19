@@ -103,7 +103,7 @@ module.exports = function(grunt) {
 			                   'lib/angularjs/1.5.0/angular-touch.js',
 				               'lib/angularjs/1.5.0/angular-animate.js',
 			                   'lib/angularjs/1.5.0/angular-mocks.js',
-			                   'lib/angular-ui/1.1.2/ui-bootstrap-tpls.js.css',
+			                   'lib/angular-ui/1.3.3/ui-bootstrap-tpls.js.css',
 			                   'lib/d3js/3.5.3/d3.min.js',
 			                   'lib/hs/hs.js', 'src/init/*.js', 'src/**/*.js',
 			                   'test/unit/*.js'
@@ -128,12 +128,12 @@ module.exports = function(grunt) {
 						  './dist/<%= pkg.name %>.css'
 				],
 				sourceLink: 'https://github.com/HelpfulScripts/hsLayout/blob/master/{{file}}#L{{codeline}}',
-				title: "<%= pkg.name %>",
+				title: "hsDocs",
 				bestMatch: true
 			},
-			hs: {
+			hsBase: {
 				src: ['../hs/src/**/*.js'],
-				title: 'hs',
+				title: 'hsBase',
 				api:true
 			},
 			hsLayout: {
