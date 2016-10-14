@@ -40,7 +40,7 @@ module.exports = function(grunt) {
 		concat: {
 			options: {
 				banner: '<%= banner %>',
-				stripBanners: true,
+				stripBanners: false,
 				separator: '',
 				sourceMap: false
 			},
@@ -84,7 +84,7 @@ module.exports = function(grunt) {
 				exclude: [ ],
 				coverageReporter: { 
 				   type : 'html',
-				   dir : './lib/hsLayout/docs/tests/',
+				   dir : './lib/hsLayout/tests/',
 				   subdir: '', 
 				   includeAllSources: true
 				},

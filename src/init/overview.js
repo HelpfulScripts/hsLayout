@@ -1,28 +1,16 @@
 /**
  * @ngdoc overview
- * @name index
- * @description 
- * # Angular Widget and Layout Library
- * Provides *AngularJS* directives to facilitate {@link hsLayout.directive:hsWidget widgets} 
- * and {@link hsLayout.directive:hsLayout layouts}. 
- * See {@link #/hsLayout/hsLayout hsLayout overview} for an {@link #/hsLayout/hsLayout#example_nested-tile-layout-inside-a-column-layout_demo example}
- * 
- * # Test Status 
- * Tested for Firefox
- * <iframe src='../../hsLayout/docs/tests/allNg/index.html' 
- * 		style="border:none; "
- * 		width="130%" height="500px">
- * </iframe> 
-*/
-
-/**
- * @ngdoc overview
  * @name hsLayout
  * @module hsLayout
  * @type {ngModule}
  * @file angular factory for providing layouts and widgets
  * @copyright Helpful Scripts 2015
  * @description 
+ * # Angular Widget and Layout Library
+ * Provides *AngularJS* directives to facilitate {@link hsLayout.directive:hsWidget widgets} 
+ * and {@link hsLayout.directive:hsLayout layouts}. 
+ * See {@link #/hsLayout/hsLayout hsLayout overview} for an {@link #/hsLayout/hsLayout#example_nested-tile-layout-inside-a-column-layout_demo example}
+
  * # hsLayout
  * Layouts can be manual or automatic. Available automatic layouts include 
  * {@link hsLayout.object.HsRowsLayout row layouts}, {@link hsLayout.object.HsColumnsLayout columns layouts},
@@ -41,8 +29,7 @@
 # Nested tile layout inside a column layout
 <example module="hsLayout">
     <file name="index.html">
-        <div style="height:300px; padding:0;">
-        <div ng-controller="myCtrl">
+        <div style="height:300px; padding:0;" ng-controller="myCtrl">
             <hs-layout hs-rows='["80px",,"50px"]'>
                 <hs-widget>
                     <br>Header:80px
@@ -56,20 +43,20 @@
                     <br>Footer:50px
                 </hs-widget>
             </hs-layout>
-         </div></div>
+         </div>
     </file>
     <file name="script.js">
         angular.module('hsLayout').controller('myCtrl', ['$scope', '$interval', function myCtrl($scope, $interval){
-            var i = -1;
-            $interval(function(){
-                i++;
-                if (i===0) { $scope.widgets = ['first'];}
-                else if (i<6)  { $scope.widgets.push(i+''); }
-                else { 
-                    $scope.widgets = [];
-                    i=-1;
-                }                
-            }, 1000);
+            $interval(cycle1_6, 1000);
+            
+	        function cycle1_6() {
+	        	if (!$scope.widgets) { $scope.widgets = []; }
+	            switch($scope.widgets.length) {
+	            	case 0: $scope.widgets.push('first'); break;
+	            	case 6: $scope.widgets = []; break;
+	            	default: $scope.widgets.push(($scope.widgets.length+1)+'');
+	            }
+	        }
         }]);
     </file>
     <file name="style.css">
@@ -85,7 +72,14 @@
         }
     </file>
 </example>
-*/
+
+ * # Test Status 
+ * Tested for Firefox
+ * <iframe src='../../libraries/hsLayout/tests/allNg/index.html' 
+ * 		style="border:none; "
+ * 		width="130%" height="500px">
+ * </iframe> 
+ */
 
 
 // Create the module by calling angular.module with dependency object [].
