@@ -9,7 +9,7 @@
  * # Angular Widget and Layout Library
  * Provides *AngularJS* directives to facilitate {@link hsLayout.directive:hsWidget widgets} 
  * and {@link hsLayout.directive:hsLayout layouts}. 
- * See {@link #/hsLayout/hsLayout hsLayout overview} for an {@link #/hsLayout/hsLayout#example_nested-tile-layout-inside-a-column-layout_demo example}
+ * See below for an {@link hsLayout#example_nested-tile-layout-inside-a-column-layout_demo example}
 
  * # hsLayout
  * Layouts can be manual or automatic. Available automatic layouts include 
