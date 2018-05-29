@@ -2,8 +2,11 @@
   "name": "hslayout",
   "main": "./index.js",
   "types": "./index.d.ts",
-  "version": "2.0.6",
-  "keywords": ["layout", "UI"],
+  "version": "2.0.7",
+  "keywords": [
+    "layout",
+    "UI"
+  ],
   "description": "Helpful Scripts UI layout utility",
   "author": {
     "name": "masterscripter",
