@@ -1,0 +1,68 @@
+
+                <html><style>body { overflow:hidden;}
+            h1 { font-family: Arial, sans-serif; font-size: 24px; color: #44a; }
+            p { margin:0; padding-top:5px; }
+            br  { margin:0; padding:0; }
+            .line { margin: 0 5px 0 0; padding-right: 5px; color:#999; background-color:#eef;  }
+            comment { color: #080;} module { color: #804;}
+            .listing { margin: 10px; border: 1px solid #ccc; 
+                      font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+                      font-size: 14px; line-height: 1.2em; 
+                      overflow:scroll;
+                      height:90%;
+            }
+            code { padding: 5px 0;}</style></html><body>
+                <h1>controller/Venue.ts</h1>
+                <div class='listing'><code><span id=1 class="line">&nbsp;&nbsp;&nbsp;1</span>import&nbsp;{&nbsp;m&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;'hslayout';<br>
+<span id=2 class="line">&nbsp;&nbsp;&nbsp;2</span>import&nbsp;{&nbsp;PacingQueue&nbsp;}&nbsp;&nbsp;from&nbsp;'hsutil';<br>
+<span id=3 class="line">&nbsp;&nbsp;&nbsp;3</span>import&nbsp;{&nbsp;TraderQuote,<br>
+<span id=4 class="line">&nbsp;&nbsp;&nbsp;4</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TraderIntraday,<br>
+<span id=5 class="line">&nbsp;&nbsp;&nbsp;5</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TraderSymbol&nbsp;}&nbsp;from&nbsp;'./Trader';<br>
+<span id=6 class="line">&nbsp;&nbsp;&nbsp;6</span>import&nbsp;{&nbsp;EquityItem&nbsp;}&nbsp;&nbsp;&nbsp;from&nbsp;'./Equities';<br>
+<span id=7 class="line">&nbsp;&nbsp;&nbsp;7</span>import&nbsp;{&nbsp;EquitySplit&nbsp;}&nbsp;&nbsp;from&nbsp;'./Equities';<br>
+<span id=8 class="line">&nbsp;&nbsp;&nbsp;8</span><br>
+<span id=9 class="line">&nbsp;&nbsp;&nbsp;9</span><br>
+<span id=10 class="line">&nbsp;&nbsp;10</span>export&nbsp;enum&nbsp;VenueIDs&nbsp;{<br>
+<span id=11 class="line">&nbsp;&nbsp;11</span>&nbsp;&nbsp;&nbsp;&nbsp;IEX&nbsp;=&nbsp;'IEX'<br>
+<span id=12 class="line">&nbsp;&nbsp;12</span>}<br>
+<span id=13 class="line">&nbsp;&nbsp;13</span><br>
+<span id=14 class="line">&nbsp;&nbsp;14</span><comment>/**&nbsp;provides&nbsp;details&nbsp;on&nbsp;available&nbsp;equities&nbsp;for&nbsp;a&nbsp;venue&nbsp;*/</comment><br>
+<span id=15 class="line">&nbsp;&nbsp;15</span>export&nbsp;interface&nbsp;VenueSummary&nbsp;{<br>
+<span id=16 class="line">&nbsp;&nbsp;16</span>&nbsp;&nbsp;&nbsp;&nbsp;venueID:&nbsp;&nbsp;&nbsp;&nbsp;VenueIDs;&nbsp;<br>
+<span id=17 class="line">&nbsp;&nbsp;17</span>&nbsp;&nbsp;&nbsp;&nbsp;venueName:&nbsp;&nbsp;string;<br>
+<span id=18 class="line">&nbsp;&nbsp;18</span>&nbsp;&nbsp;&nbsp;&nbsp;symbols:&nbsp;&nbsp;&nbsp;&nbsp;string[];<br>
+<span id=19 class="line">&nbsp;&nbsp;19</span>&nbsp;&nbsp;&nbsp;&nbsp;names:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string[];<br>
+<span id=20 class="line">&nbsp;&nbsp;20</span>&nbsp;&nbsp;&nbsp;&nbsp;equities:&nbsp;&nbsp;&nbsp;{string:TraderSymbol};&nbsp;&nbsp;//&nbsp;sym&nbsp;->&nbsp;TraderSymbol<br>
+<span id=21 class="line">&nbsp;&nbsp;21</span>}<br>
+<span id=22 class="line">&nbsp;&nbsp;22</span><br>
+<span id=23 class="line">&nbsp;&nbsp;23</span><br>
+<span id=24 class="line">&nbsp;&nbsp;24</span>export&nbsp;abstract&nbsp;class&nbsp;Venue&nbsp;{<br>
+<span id=25 class="line">&nbsp;&nbsp;25</span>&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;static&nbsp;queue&nbsp;=&nbsp;new&nbsp;PacingQueue(10);<br>
+<span id=26 class="line">&nbsp;&nbsp;26</span>&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;static&nbsp;addPacedGet(url:string):&nbsp;Promise<any>&nbsp;{<br>
+<span id=27 class="line">&nbsp;&nbsp;27</span>//console.log(`${new&nbsp;Date().getTime()%10000}:&nbsp;addPacedGet&nbsp;requesting&nbsp;${url}`);<br>
+<span id=28 class="line">&nbsp;&nbsp;28</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;Venue.queue.add((ms:number)&nbsp;=>&nbsp;{<br>
+<span id=29 class="line">&nbsp;&nbsp;29</span>//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(`${new&nbsp;Date().getTime()%10000}:&nbsp;pacedGet(after&nbsp;${ms}&nbsp;ms)&nbsp;requesting&nbsp;${url}`);<br>
+<span id=30 class="line">&nbsp;&nbsp;30</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m.request({url:url})<br>
+<span id=31 class="line">&nbsp;&nbsp;31</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.then((data:any)&nbsp;=>&nbsp;{<br>
+<span id=32 class="line">&nbsp;&nbsp;32</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${new&nbsp;Date().getTime()%10000}:&nbsp;pacedGet&nbsp;received&nbsp;data&nbsp;from&nbsp;${url}`);<br>
+<span id=33 class="line">&nbsp;&nbsp;33</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;data;<br>
+<span id=34 class="line">&nbsp;&nbsp;34</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;})<br>
+<span id=35 class="line">&nbsp;&nbsp;35</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.catch((err:any)&nbsp;=>&nbsp;{<br>
+<span id=36 class="line">&nbsp;&nbsp;36</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(`***&nbsp;${new&nbsp;Date().getTime()%10000}:&nbsp;pacedGet&nbsp;error&nbsp;${err}&nbsp;from&nbsp;${url}`);<br>
+<span id=37 class="line">&nbsp;&nbsp;37</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+<span id=38 class="line">&nbsp;&nbsp;38</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+<span id=39 class="line">&nbsp;&nbsp;39</span>&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<span id=40 class="line">&nbsp;&nbsp;40</span><br>
+<span id=41 class="line">&nbsp;&nbsp;41</span>&nbsp;&nbsp;&nbsp;&nbsp;constructor()&nbsp;{}<br>
+<span id=42 class="line">&nbsp;&nbsp;42</span><br>
+<span id=43 class="line">&nbsp;&nbsp;43</span>&nbsp;&nbsp;&nbsp;&nbsp;summary:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VenueSummary;<br>
+<span id=44 class="line">&nbsp;&nbsp;44</span><br>
+<span id=45 class="line">&nbsp;&nbsp;45</span>&nbsp;&nbsp;&nbsp;&nbsp;abstract&nbsp;requestMarketUpdate():&nbsp;Promise<Date>;<br>
+<span id=46 class="line">&nbsp;&nbsp;46</span>&nbsp;&nbsp;&nbsp;&nbsp;abstract&nbsp;requestMetaVenue(item:EquityItem):Promise<EquityItem>;<br>
+<span id=47 class="line">&nbsp;&nbsp;47</span>&nbsp;&nbsp;&nbsp;&nbsp;abstract&nbsp;requestQuotesVenue(item:EquityItem,&nbsp;missingDays:number):Promise<TraderQuote[]>;<br>
+<span id=48 class="line">&nbsp;&nbsp;48</span>&nbsp;&nbsp;&nbsp;&nbsp;abstract&nbsp;requestIntradayVenue(item:EquityItem):Promise<TraderIntraday[]>;<br>
+<span id=49 class="line">&nbsp;&nbsp;49</span>&nbsp;&nbsp;&nbsp;&nbsp;abstract&nbsp;requestSplitsVenue(item:EquityItem):Promise<EquitySplit[]>;<br>
+<span id=50 class="line">&nbsp;&nbsp;50</span>&nbsp;&nbsp;&nbsp;&nbsp;abstract&nbsp;requestSymbolsForVenue():Promise<VenueSummary>;<br>
+<span id=51 class="line">&nbsp;&nbsp;51</span>}<br></code></div>
+                </body>
+            
