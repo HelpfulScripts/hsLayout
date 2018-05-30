@@ -1,3 +1,0 @@
-import { cfg } from './layout.x';
-if (cfg) { }
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic3RhcnQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvZXhhbXBsZS9zdGFydC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUUsR0FBRyxFQUFFLE1BQU0sWUFBWSxDQUFDO0FBQ2pDLElBQUksR0FBRyxFQUFFLEdBQUUifQ==

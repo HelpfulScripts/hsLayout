@@ -1,3 +1,0 @@
-/*! hsLayout - v1.2.0 - 2016-04-25
-* https://github.com/HelpfulScripts/hsLayout
-* Copyright (c) 2016 Helpful Scripts; Licensed  */.hs-fill-page,.hs-layout-container,.hs-widget-pane,[hs-layout],[hs-widget],hs-layout,hs-widget{left:0;right:0;top:0;bottom:0;position:absolute}*{box-sizing:border-box;margin:0;padding:0}a:focus{outline:0;outline-offset:0}.hs-fill-page{margin-left:5px;margin-right:5px;margin-bottom:5px}[hs-layout],hs-layout{overflow:hidden}[hs-widget],hs-widget{box-sizing:border-box;overflow:hidden}.hs-widget-in-front{z-index:1000}.hs-widget-container{position:absolute}.hs-widget-pane{border-radius:6px;border:1px solid #aaa;margin:2px}.hs-widget-helper{border:1px dashed #00f;position:absolute;top:-1000px;left:-1000px}.hs-scroll,[hs-scroll]{overflow:scroll}
