@@ -32,7 +32,7 @@
  * Currently defined Layouters:
  * - &nbsp; {@link PillaredLayouter.Columns `Columns`}
  * - &nbsp; {@link PillaredLayouter.Rows    `Rows`}
- * - &nbsp; {@link TileLayouter.Tiles       `Tiles`}
+ * - &nbsp; {@link TileLayouter             `Tiles`}
  * 
  * ### Example
  * <example>
