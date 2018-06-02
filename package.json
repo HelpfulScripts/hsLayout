@@ -2,7 +2,7 @@
   "name": "hslayout",
   "main": "./index.js",
   "types": "./index.d.ts",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "keywords": [
     "layout",
     "UI"
