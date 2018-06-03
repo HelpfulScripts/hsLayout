@@ -40,9 +40,11 @@ The following options are supported for the Attributes array:
  */
 
 /** */
-import { Layout }    from './Layout';
-import { Layouter }       from './Layouter';
-import { LayoutToken, DefinedToken, PixelToken }    from './Tokens';
+import { Layout }       from './Layout';
+import { Layouter }     from './Layouter';
+import { LayoutToken, 
+         DefinedToken, 
+         PixelToken }   from './Tokens';
 import { Vnode}         from '../mithril';
 
 

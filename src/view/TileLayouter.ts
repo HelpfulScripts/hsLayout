@@ -58,9 +58,12 @@ The following options are supported for the Attributes array:
 - **[w, h, FILL]**: like [w, h], except that the last tile will fill the remaining available width. 
  */
 /** */
-import { Layout }    from './Layout';
-import { Layouter }       from './Layouter';
-import { LayoutToken, FillToken, DefinedToken, PixelToken }    from './Tokens';
+import { Layout }       from './Layout';
+import { Layouter }     from './Layouter';
+import { LayoutToken, 
+         FillToken, 
+         DefinedToken, 
+         PixelToken }   from './Tokens';
 import { Vnode}         from '../mithril';
 
 type descriptor = {top:string, left:string, right:string, bottom:string, width:string, height:string};

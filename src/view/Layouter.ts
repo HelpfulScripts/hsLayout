@@ -10,7 +10,7 @@ Subclasses of `Layouter` should
 import { Vnode} from '../mithril';
 
 import { LayoutToken }  from './Tokens';
-import { Layout }    from './Layout';
+import { Layout }       from './Layout';
 import { px, pc, FILL } from './Tokens';
 
 /**
