@@ -1,5 +1,8 @@
 /**
  * # hsLayout 
+ * 
+ * Helpful Scripts UI layout tools. [Github page](https://github.com/HelpfulScripts/hsLayout)
+ * 
  * hsLayout provides means to layout the browser window in various ways.
  * See [Layout Examples](example/layout.html)
  * 
