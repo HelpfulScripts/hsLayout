@@ -1,7 +1,11 @@
+if (!global['window']) {
+    global['window'] = require("mithril/test-utils/browserMock.js")();
+    global['document'] = window.document;
+}
+const o = require("mithril/ospec/ospec");
+const m = require("mithril");
 
-const hslayout = require('../src/');
-const m = hslayout.m;
-const o = hslayout.o;
+import * as hslayout from '../';
 
 
 const columns = ["150px", "fill"];

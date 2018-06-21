@@ -48,11 +48,6 @@
  *     })
  * });
  * </file>
- * <file name='style.css'>
- * .myColumn .hs-layout {
- *     border: 1px solid white;
- * }
- * </file>
  * </example>
  * 
  * ### Nested Example
@@ -68,11 +63,6 @@
  *         ]
  *     })
  * });
- * </file>
- * <file name='style.css'>
- * .myColumn .hs-layout {
- *     border: 1px solid white;
- * }
  * </file>
  * </example>
  */
