@@ -1,4 +1,4 @@
-@LayoutSpacing: 1px solid white;
+@LayoutSpacing: 0px solid white;
 
 .hs-layout {
     left: 0%; top: 0%;
@@ -11,15 +11,17 @@
 }
 
 .hs-layout-spacing {
-    .hs-column-layout & > .hs-layout {
-        border: @LayoutSpacing;
-        & > .hs-layout:first-of-type { border-left: 0; }  
-        & > .hs-layout:last-of-type { border-right: 0; }  
+    .hs-column-layout > .hs-layout {
+        border-left: @LayoutSpacing; 
+        border-right: @LayoutSpacing; 
+        &:first-of-type { border-left: 0; }  
+        &:last-of-type { border-right: 0; }  
     } 
-    .hs-row-layout {
-        & > .hs-layout { border: @LayoutSpacing; }
-        & > .hs-layout:first-of-type { border-top: 0; }  
-        & > .hs-layout:last-of-type { border-bottom: 0; }  
+    .hs-row-layout > .hs-layout {
+        border-top: @LayoutSpacing;
+        border-bottom: @LayoutSpacing;
+        &:first-of-type { border-top: 0; }  
+        &:last-of-type { border-bottom: 0; }  
     } 
 }
 
