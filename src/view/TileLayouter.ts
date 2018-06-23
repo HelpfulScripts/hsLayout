@@ -40,11 +40,6 @@ to invoke this layout.
  * </example>
 
 ## Attributes
-The following values **v** are valid entries in The Attributes array:
-- **px(n)** or **"_n_ px"** -- a fixed number of pixels 
-- **pc(n)** or **"_n_ %"**  -- a fixed percentage of available space
-- **FILL** or **"fill"**   -- a special constant indicate to fill remaining space - may appear only once per array.
-
 The following options are supported for the Attributes array:
 - **[ ]**: An empty array; The available tiles will cover the entire width and height. 
     Their size will adapt as tiles are added.
@@ -56,6 +51,12 @@ The following options are supported for the Attributes array:
 - **[v, FILL]**: like [v], except that the last tile in each row will fill the remaining available width 
     and the tiles in the bottom row will fill the remaining height
 - **[w, h, FILL]**: like [w, h], except that the last tile will fill the remaining available width. 
+
+v, w, and h can take on the following vakues:
+- **px(n)** or **"_n_ px"** -- a fixed number of pixels 
+- **pc(n)** or **"_n_ %"**  -- a fixed percentage of available space
+- **FILL** or **"fill"**   -- fills the remaining space - may appear only once per array.
+
  */
 /** */
 import { Layout }       from './Layout';

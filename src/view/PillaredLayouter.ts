@@ -274,6 +274,7 @@ abstract class PillarLayouter extends Layouter{
  * }
  * .myExample { 
  *     color:       #a44; 
+ *     font-size: 10px;
  *     font-weight: bold; 
  *     text-align:  center;
  * }
@@ -331,6 +332,7 @@ class Columns extends PillarLayouter {
  * .myExample { 
  *     color:       #a44; 
  *     font-weight: bold; 
+ *     font-size: 10px;
  *     text-align:  center;
  * }
  * </file>
