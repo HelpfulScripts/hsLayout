@@ -3,8 +3,6 @@
  */
 
 if (!global['window']) {
-    console.log('creating non-browser polyfill');
-    // Polyfill DOM env for mithril
     global['window'] = require("mithril/test-utils/browserMock.js")();
     global['document'] = window.document;
 
@@ -20,7 +18,6 @@ export const m = require("mithril");
  */
 export type Vnode = typeof m.Vnode;
 
-const o = require("mithril/ospec/ospec");
+export const o = require("mithril/ospec/ospec");
 o.root = window.document.createElement("div");
 
-export { o };
