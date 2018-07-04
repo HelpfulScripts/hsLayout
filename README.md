@@ -1,5 +1,9 @@
-hsLayout [![npm version](https://badge.fury.io/js/hslayout.svg)](https://badge.fury.io/js/hslayout) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](https://gruntjs.com/) [![NPM License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://www.npmjs.com/package/hslayout)
+hsLayout 
 ========
+[![npm version](https://badge.fury.io/js/hslayout.svg)](https://badge.fury.io/js/hslayout) 
+[![Build status](https://ci.appveyor.com/api/projects/status/kxl784vrgy2ujs27?svg=true)](https://ci.appveyor.com/project/HelpfulScripts/hslayout)
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](https://gruntjs.com/) 
+[![NPM License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://www.npmjs.com/package/hslayout)
 
 Helpful Scripts framework-independent data management functions.
 
