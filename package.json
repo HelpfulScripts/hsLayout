@@ -5,9 +5,12 @@
   "version": "2.2.0",
   "keywords": [
     "layout",
-    "UI"
+    "UI",
+    "es6",
+    "mithril"
   ],
   "description": "Helpful Scripts UI layout utility",
+  "homepage": "https://helpfulscripts.github.io/hsLayout/indexGH.html#!/api/hsLayout/0",
   "author": {
     "name": "masterscripter",
     "email": "helpfulscripts@gmail.com"
@@ -46,5 +49,7 @@
     "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack": "^4.14.0"
   },
-  "dependencies": {}
+  "dependencies": {
+      "mithril": "^1.1.6"
+  }
 }
