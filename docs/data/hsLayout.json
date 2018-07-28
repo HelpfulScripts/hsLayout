@@ -5,2144 +5,21 @@
 	"flags": {},
 	"children": [
 		{
-			"id": 254,
-			"name": "\"example/config.x\"",
-			"kind": 1,
-			"kindString": "External module",
-			"flags": {
-				"isExported": true
-			},
-			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/node.js/ts6/dev/hsLibs/mithril/hsLayout/src/example/config.x.ts",
-			"children": [
-				{
-					"id": 291,
-					"name": "example",
-					"kind": 2097152,
-					"kindString": "Object literal",
-					"flags": {},
-					"children": [
-						{
-							"id": 296,
-							"name": "Footer",
-							"kind": 32,
-							"kindString": "Variable",
-							"flags": {},
-							"sources": [
-								{
-									"fileName": "example/config.x.ts",
-									"line": 55,
-									"character": 10
-								}
-							],
-							"type": {
-								"type": "reference",
-								"name": "(Anonymous class)"
-							},
-							"defaultValue": " class extends hslayout.Layout{ \n        getComponents(node:Vnode) { return m('.hs-site-footer', '(c) Helpful ; Scripts'); } \n    }"
-						},
-						{
-							"id": 292,
-							"name": "LeftHead",
-							"kind": 32,
-							"kindString": "Variable",
-							"flags": {},
-							"sources": [
-								{
-									"fileName": "example/config.x.ts",
-									"line": 41,
-									"character": 12
-								}
-							],
-							"type": {
-								"type": "reference",
-								"name": "(Anonymous class)"
-							},
-							"defaultValue": " class extends hslayout.Layout{ \n        getComponents(node:Vnode) { \n            return 'The Left Head'; \n        } \n    }"
-						},
-						{
-							"id": 294,
-							"name": "LeftNav",
-							"kind": 32,
-							"kindString": "Variable",
-							"flags": {},
-							"sources": [
-								{
-									"fileName": "example/config.x.ts",
-									"line": 49,
-									"character": 11
-								}
-							],
-							"type": {
-								"type": "reference",
-								"name": "(Anonymous class)"
-							},
-							"defaultValue": " class extends hslayout.Layout{ \n        getComponents(node:Vnode) { return m('', 'The Left Nav'); } \n    }"
-						},
-						{
-							"id": 293,
-							"name": "MainHead",
-							"kind": 32,
-							"kindString": "Variable",
-							"flags": {},
-							"sources": [
-								{
-									"fileName": "example/config.x.ts",
-									"line": 46,
-									"character": 12
-								}
-							],
-							"type": {
-								"type": "reference",
-								"name": "(Anonymous class)"
-							},
-							"defaultValue": " class extends hslayout.Layout{ \n        getComponents(node:Vnode) { return m('', 'The Main Head'); } \n    }"
-						},
-						{
-							"id": 295,
-							"name": "MainNav",
-							"kind": 32,
-							"kindString": "Variable",
-							"flags": {},
-							"sources": [
-								{
-									"fileName": "example/config.x.ts",
-									"line": 52,
-									"character": 11
-								}
-							],
-							"type": {
-								"type": "reference",
-								"name": "(Anonymous class)"
-							},
-							"defaultValue": " class extends hslayout.Layout{ \n        getComponents(node:Vnode) { return m('', 'The Main Nav'); } \n    }"
-						}
-					],
-					"groups": [
-						{
-							"title": "Variables",
-							"kind": 32,
-							"children": [
-								296,
-								292,
-								294,
-								293,
-								295
-							]
-						}
-					],
-					"sources": [
-						{
-							"fileName": "example/config.x.ts",
-							"line": 40,
-							"character": 13
-						}
-					],
-					"type": {
-						"type": "intrinsic",
-						"name": "object"
-					}
-				},
-				{
-					"id": 255,
-					"name": "myConfig",
-					"kind": 2097152,
-					"kindString": "Object literal",
-					"flags": {},
-					"children": [
-						{
-							"id": 256,
-							"name": "Layout",
-							"kind": 2097152,
-							"kindString": "Object literal",
-							"flags": {},
-							"children": [
-								{
-									"id": 259,
-									"name": "content",
-									"kind": 32,
-									"kindString": "Variable",
-									"flags": {},
-									"sources": [
-										{
-											"fileName": "example/config.x.ts",
-											"line": 9,
-											"character": 15
-										}
-									],
-									"type": {
-										"type": "array",
-										"elementType": {
-											"type": "union",
-											"types": [
-												{
-													"type": "reflection",
-													"declaration": {
-														"id": 260,
-														"name": "__type",
-														"kind": 65536,
-														"kindString": "Type literal",
-														"flags": {},
-														"children": [
-															{
-																"id": 261,
-																"name": "Layout",
-																"kind": 2097152,
-																"kindString": "Object literal",
-																"flags": {},
-																"children": [
-																	{
-																		"id": 262,
-																		"name": "columns",
-																		"kind": 32,
-																		"kindString": "Variable",
-																		"flags": {},
-																		"sources": [
-																			{
-																				"fileName": "example/config.x.ts",
-																				"line": 11,
-																				"character": 23
-																			}
-																		],
-																		"type": {
-																			"type": "array",
-																			"elementType": {
-																				"type": "intrinsic",
-																				"name": "string"
-																			}
-																		},
-																		"defaultValue": " [\"200px\", \"fill\"]"
-																	},
-																	{
-																		"id": 263,
-																		"name": "content",
-																		"kind": 32,
-																		"kindString": "Variable",
-																		"flags": {},
-																		"sources": [
-																			{
-																				"fileName": "example/config.x.ts",
-																				"line": 12,
-																				"character": 23
-																			}
-																		],
-																		"type": {
-																			"type": "array",
-																			"elementType": {
-																				"type": "union",
-																				"types": [
-																					{
-																						"type": "reflection",
-																						"declaration": {
-																							"id": 264,
-																							"name": "__type",
-																							"kind": 65536,
-																							"kindString": "Type literal",
-																							"flags": {},
-																							"children": [
-																								{
-																									"id": 265,
-																									"name": "LeftHead",
-																									"kind": 2097152,
-																									"kindString": "Object literal",
-																									"flags": {},
-																									"children": [
-																										{
-																											"id": 267,
-																											"name": "field",
-																											"kind": 32,
-																											"kindString": "Variable",
-																											"flags": {},
-																											"sources": [
-																												{
-																													"fileName": "example/config.x.ts",
-																													"line": 13,
-																													"character": 59
-																												}
-																											],
-																											"type": {
-																												"type": "intrinsic",
-																												"name": "string"
-																											},
-																											"defaultValue": "\"route.field\""
-																										},
-																										{
-																											"id": 266,
-																											"name": "lib",
-																											"kind": 32,
-																											"kindString": "Variable",
-																											"flags": {},
-																											"sources": [
-																												{
-																													"fileName": "example/config.x.ts",
-																													"line": 13,
-																													"character": 40
-																												}
-																											],
-																											"type": {
-																												"type": "intrinsic",
-																												"name": "string"
-																											},
-																											"defaultValue": "\"route.lib\""
-																										}
-																									],
-																									"groups": [
-																										{
-																											"title": "Variables",
-																											"kind": 32,
-																											"children": [
-																												267,
-																												266
-																											]
-																										}
-																									],
-																									"sources": [
-																										{
-																											"fileName": "example/config.x.ts",
-																											"line": 13,
-																											"character": 30
-																										}
-																									],
-																									"type": {
-																										"type": "intrinsic",
-																										"name": "object"
-																									}
-																								}
-																							],
-																							"groups": [
-																								{
-																									"title": "Object literals",
-																									"kind": 2097152,
-																									"children": [
-																										265
-																									]
-																								}
-																							]
-																						}
-																					},
-																					{
-																						"type": "reflection",
-																						"declaration": {
-																							"id": 268,
-																							"name": "__type",
-																							"kind": 65536,
-																							"kindString": "Type literal",
-																							"flags": {},
-																							"children": [
-																								{
-																									"id": 269,
-																									"name": "MainHead",
-																									"kind": 2097152,
-																									"kindString": "Object literal",
-																									"flags": {},
-																									"children": [
-																										{
-																											"id": 271,
-																											"name": "field",
-																											"kind": 32,
-																											"kindString": "Variable",
-																											"flags": {},
-																											"sources": [
-																												{
-																													"fileName": "example/config.x.ts",
-																													"line": 14,
-																													"character": 59
-																												}
-																											],
-																											"type": {
-																												"type": "intrinsic",
-																												"name": "string"
-																											},
-																											"defaultValue": "\"route.field\""
-																										},
-																										{
-																											"id": 270,
-																											"name": "lib",
-																											"kind": 32,
-																											"kindString": "Variable",
-																											"flags": {},
-																											"sources": [
-																												{
-																													"fileName": "example/config.x.ts",
-																													"line": 14,
-																													"character": 40
-																												}
-																											],
-																											"type": {
-																												"type": "intrinsic",
-																												"name": "string"
-																											},
-																											"defaultValue": "\"route.lib\""
-																										}
-																									],
-																									"groups": [
-																										{
-																											"title": "Variables",
-																											"kind": 32,
-																											"children": [
-																												271,
-																												270
-																											]
-																										}
-																									],
-																									"sources": [
-																										{
-																											"fileName": "example/config.x.ts",
-																											"line": 14,
-																											"character": 30
-																										}
-																									],
-																									"type": {
-																										"type": "intrinsic",
-																										"name": "object"
-																									}
-																								}
-																							],
-																							"groups": [
-																								{
-																									"title": "Object literals",
-																									"kind": 2097152,
-																									"children": [
-																										269
-																									]
-																								}
-																							]
-																						}
-																					}
-																				]
-																			}
-																		},
-																		"defaultValue": " [\n                    { LeftHead:    { lib:\"route.lib\", field:\"route.field\"}},\n                    { MainHead:    { lib:\"route.lib\", field:\"route.field\"}}\n                ]"
-																	}
-																],
-																"groups": [
-																	{
-																		"title": "Variables",
-																		"kind": 32,
-																		"children": [
-																			262,
-																			263
-																		]
-																	}
-																],
-																"sources": [
-																	{
-																		"fileName": "example/config.x.ts",
-																		"line": 10,
-																		"character": 18
-																	}
-																],
-																"type": {
-																	"type": "intrinsic",
-																	"name": "object"
-																}
-															}
-														],
-														"groups": [
-															{
-																"title": "Object literals",
-																"kind": 2097152,
-																"children": [
-																	261
-																]
-															}
-														]
-													}
-												},
-												{
-													"type": "reflection",
-													"declaration": {
-														"id": 272,
-														"name": "__type",
-														"kind": 65536,
-														"kindString": "Type literal",
-														"flags": {},
-														"children": [
-															{
-																"id": 273,
-																"name": "Layout",
-																"kind": 2097152,
-																"kindString": "Object literal",
-																"flags": {},
-																"children": [
-																	{
-																		"id": 274,
-																		"name": "columns",
-																		"kind": 32,
-																		"kindString": "Variable",
-																		"flags": {},
-																		"sources": [
-																			{
-																				"fileName": "example/config.x.ts",
-																				"line": 18,
-																				"character": 23
-																			}
-																		],
-																		"type": {
-																			"type": "array",
-																			"elementType": {
-																				"type": "intrinsic",
-																				"name": "string"
-																			}
-																		},
-																		"defaultValue": " [\"200px\", \"fill\"]"
-																	},
-																	{
-																		"id": 275,
-																		"name": "content",
-																		"kind": 32,
-																		"kindString": "Variable",
-																		"flags": {},
-																		"sources": [
-																			{
-																				"fileName": "example/config.x.ts",
-																				"line": 19,
-																				"character": 23
-																			}
-																		],
-																		"type": {
-																			"type": "array",
-																			"elementType": {
-																				"type": "union",
-																				"types": [
-																					{
-																						"type": "reflection",
-																						"declaration": {
-																							"id": 276,
-																							"name": "__type",
-																							"kind": 65536,
-																							"kindString": "Type literal",
-																							"flags": {},
-																							"children": [
-																								{
-																									"id": 277,
-																									"name": "LeftNav",
-																									"kind": 2097152,
-																									"kindString": "Object literal",
-																									"flags": {},
-																									"children": [
-																										{
-																											"id": 279,
-																											"name": "field",
-																											"kind": 32,
-																											"kindString": "Variable",
-																											"flags": {},
-																											"sources": [
-																												{
-																													"fileName": "example/config.x.ts",
-																													"line": 20,
-																													"character": 58
-																												}
-																											],
-																											"type": {
-																												"type": "intrinsic",
-																												"name": "string"
-																											},
-																											"defaultValue": "\"route.field\""
-																										},
-																										{
-																											"id": 278,
-																											"name": "lib",
-																											"kind": 32,
-																											"kindString": "Variable",
-																											"flags": {},
-																											"sources": [
-																												{
-																													"fileName": "example/config.x.ts",
-																													"line": 20,
-																													"character": 39
-																												}
-																											],
-																											"type": {
-																												"type": "intrinsic",
-																												"name": "string"
-																											},
-																											"defaultValue": "\"route.lib\""
-																										}
-																									],
-																									"groups": [
-																										{
-																											"title": "Variables",
-																											"kind": 32,
-																											"children": [
-																												279,
-																												278
-																											]
-																										}
-																									],
-																									"sources": [
-																										{
-																											"fileName": "example/config.x.ts",
-																											"line": 20,
-																											"character": 29
-																										}
-																									],
-																									"type": {
-																										"type": "intrinsic",
-																										"name": "object"
-																									}
-																								}
-																							],
-																							"groups": [
-																								{
-																									"title": "Object literals",
-																									"kind": 2097152,
-																									"children": [
-																										277
-																									]
-																								}
-																							]
-																						}
-																					},
-																					{
-																						"type": "reflection",
-																						"declaration": {
-																							"id": 280,
-																							"name": "__type",
-																							"kind": 65536,
-																							"kindString": "Type literal",
-																							"flags": {},
-																							"children": [
-																								{
-																									"id": 281,
-																									"name": "MainNav",
-																									"kind": 2097152,
-																									"kindString": "Object literal",
-																									"flags": {},
-																									"children": [
-																										{
-																											"id": 283,
-																											"name": "field",
-																											"kind": 32,
-																											"kindString": "Variable",
-																											"flags": {},
-																											"sources": [
-																												{
-																													"fileName": "example/config.x.ts",
-																													"line": 21,
-																													"character": 58
-																												}
-																											],
-																											"type": {
-																												"type": "intrinsic",
-																												"name": "string"
-																											},
-																											"defaultValue": "\"route.field\""
-																										},
-																										{
-																											"id": 282,
-																											"name": "lib",
-																											"kind": 32,
-																											"kindString": "Variable",
-																											"flags": {},
-																											"sources": [
-																												{
-																													"fileName": "example/config.x.ts",
-																													"line": 21,
-																													"character": 39
-																												}
-																											],
-																											"type": {
-																												"type": "intrinsic",
-																												"name": "string"
-																											},
-																											"defaultValue": "\"route.lib\""
-																										}
-																									],
-																									"groups": [
-																										{
-																											"title": "Variables",
-																											"kind": 32,
-																											"children": [
-																												283,
-																												282
-																											]
-																										}
-																									],
-																									"sources": [
-																										{
-																											"fileName": "example/config.x.ts",
-																											"line": 21,
-																											"character": 29
-																										}
-																									],
-																									"type": {
-																										"type": "intrinsic",
-																										"name": "object"
-																									}
-																								}
-																							],
-																							"groups": [
-																								{
-																									"title": "Object literals",
-																									"kind": 2097152,
-																									"children": [
-																										281
-																									]
-																								}
-																							]
-																						}
-																					}
-																				]
-																			}
-																		},
-																		"defaultValue": " [\n                    { LeftNav:    { lib:\"route.lib\", field:\"route.field\"}},\n                    { MainNav:    { lib:\"route.lib\", field:\"route.field\"}}\n                ]"
-																	}
-																],
-																"groups": [
-																	{
-																		"title": "Variables",
-																		"kind": 32,
-																		"children": [
-																			274,
-																			275
-																		]
-																	}
-																],
-																"sources": [
-																	{
-																		"fileName": "example/config.x.ts",
-																		"line": 17,
-																		"character": 18
-																	}
-																],
-																"type": {
-																	"type": "intrinsic",
-																	"name": "object"
-																}
-															}
-														],
-														"groups": [
-															{
-																"title": "Object literals",
-																"kind": 2097152,
-																"children": [
-																	273
-																]
-															}
-														]
-													}
-												},
-												{
-													"type": "reflection",
-													"declaration": {
-														"id": 284,
-														"name": "__type",
-														"kind": 65536,
-														"kindString": "Type literal",
-														"flags": {},
-														"children": [
-															{
-																"id": 285,
-																"name": "Layout",
-																"kind": 2097152,
-																"kindString": "Object literal",
-																"flags": {},
-																"children": [
-																	{
-																		"id": 287,
-																		"name": "content",
-																		"kind": 32,
-																		"kindString": "Variable",
-																		"flags": {},
-																		"sources": [
-																			{
-																				"fileName": "example/config.x.ts",
-																				"line": 26,
-																				"character": 23
-																			}
-																		],
-																		"type": {
-																			"type": "array",
-																			"elementType": {
-																				"type": "intrinsic",
-																				"name": "string"
-																			}
-																		},
-																		"defaultValue": " ['(c) Helpful ; Scripts']"
-																	},
-																	{
-																		"id": 286,
-																		"name": "css",
-																		"kind": 32,
-																		"kindString": "Variable",
-																		"flags": {},
-																		"sources": [
-																			{
-																				"fileName": "example/config.x.ts",
-																				"line": 25,
-																				"character": 19
-																			}
-																		],
-																		"type": {
-																			"type": "intrinsic",
-																			"name": "string"
-																		},
-																		"defaultValue": "\".hs-site-footer\""
-																	}
-																],
-																"groups": [
-																	{
-																		"title": "Variables",
-																		"kind": 32,
-																		"children": [
-																			287,
-																			286
-																		]
-																	}
-																],
-																"sources": [
-																	{
-																		"fileName": "example/config.x.ts",
-																		"line": 24,
-																		"character": 20
-																	}
-																],
-																"type": {
-																	"type": "intrinsic",
-																	"name": "object"
-																}
-															}
-														],
-														"groups": [
-															{
-																"title": "Object literals",
-																"kind": 2097152,
-																"children": [
-																	285
-																]
-															}
-														]
-													}
-												}
-											]
-										}
-									},
-									"defaultValue": " [{\n            Layout:{\n                columns: [\"200px\", \"fill\"],\n                content: [\n                    { LeftHead:    { lib:\"route.lib\", field:\"route.field\"}},\n                    { MainHead:    { lib:\"route.lib\", field:\"route.field\"}}\n                ]\n            }},{\n            Layout:{\n                columns: [\"200px\", \"fill\"], \n                content: [\n                    { LeftNav:    { lib:\"route.lib\", field:\"route.field\"}},\n                    { MainNav:    { lib:\"route.lib\", field:\"route.field\"}}\n                ]\n            }},\n            { Layout: {\n                css: '.hs-site-footer',\n                content: ['(c) Helpful ; Scripts']\n            }}\n        ]"
-								},
-								{
-									"id": 258,
-									"name": "css",
-									"kind": 32,
-									"kindString": "Variable",
-									"flags": {},
-									"sources": [
-										{
-											"fileName": "example/config.x.ts",
-											"line": 8,
-											"character": 11
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "string"
-									},
-									"defaultValue": "\".my-example\""
-								},
-								{
-									"id": 257,
-									"name": "rows",
-									"kind": 32,
-									"kindString": "Variable",
-									"flags": {},
-									"sources": [
-										{
-											"fileName": "example/config.x.ts",
-											"line": 7,
-											"character": 12
-										}
-									],
-									"type": {
-										"type": "array",
-										"elementType": {
-											"type": "intrinsic",
-											"name": "string"
-										}
-									},
-									"defaultValue": "  [\"30px\", \"fill\", \"10px\"]"
-								}
-							],
-							"groups": [
-								{
-									"title": "Variables",
-									"kind": 32,
-									"children": [
-										259,
-										258,
-										257
-									]
-								}
-							],
-							"sources": [
-								{
-									"fileName": "example/config.x.ts",
-									"line": 6,
-									"character": 10
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "object"
-							}
-						},
-						{
-							"id": 288,
-							"name": "route",
-							"kind": 2097152,
-							"kindString": "Object literal",
-							"flags": {},
-							"children": [
-								{
-									"id": 289,
-									"name": "default",
-									"kind": 32,
-									"kindString": "Variable",
-									"flags": {},
-									"sources": [
-										{
-											"fileName": "example/config.x.ts",
-											"line": 31,
-											"character": 15
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "string"
-									},
-									"defaultValue": "\"/api\""
-								},
-								{
-									"id": 290,
-									"name": "paths",
-									"kind": 32,
-									"kindString": "Variable",
-									"flags": {},
-									"sources": [
-										{
-											"fileName": "example/config.x.ts",
-											"line": 32,
-											"character": 13
-										}
-									],
-									"type": {
-										"type": "array",
-										"elementType": {
-											"type": "intrinsic",
-											"name": "string"
-										}
-									},
-									"defaultValue": " [\n            '/api',             // defines `http://localhost/#!/api/\n            '/api/:lib',        // defines `http://localhost/#!/api/:hsLib\n            '/api/:lib/:field'  // defines `http://localhost/#!/api/:hsLib/:id        \n        ]"
-								}
-							],
-							"groups": [
-								{
-									"title": "Variables",
-									"kind": 32,
-									"children": [
-										289,
-										290
-									]
-								}
-							],
-							"sources": [
-								{
-									"fileName": "example/config.x.ts",
-									"line": 30,
-									"character": 9
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "object"
-							}
-						}
-					],
-					"groups": [
-						{
-							"title": "Object literals",
-							"kind": 2097152,
-							"children": [
-								256,
-								288
-							]
-						}
-					],
-					"sources": [
-						{
-							"fileName": "example/config.x.ts",
-							"line": 5,
-							"character": 14
-						}
-					],
-					"type": {
-						"type": "intrinsic",
-						"name": "object"
-					}
-				}
-			],
-			"groups": [
-				{
-					"title": "Object literals",
-					"kind": 2097152,
-					"children": [
-						291,
-						255
-					]
-				}
-			],
-			"sources": [
-				{
-					"fileName": "example/config.x.ts",
-					"line": 1,
-					"character": 0
-				}
-			]
-		},
-		{
-			"id": 297,
-			"name": "\"example/layout.x\"",
-			"kind": 1,
-			"kindString": "External module",
-			"flags": {
-				"isExported": true
-			},
-			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/node.js/ts6/dev/hsLibs/mithril/hsLayout/src/example/layout.x.ts",
-			"comment": {
-				"shortText": "# Layout Examples\n<a href='example/layout.html'>See example page</a>"
-			},
-			"children": [
-				{
-					"id": 345,
-					"name": "cfg",
-					"kind": 32,
-					"kindString": "Variable",
-					"flags": {
-						"isExported": true
-					},
-					"sources": [
-						{
-							"fileName": "example/layout.x.ts",
-							"line": 120,
-							"character": 16
-						}
-					],
-					"type": {
-						"type": "intrinsic",
-						"name": "void"
-					},
-					"defaultValue": " new HsConfig([example]).attachNodeTree(myConfig, document.body)"
-				},
-				{
-					"id": 337,
-					"name": "next",
-					"kind": 64,
-					"kindString": "Function",
-					"flags": {},
-					"signatures": [
-						{
-							"id": 338,
-							"name": "next",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"parameters": [
-								{
-									"id": 339,
-									"name": "fn",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"type": {
-										"type": "intrinsic",
-										"name": "any"
-									}
-								}
-							],
-							"type": {
-								"type": "reference",
-								"name": "Timer"
-							}
-						}
-					],
-					"sources": [
-						{
-							"fileName": "example/layout.x.ts",
-							"line": 74,
-							"character": 13
-						}
-					]
-				},
-				{
-					"id": 340,
-					"name": "example",
-					"kind": 2097152,
-					"kindString": "Object literal",
-					"flags": {},
-					"children": [
-						{
-							"id": 342,
-							"name": "Header",
-							"kind": 32,
-							"kindString": "Variable",
-							"flags": {},
-							"sources": [
-								{
-									"fileName": "example/layout.x.ts",
-									"line": 83,
-									"character": 10
-								}
-							],
-							"type": {
-								"type": "reference",
-								"name": "(Anonymous class)"
-							},
-							"defaultValue": " class extends Layout {\n        getComponents(node: Vnode): Vnode {\n            return m(node.attrs.css, node.attrs.title);\n        }\n    }"
-						},
-						{
-							"id": 343,
-							"name": "Main",
-							"kind": 32,
-							"kindString": "Variable",
-							"flags": {},
-							"sources": [
-								{
-									"fileName": "example/layout.x.ts",
-									"line": 88,
-									"character": 8
-								}
-							],
-							"type": {
-								"type": "reference",
-								"name": "(Anonymous class)"
-							},
-							"defaultValue": " class extends Layout {\n        getComponents(node: Vnode): Vnode {\n            example.maxCount = node.attrs.maxCount || 3;\n            return super.getComponents(node);\n        }\n    }"
-						},
-						{
-							"id": 344,
-							"name": "aLeaf",
-							"kind": 32,
-							"kindString": "Variable",
-							"flags": {},
-							"sources": [
-								{
-									"fileName": "example/layout.x.ts",
-									"line": 94,
-									"character": 9
-								}
-							],
-							"type": {
-								"type": "reference",
-								"name": "(Anonymous class)"
-							},
-							"defaultValue": " class extends Layout {\n        count = 1;\n        inc = 1;\n\n        constructor() {\n            super();\n            next(() => {\n                this.count += this.inc;\n                if (this.count >= example.maxCount) { this.inc = -1; }\n                if (this.count <= 1)             { this.inc = +1; }\n                m.redraw();\n            });\n        }\n\n        getComponents(node: Vnode): Vnode {\n            const dims = node.attrs.columns || node.attrs.rows || node.attrs.tiles;\n            let text = '';\n            if (node.attrs.columns) { text = 'Columns'; }\n            if (node.attrs.rows) { text = 'Rows'; }\n            if (node.attrs.tiles) { text = 'Tiles'; }\n            const content = [...Array(this.count).keys()].map((c:number) => `${text}<br>${c+1}<br>[${dims.join()}]`);\n            return content;\n        }\n    }"
-						},
-						{
-							"id": 341,
-							"name": "maxCount",
-							"kind": 32,
-							"kindString": "Variable",
-							"flags": {},
-							"sources": [
-								{
-									"fileName": "example/layout.x.ts",
-									"line": 82,
-									"character": 12
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "number"
-							},
-							"defaultValue": "0"
-						}
-					],
-					"groups": [
-						{
-							"title": "Variables",
-							"kind": 32,
-							"children": [
-								342,
-								343,
-								344,
-								341
-							]
-						}
-					],
-					"sources": [
-						{
-							"fileName": "example/layout.x.ts",
-							"line": 81,
-							"character": 13
-						}
-					],
-					"type": {
-						"type": "intrinsic",
-						"name": "object"
-					}
-				},
-				{
-					"id": 298,
-					"name": "myConfig",
-					"kind": 2097152,
-					"kindString": "Object literal",
-					"flags": {},
-					"children": [
-						{
-							"id": 299,
-							"name": "Layout",
-							"kind": 2097152,
-							"kindString": "Object literal",
-							"flags": {},
-							"children": [
-								{
-									"id": 301,
-									"name": "content",
-									"kind": 32,
-									"kindString": "Variable",
-									"flags": {},
-									"sources": [
-										{
-											"fileName": "example/layout.x.ts",
-											"line": 15,
-											"character": 15
-										}
-									],
-									"type": {
-										"type": "array",
-										"elementType": {
-											"type": "union",
-											"types": [
-												{
-													"type": "reflection",
-													"declaration": {
-														"id": 302,
-														"name": "__type",
-														"kind": 65536,
-														"kindString": "Type literal",
-														"flags": {},
-														"children": [
-															{
-																"id": 303,
-																"name": "Header",
-																"kind": 2097152,
-																"kindString": "Object literal",
-																"flags": {},
-																"children": [
-																	{
-																		"id": 304,
-																		"name": "css",
-																		"kind": 32,
-																		"kindString": "Variable",
-																		"flags": {},
-																		"sources": [
-																			{
-																				"fileName": "example/layout.x.ts",
-																				"line": 16,
-																				"character": 27
-																			}
-																		],
-																		"type": {
-																			"type": "intrinsic",
-																			"name": "string"
-																		},
-																		"defaultValue": "\".header\""
-																	},
-																	{
-																		"id": 305,
-																		"name": "title",
-																		"kind": 32,
-																		"kindString": "Variable",
-																		"flags": {},
-																		"sources": [
-																			{
-																				"fileName": "example/layout.x.ts",
-																				"line": 16,
-																				"character": 44
-																			}
-																		],
-																		"type": {
-																			"type": "intrinsic",
-																			"name": "string"
-																		},
-																		"defaultValue": "\"Layout Example\""
-																	}
-																],
-																"groups": [
-																	{
-																		"title": "Variables",
-																		"kind": 32,
-																		"children": [
-																			304,
-																			305
-																		]
-																	}
-																],
-																"sources": [
-																	{
-																		"fileName": "example/layout.x.ts",
-																		"line": 16,
-																		"character": 20
-																	}
-																],
-																"type": {
-																	"type": "intrinsic",
-																	"name": "object"
-																}
-															}
-														],
-														"groups": [
-															{
-																"title": "Object literals",
-																"kind": 2097152,
-																"children": [
-																	303
-																]
-															}
-														]
-													}
-												},
-												{
-													"type": "reflection",
-													"declaration": {
-														"id": 306,
-														"name": "__type",
-														"kind": 65536,
-														"kindString": "Type literal",
-														"flags": {},
-														"children": [
-															{
-																"id": 307,
-																"name": "Main",
-																"kind": 2097152,
-																"kindString": "Object literal",
-																"flags": {},
-																"children": [
-																	{
-																		"id": 311,
-																		"name": "content",
-																		"kind": 32,
-																		"kindString": "Variable",
-																		"flags": {},
-																		"sources": [
-																			{
-																				"fileName": "example/layout.x.ts",
-																				"line": 21,
-																				"character": 23
-																			}
-																		],
-																		"type": {
-																			"type": "array",
-																			"elementType": {
-																				"type": "union",
-																				"types": [
-																					{
-																						"type": "reflection",
-																						"declaration": {
-																							"id": 312,
-																							"name": "__type",
-																							"kind": 65536,
-																							"kindString": "Type literal",
-																							"flags": {},
-																							"children": [
-																								{
-																									"id": 313,
-																									"name": "Layout",
-																									"kind": 2097152,
-																									"kindString": "Object literal",
-																									"flags": {},
-																									"children": [
-																										{
-																											"id": 315,
-																											"name": "content",
-																											"kind": 32,
-																											"kindString": "Variable",
-																											"flags": {},
-																											"sources": [
-																												{
-																													"fileName": "example/layout.x.ts",
-																													"line": 24,
-																													"character": 31
-																												}
-																											],
-																											"type": {
-																												"type": "array",
-																												"elementType": {
-																													"type": "reflection",
-																													"declaration": {
-																														"id": 316,
-																														"name": "__type",
-																														"kind": 65536,
-																														"kindString": "Type literal",
-																														"flags": {},
-																														"children": [
-																															{
-																																"id": 317,
-																																"name": "aLeaf",
-																																"kind": 2097152,
-																																"kindString": "Object literal",
-																																"flags": {},
-																																"children": [
-																																	{
-																																		"id": 319,
-																																		"name": "columns",
-																																		"kind": 32,
-																																		"kindString": "Variable",
-																																		"flags": {},
-																																		"sources": [
-																																			{
-																																				"fileName": "example/layout.x.ts",
-																																				"line": 25,
-																																				"character": 58
-																																			}
-																																		],
-																																		"type": {
-																																			"type": "array",
-																																			"elementType": {
-																																				"type": "intrinsic",
-																																				"name": "string"
-																																			}
-																																		},
-																																		"defaultValue": " [' ']"
-																																	},
-																																	{
-																																		"id": 318,
-																																		"name": "css",
-																																		"kind": 32,
-																																		"kindString": "Variable",
-																																		"flags": {},
-																																		"sources": [
-																																			{
-																																				"fileName": "example/layout.x.ts",
-																																				"line": 25,
-																																				"character": 42
-																																			}
-																																		],
-																																		"type": {
-																																			"type": "intrinsic",
-																																			"name": "string"
-																																		},
-																																		"defaultValue": "\"leaf\""
-																																	}
-																																],
-																																"groups": [
-																																	{
-																																		"title": "Variables",
-																																		"kind": 32,
-																																		"children": [
-																																			319,
-																																			318
-																																		]
-																																	}
-																																],
-																																"sources": [
-																																	{
-																																		"fileName": "example/layout.x.ts",
-																																		"line": 25,
-																																		"character": 35
-																																	}
-																																],
-																																"type": {
-																																	"type": "intrinsic",
-																																	"name": "object"
-																																}
-																															}
-																														],
-																														"groups": [
-																															{
-																																"title": "Object literals",
-																																"kind": 2097152,
-																																"children": [
-																																	317
-																																]
-																															}
-																														]
-																													}
-																												}
-																											},
-																											"defaultValue": " [\n                            { aLeaf: { css:'leaf', columns: [' ']}},\n                            { aLeaf: { css:'leaf', columns: ['100px'] }},\n                            { aLeaf: { css:'leaf', columns: ['100px', '200px'] }},\n                            { aLeaf: { css:'leaf', columns: ['100px', 'fill'] }},\n                            { aLeaf: { css:'leaf', columns: ['100px', 'fill', '100px'] }},\n                            { aLeaf: { css:'leaf', columns: ['20%'] }},\n                            { aLeaf: { css:'leaf', columns: ['20%', 'fill'] }},\n                            { aLeaf: { css:'leaf', columns: ['20%', 'fill', '20%'] }}\n                        ]"
-																										},
-																										{
-																											"id": 314,
-																											"name": "rows",
-																											"kind": 32,
-																											"kindString": "Variable",
-																											"flags": {},
-																											"sources": [
-																												{
-																													"fileName": "example/layout.x.ts",
-																													"line": 23,
-																													"character": 28
-																												}
-																											],
-																											"type": {
-																												"type": "array",
-																												"elementType": {
-																													"type": "intrinsic",
-																													"name": "string"
-																												}
-																											},
-																											"defaultValue": " ['']"
-																										}
-																									],
-																									"groups": [
-																										{
-																											"title": "Variables",
-																											"kind": 32,
-																											"children": [
-																												315,
-																												314
-																											]
-																										}
-																									],
-																									"sources": [
-																										{
-																											"fileName": "example/layout.x.ts",
-																											"line": 22,
-																											"character": 28
-																										}
-																									],
-																									"type": {
-																										"type": "intrinsic",
-																										"name": "object"
-																									}
-																								}
-																							],
-																							"groups": [
-																								{
-																									"title": "Object literals",
-																									"kind": 2097152,
-																									"children": [
-																										313
-																									]
-																								}
-																							]
-																						}
-																					},
-																					{
-																						"type": "reflection",
-																						"declaration": {
-																							"id": 320,
-																							"name": "__type",
-																							"kind": 65536,
-																							"kindString": "Type literal",
-																							"flags": {},
-																							"children": [
-																								{
-																									"id": 321,
-																									"name": "Layout",
-																									"kind": 2097152,
-																									"kindString": "Object literal",
-																									"flags": {},
-																									"children": [
-																										{
-																											"id": 322,
-																											"name": "columns",
-																											"kind": 32,
-																											"kindString": "Variable",
-																											"flags": {},
-																											"sources": [
-																												{
-																													"fileName": "example/layout.x.ts",
-																													"line": 36,
-																													"character": 31
-																												}
-																											],
-																											"type": {
-																												"type": "array",
-																												"elementType": {
-																													"type": "intrinsic",
-																													"name": "string"
-																												}
-																											},
-																											"defaultValue": " ['']"
-																										},
-																										{
-																											"id": 323,
-																											"name": "content",
-																											"kind": 32,
-																											"kindString": "Variable",
-																											"flags": {},
-																											"sources": [
-																												{
-																													"fileName": "example/layout.x.ts",
-																													"line": 37,
-																													"character": 31
-																												}
-																											],
-																											"type": {
-																												"type": "array",
-																												"elementType": {
-																													"type": "reflection",
-																													"declaration": {
-																														"id": 324,
-																														"name": "__type",
-																														"kind": 65536,
-																														"kindString": "Type literal",
-																														"flags": {},
-																														"children": [
-																															{
-																																"id": 325,
-																																"name": "aLeaf",
-																																"kind": 2097152,
-																																"kindString": "Object literal",
-																																"flags": {},
-																																"children": [
-																																	{
-																																		"id": 326,
-																																		"name": "css",
-																																		"kind": 32,
-																																		"kindString": "Variable",
-																																		"flags": {},
-																																		"sources": [
-																																			{
-																																				"fileName": "example/layout.x.ts",
-																																				"line": 38,
-																																				"character": 42
-																																			}
-																																		],
-																																		"type": {
-																																			"type": "intrinsic",
-																																			"name": "string"
-																																		},
-																																		"defaultValue": "\"leaf\""
-																																	},
-																																	{
-																																		"id": 327,
-																																		"name": "rows",
-																																		"kind": 32,
-																																		"kindString": "Variable",
-																																		"flags": {},
-																																		"sources": [
-																																			{
-																																				"fileName": "example/layout.x.ts",
-																																				"line": 38,
-																																				"character": 55
-																																			}
-																																		],
-																																		"type": {
-																																			"type": "array",
-																																			"elementType": {
-																																				"type": "intrinsic",
-																																				"name": "string"
-																																			}
-																																		},
-																																		"defaultValue": " [' ']"
-																																	}
-																																],
-																																"groups": [
-																																	{
-																																		"title": "Variables",
-																																		"kind": 32,
-																																		"children": [
-																																			326,
-																																			327
-																																		]
-																																	}
-																																],
-																																"sources": [
-																																	{
-																																		"fileName": "example/layout.x.ts",
-																																		"line": 38,
-																																		"character": 35
-																																	}
-																																],
-																																"type": {
-																																	"type": "intrinsic",
-																																	"name": "object"
-																																}
-																															}
-																														],
-																														"groups": [
-																															{
-																																"title": "Object literals",
-																																"kind": 2097152,
-																																"children": [
-																																	325
-																																]
-																															}
-																														]
-																													}
-																												}
-																											},
-																											"defaultValue": " [\n                            { aLeaf: { css:'leaf', rows: [' ']}},\n                            { aLeaf: { css:'leaf', rows: ['100px'] }},\n                            { aLeaf: { css:'leaf', rows: ['100px', '200px'] }},\n                            { aLeaf: { css:'leaf', rows: ['100px', 'fill'] }},\n                            { aLeaf: { css:'leaf', rows: ['100px', 'fill', '100px'] }},\n                            { aLeaf: { css:'leaf', rows: ['20%'] }},\n                            { aLeaf: { css:'leaf', rows: ['20%', 'fill'] }},\n                            { aLeaf: { css:'leaf', rows: ['20%', 'fill', '20%'] }}\n                        ]"
-																										}
-																									],
-																									"groups": [
-																										{
-																											"title": "Variables",
-																											"kind": 32,
-																											"children": [
-																												322,
-																												323
-																											]
-																										}
-																									],
-																									"sources": [
-																										{
-																											"fileName": "example/layout.x.ts",
-																											"line": 35,
-																											"character": 28
-																										}
-																									],
-																									"type": {
-																										"type": "intrinsic",
-																										"name": "object"
-																									}
-																								}
-																							],
-																							"groups": [
-																								{
-																									"title": "Object literals",
-																									"kind": 2097152,
-																									"children": [
-																										321
-																									]
-																								}
-																							]
-																						}
-																					},
-																					{
-																						"type": "reflection",
-																						"declaration": {
-																							"id": 328,
-																							"name": "__type",
-																							"kind": 65536,
-																							"kindString": "Type literal",
-																							"flags": {},
-																							"children": [
-																								{
-																									"id": 329,
-																									"name": "Layout",
-																									"kind": 2097152,
-																									"kindString": "Object literal",
-																									"flags": {},
-																									"children": [
-																										{
-																											"id": 332,
-																											"name": "content",
-																											"kind": 32,
-																											"kindString": "Variable",
-																											"flags": {},
-																											"sources": [
-																												{
-																													"fileName": "example/layout.x.ts",
-																													"line": 51,
-																													"character": 31
-																												}
-																											],
-																											"type": {
-																												"type": "array",
-																												"elementType": {
-																													"type": "reflection",
-																													"declaration": {
-																														"id": 333,
-																														"name": "__type",
-																														"kind": 65536,
-																														"kindString": "Type literal",
-																														"flags": {},
-																														"children": [
-																															{
-																																"id": 334,
-																																"name": "aLeaf",
-																																"kind": 2097152,
-																																"kindString": "Object literal",
-																																"flags": {},
-																																"children": [
-																																	{
-																																		"id": 335,
-																																		"name": "css",
-																																		"kind": 32,
-																																		"kindString": "Variable",
-																																		"flags": {},
-																																		"sources": [
-																																			{
-																																				"fileName": "example/layout.x.ts",
-																																				"line": 52,
-																																				"character": 42
-																																			}
-																																		],
-																																		"type": {
-																																			"type": "intrinsic",
-																																			"name": "string"
-																																		},
-																																		"defaultValue": "\"leaf\""
-																																	},
-																																	{
-																																		"id": 336,
-																																		"name": "tiles",
-																																		"kind": 32,
-																																		"kindString": "Variable",
-																																		"flags": {},
-																																		"sources": [
-																																			{
-																																				"fileName": "example/layout.x.ts",
-																																				"line": 52,
-																																				"character": 56
-																																			}
-																																		],
-																																		"type": {
-																																			"type": "array",
-																																			"elementType": {
-																																				"type": "intrinsic",
-																																				"name": "string"
-																																			}
-																																		},
-																																		"defaultValue": " [' ']"
-																																	}
-																																],
-																																"groups": [
-																																	{
-																																		"title": "Variables",
-																																		"kind": 32,
-																																		"children": [
-																																			335,
-																																			336
-																																		]
-																																	}
-																																],
-																																"sources": [
-																																	{
-																																		"fileName": "example/layout.x.ts",
-																																		"line": 52,
-																																		"character": 35
-																																	}
-																																],
-																																"type": {
-																																	"type": "intrinsic",
-																																	"name": "object"
-																																}
-																															}
-																														],
-																														"groups": [
-																															{
-																																"title": "Object literals",
-																																"kind": 2097152,
-																																"children": [
-																																	334
-																																]
-																															}
-																														]
-																													}
-																												}
-																											},
-																											"defaultValue": " [\n                            { aLeaf: { css:'leaf', tiles: [' ']}},\n                            { aLeaf: { css:'leaf', tiles: ['40%', 'fill']}},\n                            { aLeaf: { css:'leaf', tiles: ['40%']}},\n                            { aLeaf: { css:'leaf', tiles: ['40%', '30%', 'fill']}},\n                        ]"
-																										},
-																										{
-																											"id": 331,
-																											"name": "css",
-																											"kind": 32,
-																											"kindString": "Variable",
-																											"flags": {},
-																											"sources": [
-																												{
-																													"fileName": "example/layout.x.ts",
-																													"line": 50,
-																													"character": 27
-																												}
-																											],
-																											"type": {
-																												"type": "intrinsic",
-																												"name": "string"
-																											},
-																											"defaultValue": "\"tile_pct\""
-																										},
-																										{
-																											"id": 330,
-																											"name": "tiles",
-																											"kind": 32,
-																											"kindString": "Variable",
-																											"flags": {},
-																											"sources": [
-																												{
-																													"fileName": "example/layout.x.ts",
-																													"line": 49,
-																													"character": 29
-																												}
-																											],
-																											"type": {
-																												"type": "array",
-																												"elementType": {
-																													"type": "intrinsic",
-																													"name": "string"
-																												}
-																											},
-																											"defaultValue": " ['']"
-																										}
-																									],
-																									"groups": [
-																										{
-																											"title": "Variables",
-																											"kind": 32,
-																											"children": [
-																												332,
-																												331,
-																												330
-																											]
-																										}
-																									],
-																									"sources": [
-																										{
-																											"fileName": "example/layout.x.ts",
-																											"line": 48,
-																											"character": 28
-																										}
-																									],
-																									"type": {
-																										"type": "intrinsic",
-																										"name": "object"
-																									}
-																								}
-																							],
-																							"groups": [
-																								{
-																									"title": "Object literals",
-																									"kind": 2097152,
-																									"children": [
-																										329
-																									]
-																								}
-																							]
-																						}
-																					}
-																				]
-																			}
-																		},
-																		"defaultValue": " [\n                    { Layout: {\n                        rows: [''],     // 1st tile: rows of varying columns\n                        content: [\n                            { aLeaf: { css:'leaf', columns: [' ']}},\n                            { aLeaf: { css:'leaf', columns: ['100px'] }},\n                            { aLeaf: { css:'leaf', columns: ['100px', '200px'] }},\n                            { aLeaf: { css:'leaf', columns: ['100px', 'fill'] }},\n                            { aLeaf: { css:'leaf', columns: ['100px', 'fill', '100px'] }},\n                            { aLeaf: { css:'leaf', columns: ['20%'] }},\n                            { aLeaf: { css:'leaf', columns: ['20%', 'fill'] }},\n                            { aLeaf: { css:'leaf', columns: ['20%', 'fill', '20%'] }}\n                        ]\n                    }},\n                    { Layout: {\n                        columns: [''],  // 2nd tile: columns of varying rows\n                        content: [\n                            { aLeaf: { css:'leaf', rows: [' ']}},\n                            { aLeaf: { css:'leaf', rows: ['100px'] }},\n                            { aLeaf: { css:'leaf', rows: ['100px', '200px'] }},\n                            { aLeaf: { css:'leaf', rows: ['100px', 'fill'] }},\n                            { aLeaf: { css:'leaf', rows: ['100px', 'fill', '100px'] }},\n                            { aLeaf: { css:'leaf', rows: ['20%'] }},\n                            { aLeaf: { css:'leaf', rows: ['20%', 'fill'] }},\n                            { aLeaf: { css:'leaf', rows: ['20%', 'fill', '20%'] }}\n                        ]\n                    }},\n                    { Layout: {\n                        tiles: [''],    // 3rd tile: varying tiles\n                        css: 'tile_pct',\n                        content: [\n                            { aLeaf: { css:'leaf', tiles: [' ']}},\n                            { aLeaf: { css:'leaf', tiles: ['40%', 'fill']}},\n                            { aLeaf: { css:'leaf', tiles: ['40%']}},\n                            { aLeaf: { css:'leaf', tiles: ['40%', '30%', 'fill']}},\n                        ]\n                    }},\n                    { Layout: {\n                        tiles: [''],    // 3rd tile: varying tiles\n                        css: 'tile_px',\n                        content: [\n                            { aLeaf: { css:'leaf', tiles: [' ']}},\n                            { aLeaf: { css:'leaf', tiles: [' ', 'fill']}},\n                            { aLeaf: { css:'leaf', tiles: [' ']}},\n                            { aLeaf: { css:'leaf', tiles: [' ']}},\n                        ]\n                    }}\n                ]"
-																	},
-																	{
-																		"id": 310,
-																		"name": "leafCSS",
-																		"kind": 32,
-																		"kindString": "Variable",
-																		"flags": {},
-																		"sources": [
-																			{
-																				"fileName": "example/layout.x.ts",
-																				"line": 20,
-																				"character": 23
-																			}
-																		],
-																		"type": {
-																			"type": "intrinsic",
-																			"name": "string"
-																		},
-																		"defaultValue": "\"leaf\""
-																	},
-																	{
-																		"id": 309,
-																		"name": "maxCount",
-																		"kind": 32,
-																		"kindString": "Variable",
-																		"flags": {},
-																		"sources": [
-																			{
-																				"fileName": "example/layout.x.ts",
-																				"line": 19,
-																				"character": 24
-																			}
-																		],
-																		"type": {
-																			"type": "intrinsic",
-																			"name": "number"
-																		},
-																		"defaultValue": "6"
-																	},
-																	{
-																		"id": 308,
-																		"name": "tiles",
-																		"kind": 32,
-																		"kindString": "Variable",
-																		"flags": {},
-																		"sources": [
-																			{
-																				"fileName": "example/layout.x.ts",
-																				"line": 18,
-																				"character": 21
-																			}
-																		],
-																		"type": {
-																			"type": "array",
-																			"elementType": {
-																				"type": "intrinsic",
-																				"name": "string"
-																			}
-																		},
-																		"defaultValue": "  ['']"
-																	}
-																],
-																"groups": [
-																	{
-																		"title": "Variables",
-																		"kind": 32,
-																		"children": [
-																			311,
-																			310,
-																			309,
-																			308
-																		]
-																	}
-																],
-																"sources": [
-																	{
-																		"fileName": "example/layout.x.ts",
-																		"line": 17,
-																		"character": 18
-																	}
-																],
-																"type": {
-																	"type": "intrinsic",
-																	"name": "object"
-																}
-															}
-														],
-														"groups": [
-															{
-																"title": "Object literals",
-																"kind": 2097152,
-																"children": [
-																	307
-																]
-															}
-														]
-													}
-												}
-											]
-										}
-									},
-									"defaultValue": " [\n            { Header: { css:'.header', title: 'Layout Example'}},\n            { Main: {\n                tiles:  [''],           // main body wiull arrange in tiles\n                maxCount: 6,\n                leafCSS: 'leaf',\n                content: [\n                    { Layout: {\n                        rows: [''],     // 1st tile: rows of varying columns\n                        content: [\n                            { aLeaf: { css:'leaf', columns: [' ']}},\n                            { aLeaf: { css:'leaf', columns: ['100px'] }},\n                            { aLeaf: { css:'leaf', columns: ['100px', '200px'] }},\n                            { aLeaf: { css:'leaf', columns: ['100px', 'fill'] }},\n                            { aLeaf: { css:'leaf', columns: ['100px', 'fill', '100px'] }},\n                            { aLeaf: { css:'leaf', columns: ['20%'] }},\n                            { aLeaf: { css:'leaf', columns: ['20%', 'fill'] }},\n                            { aLeaf: { css:'leaf', columns: ['20%', 'fill', '20%'] }}\n                        ]\n                    }},\n                    { Layout: {\n                        columns: [''],  // 2nd tile: columns of varying rows\n                        content: [\n                            { aLeaf: { css:'leaf', rows: [' ']}},\n                            { aLeaf: { css:'leaf', rows: ['100px'] }},\n                            { aLeaf: { css:'leaf', rows: ['100px', '200px'] }},\n                            { aLeaf: { css:'leaf', rows: ['100px', 'fill'] }},\n                            { aLeaf: { css:'leaf', rows: ['100px', 'fill', '100px'] }},\n                            { aLeaf: { css:'leaf', rows: ['20%'] }},\n                            { aLeaf: { css:'leaf', rows: ['20%', 'fill'] }},\n                            { aLeaf: { css:'leaf', rows: ['20%', 'fill', '20%'] }}\n                        ]\n                    }},\n                    { Layout: {\n                        tiles: [''],    // 3rd tile: varying tiles\n                        css: 'tile_pct',\n                        content: [\n                            { aLeaf: { css:'leaf', tiles: [' ']}},\n                            { aLeaf: { css:'leaf', tiles: ['40%', 'fill']}},\n                            { aLeaf: { css:'leaf', tiles: ['40%']}},\n                            { aLeaf: { css:'leaf', tiles: ['40%', '30%', 'fill']}},\n                        ]\n                    }},\n                    { Layout: {\n                        tiles: [''],    // 3rd tile: varying tiles\n                        css: 'tile_px',\n                        content: [\n                            { aLeaf: { css:'leaf', tiles: [' ']}},\n                            { aLeaf: { css:'leaf', tiles: [' ', 'fill']}},\n                            { aLeaf: { css:'leaf', tiles: [' ']}},\n                            { aLeaf: { css:'leaf', tiles: [' ']}},\n                        ]\n                    }}\n                ]\n            }}\n        ]"
-								},
-								{
-									"id": 300,
-									"name": "rows",
-									"kind": 32,
-									"kindString": "Variable",
-									"flags": {},
-									"sources": [
-										{
-											"fileName": "example/layout.x.ts",
-											"line": 14,
-											"character": 12
-										}
-									],
-									"type": {
-										"type": "array",
-										"elementType": {
-											"type": "intrinsic",
-											"name": "string"
-										}
-									},
-									"defaultValue": " ['40px', 'fill']"
-								}
-							],
-							"groups": [
-								{
-									"title": "Variables",
-									"kind": 32,
-									"children": [
-										301,
-										300
-									]
-								}
-							],
-							"sources": [
-								{
-									"fileName": "example/layout.x.ts",
-									"line": 13,
-									"character": 10
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "object"
-							}
-						}
-					],
-					"groups": [
-						{
-							"title": "Object literals",
-							"kind": 2097152,
-							"children": [
-								299
-							]
-						}
-					],
-					"sources": [
-						{
-							"fileName": "example/layout.x.ts",
-							"line": 12,
-							"character": 14
-						}
-					],
-					"type": {
-						"type": "intrinsic",
-						"name": "object"
-					}
-				}
-			],
-			"groups": [
-				{
-					"title": "Variables",
-					"kind": 32,
-					"children": [
-						345
-					]
-				},
-				{
-					"title": "Functions",
-					"kind": 64,
-					"children": [
-						337
-					]
-				},
-				{
-					"title": "Object literals",
-					"kind": 2097152,
-					"children": [
-						340,
-						298
-					]
-				}
-			],
-			"sources": [
-				{
-					"fileName": "example/layout.x.ts",
-					"line": 1,
-					"character": 0
-				}
-			]
-		},
-		{
-			"id": 346,
-			"name": "\"example/start\"",
-			"kind": 1,
-			"kindString": "External module",
-			"flags": {
-				"isExported": true
-			},
-			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/node.js/ts6/dev/hsLibs/mithril/hsLayout/src/example/start.ts",
-			"sources": [
-				{
-					"fileName": "example/start.ts",
-					"line": 1,
-					"character": 0
-				}
-			]
-		},
-		{
-			"id": 226,
+			"id": 227,
 			"name": "\"hsConfig\"",
 			"kind": 1,
 			"kindString": "External module",
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/node.js/ts6/dev/hsLibs/mithril/hsLayout/src/hsConfig.ts",
+			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsLayout/src/hsConfig.ts",
 			"comment": {
 				"shortText": "##HsConfig\nTool to configure a layout via a configuration object that is either defined\nas an object literal or as a JSON file.",
 				"text": "The structure of the configuration object follows the convention\n<code>\n{\n<Class>: <Configuration>\n[,route: {\ndefault: '/api',\npaths: [\n'/api',\n'/api/:lib',\n'/api/:lib/:field'\n]\n}]\n}\n</code>\n`<Class>` is either {@link hsLayout:Layout.Layout Layout} or a subclass thereof.\n`<Configuration>` is an object literal `{ <Attr>:<Value>[, ...] }`\n\nArrays and Object Literals in `<Configuration>` define a layout tree that will be traversed,\nAfter which the tree will be instantiated by calling `m(<Class>, <Configuration>)`.\nMithril will then recursively create the Classes in the tree and call their `view` methods,\nwhere `Configuration`settings will be available via the `node.attrs` parameter.\n\nThe default `Layout` implementation recognizes the following special `<Attr>` keys:\n\n- `content`: the subcomponents to render in `Layout`, allowing for following `<Value>` types:\n    - `[{<Class>: <Configuration>}, ...]`\n    - `['string literal', ...]`\n    - `'string literal'`\n- `css`: the CSS class to set on `Layout`\n- `href`: a href attribute to set on `Layout`. This makes `Layout` clickable and sends the\nrespective attribute value to the Mithril router.\n- `onclick`: a function to call when `Layout` is clicked.\n"
 			},
 			"children": [
 				{
-					"id": 227,
+					"id": 228,
 					"name": "HsConfig",
 					"kind": 128,
 					"kindString": "Class",
@@ -2155,7 +32,7 @@
 					},
 					"children": [
 						{
-							"id": 228,
+							"id": 229,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -2167,7 +44,7 @@
 							},
 							"signatures": [
 								{
-									"id": 230,
+									"id": 231,
 									"name": "new HsConfig",
 									"kind": 16384,
 									"kindString": "Constructor signature",
@@ -2177,7 +54,7 @@
 									},
 									"parameters": [
 										{
-											"id": 231,
+											"id": 232,
 											"name": "context",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2197,7 +74,7 @@
 									"type": {
 										"type": "reference",
 										"name": "HsConfig",
-										"id": 227
+										"id": 228
 									}
 								}
 							],
@@ -2210,7 +87,7 @@
 							]
 						},
 						{
-							"id": 229,
+							"id": 230,
 							"name": "context",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2238,7 +115,7 @@
 							}
 						},
 						{
-							"id": 232,
+							"id": 233,
 							"name": "attachNodeTree",
 							"kind": 2048,
 							"kindString": "Method",
@@ -2247,7 +124,7 @@
 							},
 							"signatures": [
 								{
-									"id": 233,
+									"id": 234,
 									"name": "attachNodeTree",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -2257,7 +134,7 @@
 									},
 									"parameters": [
 										{
-											"id": 234,
+											"id": 235,
 											"name": "config",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2271,7 +148,7 @@
 											}
 										},
 										{
-											"id": 235,
+											"id": 236,
 											"name": "root",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2300,7 +177,7 @@
 							]
 						},
 						{
-							"id": 236,
+							"id": 237,
 							"name": "getContent",
 							"kind": 2048,
 							"kindString": "Method",
@@ -2310,14 +187,14 @@
 							},
 							"signatures": [
 								{
-									"id": 237,
+									"id": 238,
 									"name": "getContent",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 238,
+											"id": 239,
 											"name": "config",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2343,7 +220,7 @@
 							]
 						},
 						{
-							"id": 239,
+							"id": 240,
 							"name": "load",
 							"kind": 2048,
 							"kindString": "Method",
@@ -2353,14 +230,14 @@
 							},
 							"signatures": [
 								{
-									"id": 240,
+									"id": 241,
 									"name": "load",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 241,
+											"id": 242,
 											"name": "file",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2391,23 +268,23 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								228
+								229
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								229
+								230
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								232,
-								236,
-								239
+								233,
+								237,
+								240
 							]
 						}
 					],
@@ -2420,14 +297,14 @@
 					]
 				},
 				{
-					"id": 242,
+					"id": 243,
 					"name": "copy",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 243,
+							"id": 244,
 							"name": "copy",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2437,7 +314,7 @@
 							},
 							"parameters": [
 								{
-									"id": 244,
+									"id": 245,
 									"name": "struct",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2466,14 +343,14 @@
 					]
 				},
 				{
-					"id": 249,
+					"id": 250,
 					"name": "recurse",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 250,
+							"id": 251,
 							"name": "recurse",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2484,7 +361,7 @@
 							},
 							"parameters": [
 								{
-									"id": 251,
+									"id": 252,
 									"name": "config",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2498,7 +375,7 @@
 									}
 								},
 								{
-									"id": 252,
+									"id": 253,
 									"name": "context",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2530,14 +407,14 @@
 					]
 				},
 				{
-					"id": 245,
+					"id": 246,
 					"name": "resolve",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 246,
+							"id": 247,
 							"name": "resolve",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2548,7 +425,7 @@
 							},
 							"parameters": [
 								{
-									"id": 247,
+									"id": 248,
 									"name": "sym",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2562,7 +439,7 @@
 									}
 								},
 								{
-									"id": 248,
+									"id": 249,
 									"name": "context",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2599,16 +476,16 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						227
+						228
 					]
 				},
 				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						242,
-						249,
-						245
+						243,
+						250,
+						246
 					]
 				}
 			],
@@ -2621,14 +498,14 @@
 			]
 		},
 		{
-			"id": 253,
+			"id": 226,
 			"name": "\"index\"",
 			"kind": 1,
 			"kindString": "External module",
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/node.js/ts6/dev/hsLibs/mithril/hsLayout/src/index.ts",
+			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsLayout/src/index.ts",
 			"sources": [
 				{
 					"fileName": "index.ts",
@@ -2645,7 +522,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/node.js/ts6/dev/hsLibs/mithril/hsLayout/src/mithril.ts",
+			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsLayout/src/mithril.ts",
 			"children": [
 				{
 					"id": 3,
@@ -2661,7 +538,7 @@
 					"sources": [
 						{
 							"fileName": "mithril.ts",
-							"line": 21,
+							"line": 19,
 							"character": 17
 						}
 					],
@@ -2676,7 +553,8 @@
 					"kind": 32,
 					"kindString": "Variable",
 					"flags": {
-						"isExported": true
+						"isExported": true,
+						"isConst": true
 					},
 					"comment": {
 						"shortText": "import and re-export the mithril m objkect"
@@ -2684,7 +562,7 @@
 					"sources": [
 						{
 							"fileName": "mithril.ts",
-							"line": 16,
+							"line": 14,
 							"character": 14
 						}
 					],
@@ -2699,12 +577,15 @@
 					"name": "o",
 					"kind": 32,
 					"kindString": "Variable",
-					"flags": {},
+					"flags": {
+						"isExported": true,
+						"isConst": true
+					},
 					"sources": [
 						{
 							"fileName": "mithril.ts",
-							"line": 23,
-							"character": 7
+							"line": 21,
+							"character": 14
 						}
 					],
 					"type": {
@@ -2740,17 +621,17 @@
 			]
 		},
 		{
-			"id": 347,
+			"id": 254,
 			"name": "\"overview\"",
 			"kind": 1,
 			"kindString": "External module",
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/node.js/ts6/dev/hsLibs/mithril/hsLayout/src/overview.ts",
+			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsLayout/src/overview.ts",
 			"comment": {
-				"shortText": "# hsLayout\nhsLayout provides means to layout the browser window in various ways.\nSee [Layout Examples](example/layout.html)",
-				"text": "## Concepts\n\n### Layouts\nLayouts can be either defined generically:\n```\nm(Layout, {\n    css: '.myLayoutClass',  // optional\n    columns: []\n    content: ['left', 'right']\n})\n```\nOr, for more complex cases, by defining a class that extends {@link Layout.Layout `Layout`}:\n```\nclass Columns extends Layout {\n    getComponents(node:Vnode) {\n        return [m(LeftColumn), m(CenterColumn), m(RightColumn)]\n    }\n}\nm(Columns);\n```\n\n### Layouters\nTo create new layout styles, define a class that extends the abstract {@link Layouter.Layouter `Layouter`} class.\nThis class should implement the `getStyles` method which calculates the styles attributes required for each `Component`\nto be layed out in a `Layout`.\n\nCurrently defined Layouters:\n- &nbsp; {@link PillaredLayouter.Columns `Columns`}\n- &nbsp; {@link PillaredLayouter.Rows    `Rows`}\n- &nbsp; {@link TileLayouter             `Tiles`}\n\n### Example\n<example>\n<file name='script.js'>\nconst theContent = ['Top row: 50px', 'Bottom row: remainder']\nm.mount(root, {view: () => m(hslayout.Layout, {\n    css: 'myColumn',\n    rows: [\"50px\", \"fill\"],\n    content:theContent\n    })\n});\n</file>\n<file name='style.css'>\n.myColumn .hs-layout {\n    border: 1px solid white;\n}\n</file>\n</example>\n\n### Nested Example\n<example>\n<file name='script.js'>\nm.mount(root, {view: () =>\n    m(hslayout.Layout, {\n        css: 'myColumn',\n        rows: [\"150px\", \"fill\"],\n        content:[\n            m(hslayout.Layout, {columns:['20%'], content:['top left', 'top 2nd']}),\n            m(hslayout.Layout, {columns:['20%'], content:['bottom left', 'bottom 2nd']})\n        ]\n    })\n});\n</file>\n<file name='style.css'>\n.myColumn .hs-layout {\n    border: 1px solid white;\n}\n</file>\n</example>\n"
+				"shortText": "# hsLayout",
+				"text": "Helpful Scripts UI layout tools. [Github page](https://github.com/HelpfulScripts/hsLayout)\n\nhsLayout provides means to layout the browser window in various ways.\nSee [Layout Examples](example/layout.html)\n\n## Concepts\n\n### Layouts\nLayouts can be either defined generically:\n```\nm(Layout, {\n    css: '.myLayoutClass',  // optional\n    columns: []\n    content: ['left', 'right']\n})\n```\nOr, for more complex cases, by defining a class that extends {@link Layout.Layout `Layout`}:\n```\nclass Columns extends Layout {\n    getComponents(node:Vnode) {\n        return [m(LeftColumn), m(CenterColumn), m(RightColumn)]\n    }\n}\nm(Columns);\n```\n\n### Layouters\nTo create new layout styles, define a class that extends the abstract {@link Layouter.Layouter `Layouter`} class.\nThis class should implement the `getStyles` method which calculates the styles attributes required for each `Component`\nto be layed out in a `Layout`.\n\nCurrently defined Layouters:\n- &nbsp; {@link PillaredLayouter.Columns `Columns`}\n- &nbsp; {@link PillaredLayouter.Rows    `Rows`}\n- &nbsp; {@link TileLayouter             `Tiles`}\n\n### Example\n<example>\n<file name='script.js'>\nconst theContent = ['Top row: 50px', 'Bottom row: remainder']\nm.mount(root, {view: () => m(hslayout.Layout, {\n    css: 'myColumn',\n    rows: [\"50px\", \"fill\"],\n    content:theContent\n    })\n});\n</file>\n</example>\n\n### Nested Example\n<example>\n<file name='script.js'>\nm.mount(root, {view: () =>\n    m(hslayout.Layout, {\n        css: 'myColumn',\n        rows: [\"150px\", \"fill\"],\n        content:[\n            m(hslayout.Layout, {columns:['20%'], content:['top left', 'top 2nd']}),\n            m(hslayout.Layout, {columns:['20%'], content:['bottom left', 'bottom 2nd']})\n        ]\n    })\n});\n</file>\n</example>\n"
 			},
 			"sources": [
 				{
@@ -2768,7 +649,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/node.js/ts6/dev/hsLibs/mithril/hsLayout/src/view/Layout.ts",
+			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsLayout/src/view/Layout.ts",
 			"comment": {
 				"shortText": "# Layout\nA `mithril` component class that layouts available space in the window.",
 				"text": "### Invocation\ninvoked as `m(Layout, {name:<string>, content:Array<Vnode>})`\n\n### Attributes (node.attrs):\n- <key>:Array<String>, required. <key> matches a registered {@link Layouter Layouter}\n- content: Array<Vnode>, required. The Vnode children to lay out.\n- css:String, optional. The css specifier to use for this `Layout` component.\n- route: object literal holding parameters passed from `m.route`\n- href: String, optional. If present, makes the component clickable\n- onclick:(), optional. The function to call when clicked\n"
@@ -3079,7 +960,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/node.js/ts6/dev/hsLibs/mithril/hsLayout/src/view/Layouter.ts",
+			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsLayout/src/view/Layouter.ts",
 			"comment": {
 				"shortText": "Layouter.ts provides basic mechanisms for laying out a view container.\nSubclasses of `Layouter` should\n- implement the {@link Layouter.Layouter.getStyles getStyles} method.\n- register the subclass and configuration keyword with the static\n{@link Layouter.Layouter.register register} method."
 			},
@@ -3090,7 +971,8 @@
 					"kind": 128,
 					"kindString": "Class",
 					"flags": {
-						"isExported": true
+						"isExported": true,
+						"isAbstract": true
 					},
 					"comment": {
 						"shortText": "Abstract base class for creating layout style implementations.\nSubclasses should implement `getStyles`. In addition, subclasses need to be registered with the\nstatic `Layouter.register` method.\n### Example\n<code>\nclass MyLayouter extends Layouter {\ncssClass = '.my-css-class';\nconstructor(public areaDesc:LayoutToken[]) {\nsuper(areaDesc);\n}",
@@ -3279,7 +1161,8 @@
 							"kindString": "Method",
 							"flags": {
 								"isExported": true,
-								"isProtected": true
+								"isProtected": true,
+								"isAbstract": true
 							},
 							"signatures": [
 								{
@@ -3426,7 +1309,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Register a new Layouter style with corresponding configuration keyword.\nExample:```\nclass ColumnsLayout extends Layouter {...}\nLayouter.register('Column', Columns);\n```"
+										"shortText": "Register a new Layouter style with corresponding configuration keyword.\nExample:```\nclass ColumnsLayout extends Layouter {...}\nLayouter.register('Column', Columns);\n```\n@param keyword the keyword used in the attributes to `this.layout`\n@param style the `Layouter` implementation to instantiate when encountering `keyword`"
 									},
 									"parameters": [
 										{
@@ -3435,9 +1318,6 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
-											"comment": {
-												"text": "the keyword used in the attributes to `this.layout`"
-											},
 											"type": {
 												"type": "intrinsic",
 												"name": "string"
@@ -3449,9 +1329,6 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
-											"comment": {
-												"text": "the `Layouter` implementation to instantiate when encountering `keyword`\n"
-											},
 											"type": {
 												"type": "reference",
 												"name": "Layouter",
@@ -3620,7 +1497,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/node.js/ts6/dev/hsLibs/mithril/hsLayout/src/view/PillaredLayouter.ts",
+			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsLayout/src/view/PillaredLayouter.ts",
 			"comment": {
 				"shortText": "Lays out components in pillars, i.e. either {@link hsLayout:PillaredLayout.Columns columns}\nor {@link hsLayout:PillaredLayout.Rows rows}\nUse either of\n- `{rows: [attributes]}`\n- `{columns: [attributes]}`",
 				"text": "to invoke this layout.\n\n### Example\n<code>\n{rows: [px(200), FILL]}   // --> top row has height 200px, all other rows evenly share remaining space\n{rows: [\"200px\", \"fill\"]} // --> equivalent description\n</code>\n\n## Attributes\nThe following values **v** are valid entries in The Attributes array:\n- **px(n)** or **\"<n>px\"** -- a fixed number of pixels\n- **pc(n)** or **\"<n>%\"**  -- a fixed percentage of available space\n- **FILL** or **\"fill\"**   -- a special constant to indicate - may appear only once per array.\n\nThe following options are supported for the Attributes array:\n- **[ ]**: An empty array; all components will be evenly spaced across the available width.\n- **[v]**: All components have the specified width (in px or %) and will fill the available space from the left,\nleaving any remaining unused space on the right.\n- **[v1, v2]**: All components have the specified widths (in px or %) and will fill the available space from the left,\nleaving any remaining unused space on the right. If there are more components than widths, the right-most width\nwill be used for the reminaing widgets.\n- **[v, FILL]**: Sets the first (left) widget to a width of `v`.<br>\nif `v` is specified in %, the remaining n-1 components will have equal relative widths of `(100-v)/(n-1)%`<br>\nif `v` is specified in px, the remaining n-1 components will have their right borders at location `i*100/n%`, with i=1...n.\n- **[FILL, v]**: Sets the last (right) widget to a width of `v`.<br>\nif `v` is specified in %, the remaining n-1 components will have equal relative widths of `(100-v)/(n-1)%`<br>\nif `v` is specified in px, the remaining n-1 components will have their left borders at location `i*100/n%`, with i=0...n-1.\n- **[va, FILL, vb]**: Sets the first and last widget to a width of `va`/`vb`.<br>\nBoth have to be specified either in px or in %.<br>\nif the unit is %, the remaining n-2 components will have equal relative widths of `(100-vb-va)/(n-2)%`<br>\nif the unit is px, the remaining n-2 components will have their left/right borders at location `i*100/n%`.\n- **[v1, v2, FILL, v3, v4]**: multiple widths can be specified in uninterrupted sequence both from the left and the right.\n"
@@ -3634,7 +1511,7 @@
 					"flags": {},
 					"comment": {
 						"shortText": "Constructs a columns pillar layout style.<br>\nUse `{columns: [attributes]}` to invoke this layout. See top of page for a description.\n<example>\n<file name='script.js'>\nconst styles = [\n    [],                // equal spacing\n    [\"100px\"],         // fixed spacing\n    [\"60px\", \"100px\"], // fixed spacing, first one smaller\n    [\"100px\", \"fill\"], // first one fixed, rest equal\n    [\"fill\", \"100px\"], // last one fixed, rest equal\n    [\"20%\"],           // relative spacing, all equal\n    [\"20%\", \"fill\"],   // first relative, rest equal\n    [\"fill\", \"20%\"]    // last relative, rest equal\n];\nlet c = [];\nm.mount(root, {\n    view:() => m(hslayout.Layout, {\n        rows:[],  // each row a style\n        content: styles.map(i => m(hslayout.Layout, {\n            css: '.myExample',\n            content: c.map(c=>(''+i)), // the style descriptor\n            columns: i                 // a style from styles\n        }))\n    })\n});\nfunction next() {\n    if (c.length >= 5) { c = []; }\n    else { c.push(''); }\n    setTimeout(next, 2000);\n    m.redraw();\n}",
-						"text": "next();\n</file>\n<file name='style.css'>\n.hs-row-layout>.myExample {\n    border-top:    1px solid white;\n    border-bottom: 1px solid white;\n}\n.myExample>.hs-layout {\n    border:    1px solid white;\n    background-color: #ccc;\n}\n.myExample {\n    color:       #a44;\n    font-weight: bold;\n    text-align:  center;\n}\n</file>\n</example>\n"
+						"text": "next();\n</file>\n<file name='style.css'>\n.hs-row-layout>.myExample {\n    border-top:    1px solid white;\n    border-bottom: 1px solid white;\n}\n.myExample>.hs-layout {\n    border:    1px solid white;\n    background-color: #ccc;\n}\n.myExample {\n    color:       #a44;\n    font-size: 10px;\n    font-weight: bold;\n    text-align:  center;\n}\n</file>\n</example>\n"
 					},
 					"children": [
 						{
@@ -3682,7 +1559,7 @@
 							"sources": [
 								{
 									"fileName": "view/PillaredLayouter.ts",
-									"line": 283,
+									"line": 284,
 									"character": 38
 								}
 							],
@@ -3704,7 +1581,7 @@
 							"sources": [
 								{
 									"fileName": "view/PillaredLayouter.ts",
-									"line": 284,
+									"line": 285,
 									"character": 31
 								}
 							],
@@ -4161,7 +2038,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Register a new Layouter style with corresponding configuration keyword.\nExample:```\nclass ColumnsLayout extends Layouter {...}\nLayouter.register('Column', Columns);\n```"
+										"shortText": "Register a new Layouter style with corresponding configuration keyword.\nExample:```\nclass ColumnsLayout extends Layouter {...}\nLayouter.register('Column', Columns);\n```\n@param keyword the keyword used in the attributes to `this.layout`\n@param style the `Layouter` implementation to instantiate when encountering `keyword`"
 									},
 									"parameters": [
 										{
@@ -4170,9 +2047,6 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
-											"comment": {
-												"text": "the keyword used in the attributes to `this.layout`"
-											},
 											"type": {
 												"type": "intrinsic",
 												"name": "string"
@@ -4184,9 +2058,6 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
-											"comment": {
-												"text": "the `Layouter` implementation to instantiate when encountering `keyword`\n"
-											},
 											"type": {
 												"type": "reference",
 												"name": "Layouter",
@@ -4254,7 +2125,7 @@
 					"sources": [
 						{
 							"fileName": "view/PillaredLayouter.ts",
-							"line": 283,
+							"line": 284,
 							"character": 13
 						}
 					],
@@ -4271,7 +2142,9 @@
 					"name": "PillarLayouter",
 					"kind": 128,
 					"kindString": "Class",
-					"flags": {},
+					"flags": {
+						"isAbstract": true
+					},
 					"comment": {
 						"shortText": "Abstract base Layouter for creating PillarLayouter (rows, colums)"
 					},
@@ -4937,7 +2810,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Register a new Layouter style with corresponding configuration keyword.\nExample:```\nclass ColumnsLayout extends Layouter {...}\nLayouter.register('Column', Columns);\n```"
+										"shortText": "Register a new Layouter style with corresponding configuration keyword.\nExample:```\nclass ColumnsLayout extends Layouter {...}\nLayouter.register('Column', Columns);\n```\n@param keyword the keyword used in the attributes to `this.layout`\n@param style the `Layouter` implementation to instantiate when encountering `keyword`"
 									},
 									"parameters": [
 										{
@@ -4946,9 +2819,6 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
-											"comment": {
-												"text": "the keyword used in the attributes to `this.layout`"
-											},
 											"type": {
 												"type": "intrinsic",
 												"name": "string"
@@ -4960,9 +2830,6 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
-											"comment": {
-												"text": "the `Layouter` implementation to instantiate when encountering `keyword`\n"
-											},
 											"type": {
 												"type": "reference",
 												"name": "Layouter",
@@ -5065,7 +2932,7 @@
 					"flags": {},
 					"comment": {
 						"shortText": "Constructs a row pillar layout style.<br>\nUse `{row: [attributes]}` to invoke this layout. See top of page for a description.\n<example>\n<file name='script.js'>\nconst styles = [\n    [],                // equal spacing\n    [\"100px\"],         // fixed spacing\n    [\"60px\", \"100px\"], // fixed spacing, first one smaller\n    [\"100px\", \"fill\"], // first one fixed, rest equal\n    [\"fill\", \"100px\"], // last one fixed, rest equal\n    [\"20%\"],           // relative spacing, all equal\n    [\"20%\", \"fill\"],   // first relative, rest equal\n    [\"fill\", \"20%\"]    // last relative, rest equal\n];\nlet c = [];\nfunction next() {\n    if (c.length >= 5) { c = []; }\n    else { c.push(''); }\n    setTimeout(next, 2000);\n    m.redraw();\n}",
-						"text": "m.mount(root, {\n    view:() => m(hslayout.Layout, {\n        columns:[],  // each column a style\n        content: styles.map(i => m(hslayout.Layout, {\n            css: '.myExample',\n            content: c.map(c=>(''+i)),\n            rows: i   // a style from styles\n        }))\n    })\n});\nnext();\n</file>\n<file name='style.css'>\n.hs-column-layout>.myExample {\n    border-left:  1px solid white;\n    border-right: 1px solid white;\n}\n.myExample>.hs-layout {\n    border:    1px solid white;\n    background-color: #ccc;\n}\n.myExample {\n    color:       #a44;\n    font-weight: bold;\n    text-align:  center;\n}\n</file>\n</example>\n"
+						"text": "m.mount(root, {\n    view:() => m(hslayout.Layout, {\n        columns:[],  // each column a style\n        content: styles.map(i => m(hslayout.Layout, {\n            css: '.myExample',\n            content: c.map(c=>(''+i)),\n            rows: i   // a style from styles\n        }))\n    })\n});\nnext();\n</file>\n<file name='style.css'>\n.hs-column-layout>.myExample {\n    border-left:  1px solid white;\n    border-right: 1px solid white;\n}\n.myExample>.hs-layout {\n    border:    1px solid white;\n    background-color: #ccc;\n}\n.myExample {\n    color:       #a44;\n    font-weight: bold;\n    font-size: 10px;\n    text-align:  center;\n}\n</file>\n</example>\n"
 					},
 					"children": [
 						{
@@ -5113,7 +2980,7 @@
 							"sources": [
 								{
 									"fileName": "view/PillaredLayouter.ts",
-									"line": 339,
+									"line": 341,
 									"character": 35
 								}
 							],
@@ -5135,7 +3002,7 @@
 							"sources": [
 								{
 									"fileName": "view/PillaredLayouter.ts",
-									"line": 340,
+									"line": 342,
 									"character": 31
 								}
 							],
@@ -5592,7 +3459,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Register a new Layouter style with corresponding configuration keyword.\nExample:```\nclass ColumnsLayout extends Layouter {...}\nLayouter.register('Column', Columns);\n```"
+										"shortText": "Register a new Layouter style with corresponding configuration keyword.\nExample:```\nclass ColumnsLayout extends Layouter {...}\nLayouter.register('Column', Columns);\n```\n@param keyword the keyword used in the attributes to `this.layout`\n@param style the `Layouter` implementation to instantiate when encountering `keyword`"
 									},
 									"parameters": [
 										{
@@ -5601,9 +3468,6 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
-											"comment": {
-												"text": "the keyword used in the attributes to `this.layout`"
-											},
 											"type": {
 												"type": "intrinsic",
 												"name": "string"
@@ -5615,9 +3479,6 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
-											"comment": {
-												"text": "the `Layouter` implementation to instantiate when encountering `keyword`\n"
-											},
 											"type": {
 												"type": "reference",
 												"name": "Layouter",
@@ -5685,7 +3546,7 @@
 					"sources": [
 						{
 							"fileName": "view/PillaredLayouter.ts",
-							"line": 339,
+							"line": 341,
 							"character": 10
 						}
 					],
@@ -5869,7 +3730,8 @@
 					"kind": 32,
 					"kindString": "Variable",
 					"flags": {
-						"isExported": true
+						"isExported": true,
+						"isConst": true
 					},
 					"comment": {
 						"shortText": "array of trigger keywords for column and row layout styles"
@@ -5895,7 +3757,9 @@
 					"name": "cParams",
 					"kind": 2097152,
 					"kindString": "Object literal",
-					"flags": {},
+					"flags": {
+						"isConst": true
+					},
 					"comment": {
 						"shortText": "contains style settings for the row and column layout"
 					},
@@ -6012,139 +3876,6 @@
 			]
 		},
 		{
-			"id": 348,
-			"name": "\"view/PillaredLayouter.spec\"",
-			"kind": 1,
-			"kindString": "External module",
-			"flags": {
-				"isExported": true
-			},
-			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/node.js/ts6/dev/hsLibs/mithril/hsLayout/src/view/PillaredLayouter.spec.ts",
-			"children": [
-				{
-					"id": 352,
-					"name": "columns",
-					"kind": 32,
-					"kindString": "Variable",
-					"flags": {},
-					"sources": [
-						{
-							"fileName": "view/PillaredLayouter.spec.ts",
-							"line": 7,
-							"character": 13
-						}
-					],
-					"type": {
-						"type": "array",
-						"elementType": {
-							"type": "intrinsic",
-							"name": "string"
-						}
-					},
-					"defaultValue": " [\"150px\", \"fill\"]"
-				},
-				{
-					"id": 349,
-					"name": "hslayout",
-					"kind": 32,
-					"kindString": "Variable",
-					"flags": {},
-					"sources": [
-						{
-							"fileName": "view/PillaredLayouter.spec.ts",
-							"line": 2,
-							"character": 14
-						}
-					],
-					"type": {
-						"type": "intrinsic",
-						"name": "any"
-					},
-					"defaultValue": " require('../src/')"
-				},
-				{
-					"id": 350,
-					"name": "m",
-					"kind": 32,
-					"kindString": "Variable",
-					"flags": {},
-					"sources": [
-						{
-							"fileName": "view/PillaredLayouter.spec.ts",
-							"line": 3,
-							"character": 7
-						}
-					],
-					"type": {
-						"type": "intrinsic",
-						"name": "any"
-					},
-					"defaultValue": " hslayout.m"
-				},
-				{
-					"id": 351,
-					"name": "o",
-					"kind": 32,
-					"kindString": "Variable",
-					"flags": {},
-					"sources": [
-						{
-							"fileName": "view/PillaredLayouter.spec.ts",
-							"line": 4,
-							"character": 7
-						}
-					],
-					"type": {
-						"type": "intrinsic",
-						"name": "any"
-					},
-					"defaultValue": " hslayout.o"
-				},
-				{
-					"id": 353,
-					"name": "titles",
-					"kind": 32,
-					"kindString": "Variable",
-					"flags": {},
-					"sources": [
-						{
-							"fileName": "view/PillaredLayouter.spec.ts",
-							"line": 8,
-							"character": 12
-						}
-					],
-					"type": {
-						"type": "array",
-						"elementType": {
-							"type": "intrinsic",
-							"name": "string"
-						}
-					},
-					"defaultValue": " ['Left Column: 150px', 'Right Column: remainder']"
-				}
-			],
-			"groups": [
-				{
-					"title": "Variables",
-					"kind": 32,
-					"children": [
-						352,
-						349,
-						350,
-						351,
-						353
-					]
-				}
-			],
-			"sources": [
-				{
-					"fileName": "view/PillaredLayouter.spec.ts",
-					"line": 1,
-					"character": 0
-				}
-			]
-		},
-		{
 			"id": 189,
 			"name": "\"view/TileLayouter\"",
 			"kind": 1,
@@ -6152,10 +3883,10 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/node.js/ts6/dev/hsLibs/mithril/hsLayout/src/view/TileLayouter.ts",
+			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsLayout/src/view/TileLayouter.ts",
 			"comment": {
 				"shortText": "Lays out components in tiles\nUse\n- `{tiles: [attributes]}`",
-				"text": "to invoke this layout.\n\n### Example\n<code>\n{tiles: [\"20%\"]}   // --> tiles will all have 20% of available height and width\n</code>\n<example>\n<file name='script.js'>\nlet c = [1,2,3,4,5];\n\nm.mount(root, {\n    view:() => m(hslayout.Layout, {\n        tiles:[],\n        content: c.map((c,i)=>(''+i)),\n        css: '.myExample'\n    })\n});\n\nfunction next() {\n    if (c.length >= 9) { c = []; }\n    else { c.push(''); }\n    setTimeout(next, 2000);\n    m.redraw();\n}\nnext();\n</file>\n<file name='style.css'>\n.myExample .hs-layout {\n    border: 1px solid white;\n    background-color: #ccc;\n    color:       #a44;\n    text-align:  center;\n}\n</file>\n</example>\n\n## Attributes\nThe following values **v** are valid entries in The Attributes array:\n- **px(n)** or **\"_n_ px\"** -- a fixed number of pixels\n- **pc(n)** or **\"_n_ %\"**  -- a fixed percentage of available space\n- **FILL** or **\"fill\"**   -- a special constant indicate to fill remaining space - may appear only once per array.\n\nThe following options are supported for the Attributes array:\n- **[ ]**: An empty array; The available tiles will cover the entire width and height.\nTheir size will adapt as tiles are added.\n- **[FILL]**: like [ ], except the last tile fills the available space.\n- **[v]**: All components have the specified width and height (in px or %) and will fill the available space from the left,\nleaving any remaining unused space on the right.\n- **[w, h]**: All components have the specified width w and height h (in px or %) and will fill the available space from the left,\nleaving any remaining unused space on the right.\n- **[v, FILL]**: like [v], except that the last tile in each row will fill the remaining available width\nand the tiles in the bottom row will fill the remaining height\n- **[w, h, FILL]**: like [w, h], except that the last tile will fill the remaining available width.\n"
+				"text": "to invoke this layout.\n\n### Example\n<code>\n{tiles: [\"20%\"]}   // --> tiles will all have 20% of available height and width\n</code>\n<example>\n<file name='script.js'>\nlet c = [1,2,3,4,5];\n\nm.mount(root, {\n    view:() => m(hslayout.Layout, {\n        tiles:[],\n        content: c.map((c,i)=>(''+i)),\n        css: '.myExample'\n    })\n});\n\nfunction next() {\n    if (c.length >= 9) { c = []; }\n    else { c.push(''); }\n    setTimeout(next, 2000);\n    m.redraw();\n}\nnext();\n</file>\n<file name='style.css'>\n.myExample .hs-layout {\n    border: 1px solid white;\n    background-color: #ccc;\n    color:       #a44;\n    text-align:  center;\n}\n</file>\n</example>\n\n## Attributes\nThe following options are supported for the Attributes array:\n- **[ ]**: An empty array; The available tiles will cover the entire width and height.\nTheir size will adapt as tiles are added.\n- **[FILL]**: like [ ], except the last tile fills the available space.\n- **[v]**: All components have the specified width and height (in px or %) and will fill the available space from the left,\nleaving any remaining unused space on the right.\n- **[w, h]**: All components have the specified width w and height h (in px or %) and will fill the available space from the left,\nleaving any remaining unused space on the right.\n- **[v, FILL]**: like [v], except that the last tile in each row will fill the remaining available width\nand the tiles in the bottom row will fill the remaining height\n- **[w, h, FILL]**: like [w, h], except that the last tile will fill the remaining available width.\n\nv, w, and h can take on the following vakues:\n- **px(n)** or **\"_n_ px\"** -- a fixed number of pixels\n- **pc(n)** or **\"_n_ %\"**  -- a fixed percentage of available space\n- **FILL** or **\"fill\"**   -- fills the remaining space - may appear only once per array.\n\n"
 			},
 			"children": [
 				{
@@ -6220,7 +3951,7 @@
 							"sources": [
 								{
 									"fileName": "view/TileLayouter.ts",
-									"line": 75,
+									"line": 76,
 									"character": 14
 								}
 							],
@@ -6245,7 +3976,7 @@
 							"sources": [
 								{
 									"fileName": "view/TileLayouter.ts",
-									"line": 81,
+									"line": 82,
 									"character": 31
 								}
 							],
@@ -6272,7 +4003,7 @@
 							"sources": [
 								{
 									"fileName": "view/TileLayouter.ts",
-									"line": 74,
+									"line": 75,
 									"character": 12
 								}
 							],
@@ -6314,7 +4045,7 @@
 							"sources": [
 								{
 									"fileName": "view/TileLayouter.ts",
-									"line": 75,
+									"line": 76,
 									"character": 8
 								}
 							],
@@ -6461,7 +4192,7 @@
 							"sources": [
 								{
 									"fileName": "view/TileLayouter.ts",
-									"line": 155,
+									"line": 156,
 									"character": 23
 								}
 							],
@@ -6511,7 +4242,7 @@
 							"sources": [
 								{
 									"fileName": "view/TileLayouter.ts",
-									"line": 89,
+									"line": 90,
 									"character": 23
 								}
 							]
@@ -6556,7 +4287,7 @@
 							"sources": [
 								{
 									"fileName": "view/TileLayouter.ts",
-									"line": 120,
+									"line": 121,
 									"character": 21
 								}
 							]
@@ -6657,7 +4388,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Register a new Layouter style with corresponding configuration keyword.\nExample:```\nclass ColumnsLayout extends Layouter {...}\nLayouter.register('Column', Columns);\n```"
+										"shortText": "Register a new Layouter style with corresponding configuration keyword.\nExample:```\nclass ColumnsLayout extends Layouter {...}\nLayouter.register('Column', Columns);\n```\n@param keyword the keyword used in the attributes to `this.layout`\n@param style the `Layouter` implementation to instantiate when encountering `keyword`"
 									},
 									"parameters": [
 										{
@@ -6666,9 +4397,6 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
-											"comment": {
-												"text": "the keyword used in the attributes to `this.layout`"
-											},
 											"type": {
 												"type": "intrinsic",
 												"name": "string"
@@ -6680,9 +4408,6 @@
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
-											"comment": {
-												"text": "the `Layouter` implementation to instantiate when encountering `keyword`\n"
-											},
 											"type": {
 												"type": "reference",
 												"name": "Layouter",
@@ -6749,7 +4474,7 @@
 					"sources": [
 						{
 							"fileName": "view/TileLayouter.ts",
-							"line": 73,
+							"line": 74,
 							"character": 11
 						}
 					],
@@ -6770,7 +4495,7 @@
 					"sources": [
 						{
 							"fileName": "view/TileLayouter.ts",
-							"line": 69,
+							"line": 70,
 							"character": 15
 						}
 					],
@@ -6792,7 +4517,7 @@
 									"sources": [
 										{
 											"fileName": "view/TileLayouter.ts",
-											"line": 69,
+											"line": 70,
 											"character": 64
 										}
 									],
@@ -6810,7 +4535,7 @@
 									"sources": [
 										{
 											"fileName": "view/TileLayouter.ts",
-											"line": 69,
+											"line": 70,
 											"character": 93
 										}
 									],
@@ -6828,7 +4553,7 @@
 									"sources": [
 										{
 											"fileName": "view/TileLayouter.ts",
-											"line": 69,
+											"line": 70,
 											"character": 35
 										}
 									],
@@ -6846,7 +4571,7 @@
 									"sources": [
 										{
 											"fileName": "view/TileLayouter.ts",
-											"line": 69,
+											"line": 70,
 											"character": 49
 										}
 									],
@@ -6864,7 +4589,7 @@
 									"sources": [
 										{
 											"fileName": "view/TileLayouter.ts",
-											"line": 69,
+											"line": 70,
 											"character": 22
 										}
 									],
@@ -6882,7 +4607,7 @@
 									"sources": [
 										{
 											"fileName": "view/TileLayouter.ts",
-											"line": 69,
+											"line": 70,
 											"character": 78
 										}
 									],
@@ -6909,7 +4634,7 @@
 							"sources": [
 								{
 									"fileName": "view/TileLayouter.ts",
-									"line": 69,
+									"line": 70,
 									"character": 17
 								}
 							]
@@ -6949,7 +4674,7 @@
 			"flags": {
 				"isExported": true
 			},
-			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/node.js/ts6/dev/hsLibs/mithril/hsLayout/src/view/Tokens.ts",
+			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsLayout/src/view/Tokens.ts",
 			"comment": {
 				"shortText": "## Layout Tokens\nUsed to specify layout sizes"
 			},
@@ -6960,7 +4685,8 @@
 					"kind": 128,
 					"kindString": "Class",
 					"flags": {
-						"isExported": true
+						"isExported": true,
+						"isAbstract": true
 					},
 					"comment": {
 						"shortText": "A layout token that is defined in size."
@@ -7233,7 +4959,8 @@
 					"kind": 128,
 					"kindString": "Class",
 					"flags": {
-						"isExported": true
+						"isExported": true,
+						"isAbstract": true
 					},
 					"comment": {
 						"shortText": "Abstract token for a layout area. It is defined by a single number available via the constructor."
@@ -7658,7 +5385,8 @@
 					"kind": 32,
 					"kindString": "Variable",
 					"flags": {
-						"isExported": true
+						"isExported": true,
+						"isConst": true
 					},
 					"comment": {
 						"shortText": "Convenience constant, standing for an undefined fill token."
@@ -7818,17 +5546,13 @@
 			"title": "External modules",
 			"kind": 1,
 			"children": [
-				254,
-				297,
-				346,
+				227,
 				226,
-				253,
 				1,
-				347,
+				254,
 				67,
 				43,
 				82,
-				348,
 				189,
 				5
 			]

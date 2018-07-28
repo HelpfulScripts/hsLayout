@@ -1,0 +1,133 @@
+.hs-layout {
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: block;
+  overflow: scroll;
+}
+.hs-layout-spacing .hs-column-layout > .hs-layout {
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+.hs-layout-spacing .hs-column-layout > .hs-layout:first-of-type {
+  border-left: 0;
+}
+.hs-layout-spacing .hs-column-layout > .hs-layout:last-of-type {
+  border-right: 0;
+}
+.hs-layout-spacing .hs-row-layout > .hs-layout {
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
+.hs-layout-spacing .hs-row-layout > .hs-layout:first-of-type {
+  border-top: 0;
+}
+.hs-layout-spacing .hs-row-layout > .hs-layout:last-of-type {
+  border-bottom: 0;
+}
+.hs-layout-spacing .hs-tile-layout > .hs-layout {
+  border: 1px solid white;
+}
+.hs-row-layout {
+  box-sizing: border-box;
+}
+.hs-row-layout > .hs-layout {
+  box-sizing: border-box;
+}
+.hs-column-layout {
+  box-sizing: border-box;
+}
+.hs-column-layout > .hs-layout {
+  box-sizing: border-box;
+}
+.hs-tile-layout > .hs-layout {
+  box-sizing: border-box;
+}
+.hs-layout-frame {
+  position: relative;
+}
+.hs-layout-fill {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+.hs-align-left {
+  text-align: left;
+}
+.hs-align-right {
+  text-align: right;
+}
+.hs-align-center {
+  text-align: center;
+}
+body {
+  font-family: sans-serif;
+  color: #46c;
+  padding: 5px;
+}
+.header {
+  margin-top: 3px;
+  font-size: 24px;
+}
+.leaf {
+  font-family: Arial;
+  font-size: 10px;
+  overflow: visible;
+  /*    
+    &.hs-column-layout {
+        margin-top: @space;
+        margin-bottom: @space+2*@border;
+        &:first-child { margin-top: 2*@space; }
+        &:last-child { margin-bottom: 2*@space+2*@border; }
+    }
+    &.hs-row-layout {
+        margin-left: @space;
+        margin-right: @space+2*@border;
+        &:first-child { margin-left: 2*@space; }
+        &:last-child { margin-right: 2*@space+2*@border; }
+    }
+*/
+}
+.leaf .hs-column-layout > .hs-layout {
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+.leaf .hs-column-layout > .hs-layout:first-of-type {
+  border-left: 0;
+}
+.leaf .hs-column-layout > .hs-layout:last-of-type {
+  border-right: 0;
+}
+.leaf .hs-row-layout > .hs-layout {
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
+.leaf .hs-row-layout > .hs-layout:first-of-type {
+  border-top: 0;
+}
+.leaf .hs-row-layout > .hs-layout:last-of-type {
+  border-bottom: 0;
+}
+.leaf .hs-tile-layout > .hs-layout {
+  border: 1px solid white;
+}
+.leaf .hs-layout {
+  text-align: center;
+}
+.hs-column-layout.leaf .hs-layout {
+  background-color: #ffe;
+}
+.hs-row-layout.leaf .hs-layout {
+  background-color: #eef;
+}
+.tile_pct .hs-tile-layout.leaf .hs-layout {
+  background-color: #fee;
+}
+.tile_px .hs-tile-layout.leaf .hs-layout {
+  background-color: #eff;
+}
+/*# sourceMappingURL=docs/example/hslayout.css.map */

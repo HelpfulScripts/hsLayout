@@ -71,7 +71,7 @@ type descriptor = {top:string, left:string, right:string, bottom:string, width:s
 
 /**
  */
-class Tiles extends Layouter {
+class TileLayouter extends Layouter {
     cssClass:string;
     unit: any;
 
@@ -163,4 +163,4 @@ class Tiles extends Layouter {
 };
 
 
-Layouter.register('tiles', Tiles);
+Layouter.register('tiles', TileLayouter);

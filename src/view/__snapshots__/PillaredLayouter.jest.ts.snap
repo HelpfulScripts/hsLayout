@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`columns % snapshots hs-column-layout, [30%,fill] 1`] = `
+<div
+  class="hs-layout  hs-column-layout myRow"
+>
+  <div
+    class="hs-layout  "
+    style="top: 0%; bottom: 0%; left: 0%; right: 70%; width: auto;"
+  >
+    <div
+      class="hs-leaf"
+    >
+      First: 30%
+    </div>
+  </div>
+  <div
+    class="hs-layout  "
+    style="top: 0%; bottom: 0%; left: 30%; right: 0%; width: auto;"
+  >
+    <div
+      class="hs-leaf"
+    >
+      Second: remainder
+    </div>
+  </div>
+</div>
+`;
+
+exports[`columns px snapshots hs-column-layout, [150px,fill] 1`] = `
+<div
+  class="hs-layout  hs-column-layout myRow"
+>
+  <div
+    class="hs-layout  "
+    style="top: 0%; bottom: 0%; left: 0px; width: 150px;"
+  >
+    <div
+      class="hs-leaf"
+    >
+      First: 150px
+    </div>
+  </div>
+  <div
+    class="hs-layout  "
+    style="top: 0%; bottom: 0%; left: 150px; right: 0px; width: auto;"
+  >
+    <div
+      class="hs-leaf"
+    >
+      Second: remainder
+    </div>
+  </div>
+</div>
+`;
+
+exports[`rows % snapshots hs-row-layout, [30%,fill] 1`] = `
+<div
+  class="hs-layout  hs-row-layout myRow"
+>
+  <div
+    class="hs-layout  "
+    style="left: 0%; right: 0%; top: 0%; bottom: 70%; height: auto;"
+  >
+    <div
+      class="hs-leaf"
+    >
+      First: 30%
+    </div>
+  </div>
+  <div
+    class="hs-layout  "
+    style="left: 0%; right: 0%; top: 30%; bottom: 0%; height: auto;"
+  >
+    <div
+      class="hs-leaf"
+    >
+      Second: remainder
+    </div>
+  </div>
+</div>
+`;
+
+exports[`rows px snapshots hs-row-layout, [150px,fill] 1`] = `
+<div
+  class="hs-layout  hs-row-layout myRow"
+>
+  <div
+    class="hs-layout  "
+    style="left: 0%; right: 0%; top: 0px; height: 150px;"
+  >
+    <div
+      class="hs-leaf"
+    >
+      First: 150px
+    </div>
+  </div>
+  <div
+    class="hs-layout  "
+    style="left: 0%; right: 0%; top: 150px; bottom: 0px; height: auto;"
+  >
+    <div
+      class="hs-leaf"
+    >
+      Second: remainder
+    </div>
+  </div>
+</div>
+`;
