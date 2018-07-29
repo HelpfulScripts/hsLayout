@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tiles % snapshots hs-row-layout, [30%,25%] 1`] = `
+<div
+  class="hs-layout  hs-tile-layout myRow"
+>
+  <div
+    class="hs-layout  "
+    style="top: 0%; left: 0%; width: 30%; height: 25%;"
+  >
+    <div
+      class="hs-leaf"
+    >
+      First: 30%
+    </div>
+  </div>
+  <div
+    class="hs-layout  "
+    style="top: 0%; left: 30%; width: 30%; height: 25%;"
+  >
+    <div
+      class="hs-leaf"
+    >
+      Second: remainder
+    </div>
+  </div>
+</div>
+`;
+
+exports[`tiles px snapshots hs-row-layout, [150px,100px] 1`] = `
+<div
+  class="hs-layout  hs-tile-layout myRow"
+>
+  <div
+    class="hs-layout  "
+    style="top: 0%; left: 0%; width: 150px; height: 100px;"
+  >
+    <div
+      class="hs-leaf"
+    >
+      First: 150px
+    </div>
+  </div>
+  <div
+    class="hs-layout  "
+    style="top: 100%; left: 0%; width: 150px; height: 100px;"
+  >
+    <div
+      class="hs-leaf"
+    >
+      Second: remainder
+    </div>
+  </div>
+</div>
+`;

@@ -1466,7 +1466,7 @@
 						},
 						{
 							"type": "reference",
-							"name": "Tiles",
+							"name": "TileLayouter",
 							"id": 190
 						}
 					]
@@ -3891,7 +3891,7 @@
 			"children": [
 				{
 					"id": 190,
-					"name": "Tiles",
+					"name": "TileLayouter",
 					"kind": 128,
 					"kindString": "Class",
 					"flags": {},
@@ -3909,7 +3909,7 @@
 							"signatures": [
 								{
 									"id": 195,
-									"name": "new Tiles",
+									"name": "new TileLayouter",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
@@ -3938,7 +3938,7 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "Tiles",
+										"name": "TileLayouter",
 										"id": 190
 									},
 									"overwrites": {
@@ -4475,7 +4475,7 @@
 						{
 							"fileName": "view/TileLayouter.ts",
 							"line": 74,
-							"character": 11
+							"character": 18
 						}
 					],
 					"extendedTypes": [
