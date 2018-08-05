@@ -39,7 +39,7 @@ The default `Layout` implementation recognizes the following special `<Attr>` ke
 
 /** */
 import { m, Vnode } from './mithril'; 
-import * as layout from './';
+import * as layout from '.';
 
 /**
  * creates a deep copy of the struct passed in.

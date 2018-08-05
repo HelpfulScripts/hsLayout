@@ -1,4 +1,4 @@
-import { Vnode } from '../mithril';
+import { Vnode } from 'mithril';
 import { LayoutToken } from './Tokens';
 import { Layout } from './Layout';
 export declare abstract class Layouter {

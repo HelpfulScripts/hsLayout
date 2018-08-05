@@ -1,7 +1,8 @@
 import * as hslayout from "../";
-import { o, m } from "../mithril";
+import { m } from "../mithril";
 
 let cont: any;
+const root = window.document.createElement("div");
 
 const layout = (tileSizes: string[]) =>
     new Promise(resolve => {
@@ -10,8 +11,8 @@ const layout = (tileSizes: string[]) =>
         content: [`First: ${tileSizes[0]}`, "Second: remainder"]
         };
         config['tiles'] = tileSizes;
-        m.mount(o.root, { view: () => m(hslayout.Layout, config) });
-        cont = o.root.childNodes[0];
+        m.mount(root, { view: () => m(hslayout.Layout, config) });
+        cont = root.childNodes[0];
         resolve();
     });
 describe('dummy test', ()=>{

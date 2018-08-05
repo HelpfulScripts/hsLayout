@@ -15,8 +15,8 @@
  */
 
 /** */
-import { m, Vnode}      from '../mithril';
-import { Layouter }     from './Layouter'; 
+import { m, Vnode } from '../mithril'; 
+import { Layouter } from './Layouter'; 
 
 /**
 Base class for applying layouts. Subclasses should implement a {@link Layout.Layout.getComponents `getComponents`} method that returns
