@@ -147,7 +147,7 @@ export class HsConfig {
      * @param config an object literal, or name of a JSON file, containing a configration tree
      * @param root a DOM element to which to attach the tree
      */
-    attachNodeTree(config:any, root:any) {
+    attachNodeTree(config:any, root:any):Promise<void> {
         /**
          * decodes the parts of a `route` declaration in the `config` tree
          * that will be passed to the `mithril` `m.route()` command.
@@ -236,7 +236,7 @@ export class HsConfig {
         }
 
         const context = this.context;
-        this.getContent(config)           
+        return this.getContent(config)           
             .then((r:any) => recurse(r, context))
             .then(mountOrRoute);
     }
