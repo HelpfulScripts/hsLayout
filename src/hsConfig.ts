@@ -133,6 +133,8 @@ new HsConfig([mylib, myExample]).attachNodeTree(myConfig, document.body)
 </code>
  */
 export class HsConfig {
+    wrapper:any;
+
     /**
      * Constructs an HsConfig object on a `context`. Any class names encountered
      * in the configuration tree when calling `attachNodeTree` will be resolved
@@ -183,7 +185,7 @@ export class HsConfig {
          * a normalized object with the following rules:
          * - a `route` entry, if present, will have a resolved class constructors for each string class designator
          * - a `root` entry is the first encountered top-level Vnode in `config`
-         * - all other top-level entries in `config` wikll be copied to returned object
+         * - all other top-level entries in `config` will be copied to returned object
          */
         function decode(config:any) {
             let result:any = { };
@@ -230,7 +232,7 @@ export class HsConfig {
                 m.route(root, content.route.default, content.route.routes);
                 console.log('starting router');
             } else {
-                m.mount(root, {view: (node:Vnode)=> m(cr.compClass, copy(cr.attrs))});
+                this.wrapper = m.mount(root, {view: (node:Vnode)=> m(cr.compClass, copy(cr.attrs))});
                 console.log('mounting component');
             }
         }
@@ -246,8 +248,9 @@ export class HsConfig {
     }
 
     private load(file:string) {
-        console.log('requesting ' + file);
+        console.log(`requesting ${__dirname}${file}`);
         return m.request({ method: "GET", url: file })
+            .then((r:any) => { console.log(r); return r; })        
             .catch((e:any) => {
                 console.log('error:');
                 console.log(e);

@@ -1,7 +1,7 @@
 import { Layouter } from './Layouter';
 
 describe('Layouter', () => {
-    test('Layouter should exist', () => {
+    it('should exist', () => {
         expect(Layouter).toBeDefined();
     });
 });

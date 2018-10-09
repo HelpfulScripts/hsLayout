@@ -7,8 +7,8 @@ const root = window.document.createElement("div");
 const layout = (type: string, contSizes: string[]) =>
     new Promise(resolve => {
         const config = {
-        css: "myRow",
-        content: [`First: ${contSizes[0]}`, "Second: remainder"]
+            css: "myRow",
+            content: [`First: ${contSizes[0]}`, "Second: remainder"]
         };
         config[type] = contSizes;
         m.mount(root, { view: () => m(hslayout.Layout, config) });
@@ -21,8 +21,7 @@ describe("rows px", () => {
     beforeAll(() => layout('rows', contSizes));
     describe("snapshots", () => {
         test("rows should be defined", () => expect(cont).toBeDefined());
-        test(`hs-row-layout, [${contSizes}]`, () =>
-        expect(cont).toMatchSnapshot());
+        test(`hs-row-layout, [${contSizes}]`, () => expect(cont).toMatchSnapshot());
     });
 });
 
@@ -31,8 +30,7 @@ describe("rows %", () => {
     beforeAll(() => layout('rows', contSizes));
     describe("snapshots", () => {
         test("rows should be defined", () => expect(cont).toBeDefined());
-        test(`hs-row-layout, [${contSizes}]`, () =>
-        expect(cont).toMatchSnapshot());
+        test(`hs-row-layout, [${contSizes}]`, () => expect(cont).toMatchSnapshot());
     });
 });
 
@@ -41,8 +39,7 @@ describe("columns px", () => {
     beforeAll(() => layout('columns', contSizes));
     describe("snapshots", () => {
         test("columns should be defined", () => expect(cont).toBeDefined());
-        test(`hs-column-layout, [${contSizes}]`, () =>
-        expect(cont).toMatchSnapshot());
+        test(`hs-column-layout, [${contSizes}]`, () => expect(cont).toMatchSnapshot());
     });
 });
 

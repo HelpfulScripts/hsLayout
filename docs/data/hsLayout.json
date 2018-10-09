@@ -32,7 +32,7 @@
 					},
 					"children": [
 						{
-							"id": 228,
+							"id": 229,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -44,7 +44,7 @@
 							},
 							"signatures": [
 								{
-									"id": 230,
+									"id": 231,
 									"name": "new HsConfig",
 									"kind": 16384,
 									"kindString": "Constructor signature",
@@ -54,7 +54,7 @@
 									},
 									"parameters": [
 										{
-											"id": 231,
+											"id": 232,
 											"name": "context",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -81,13 +81,13 @@
 							"sources": [
 								{
 									"fileName": "hsConfig.ts",
-									"line": 135,
-									"character": 23
+									"line": 136,
+									"character": 16
 								}
 							]
 						},
 						{
-							"id": 229,
+							"id": 230,
 							"name": "context",
 							"kind": 1024,
 							"kindString": "Property",
@@ -102,7 +102,7 @@
 							"sources": [
 								{
 									"fileName": "hsConfig.ts",
-									"line": 143,
+									"line": 145,
 									"character": 33
 								}
 							],
@@ -115,7 +115,27 @@
 							}
 						},
 						{
-							"id": 232,
+							"id": 228,
+							"name": "wrapper",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "hsConfig.ts",
+									"line": 136,
+									"character": 11
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						},
+						{
+							"id": 233,
 							"name": "attachNodeTree",
 							"kind": 2048,
 							"kindString": "Method",
@@ -124,7 +144,7 @@
 							},
 							"signatures": [
 								{
-									"id": 233,
+									"id": 234,
 									"name": "attachNodeTree",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -134,7 +154,7 @@
 									},
 									"parameters": [
 										{
-											"id": 234,
+											"id": 235,
 											"name": "config",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -148,7 +168,7 @@
 											}
 										},
 										{
-											"id": 235,
+											"id": 236,
 											"name": "root",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -177,13 +197,13 @@
 							"sources": [
 								{
 									"fileName": "hsConfig.ts",
-									"line": 150,
+									"line": 152,
 									"character": 18
 								}
 							]
 						},
 						{
-							"id": 236,
+							"id": 237,
 							"name": "getContent",
 							"kind": 2048,
 							"kindString": "Method",
@@ -193,14 +213,14 @@
 							},
 							"signatures": [
 								{
-									"id": 237,
+									"id": 238,
 									"name": "getContent",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 238,
+											"id": 239,
 											"name": "config",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -220,13 +240,13 @@
 							"sources": [
 								{
 									"fileName": "hsConfig.ts",
-									"line": 244,
+									"line": 246,
 									"character": 22
 								}
 							]
 						},
 						{
-							"id": 239,
+							"id": 240,
 							"name": "load",
 							"kind": 2048,
 							"kindString": "Method",
@@ -236,14 +256,14 @@
 							},
 							"signatures": [
 								{
-									"id": 240,
+									"id": 241,
 									"name": "load",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 241,
+											"id": 242,
 											"name": "file",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -263,7 +283,7 @@
 							"sources": [
 								{
 									"fileName": "hsConfig.ts",
-									"line": 248,
+									"line": 250,
 									"character": 16
 								}
 							]
@@ -274,23 +294,24 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								228
+								229
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								229
+								230,
+								228
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								232,
-								236,
-								239
+								233,
+								237,
+								240
 							]
 						}
 					],
@@ -303,14 +324,14 @@
 					]
 				},
 				{
-					"id": 242,
+					"id": 243,
 					"name": "copy",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 243,
+							"id": 244,
 							"name": "copy",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -320,7 +341,7 @@
 							},
 							"parameters": [
 								{
-									"id": 244,
+									"id": 245,
 									"name": "struct",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -349,14 +370,14 @@
 					]
 				},
 				{
-					"id": 249,
+					"id": 250,
 					"name": "recurse",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 250,
+							"id": 251,
 							"name": "recurse",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -367,7 +388,7 @@
 							},
 							"parameters": [
 								{
-									"id": 251,
+									"id": 252,
 									"name": "config",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -381,7 +402,7 @@
 									}
 								},
 								{
-									"id": 252,
+									"id": 253,
 									"name": "context",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -413,14 +434,14 @@
 					]
 				},
 				{
-					"id": 245,
+					"id": 246,
 					"name": "resolve",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 246,
+							"id": 247,
 							"name": "resolve",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -431,7 +452,7 @@
 							},
 							"parameters": [
 								{
-									"id": 247,
+									"id": 248,
 									"name": "sym",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -445,7 +466,7 @@
 									}
 								},
 								{
-									"id": 248,
+									"id": 249,
 									"name": "context",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -489,9 +510,9 @@
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						242,
-						249,
-						245
+						243,
+						250,
+						246
 					]
 				}
 			],
@@ -607,7 +628,7 @@
 			]
 		},
 		{
-			"id": 253,
+			"id": 254,
 			"name": "\"overview\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -5529,7 +5550,7 @@
 				226,
 				225,
 				1,
-				253,
+				254,
 				66,
 				42,
 				81,

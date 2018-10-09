@@ -60,6 +60,14 @@ const myConfig = {
                 ]
             }}
         ]
+    },
+    route: {
+        default: '/api',
+        paths: [
+            '/api',             
+            '/api/:lib',       
+            '/api/:lib/:field' 
+        ]
     }
 };
 const example = { 
@@ -91,15 +99,32 @@ const example = {
     }
 };
 
+// Polyfill DOM env for mithril
+window = require("mithril/test-utils/browserMock.js")();
+document = window.document;
 
 const root = window.document.createElement("div");
 
-beforeAll(() => {
-    new HsConfig([example]).attachNodeTree(myConfig, root);
+describe('hsConfig', () => {
+    beforeAll((done) => {
+        new HsConfig([example]).attachNodeTree(myConfig, root);
+        setTimeout(() => done());
+    });
+    
+    test('HsConfig should match snapshot', (done) => {
+        expect(root).toMatchSnapshot();
+        setTimeout(() => done());
+    });
 });
 
-describe('hsConfig', () => {
-    test('HsConfig should match snapshot', () => {
-        return expect(root).toMatchSnapshot();
+describe('hsConfig file', () => {
+    beforeAll((done) => {
+        new HsConfig([example]).attachNodeTree('./example/layout.json', root);
+        setTimeout(() => done());
+    });
+    
+    test('HsConfig from file should match snapshot', (done) => {
+        expect(root).toMatchSnapshot();
+        setTimeout(() => done());
     });
 });

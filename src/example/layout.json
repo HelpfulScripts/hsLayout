@@ -1,0 +1,6 @@
+{
+    "Layout": {
+        "rows": ["40px", "fill"], 
+        "content": ["row 1", "row 2"]
+    }
+}
