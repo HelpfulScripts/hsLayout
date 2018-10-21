@@ -117,7 +117,7 @@ m.request = (req: any) => {
 
 
 describe('hsConfig file', () => {
-    const root = document.createElement("div");
+    const root:any = document.createElement("div");
     beforeAll(async (done) => {
         try {
             await new HsConfig([example]).attachNodeTree('layout.json', root);
