@@ -2023,32 +2023,3 @@ exports[`hsConfig file HsConfig from file should match snapshot 1`] = `
   </div>
 </div>
 `;
-
-exports[`hsConfig file has leaf "layout 1" 1`] = `
-<div>
-  <div
-    class="hs-layout  hs-row-layout "
-  >
-    <div
-      class="hs-layout  "
-      style="left: 0%; right: 0%; top: 0px; height: 40px;"
-    >
-      <div
-        class="hs-leaf"
-      >
-        layout 1
-      </div>
-    </div>
-    <div
-      class="hs-layout  "
-      style="left: 0%; right: 0%; top: 40px; bottom: 0px; height: auto;"
-    >
-      <div
-        class="hs-leaf"
-      >
-        layout 2
-      </div>
-    </div>
-  </div>
-</div>
-`;
