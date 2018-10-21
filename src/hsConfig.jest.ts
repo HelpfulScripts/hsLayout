@@ -1,5 +1,6 @@
 import { Layout, HsConfig } from './';
 import { m, Vnode }         from './mithril';
+import { fs, log }          from 'hsnode';
 
 const myConfig = {
     Layout: {
@@ -103,9 +104,46 @@ const example = {
 window = require("mithril/test-utils/browserMock.js")();
 document = window.document;
 
-const root = window.document.createElement("div");
+m.request = (req: any) => {
+    if (req.url === 'layout.json') {
+        log.info(`loading ${req.url}`);
+        return fs.readJsonFile(`${__dirname}/example/${req.url}`)
+        .then(d => d)
+        ;
+    } else {
+        log.error(`did not find ${req.url}`);
+    }
+};
+
+
+describe('hsConfig file', () => {
+    const root = document.createElement("div");
+    beforeAll(async (done) => {
+        try {
+            await new HsConfig([example]).attachNodeTree('layout.json', root);
+        }
+        catch(e) { log.warn(`caught mithril wrapper issue (${e})`); }
+        done();
+    });
+    
+    test('HsConfig from file should match snapshot', (done) => {
+        expect(root).toMatchSnapshot();
+        setTimeout(() => done());
+    });
+    
+    test('has leaf "layout 1"', (done) => {
+        expect(root.vnodes[0].instance.attrs.content[0]).toBe('layout 1');
+        setTimeout(() => done());
+    });
+
+    test('has leaf "layout 2"', (done) => {
+        expect(root.vnodes[0].instance.attrs.content[1]).toBe('layout 2');
+        setTimeout(() => done());
+    });
+});
 
 describe('hsConfig', () => {
+    const root = document.createElement("div");
     beforeAll((done) => {
         new HsConfig([example]).attachNodeTree(myConfig, root);
         setTimeout(() => done());
@@ -117,14 +155,3 @@ describe('hsConfig', () => {
     });
 });
 
-describe('hsConfig file', () => {
-    beforeAll((done) => {
-        new HsConfig([example]).attachNodeTree('./example/layout.json', root);
-        setTimeout(() => done());
-    });
-    
-    test('HsConfig from file should match snapshot', (done) => {
-        expect(root).toMatchSnapshot();
-        setTimeout(() => done());
-    });
-});

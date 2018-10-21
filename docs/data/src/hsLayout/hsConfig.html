@@ -263,15 +263,14 @@
 <span id=248 class="line">&nbsp;248</span>&nbsp;&nbsp;&nbsp;&nbsp;}<br>
 <span id=249 class="line">&nbsp;249</span><br>
 <span id=250 class="line">&nbsp;250</span>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;load(file:string)&nbsp;{<br>
-<span id=251 class="line">&nbsp;251</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(`requesting&nbsp;${__dirname}${file}`);<br>
-<span id=252 class="line">&nbsp;252</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m.request({&nbsp;method:&nbsp;"GET",&nbsp;url:&nbsp;file&nbsp;})<br>
-<span id=253 class="line">&nbsp;253</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.then((r:any)&nbsp;=>&nbsp;{&nbsp;console.log(r);&nbsp;return&nbsp;r;&nbsp;})&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-<span id=254 class="line">&nbsp;254</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.catch((e:any)&nbsp;=>&nbsp;{<br>
-<span id=255 class="line">&nbsp;255</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('error:');<br>
-<span id=256 class="line">&nbsp;256</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(e);<br>
-<span id=257 class="line">&nbsp;257</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br>
-<span id=258 class="line">&nbsp;258</span>&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-<span id=259 class="line">&nbsp;259</span>}<br>
-<span id=260 class="line">&nbsp;260</span><br></code></div>
+<span id=251 class="line">&nbsp;251</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m.request({&nbsp;method:&nbsp;"GET",&nbsp;url:&nbsp;file&nbsp;})<br>
+<span id=252 class="line">&nbsp;252</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.then((r:any)&nbsp;=>&nbsp;r)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+<span id=253 class="line">&nbsp;253</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.catch((e:any)&nbsp;=>&nbsp;{<br>
+<span id=254 class="line">&nbsp;254</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('error:');<br>
+<span id=255 class="line">&nbsp;255</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(e);<br>
+<span id=256 class="line">&nbsp;256</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+<span id=257 class="line">&nbsp;257</span>&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<span id=258 class="line">&nbsp;258</span>}<br>
+<span id=259 class="line">&nbsp;259</span><br></code></div>
                 </body>
             

@@ -248,9 +248,8 @@ export class HsConfig {
     }
 
     private load(file:string) {
-        console.log(`requesting ${__dirname}${file}`);
         return m.request({ method: "GET", url: file })
-            .then((r:any) => { console.log(r); return r; })        
+            .then((r:any) => r)        
             .catch((e:any) => {
                 console.log('error:');
                 console.log(e);
