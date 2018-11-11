@@ -1,6 +1,7 @@
 import { Layout, HsConfig } from './';
 import { m, Vnode }         from './mithril';
-import { fs, log }          from 'hsnode';
+import { log }              from 'hsutil';
+const fs = require('fs');
 
 const myConfig = {
     Layout: {
@@ -107,8 +108,15 @@ document = window.document;
 m.request = (req: any) => {
     if (req.url === 'layout.json') {
         log.info(`loading ${req.url}`);
-        return fs.readJsonFile(`${__dirname}/example/${req.url}`)
-        .then(d => d)
+        const fname = `${__dirname}/example/${req.url}`;
+        return new Promise((resolve:(data:any)=>void, reject:(err:any)=>void) => {
+            fs.readFile(fname, 'utf8', (err:any, data:any) => {
+                if (err) { throw err; }
+                else { resolve(data); }
+            });
+        })
+        .then((data:any) => (typeof data === 'string')? JSON.parse(data) : data)
+        .catch(log.error)
         ;
     } else {
         log.error(`did not find ${req.url}`);
