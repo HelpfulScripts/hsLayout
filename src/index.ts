@@ -9,5 +9,5 @@ export { Layout }       from './view/Layout';
 export { FILL, px, pc, 
          LayoutToken }  from './view/Tokens'; 
 export { Layouter }     from './view/Layouter';
-export { HsConfig }     from './hsConfig';
+export { Config }       from './Config';
 export { m, Vnode }     from './mithril'

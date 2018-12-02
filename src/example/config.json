@@ -1,0 +1,23 @@
+{
+    "root": { "Layout": {
+        "css": ".my-example",
+        "rows":    ["30px", "fill", "10px"],
+        "content": ["Header", "Body", "Footer"]
+    }},
+    "Header": { "Layout":{
+        "columns": ["200px", "fill"],
+        "content": ["LeftHead", "MainHead"]
+    }},
+    "Body": { "Layout":{
+        "columns": ["200px", "fill"], 
+        "content": ["LeftNav", "MainNav"]
+    }},
+    "Footer": { "Layout": {
+        "css": ".hs-site-footer",
+        "content": ["(c) Helpful ; Scripts"]
+    }},
+    "LeftHead": "left head",
+    "MainHead": "main head",
+    "LeftNav":  "left nav",
+    "MainNav":  "main nav"
+}

@@ -42,7 +42,7 @@ export abstract class Layouter {
      */
     static layoutStyles:{string?: Layouter} = {};
 
-        /**
+    /**
      * Translates `string` params to {@link hsLayout:Tokens.LayoutToken LayoutTokens}.
      * The `params` are expected to either
      * - end in 'px'
