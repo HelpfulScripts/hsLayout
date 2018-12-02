@@ -48,6 +48,7 @@
     "coveralls": "^3.0.2",
     "grunt-coveralls": "^2.0.0",
     "hsutil": "^2.0.0",
+    "hsnode": "^2.0.0",
     "mithril": "^1.1.6",
     "mithril-query": "^2.4.1",
     "jest": "^23.4.2",
