@@ -5,6 +5,7 @@ hsLayout
 [![Coverage Status](https://coveralls.io/repos/github/HelpfulScripts/hsLayout/badge.svg?branch=master)](https://coveralls.io/github/HelpfulScripts/hsLayout?branch=master)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](https://gruntjs.com/) 
 [![NPM License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://www.npmjs.com/package/hslayout)
+[![Known Vulnerabilities](https://snyk.io/test/github/HelpfulScripts/hsLayout/badge.svg?targetFile=package.json)](https://snyk.io/test/github/HelpfulScripts/hsLayout?targetFile=package.json)
 
 Helpful Scripts framework-independent data management functions.
 
