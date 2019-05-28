@@ -1,7 +1,9 @@
 import { Config }   from './';
 import { m }        from './mithril';
-import { log, fs }  from 'hsnode';
+import { log, node }from 'hsnode';
 import * as layout  from './';
+
+const fs = node.fs;
 
 const myConfig = {
     root: { Layout: {
