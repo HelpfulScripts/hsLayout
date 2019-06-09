@@ -1,7 +1,7 @@
 /**
 Layouter.ts provides basic mechanisms for laying out a view container. 
 Subclasses of `Layouter` should
-- implement the {@link Layouter.Layouter.getStyles getStyles} method.
+- implement the {@link Layouter.view.Layouter.getStyles getStyles} method.
 - register the subclass and configuration keyword with the static 
    {@link Layouter.Layouter.register register} method.
 */
@@ -43,7 +43,7 @@ export abstract class Layouter {
     static layoutStyles:{string?: Layouter} = {};
 
     /**
-     * Translates `string` params to {@link hsLayout:Tokens.LayoutToken LayoutTokens}.
+     * Translates `string` params to {@link hsLayout:view.Tokens.LayoutToken LayoutTokens}.
      * The `params` are expected to either
      * - end in 'px'
      * - end in '%'
@@ -103,8 +103,8 @@ export abstract class Layouter {
     spacing = 0;   
     
     /**
-     * Layouter Constructor, will be called by the static `createLayout` method when creating the layout on a {@link hsLayout:Layout.Layout `Layout`}.
-     * The `areaDesc` parameter is expected to be of the form {<keyword>: {@link hsLayout:Tokens.LayoutToken `LayoutToken`}[]}} 
+     * Layouter Constructor, will be called by the static `createLayout` method when creating the layout on a {@link hsLayout:view.Layout.Layout `Layout`}.
+     * The `areaDesc` parameter is expected to be of the form {<keyword>: {@link hsLayout:view.Tokens.LayoutToken `LayoutToken`}[]}} 
      * and will be passed through form the `Layout` requesting the layout.
      * @param areaDesc 
      */

@@ -20,7 +20,7 @@
  *     content: ['left', 'right']
  * })
  * ```
- * Or, for more complex cases, by defining a class that extends {@link Layout.Layout `Layout`}:
+ * Or, for more complex cases, by defining a class that extends {@link view.Layout.Layout `Layout`}:
  * ```
  * class Columns extends Layout {
  *     getComponents(node:Vnode) {
@@ -31,14 +31,14 @@
  * ```
  * 
  * ### Layouters
- * To create new layout styles, define a class that extends the abstract {@link Layouter.Layouter `Layouter`} class.
+ * To create new layout styles, define a class that extends the abstract {@link view.Layouter.Layouter `Layouter`} class.
  * This class should implement the `getStyles` method which calculates the styles attributes required for each `Component`
  * to be layed out in a `Layout`.
  * 
  * Currently defined Layouters:
- * - &nbsp; {@link PillaredLayouter.Columns `Columns`}
- * - &nbsp; {@link PillaredLayouter.Rows    `Rows`}
- * - &nbsp; {@link TileLayouter             `Tiles`}
+ * - &nbsp; {@link view.PillaredLayouter.Columns `Columns`}
+ * - &nbsp; {@link view.PillaredLayouter.Rows    `Rows`}
+ * - &nbsp; {@link view.TileLayouter             `Tiles`}
  * 
  * ### Example
  * <example>

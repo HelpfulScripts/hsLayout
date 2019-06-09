@@ -24,7 +24,7 @@
                 <div class='listing'><code><p id=1 class="line"><span>&nbsp;&nbsp;&nbsp;1</span><comment>/**</comment></p>
 <p id=2 class="line"><span>&nbsp;&nbsp;&nbsp;2</span><comment>Layouter.ts&nbsp;provides&nbsp;basic&nbsp;mechanisms&nbsp;for&nbsp;laying&nbsp;out&nbsp;a&nbsp;view&nbsp;container.&nbsp;</comment></p>
 <p id=3 class="line"><span>&nbsp;&nbsp;&nbsp;3</span><comment>Subclasses&nbsp;of&nbsp;`Layouter`&nbsp;should</comment></p>
-<p id=4 class="line"><span>&nbsp;&nbsp;&nbsp;4</span><comment>-&nbsp;implement&nbsp;the&nbsp;{@link&nbsp;Layouter.Layouter.getStyles&nbsp;getStyles}&nbsp;method.</comment></p>
+<p id=4 class="line"><span>&nbsp;&nbsp;&nbsp;4</span><comment>-&nbsp;implement&nbsp;the&nbsp;{@link&nbsp;Layouter.view.Layouter.getStyles&nbsp;getStyles}&nbsp;method.</comment></p>
 <p id=5 class="line"><span>&nbsp;&nbsp;&nbsp;5</span><comment>-&nbsp;register&nbsp;the&nbsp;subclass&nbsp;and&nbsp;configuration&nbsp;keyword&nbsp;with&nbsp;the&nbsp;static&nbsp;</comment></p>
 <p id=6 class="line"><span>&nbsp;&nbsp;&nbsp;6</span><comment>&nbsp;&nbsp;&nbsp;{@link&nbsp;Layouter.Layouter.register&nbsp;register}&nbsp;method.</comment></p>
 <p id=7 class="line"><span>&nbsp;&nbsp;&nbsp;7</span><comment>*/</comment></p>
@@ -66,7 +66,7 @@
 <p id=43 class="line"><span>&nbsp;&nbsp;43</span>&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;layoutStyles:{string?:&nbsp;Layouter}&nbsp;=&nbsp;{};</p>
 <p id=44 class="line"><span>&nbsp;&nbsp;44</span></p>
 <p id=45 class="line"><span>&nbsp;&nbsp;45</span>&nbsp;&nbsp;&nbsp;&nbsp;<comment>/**</comment></p>
-<p id=46 class="line"><span>&nbsp;&nbsp;46</span><comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Translates&nbsp;`string`&nbsp;params&nbsp;to&nbsp;{@link&nbsp;hsLayout:Tokens.LayoutToken&nbsp;LayoutTokens}.</comment></p>
+<p id=46 class="line"><span>&nbsp;&nbsp;46</span><comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Translates&nbsp;`string`&nbsp;params&nbsp;to&nbsp;{@link&nbsp;hsLayout:view.Tokens.LayoutToken&nbsp;LayoutTokens}.</comment></p>
 <p id=47 class="line"><span>&nbsp;&nbsp;47</span><comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;`params`&nbsp;are&nbsp;expected&nbsp;to&nbsp;either</comment></p>
 <p id=48 class="line"><span>&nbsp;&nbsp;48</span><comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;-&nbsp;end&nbsp;in&nbsp;<quote>'px'</quote></comment></p>
 <p id=49 class="line"><span>&nbsp;&nbsp;49</span><comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;-&nbsp;end&nbsp;in&nbsp;<quote>'%'</quote></comment></p>
@@ -126,8 +126,8 @@
 <p id=103 class="line"><span>&nbsp;103</span>&nbsp;&nbsp;&nbsp;&nbsp;spacing&nbsp;=&nbsp;0;&nbsp;&nbsp;&nbsp;</p>
 <p id=104 class="line"><span>&nbsp;104</span>&nbsp;&nbsp;&nbsp;&nbsp;</p>
 <p id=105 class="line"><span>&nbsp;105</span>&nbsp;&nbsp;&nbsp;&nbsp;<comment>/**</comment></p>
-<p id=106 class="line"><span>&nbsp;106</span><comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Layouter&nbsp;Constructor,&nbsp;will&nbsp;be&nbsp;called&nbsp;by&nbsp;the&nbsp;static&nbsp;`createLayout`&nbsp;method&nbsp;when&nbsp;creating&nbsp;the&nbsp;layout&nbsp;on&nbsp;a&nbsp;{@link&nbsp;hsLayout:Layout.Layout&nbsp;`Layout`}.</comment></p>
-<p id=107 class="line"><span>&nbsp;107</span><comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;`areaDesc`&nbsp;parameter&nbsp;is&nbsp;expected&nbsp;to&nbsp;be&nbsp;of&nbsp;the&nbsp;form&nbsp;{<keyword>:&nbsp;{@link&nbsp;hsLayout:Tokens.LayoutToken&nbsp;`LayoutToken`}[]}}&nbsp;</comment></p>
+<p id=106 class="line"><span>&nbsp;106</span><comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Layouter&nbsp;Constructor,&nbsp;will&nbsp;be&nbsp;called&nbsp;by&nbsp;the&nbsp;static&nbsp;`createLayout`&nbsp;method&nbsp;when&nbsp;creating&nbsp;the&nbsp;layout&nbsp;on&nbsp;a&nbsp;{@link&nbsp;hsLayout:view.Layout.Layout&nbsp;`Layout`}.</comment></p>
+<p id=107 class="line"><span>&nbsp;107</span><comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;`areaDesc`&nbsp;parameter&nbsp;is&nbsp;expected&nbsp;to&nbsp;be&nbsp;of&nbsp;the&nbsp;form&nbsp;{<keyword>:&nbsp;{@link&nbsp;hsLayout:view.Tokens.LayoutToken&nbsp;`LayoutToken`}[]}}&nbsp;</comment></p>
 <p id=108 class="line"><span>&nbsp;108</span><comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;and&nbsp;will&nbsp;be&nbsp;passed&nbsp;through&nbsp;form&nbsp;the&nbsp;`Layout`&nbsp;requesting&nbsp;the&nbsp;layout.</comment></p>
 <p id=109 class="line"><span>&nbsp;109</span><comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;areaDesc&nbsp;</comment></p>
 <p id=110 class="line"><span>&nbsp;110</span><comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</comment></p>

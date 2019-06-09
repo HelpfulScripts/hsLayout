@@ -469,7 +469,7 @@
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsLayout/src/overview.ts",
 			"comment": {
 				"shortText": "# hsLayout",
-				"text": "Helpful Scripts UI layout tools.\n[`[Github page]`](https://github.com/HelpfulScripts/hsLayout)\n[`[Coverage Info]`](./data/src/hsLayout/coverage/)\n___\n\nhsLayout provides means to layout the browser window in various ways.\nSee [Layout Examples](example/layout.html)\n\n## Concepts\n\n### Layouts\nLayouts can be either defined generically:\n```\nm(Layout, {\n    css: '.myLayoutClass',  // optional\n    columns: []\n    content: ['left', 'right']\n})\n```\nOr, for more complex cases, by defining a class that extends {@link Layout.Layout `Layout`}:\n```\nclass Columns extends Layout {\n    getComponents(node:Vnode) {\n        return [m(LeftColumn), m(CenterColumn), m(RightColumn)]\n    }\n}\nm(Columns);\n```\n\n### Layouters\nTo create new layout styles, define a class that extends the abstract {@link Layouter.Layouter `Layouter`} class.\nThis class should implement the `getStyles` method which calculates the styles attributes required for each `Component`\nto be layed out in a `Layout`.\n\nCurrently defined Layouters:\n- &nbsp; {@link PillaredLayouter.Columns `Columns`}\n- &nbsp; {@link PillaredLayouter.Rows    `Rows`}\n- &nbsp; {@link TileLayouter             `Tiles`}\n\n### Example\n<example>\n<file name='script.js'>\nconst theContent = ['Top row: 50px', 'Bottom row: remainder']\nm.mount(root, {view: () => m(hslayout.Layout, {\n    css: 'myColumn',\n    rows: [\"50px\", \"fill\"],\n    content:theContent\n    })\n});\n</file>\n</example>\n\n### Nested Example\n<example>\n<file name='script.js'>\nm.mount(root, {view: () =>\n    m(hslayout.Layout, {\n        css: 'myColumn',\n        rows: [\"150px\", \"fill\"],\n        content:[\n            m(hslayout.Layout, {columns:['20%'], content:['top left', 'top 2nd']}),\n            m(hslayout.Layout, {columns:['20%'], content:['bottom left', 'bottom 2nd']})\n        ]\n    })\n});\n</file>\n</example>\n"
+				"text": "Helpful Scripts UI layout tools.\n[`[Github page]`](https://github.com/HelpfulScripts/hsLayout)\n[`[Coverage Info]`](./data/src/hsLayout/coverage/)\n___\n\nhsLayout provides means to layout the browser window in various ways.\nSee [Layout Examples](example/layout.html)\n\n## Concepts\n\n### Layouts\nLayouts can be either defined generically:\n```\nm(Layout, {\n    css: '.myLayoutClass',  // optional\n    columns: []\n    content: ['left', 'right']\n})\n```\nOr, for more complex cases, by defining a class that extends {@link view.Layout.Layout `Layout`}:\n```\nclass Columns extends Layout {\n    getComponents(node:Vnode) {\n        return [m(LeftColumn), m(CenterColumn), m(RightColumn)]\n    }\n}\nm(Columns);\n```\n\n### Layouters\nTo create new layout styles, define a class that extends the abstract {@link view.Layouter.Layouter `Layouter`} class.\nThis class should implement the `getStyles` method which calculates the styles attributes required for each `Component`\nto be layed out in a `Layout`.\n\nCurrently defined Layouters:\n- &nbsp; {@link view.PillaredLayouter.Columns `Columns`}\n- &nbsp; {@link view.PillaredLayouter.Rows    `Rows`}\n- &nbsp; {@link view.TileLayouter             `Tiles`}\n\n### Example\n<example>\n<file name='script.js'>\nconst theContent = ['Top row: 50px', 'Bottom row: remainder']\nm.mount(root, {view: () => m(hslayout.Layout, {\n    css: 'myColumn',\n    rows: [\"50px\", \"fill\"],\n    content:theContent\n    })\n});\n</file>\n</example>\n\n### Nested Example\n<example>\n<file name='script.js'>\nm.mount(root, {view: () =>\n    m(hslayout.Layout, {\n        css: 'myColumn',\n        rows: [\"150px\", \"fill\"],\n        content:[\n            m(hslayout.Layout, {columns:['20%'], content:['top left', 'top 2nd']}),\n            m(hslayout.Layout, {columns:['20%'], content:['bottom left', 'bottom 2nd']})\n        ]\n    })\n});\n</file>\n</example>\n"
 			},
 			"sources": [
 				{
@@ -502,7 +502,7 @@
 						"isExported": true
 					},
 					"comment": {
-						"shortText": "Base class for applying layouts. Subclasses should implement a {@link Layout.Layout.getComponents `getComponents`} method that returns\nthe components to render. The default implementation returns the conponents passed in `node.attrs.content`.\nOptionally, the subclass can also implement {@link Layout.Layout.getCSS `getCSS`} to provide the CSS class to\nassign to the component, and override the default implementation, which returns `node.attrs.css`.\n### Example:\n<code>\nimport { Layout, px, FILL }  from 'hslayout';\nconst TitleHeight   = px(30);\nconst FooterHeight  = px(10);\nclass MyLayout extends Layout {\ngetComponents(node:Vnode):Vnode {\nreturn this.layout('.my-layout', { rows:[TitleHeight, FILL, FooterHeight] }, [\nm(),\nm(),\nm()\n]);\n}\ngetCSS(node:Vnode):string {\n}\n}\n</code>"
+						"shortText": "Base class for applying layouts. Subclasses should implement a {@link view.Layout.Layout.getComponents `getComponents`} method that returns\nthe components to render. The default implementation returns the conponents passed in `node.attrs.content`.\nOptionally, the subclass can also implement {@link view.Layout.Layout.getCSS `getCSS`} to provide the CSS class to\nassign to the component, and override the default implementation, which returns `node.attrs.css`.\n### Example:\n<code>\nimport { Layout, px, FILL }  from 'hslayout';\nconst TitleHeight   = px(30);\nconst FooterHeight  = px(10);\nclass MyLayout extends Layout {\ngetComponents(node:Vnode):Vnode {\nreturn this.layout('.my-layout', { rows:[TitleHeight, FILL, FooterHeight] }, [\nm(),\nm(),\nm()\n]);\n}\ngetCSS(node:Vnode):string {\n}\n}\n</code>"
 					},
 					"children": [
 						{
@@ -800,7 +800,7 @@
 			},
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsLayout/src/view/Layouter.ts",
 			"comment": {
-				"shortText": "Layouter.ts provides basic mechanisms for laying out a view container.\nSubclasses of `Layouter` should\n- implement the {@link Layouter.Layouter.getStyles getStyles} method.\n- register the subclass and configuration keyword with the static\n{@link Layouter.Layouter.register register} method."
+				"shortText": "Layouter.ts provides basic mechanisms for laying out a view container.\nSubclasses of `Layouter` should\n- implement the {@link Layouter.view.Layouter.getStyles getStyles} method.\n- register the subclass and configuration keyword with the static\n{@link Layouter.Layouter.register register} method."
 			},
 			"children": [
 				{
@@ -826,7 +826,7 @@
 								"isExported": true
 							},
 							"comment": {
-								"shortText": "Layouter Constructor, will be called by the static `createLayout` method when creating the layout on a {@link hsLayout:Layout.Layout `Layout`}.\nThe `areaDesc` parameter is expected to be of the form {<keyword>: {@link hsLayout:Tokens.LayoutToken `LayoutToken`}[]}}\nand will be passed through form the `Layout` requesting the layout."
+								"shortText": "Layouter Constructor, will be called by the static `createLayout` method when creating the layout on a {@link hsLayout:view.Layout.Layout `Layout`}.\nThe `areaDesc` parameter is expected to be of the form {<keyword>: {@link hsLayout:view.Tokens.LayoutToken `LayoutToken`}[]}}\nand will be passed through form the `Layout` requesting the layout."
 							},
 							"signatures": [
 								{
@@ -836,7 +836,7 @@
 									"kindString": "Constructor signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Layouter Constructor, will be called by the static `createLayout` method when creating the layout on a {@link hsLayout:Layout.Layout `Layout`}.\nThe `areaDesc` parameter is expected to be of the form {<keyword>: {@link hsLayout:Tokens.LayoutToken `LayoutToken`}[]}}\nand will be passed through form the `Layout` requesting the layout."
+										"shortText": "Layouter Constructor, will be called by the static `createLayout` method when creating the layout on a {@link hsLayout:view.Layout.Layout `Layout`}.\nThe `areaDesc` parameter is expected to be of the form {<keyword>: {@link hsLayout:view.Tokens.LayoutToken `LayoutToken`}[]}}\nand will be passed through form the `Layout` requesting the layout."
 									},
 									"parameters": [
 										{
@@ -1204,7 +1204,7 @@
 									"kindString": "Call signature",
 									"flags": {},
 									"comment": {
-										"shortText": "Translates `string` params to {@link hsLayout:Tokens.LayoutToken LayoutTokens}.\nThe `params` are expected to either\n- end in 'px'\n- end in '%'\n- be equal to 'fill' (case insensitive)"
+										"shortText": "Translates `string` params to {@link hsLayout:view.Tokens.LayoutToken LayoutTokens}.\nThe `params` are expected to either\n- end in 'px'\n- end in '%'\n- be equal to 'fill' (case insensitive)"
 									},
 									"parameters": [
 										{
@@ -1335,7 +1335,7 @@
 			},
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsLayout/src/view/PillaredLayouter.ts",
 			"comment": {
-				"shortText": "Lays out components in pillars, i.e. either {@link hsLayout:PillaredLayout.Columns columns}\nor {@link hsLayout:PillaredLayout.Rows rows}\nUse either of\n- `{rows: [attributes]}`\n- `{columns: [attributes]}`",
+				"shortText": "Lays out components in pillars, i.e. either {@link hsLayout:view.PillaredLayout.Columns columns}\nor {@link hsLayout:view.PillaredLayout.Rows rows}\nUse either of\n- `{rows: [attributes]}`\n- `{columns: [attributes]}`",
 				"text": "to invoke this layout.\n\n### Example\n<code>\n{rows: [px(200), FILL]}   // --> top row has height 200px, all other rows evenly share remaining space\n{rows: [\"200px\", \"fill\"]} // --> equivalent description\n</code>\n\n## Attributes\nThe following values **v** are valid entries in The Attributes array:\n- **px(n)** or **\"<n>px\"** -- a fixed number of pixels\n- **pc(n)** or **\"<n>%\"**  -- a fixed percentage of available space\n- **FILL** or **\"fill\"**   -- a special constant to indicate - may appear only once per array.\n\nThe following options are supported for the Attributes array:\n- **[ ]**: An empty array; all components will be evenly spaced across the available width.\n- **[v]**: All components have the specified width (in px or %) and will fill the available space from the left,\nleaving any remaining unused space on the right.\n- **[v1, v2]**: All components have the specified widths (in px or %) and will fill the available space from the left,\nleaving any remaining unused space on the right. If there are more components than widths, the right-most width\nwill be used for the reminaing widgets.\n- **[v, FILL]**: Sets the first (left) widget to a width of `v`.<br>\nif `v` is specified in %, the remaining n-1 components will have equal relative widths of `(100-v)/(n-1)%`<br>\nif `v` is specified in px, the remaining n-1 components will have their right borders at location `i*100/n%`, with i=1...n.\n- **[FILL, v]**: Sets the last (right) widget to a width of `v`.<br>\nif `v` is specified in %, the remaining n-1 components will have equal relative widths of `(100-v)/(n-1)%`<br>\nif `v` is specified in px, the remaining n-1 components will have their left borders at location `i*100/n%`, with i=0...n-1.\n- **[va, FILL, vb]**: Sets the first and last widget to a width of `va`/`vb`.<br>\nBoth have to be specified either in px or in %.<br>\nif the unit is %, the remaining n-2 components will have equal relative widths of `(100-vb-va)/(n-2)%`<br>\nif the unit is px, the remaining n-2 components will have their left/right borders at location `i*100/n%`.\n- **[v1, v2, FILL, v3, v4]**: multiple widths can be specified in uninterrupted sequence both from the left and the right.\n"
 			},
 			"children": [

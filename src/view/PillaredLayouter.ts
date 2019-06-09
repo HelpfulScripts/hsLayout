@@ -1,6 +1,6 @@
 /**
-Lays out components in pillars, i.e. either {@link hsLayout:PillaredLayout.Columns columns}
-or {@link hsLayout:PillaredLayout.Rows rows}
+Lays out components in pillars, i.e. either {@link hsLayout:view.PillaredLayout.Columns columns}
+or {@link hsLayout:view.PillaredLayout.Rows rows}
 Use either of
 - `{rows: [attributes]}`
 - `{columns: [attributes]}` 
