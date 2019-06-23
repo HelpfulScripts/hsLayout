@@ -67,7 +67,6 @@ export class Config {
         const context:any[] = node.attrs.context;
         if (typeof node.attrs.source === 'string') { 
             if (!node.state.cfg) { m.request({ method: "GET", url: node.attrs.source }).then((s:any)=> {
-// console.log(`Config read ${s}`);                
                 node.state.cfg = translate(s, s.root, context);
             }); }      
         } else {
@@ -76,7 +75,6 @@ export class Config {
     }
     view(node:Vnode) { 
         const cfg = node.state.cfg;
-// console.log(`Config view ${cfg}`);        
         return (cfg && cfg.compClass)? m(cfg.compClass, Object.assign(cfg.attrs, node.attrs)) : m('div', 'waiting');
     }
 }
