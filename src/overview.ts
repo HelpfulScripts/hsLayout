@@ -44,7 +44,7 @@
  * <example>
  * <file name='script.js'>
  * const theContent = ['Top row: 50px', 'Bottom row: remainder']
- * m.mount(root, {view: () => m(hslayout.Layout, {
+ * m.mount(root, {view: () => m(hsLayout.Layout, {
  *     css: 'myColumn',
  *     rows: ["50px", "fill"], 
  *     content:theContent
@@ -57,12 +57,12 @@
  * <example>
  * <file name='script.js'>
  * m.mount(root, {view: () => 
- *     m(hslayout.Layout, {
+ *     m(hsLayout.Layout, {
  *         css: 'myColumn',
  *         rows: ["150px", "fill"], 
  *         content:[
- *             m(hslayout.Layout, {columns:['20%'], content:['top left', 'top 2nd']}), 
- *             m(hslayout.Layout, {columns:['20%'], content:['bottom left', 'bottom 2nd']})
+ *             m(hsLayout.Layout, {columns:['20%'], content:['top left', 'top 2nd']}), 
+ *             m(hsLayout.Layout, {columns:['20%'], content:['bottom left', 'bottom 2nd']})
  *         ]
  *     })
  * });

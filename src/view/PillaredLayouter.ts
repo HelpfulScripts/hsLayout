@@ -245,9 +245,9 @@ abstract class PillarLayouter extends Layouter{
  * ];
  * let c = [];
  * m.mount(root, { 
- *     view:() => m(hslayout.Layout, {
+ *     view:() => m(hsLayout.Layout, {
  *         rows:[],  // each row a style
- *         content: styles.map(i => m(hslayout.Layout, {
+ *         content: styles.map(i => m(hsLayout.Layout, {
  *             css: '.myExample', 
  *             content: c.map(c=>(''+i)), // the style descriptor
  *             columns: i                 // a style from styles
@@ -309,9 +309,9 @@ class Columns extends PillarLayouter {
  * }
  * 
  * m.mount(root, { 
- *     view:() => m(hslayout.Layout, {
+ *     view:() => m(hsLayout.Layout, {
  *         columns:[],  // each column a style
- *         content: styles.map(i => m(hslayout.Layout, {
+ *         content: styles.map(i => m(hsLayout.Layout, {
  *             css: '.myExample', 
  *             content: c.map(c=>(''+i)),
  *             rows: i   // a style from styles

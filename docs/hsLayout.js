@@ -1,4 +1,4 @@
-var hsLayout =
+this["hsLayout"] =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
