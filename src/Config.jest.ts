@@ -62,8 +62,11 @@ describe('Config file', () => {
     const root:any = document.createElement("div");
     beforeAll((done) => {
         log.info(`config before`);   // required to make timing for test work     
-        m.mount(root, {view: () => m(Config, {source:'config.json', context:[layout]})});
-        setTimeout(() => { log.info(`done`); done(); }, 100);
+        m.mount(root, {
+            view: () => m(Config, {source:'config.json', context:[layout]}),
+            onupdate: () => done()
+        });
+        // setTimeout(() => { log.info(`done`); done(); }, 100);
     });
 
     test('Config from file should match snapshot', (done) => {
