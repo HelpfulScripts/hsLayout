@@ -10,7 +10,7 @@ const layout = (type: string, contSizes: any[]) =>
     const config = {
       css: "myRow",
       content: [`First: ${contSizes[0]}`, "Second: remainder"],
-      href: "my/link"
+      href: "#!my/link"
     };
     config[type] = contSizes;
     m.mount(root, { view: () => m(Layout, config) });
