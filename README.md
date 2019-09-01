@@ -4,6 +4,7 @@ hsLayout
 [![GitHub](https://img.shields.io/badge/GitHub-hsLayout-blue.svg)](https://github.com/helpfulscripts/hslayout)
 [![docs](https://img.shields.io/badge/hsDocs-hsLayout-blue.svg)](https://helpfulscripts.github.io/hsLayout/#!/api/hsLayout/0)
 [![Build Status](https://travis-ci.org/HelpfulScripts/hsLayout.svg?branch=master)](https://travis-ci.org/HelpfulScripts/hsLayout)
+[![Dependencies Status](https://david-dm.org/helpfulscripts/hslayout.svg)](https://david-dm.org/helpfulscripts/hslayout)
 [![Coverage Status](https://coveralls.io/repos/github/HelpfulScripts/hsLayout/badge.svg?branch=master)](https://coveralls.io/github/HelpfulScripts/hsLayout?branch=master)
 [![NPM License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://www.npmjs.com/package/hslayout)
 [![Known Vulnerabilities](https://snyk.io/test/github/HelpfulScripts/hsLayout/badge.svg?targetFile=package.json)](https://snyk.io/test/github/HelpfulScripts/hsLayout?targetFile=package.json)
