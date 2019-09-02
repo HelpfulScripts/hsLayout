@@ -118,7 +118,7 @@ abstract class PillarLayouter extends Layouter{
 
         this.firstFixed = first;
         this.lastFixed  = Math.min(last, areaDesc.length-first);
-    };
+    }
 
     // num: number of areas to layout
     /**
@@ -167,7 +167,7 @@ abstract class PillarLayouter extends Layouter{
         pass(styles, f[2], f[3], (e:string) => e==='end');              // forward pass
         pass(styles.reverse(), f[3], f[2], (e:string) => e!=='end');    // backward pass
         return styles.reverse();    // reverse a second time for original sequence.
-    };
+    }
 
     private unitPixel(num:number):descriptor[] { // pattern: [px, px, FILL , px, px]
         let styles:descriptor[] = this.getSizes(num);
@@ -209,7 +209,7 @@ abstract class PillarLayouter extends Layouter{
             return false;
         });  
         return styles;
-    };
+    }
     
     /**
      * Calculates the style attributes required for each component in `Components`.
@@ -225,8 +225,8 @@ abstract class PillarLayouter extends Layouter{
             Object.keys(styles[i].fields).forEach((st:string) => { c.style += `${st}: ${styles[i].fields[st]};`; });
         });   
         return this.cssClass;
-    };
-};
+    }
+}
 
 /**
  * Constructs a columns pillar layout style.<br>
@@ -282,8 +282,8 @@ abstract class PillarLayouter extends Layouter{
  * </example>
  */
 class Columns extends PillarLayouter {
-    constructor(public areaDesc:LayoutToken[]) { super(cParams[PillarLayouts[0]], areaDesc);  };
-};
+    constructor(public areaDesc:LayoutToken[]) { super(cParams[PillarLayouts[0]], areaDesc);  }
+}
 
 /**
  * Constructs a row pillar layout style.<br>
@@ -339,8 +339,8 @@ class Columns extends PillarLayouter {
  * </example>
  */
 class Rows extends PillarLayouter {
-    constructor(public areaDesc:LayoutToken[]) { super(cParams[PillarLayouts[1]], areaDesc);  };
-};
+    constructor(public areaDesc:LayoutToken[]) { super(cParams[PillarLayouts[1]], areaDesc);  }
+}
 
 Layouter.register(PillarLayouts[0], Columns);
 Layouter.register(PillarLayouts[1],    Rows);

@@ -465,7 +465,7 @@ class TileLayouter extends Layouter {
         // get unitPixel if any area is PixelToken           
         this.unit = areaDesc.some((area:LayoutToken) =&gt; (area instanceof PixelToken))? 
             this.unitPixel : this.unitPercent;           
-    };
+    }
 &nbsp;
     private unitPercent(num:number) {
         const desc = this.areaDesc;
@@ -496,7 +496,7 @@ class TileLayouter extends Layouter {
             return style;
          });
         return styles;    
-    };
+    }
 &nbsp;
     private unitPixel(num:number) { // pattern: [px, px, FILL]
         const desc = this.areaDesc;
@@ -525,7 +525,7 @@ class TileLayouter extends Layouter {
             return style;
          });
         return styles;    
-    };
+    }
     
     /**
      * Calculates the style attributes required for each component in `Components`.
@@ -539,8 +539,8 @@ class TileLayouter extends Layouter {
             c.style = styles[i];
         });   
         return '.hs-tile-layout';
-    };
-};
+    }
+}
 &nbsp;
 &nbsp;
 Layouter.register('tiles', TileLayouter);

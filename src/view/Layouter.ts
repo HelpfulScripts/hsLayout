@@ -108,7 +108,7 @@ export abstract class Layouter {
      * and will be passed through form the `Layout` requesting the layout.
      * @param areaDesc 
      */
-    constructor(public areaDesc:LayoutToken[]) {};
+    constructor(public areaDesc:LayoutToken[]) {}
 
     /**
      * Calculates the style attributes required for each component in `Components`.

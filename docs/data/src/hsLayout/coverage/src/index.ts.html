@@ -22,12 +22,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>17/17</span>
+        <span class='fraction'>15/15</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>2/4</span>
+        <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -59,7 +59,9 @@
 <a name='L11'></a><a href='#L11'>11</a>
 <a name='L12'></a><a href='#L12'>12</a>
 <a name='L13'></a><a href='#L13'>13</a>
-<a name='L14'></a><a href='#L14'>14</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -76,15 +78,16 @@
  * @description hsLayout: Library for generating formatted screen layouts.
  */
 &nbsp;
-import * as pillars     from './view/PillaredLayouter';      <span class="missing-if-branch" title="else path not taken" >E</span>if(pillars) {}
-import * as tiles       from './view/TileLayouter';          <span class="missing-if-branch" title="else path not taken" >E</span>if(tiles) {}
-/** */
+ /** */
+import './view/PillaredLayouter'; 
+import './view/TileLayouter'; 
+&nbsp;
 export { Layout }       from './view/Layout'; 
 export { FILL, px, pc, 
          LayoutToken }  from './view/Tokens'; 
 export { Layouter }     from './view/Layouter';
 export { Config }       from './Config';
-export { m, Vnode }     from './mithril'
+export { m, Vnode }     from './mithril';
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->

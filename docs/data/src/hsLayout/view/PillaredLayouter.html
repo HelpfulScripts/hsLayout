@@ -141,7 +141,7 @@
 <p id=118 class="line"><span>&nbsp;118</span></p>
 <p id=119 class="line"><span>&nbsp;119</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.firstFixed&nbsp;=&nbsp;first;</p>
 <p id=120 class="line"><span>&nbsp;120</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.lastFixed&nbsp;&nbsp;=&nbsp;Math.min(last,&nbsp;areaDesc.length-first);</p>
-<p id=121 class="line"><span>&nbsp;121</span>&nbsp;&nbsp;&nbsp;&nbsp;};</p>
+<p id=121 class="line"><span>&nbsp;121</span>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
 <p id=122 class="line"><span>&nbsp;122</span></p>
 <p id=123 class="line"><span>&nbsp;123</span>&nbsp;&nbsp;&nbsp;&nbsp;<comment>//&nbsp;num:&nbsp;number&nbsp;of&nbsp;areas&nbsp;to&nbsp;layout</comment></p>
 <p id=124 class="line"><span>&nbsp;124</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;<comment>/**</comment></p>
@@ -190,7 +190,7 @@
 <p id=167 class="line"><span>&nbsp;167</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pass(styles,&nbsp;f[2],&nbsp;f[3],&nbsp;(e:string)&nbsp;=>&nbsp;e===<quote>'end'</quote>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<comment>//&nbsp;forward&nbsp;pass</comment></p>
 <p id=168 class="line"><span>&nbsp;168</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pass(styles.reverse(),&nbsp;f[3],&nbsp;f[2],&nbsp;(e:string)&nbsp;=>&nbsp;e!==<quote>'end'</quote>);&nbsp;&nbsp;&nbsp;&nbsp;<comment>//&nbsp;backward&nbsp;pass</comment></p>
 <p id=169 class="line"><span>&nbsp;169</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;styles.reverse();&nbsp;&nbsp;&nbsp;&nbsp;<comment>//&nbsp;reverse&nbsp;a&nbsp;second&nbsp;time&nbsp;for&nbsp;original&nbsp;sequence.</comment></p>
-<p id=170 class="line"><span>&nbsp;170</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;};</p>
+<p id=170 class="line"><span>&nbsp;170</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
 <p id=171 class="line"><span>&nbsp;171</span></p>
 <p id=172 class="line"><span>&nbsp;172</span>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;unitPixel(num:number):descriptor[]&nbsp;{&nbsp;<comment>//&nbsp;pattern:&nbsp;[px,&nbsp;px,&nbsp;FILL&nbsp;,&nbsp;px,&nbsp;px]</comment></p>
 <p id=173 class="line"><span>&nbsp;173</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let&nbsp;styles:descriptor[]&nbsp;=&nbsp;this.getSizes(num);</p>
@@ -232,7 +232,7 @@
 <p id=209 class="line"><span>&nbsp;209</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;false;</p>
 <p id=210 class="line"><span>&nbsp;210</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;&nbsp;</p>
 <p id=211 class="line"><span>&nbsp;211</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;styles;</p>
-<p id=212 class="line"><span>&nbsp;212</span>&nbsp;&nbsp;&nbsp;&nbsp;};</p>
+<p id=212 class="line"><span>&nbsp;212</span>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
 <p id=213 class="line"><span>&nbsp;213</span>&nbsp;&nbsp;&nbsp;&nbsp;</p>
 <p id=214 class="line"><span>&nbsp;214</span>&nbsp;&nbsp;&nbsp;&nbsp;<comment>/**</comment></p>
 <p id=215 class="line"><span>&nbsp;215</span><comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Calculates&nbsp;the&nbsp;style&nbsp;attributes&nbsp;required&nbsp;for&nbsp;each&nbsp;component&nbsp;in&nbsp;`Components`.</comment></p>
@@ -248,8 +248,8 @@
 <p id=225 class="line"><span>&nbsp;225</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Object.keys(styles[i].fields).forEach((st:string)&nbsp;=>&nbsp;{&nbsp;c.style&nbsp;+=&nbsp;`${st}:&nbsp;${styles[i].fields[st]};`;&nbsp;});</p>
 <p id=226 class="line"><span>&nbsp;226</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;&nbsp;&nbsp;</p>
 <p id=227 class="line"><span>&nbsp;227</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;this.cssClass;</p>
-<p id=228 class="line"><span>&nbsp;228</span>&nbsp;&nbsp;&nbsp;&nbsp;};</p>
-<p id=229 class="line"><span>&nbsp;229</span>};</p>
+<p id=228 class="line"><span>&nbsp;228</span>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p id=229 class="line"><span>&nbsp;229</span>}</p>
 <p id=230 class="line"><span>&nbsp;230</span></p>
 <p id=231 class="line"><span>&nbsp;231</span><comment>/**</comment></p>
 <p id=232 class="line"><span>&nbsp;232</span><comment>&nbsp;*&nbsp;Constructs&nbsp;a&nbsp;columns&nbsp;pillar&nbsp;layout&nbsp;style.<br></comment></p>
@@ -305,8 +305,8 @@
 <p id=282 class="line"><span>&nbsp;282</span><comment>&nbsp;*&nbsp;</example></comment></p>
 <p id=283 class="line"><span>&nbsp;283</span><comment>&nbsp;*/</comment></p>
 <p id=284 class="line"><span>&nbsp;284</span>class&nbsp;Columns&nbsp;extends&nbsp;PillarLayouter&nbsp;{</p>
-<p id=285 class="line"><span>&nbsp;285</span>&nbsp;&nbsp;&nbsp;&nbsp;constructor(public&nbsp;areaDesc:LayoutToken[])&nbsp;{&nbsp;super(cParams[PillarLayouts[0]],&nbsp;areaDesc);&nbsp;&nbsp;};</p>
-<p id=286 class="line"><span>&nbsp;286</span>};</p>
+<p id=285 class="line"><span>&nbsp;285</span>&nbsp;&nbsp;&nbsp;&nbsp;constructor(public&nbsp;areaDesc:LayoutToken[])&nbsp;{&nbsp;super(cParams[PillarLayouts[0]],&nbsp;areaDesc);&nbsp;&nbsp;}</p>
+<p id=286 class="line"><span>&nbsp;286</span>}</p>
 <p id=287 class="line"><span>&nbsp;287</span></p>
 <p id=288 class="line"><span>&nbsp;288</span><comment>/**</comment></p>
 <p id=289 class="line"><span>&nbsp;289</span><comment>&nbsp;*&nbsp;Constructs&nbsp;a&nbsp;row&nbsp;pillar&nbsp;layout&nbsp;style.<br></comment></p>
@@ -362,8 +362,8 @@
 <p id=339 class="line"><span>&nbsp;339</span><comment>&nbsp;*&nbsp;</example></comment></p>
 <p id=340 class="line"><span>&nbsp;340</span><comment>&nbsp;*/</comment></p>
 <p id=341 class="line"><span>&nbsp;341</span>class&nbsp;Rows&nbsp;extends&nbsp;PillarLayouter&nbsp;{</p>
-<p id=342 class="line"><span>&nbsp;342</span>&nbsp;&nbsp;&nbsp;&nbsp;constructor(public&nbsp;areaDesc:LayoutToken[])&nbsp;{&nbsp;super(cParams[PillarLayouts[1]],&nbsp;areaDesc);&nbsp;&nbsp;};</p>
-<p id=343 class="line"><span>&nbsp;343</span>};</p>
+<p id=342 class="line"><span>&nbsp;342</span>&nbsp;&nbsp;&nbsp;&nbsp;constructor(public&nbsp;areaDesc:LayoutToken[])&nbsp;{&nbsp;super(cParams[PillarLayouts[1]],&nbsp;areaDesc);&nbsp;&nbsp;}</p>
+<p id=343 class="line"><span>&nbsp;343</span>}</p>
 <p id=344 class="line"><span>&nbsp;344</span></p>
 <p id=345 class="line"><span>&nbsp;345</span>Layouter.register(PillarLayouts[0],&nbsp;Columns);</p>
 <p id=346 class="line"><span>&nbsp;346</span>Layouter.register(PillarLayouts[1],&nbsp;&nbsp;&nbsp;&nbsp;Rows);</p>

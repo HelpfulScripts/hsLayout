@@ -858,7 +858,7 @@ abstract class PillarLayouter extends Layouter{
 &nbsp;
         this.firstFixed = first;
         this.lastFixed  = Math.min(last, areaDesc.length-first);
-    };
+    }
 &nbsp;
     // num: number of areas to layout
     /**
@@ -907,7 +907,7 @@ abstract class PillarLayouter extends Layouter{
         pass(styles, f[2], f[3], (e:string) =&gt; e==='end');              // forward pass
         pass(styles.reverse(), f[3], f[2], (e:string) =&gt; e!=='end');    // backward pass
         return styles.reverse();    // reverse a second time for original sequence.
-    };
+    }
 &nbsp;
     private unitPixel(num:number):descriptor[] { // pattern: [px, px, FILL , px, px]
         let styles:descriptor[] = this.getSizes(num);
@@ -949,7 +949,7 @@ abstract class PillarLayouter extends Layouter{
             return false;
         });  
         return styles;
-    };
+    }
     
     /**
      * Calculates the style attributes required for each component in `Components`.
@@ -965,8 +965,8 @@ abstract class PillarLayouter extends Layouter{
             Object.keys(styles[i].fields).forEach((st:string) =&gt; { c.style += `${st}: ${styles[i].fields[st]};`; });
         });   
         return this.cssClass;
-    };
-};
+    }
+}
 &nbsp;
 /**
  * Constructs a columns pillar layout style.&lt;br&gt;
@@ -1022,8 +1022,8 @@ abstract class PillarLayouter extends Layouter{
  * &lt;/example&gt;
  */
 class Columns extends PillarLayouter {
-    constructor(public areaDesc:LayoutToken[]) { super(cParams[PillarLayouts[0]], areaDesc);  };
-};
+    constructor(public areaDesc:LayoutToken[]) { super(cParams[PillarLayouts[0]], areaDesc);  }
+}
 &nbsp;
 /**
  * Constructs a row pillar layout style.&lt;br&gt;
@@ -1079,8 +1079,8 @@ class Columns extends PillarLayouter {
  * &lt;/example&gt;
  */
 class Rows extends PillarLayouter {
-    constructor(public areaDesc:LayoutToken[]) { super(cParams[PillarLayouts[1]], areaDesc);  };
-};
+    constructor(public areaDesc:LayoutToken[]) { super(cParams[PillarLayouts[1]], areaDesc);  }
+}
 &nbsp;
 Layouter.register(PillarLayouts[0], Columns);
 Layouter.register(PillarLayouts[1],    Rows);

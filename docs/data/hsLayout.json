@@ -364,6 +364,14 @@
 				"isExported": true
 			},
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsLayout/src/index.ts",
+			"comment": {
+				"tags": [
+					{
+						"tag": "description",
+						"text": "hsLayout: Library for generating formatted screen layouts.\n"
+					}
+				]
+			},
 			"sources": [
 				{
 					"fileName": "index.ts",
