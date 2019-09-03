@@ -1,6 +1,6 @@
 /**
 # hsLayout 
- * 
+
 Helpful Scripts UI layout tools. 
 [`[Coverage Info]`](./data/src/hsLayout/coverage/)
 
