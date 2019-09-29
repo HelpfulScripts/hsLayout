@@ -188,7 +188,9 @@ abstract class PillarLayouter extends Layouter{
                 sumDim = -1;
                 style.fields[f[3]] = (100-(i+1)*defDim) + '%';
                 style.fields[f[5]] = 'auto';
-            } else if (style.code==='end') { return true; }
+            } else if (style.code==='end') { 
+                return true; 
+            }
             return false;
         });
         

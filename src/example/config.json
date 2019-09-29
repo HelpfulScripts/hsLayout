@@ -6,18 +6,14 @@
     }},
     "Header": { "Layout":{
         "columns": ["200px", "fill"],
-        "content": ["LeftHead", "MainHead"]
+        "content": ["left head", "main head"]
     }},
     "Body": { "Layout":{
         "columns": ["200px", "fill"], 
-        "content": ["LeftNav", "MainNav"]
+        "content": ["left nav", "main nav"]
     }},
     "Footer": { "Layout": {
         "css": ".hs-site-footer",
         "content": ["(c) Helpful ; Scripts"]
-    }},
-    "LeftHead": "left head",
-    "MainHead": "main head",
-    "LeftNav":  "left nav",
-    "MainNav":  "main nav"
+    }}
 }

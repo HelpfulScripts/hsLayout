@@ -91,7 +91,7 @@ export abstract class Layouter {
         Object.keys(Layouter.layoutStyles).some(key => { // executes the first match key in attrs.
             if (attrs[key]) { 
                 css = new Layouter.layoutStyles[key](Layouter.translate(attrs[key])).getStyles(components); 
-                attrs[key] = undefined;
+                // attrs[key] = undefined;
                 return true;
             }
             return false;
