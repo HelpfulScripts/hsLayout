@@ -17,6 +17,7 @@
 /** */
 import { m, Vnode } from '../mithril'; 
 import { Layouter } from './Layouter'; 
+import { log as _log }  from 'hsutil'; const log = _log('Layout');
 
 /**
 Base class for applying layouts. Subclasses should implement a {@link view.Layout.Layout.getComponents `getComponents`} method that returns
@@ -126,10 +127,14 @@ export class Layout {
         };
         node.attrs.route = undefined;
         if (node.attrs.href) { 
+            log.info(`href ${node.attrs.href}`);
             attrs.href = node.attrs.href;
             attrs.oncreate = m.route.link;
             attrs.onupdate = m.route.link;
+            // attrs.onclick = () => window.open(node.attrs.href, '_blank');
+            return m(`a.hs-layout ${css} ${this.getCSS(node)}`, attrs, content.map((c:any) => c));
+        } else {
+            return m(`.hs-layout ${css} ${this.getCSS(node)}`, attrs, content.map((c:any) => c));
         }
-        return m(`.hs-layout ${css} ${this.getCSS(node)}`, attrs, content.map((c:any) => c));
     }
 }

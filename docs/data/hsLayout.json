@@ -117,7 +117,7 @@
 							"sources": [
 								{
 									"fileName": "Config.ts",
-									"line": 106,
+									"line": 116,
 									"character": 8
 								}
 							]
@@ -208,7 +208,7 @@
 					"sources": [
 						{
 							"fileName": "Config.ts",
-							"line": 173,
+							"line": 182,
 							"character": 18
 						}
 					]
@@ -272,7 +272,7 @@
 					"sources": [
 						{
 							"fileName": "Config.ts",
-							"line": 165,
+							"line": 174,
 							"character": 16
 						}
 					]
@@ -350,7 +350,7 @@
 					"sources": [
 						{
 							"fileName": "Config.ts",
-							"line": 124,
+							"line": 133,
 							"character": 18
 						}
 					]
@@ -390,7 +390,7 @@
 			]
 		},
 		{
-			"id": 247,
+			"id": 248,
 			"name": "\"index\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -501,7 +501,7 @@
 			]
 		},
 		{
-			"id": 248,
+			"id": 249,
 			"name": "\"overview\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -562,7 +562,7 @@
 							"sources": [
 								{
 									"fileName": "view/Layout.ts",
-									"line": 48,
+									"line": 49,
 									"character": 16
 								}
 							],
@@ -613,7 +613,7 @@
 							"sources": [
 								{
 									"fileName": "view/Layout.ts",
-									"line": 82,
+									"line": 83,
 									"character": 20
 								}
 							]
@@ -663,7 +663,7 @@
 							"sources": [
 								{
 									"fileName": "view/Layout.ts",
-									"line": 64,
+									"line": 65,
 									"character": 27
 								}
 							]
@@ -732,7 +732,7 @@
 							"sources": [
 								{
 									"fileName": "view/Layout.ts",
-									"line": 87,
+									"line": 88,
 									"character": 28
 								}
 							]
@@ -781,7 +781,7 @@
 							"sources": [
 								{
 									"fileName": "view/Layout.ts",
-									"line": 119,
+									"line": 120,
 									"character": 8
 								}
 							]
@@ -809,10 +809,31 @@
 					"sources": [
 						{
 							"fileName": "view/Layout.ts",
-							"line": 44,
+							"line": 45,
 							"character": 19
 						}
 					]
+				},
+				{
+					"id": 103,
+					"name": "log",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isConst": true
+					},
+					"sources": [
+						{
+							"fileName": "view/Layout.ts",
+							"line": 20,
+							"character": 48
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "LogType"
+					},
+					"defaultValue": " _log('Layout')"
 				}
 			],
 			"groups": [
@@ -821,6 +842,13 @@
 					"kind": 128,
 					"children": [
 						89
+					]
+				},
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						103
 					]
 				}
 			],
@@ -1340,12 +1368,12 @@
 						{
 							"type": "reference",
 							"name": "PillarLayouter",
-							"id": 107
+							"id": 108
 						},
 						{
 							"type": "reference",
 							"name": "TileLayouter",
-							"id": 211
+							"id": 212
 						}
 					]
 				}
@@ -1368,7 +1396,7 @@
 			]
 		},
 		{
-			"id": 103,
+			"id": 104,
 			"name": "\"view/PillaredLayouter\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -1382,7 +1410,7 @@
 			},
 			"children": [
 				{
-					"id": 145,
+					"id": 146,
 					"name": "Columns",
 					"kind": 128,
 					"kindString": "Class",
@@ -1393,21 +1421,21 @@
 					},
 					"children": [
 						{
-							"id": 146,
+							"id": 147,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 148,
+									"id": 149,
 									"name": "new Columns",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 149,
+											"id": 150,
 											"name": "areaDesc",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1425,12 +1453,12 @@
 									"type": {
 										"type": "reference",
 										"name": "Columns",
-										"id": 145
+										"id": 146
 									},
 									"overwrites": {
 										"type": "reference",
 										"name": "PillarLayouter.__constructor",
-										"id": 116
+										"id": 117
 									}
 								}
 							],
@@ -1444,11 +1472,11 @@
 							"overwrites": {
 								"type": "reference",
 								"name": "PillarLayouter.__constructor",
-								"id": 116
+								"id": 117
 							}
 						},
 						{
-							"id": 147,
+							"id": 148,
 							"name": "areaDesc",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1474,11 +1502,11 @@
 							"overwrites": {
 								"type": "reference",
 								"name": "PillarLayouter.areaDesc",
-								"id": 117
+								"id": 118
 							}
 						},
 						{
-							"id": 157,
+							"id": 158,
 							"name": "cssClass",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1497,11 +1525,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "PillarLayouter.cssClass",
-								"id": 115
+								"id": 116
 							}
 						},
 						{
-							"id": 156,
+							"id": 157,
 							"name": "fields",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1523,11 +1551,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "PillarLayouter.fields",
-								"id": 114
+								"id": 115
 							}
 						},
 						{
-							"id": 150,
+							"id": 151,
 							"name": "firstFixed",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1546,11 +1574,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "PillarLayouter.firstFixed",
-								"id": 108
+								"id": 109
 							}
 						},
 						{
-							"id": 151,
+							"id": 152,
 							"name": "lastFixed",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1569,11 +1597,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "PillarLayouter.lastFixed",
-								"id": 109
+								"id": 110
 							}
 						},
 						{
-							"id": 172,
+							"id": 173,
 							"name": "spacing",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1597,7 +1625,7 @@
 							}
 						},
 						{
-							"id": 152,
+							"id": 153,
 							"name": "unit",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1612,21 +1640,21 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 153,
+									"id": 154,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 154,
+											"id": 155,
 											"name": "__call",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 155,
+													"id": 156,
 													"name": "num",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -1642,7 +1670,7 @@
 												"elementType": {
 													"type": "reference",
 													"name": "descriptor",
-													"id": 205
+													"id": 206
 												}
 											}
 										}
@@ -1659,11 +1687,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "PillarLayouter.unit",
-								"id": 110
+								"id": 111
 							}
 						},
 						{
-							"id": 161,
+							"id": 162,
 							"name": "layoutStyles",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1683,14 +1711,14 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 162,
+									"id": 163,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"children": [
 										{
-											"id": 163,
+											"id": 164,
 											"name": "string",
 											"kind": 32,
 											"kindString": "Variable",
@@ -1716,7 +1744,7 @@
 											"title": "Variables",
 											"kind": 32,
 											"children": [
-												163
+												164
 											]
 										}
 									],
@@ -1736,7 +1764,7 @@
 							}
 						},
 						{
-							"id": 158,
+							"id": 159,
 							"name": "getStyles",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1745,7 +1773,7 @@
 							},
 							"signatures": [
 								{
-									"id": 159,
+									"id": 160,
 									"name": "getStyles",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1755,7 +1783,7 @@
 									},
 									"parameters": [
 										{
-											"id": 160,
+											"id": 161,
 											"name": "components",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1798,7 +1826,7 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "PillarLayouter.getStyles",
-										"id": 130
+										"id": 131
 									}
 								}
 							],
@@ -1817,11 +1845,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "PillarLayouter.getStyles",
-								"id": 130
+								"id": 131
 							}
 						},
 						{
-							"id": 168,
+							"id": 169,
 							"name": "createLayout",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1831,7 +1859,7 @@
 							},
 							"signatures": [
 								{
-									"id": 169,
+									"id": 170,
 									"name": "createLayout",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1842,7 +1870,7 @@
 									},
 									"parameters": [
 										{
-											"id": 170,
+											"id": 171,
 											"name": "attrs",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1856,7 +1884,7 @@
 											}
 										},
 										{
-											"id": 171,
+											"id": 172,
 											"name": "components",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1899,7 +1927,7 @@
 							}
 						},
 						{
-							"id": 164,
+							"id": 165,
 							"name": "register",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1909,7 +1937,7 @@
 							},
 							"signatures": [
 								{
-									"id": 165,
+									"id": 166,
 									"name": "register",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1919,7 +1947,7 @@
 									},
 									"parameters": [
 										{
-											"id": 166,
+											"id": 167,
 											"name": "keyword",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1930,7 +1958,7 @@
 											}
 										},
 										{
-											"id": 167,
+											"id": 168,
 											"name": "style",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1972,30 +2000,30 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								146
+								147
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								147,
+								148,
+								158,
 								157,
-								156,
-								150,
 								151,
-								172,
 								152,
-								161
+								173,
+								153,
+								162
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								158,
-								168,
-								164
+								159,
+								169,
+								165
 							]
 						}
 					],
@@ -2010,12 +2038,12 @@
 						{
 							"type": "reference",
 							"name": "PillarLayouter",
-							"id": 107
+							"id": 108
 						}
 					]
 				},
 				{
-					"id": 107,
+					"id": 108,
 					"name": "PillarLayouter",
 					"kind": 128,
 					"kindString": "Class",
@@ -2027,7 +2055,7 @@
 					},
 					"children": [
 						{
-							"id": 116,
+							"id": 117,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -2037,7 +2065,7 @@
 							},
 							"signatures": [
 								{
-									"id": 118,
+									"id": 119,
 									"name": "new PillarLayouter",
 									"kind": 16384,
 									"kindString": "Constructor signature",
@@ -2047,7 +2075,7 @@
 									},
 									"parameters": [
 										{
-											"id": 119,
+											"id": 120,
 											"name": "params",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2058,11 +2086,11 @@
 											"type": {
 												"type": "reference",
 												"name": "PillarParams",
-												"id": 104
+												"id": 105
 											}
 										},
 										{
-											"id": 120,
+											"id": 121,
 											"name": "areaDesc",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2083,7 +2111,7 @@
 									"type": {
 										"type": "reference",
 										"name": "PillarLayouter",
-										"id": 107
+										"id": 108
 									},
 									"overwrites": {
 										"type": "reference",
@@ -2106,7 +2134,7 @@
 							}
 						},
 						{
-							"id": 117,
+							"id": 118,
 							"name": "areaDesc",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2139,7 +2167,7 @@
 							}
 						},
 						{
-							"id": 115,
+							"id": 116,
 							"name": "cssClass",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2157,7 +2185,7 @@
 							}
 						},
 						{
-							"id": 114,
+							"id": 115,
 							"name": "fields",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2178,7 +2206,7 @@
 							}
 						},
 						{
-							"id": 108,
+							"id": 109,
 							"name": "firstFixed",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2196,7 +2224,7 @@
 							}
 						},
 						{
-							"id": 109,
+							"id": 110,
 							"name": "lastFixed",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2214,7 +2242,7 @@
 							}
 						},
 						{
-							"id": 144,
+							"id": 145,
 							"name": "spacing",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2238,7 +2266,7 @@
 							}
 						},
 						{
-							"id": 110,
+							"id": 111,
 							"name": "unit",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2253,21 +2281,21 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 111,
+									"id": 112,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 112,
+											"id": 113,
 											"name": "__call",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 113,
+													"id": 114,
 													"name": "num",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -2283,7 +2311,7 @@
 												"elementType": {
 													"type": "reference",
 													"name": "descriptor",
-													"id": 205
+													"id": 206
 												}
 											}
 										}
@@ -2299,7 +2327,7 @@
 							}
 						},
 						{
-							"id": 133,
+							"id": 134,
 							"name": "layoutStyles",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2319,14 +2347,14 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 134,
+									"id": 135,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"children": [
 										{
-											"id": 135,
+											"id": 136,
 											"name": "string",
 											"kind": 32,
 											"kindString": "Variable",
@@ -2352,7 +2380,7 @@
 											"title": "Variables",
 											"kind": 32,
 											"children": [
-												135
+												136
 											]
 										}
 									],
@@ -2372,7 +2400,7 @@
 							}
 						},
 						{
-							"id": 121,
+							"id": 122,
 							"name": "getSizes",
 							"kind": 2048,
 							"kindString": "Method",
@@ -2381,7 +2409,7 @@
 							},
 							"signatures": [
 								{
-									"id": 122,
+									"id": 123,
 									"name": "getSizes",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -2392,7 +2420,7 @@
 									},
 									"parameters": [
 										{
-											"id": 123,
+											"id": 124,
 											"name": "num",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2411,7 +2439,7 @@
 										"elementType": {
 											"type": "reference",
 											"name": "descriptor",
-											"id": 205
+											"id": 206
 										}
 									}
 								}
@@ -2425,7 +2453,7 @@
 							]
 						},
 						{
-							"id": 130,
+							"id": 131,
 							"name": "getStyles",
 							"kind": 2048,
 							"kindString": "Method",
@@ -2434,7 +2462,7 @@
 							},
 							"signatures": [
 								{
-									"id": 131,
+									"id": 132,
 									"name": "getStyles",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -2444,7 +2472,7 @@
 									},
 									"parameters": [
 										{
-											"id": 132,
+											"id": 133,
 											"name": "components",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2500,7 +2528,7 @@
 							}
 						},
 						{
-							"id": 124,
+							"id": 125,
 							"name": "unitPercent",
 							"kind": 2048,
 							"kindString": "Method",
@@ -2509,14 +2537,14 @@
 							},
 							"signatures": [
 								{
-									"id": 125,
+									"id": 126,
 									"name": "unitPercent",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 126,
+											"id": 127,
 											"name": "num",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2532,7 +2560,7 @@
 										"elementType": {
 											"type": "reference",
 											"name": "descriptor",
-											"id": 205
+											"id": 206
 										}
 									}
 								}
@@ -2546,7 +2574,7 @@
 							]
 						},
 						{
-							"id": 127,
+							"id": 128,
 							"name": "unitPixel",
 							"kind": 2048,
 							"kindString": "Method",
@@ -2555,14 +2583,14 @@
 							},
 							"signatures": [
 								{
-									"id": 128,
+									"id": 129,
 									"name": "unitPixel",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 129,
+											"id": 130,
 											"name": "num",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2578,7 +2606,7 @@
 										"elementType": {
 											"type": "reference",
 											"name": "descriptor",
-											"id": 205
+											"id": 206
 										}
 									}
 								}
@@ -2592,7 +2620,7 @@
 							]
 						},
 						{
-							"id": 140,
+							"id": 141,
 							"name": "createLayout",
 							"kind": 2048,
 							"kindString": "Method",
@@ -2602,7 +2630,7 @@
 							},
 							"signatures": [
 								{
-									"id": 141,
+									"id": 142,
 									"name": "createLayout",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -2613,7 +2641,7 @@
 									},
 									"parameters": [
 										{
-											"id": 142,
+											"id": 143,
 											"name": "attrs",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2627,7 +2655,7 @@
 											}
 										},
 										{
-											"id": 143,
+											"id": 144,
 											"name": "components",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2670,7 +2698,7 @@
 							}
 						},
 						{
-							"id": 136,
+							"id": 137,
 							"name": "register",
 							"kind": 2048,
 							"kindString": "Method",
@@ -2680,7 +2708,7 @@
 							},
 							"signatures": [
 								{
-									"id": 137,
+									"id": 138,
 									"name": "register",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -2690,7 +2718,7 @@
 									},
 									"parameters": [
 										{
-											"id": 138,
+											"id": 139,
 											"name": "keyword",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2701,7 +2729,7 @@
 											}
 										},
 										{
-											"id": 139,
+											"id": 140,
 											"name": "style",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2743,33 +2771,33 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								116
+								117
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								117,
+								118,
+								116,
 								115,
-								114,
-								108,
 								109,
-								144,
 								110,
-								133
+								145,
+								111,
+								134
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								121,
-								130,
-								124,
-								127,
-								140,
-								136
+								122,
+								131,
+								125,
+								128,
+								141,
+								137
 							]
 						}
 					],
@@ -2791,17 +2819,17 @@
 						{
 							"type": "reference",
 							"name": "Columns",
-							"id": 145
+							"id": 146
 						},
 						{
 							"type": "reference",
 							"name": "Rows",
-							"id": 173
+							"id": 174
 						}
 					]
 				},
 				{
-					"id": 173,
+					"id": 174,
 					"name": "Rows",
 					"kind": 128,
 					"kindString": "Class",
@@ -2812,21 +2840,21 @@
 					},
 					"children": [
 						{
-							"id": 174,
+							"id": 175,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 176,
+									"id": 177,
 									"name": "new Rows",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 177,
+											"id": 178,
 											"name": "areaDesc",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2844,12 +2872,12 @@
 									"type": {
 										"type": "reference",
 										"name": "Rows",
-										"id": 173
+										"id": 174
 									},
 									"overwrites": {
 										"type": "reference",
 										"name": "PillarLayouter.__constructor",
-										"id": 116
+										"id": 117
 									}
 								}
 							],
@@ -2863,11 +2891,11 @@
 							"overwrites": {
 								"type": "reference",
 								"name": "PillarLayouter.__constructor",
-								"id": 116
+								"id": 117
 							}
 						},
 						{
-							"id": 175,
+							"id": 176,
 							"name": "areaDesc",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2893,11 +2921,11 @@
 							"overwrites": {
 								"type": "reference",
 								"name": "PillarLayouter.areaDesc",
-								"id": 117
+								"id": 118
 							}
 						},
 						{
-							"id": 185,
+							"id": 186,
 							"name": "cssClass",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2916,11 +2944,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "PillarLayouter.cssClass",
-								"id": 115
+								"id": 116
 							}
 						},
 						{
-							"id": 184,
+							"id": 185,
 							"name": "fields",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2942,11 +2970,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "PillarLayouter.fields",
-								"id": 114
+								"id": 115
 							}
 						},
 						{
-							"id": 178,
+							"id": 179,
 							"name": "firstFixed",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2965,11 +2993,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "PillarLayouter.firstFixed",
-								"id": 108
+								"id": 109
 							}
 						},
 						{
-							"id": 179,
+							"id": 180,
 							"name": "lastFixed",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2988,11 +3016,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "PillarLayouter.lastFixed",
-								"id": 109
+								"id": 110
 							}
 						},
 						{
-							"id": 200,
+							"id": 201,
 							"name": "spacing",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3016,7 +3044,7 @@
 							}
 						},
 						{
-							"id": 180,
+							"id": 181,
 							"name": "unit",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3031,21 +3059,21 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 181,
+									"id": 182,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 182,
+											"id": 183,
 											"name": "__call",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 183,
+													"id": 184,
 													"name": "num",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -3061,7 +3089,7 @@
 												"elementType": {
 													"type": "reference",
 													"name": "descriptor",
-													"id": 205
+													"id": 206
 												}
 											}
 										}
@@ -3078,11 +3106,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "PillarLayouter.unit",
-								"id": 110
+								"id": 111
 							}
 						},
 						{
-							"id": 189,
+							"id": 190,
 							"name": "layoutStyles",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3102,14 +3130,14 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 190,
+									"id": 191,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"children": [
 										{
-											"id": 191,
+											"id": 192,
 											"name": "string",
 											"kind": 32,
 											"kindString": "Variable",
@@ -3135,7 +3163,7 @@
 											"title": "Variables",
 											"kind": 32,
 											"children": [
-												191
+												192
 											]
 										}
 									],
@@ -3155,7 +3183,7 @@
 							}
 						},
 						{
-							"id": 186,
+							"id": 187,
 							"name": "getStyles",
 							"kind": 2048,
 							"kindString": "Method",
@@ -3164,7 +3192,7 @@
 							},
 							"signatures": [
 								{
-									"id": 187,
+									"id": 188,
 									"name": "getStyles",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -3174,7 +3202,7 @@
 									},
 									"parameters": [
 										{
-											"id": 188,
+											"id": 189,
 											"name": "components",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -3217,7 +3245,7 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "PillarLayouter.getStyles",
-										"id": 130
+										"id": 131
 									}
 								}
 							],
@@ -3236,11 +3264,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "PillarLayouter.getStyles",
-								"id": 130
+								"id": 131
 							}
 						},
 						{
-							"id": 196,
+							"id": 197,
 							"name": "createLayout",
 							"kind": 2048,
 							"kindString": "Method",
@@ -3250,7 +3278,7 @@
 							},
 							"signatures": [
 								{
-									"id": 197,
+									"id": 198,
 									"name": "createLayout",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -3261,7 +3289,7 @@
 									},
 									"parameters": [
 										{
-											"id": 198,
+											"id": 199,
 											"name": "attrs",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -3275,7 +3303,7 @@
 											}
 										},
 										{
-											"id": 199,
+											"id": 200,
 											"name": "components",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -3318,7 +3346,7 @@
 							}
 						},
 						{
-							"id": 192,
+							"id": 193,
 							"name": "register",
 							"kind": 2048,
 							"kindString": "Method",
@@ -3328,7 +3356,7 @@
 							},
 							"signatures": [
 								{
-									"id": 193,
+									"id": 194,
 									"name": "register",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -3338,7 +3366,7 @@
 									},
 									"parameters": [
 										{
-											"id": 194,
+											"id": 195,
 											"name": "keyword",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -3349,7 +3377,7 @@
 											}
 										},
 										{
-											"id": 195,
+											"id": 196,
 											"name": "style",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -3391,30 +3419,30 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								174
+								175
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								175,
+								176,
+								186,
 								185,
-								184,
-								178,
 								179,
-								200,
 								180,
-								189
+								201,
+								181,
+								190
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								186,
-								196,
-								192
+								187,
+								197,
+								193
 							]
 						}
 					],
@@ -3429,12 +3457,12 @@
 						{
 							"type": "reference",
 							"name": "PillarLayouter",
-							"id": 107
+							"id": 108
 						}
 					]
 				},
 				{
-					"id": 104,
+					"id": 105,
 					"name": "PillarParams",
 					"kind": 256,
 					"kindString": "Interface",
@@ -3444,7 +3472,7 @@
 					},
 					"children": [
 						{
-							"id": 105,
+							"id": 106,
 							"name": "cssClass",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3462,7 +3490,7 @@
 							}
 						},
 						{
-							"id": 106,
+							"id": 107,
 							"name": "fields",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3488,8 +3516,8 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								105,
-								106
+								106,
+								107
 							]
 						}
 					],
@@ -3502,7 +3530,7 @@
 					]
 				},
 				{
-					"id": 205,
+					"id": 206,
 					"name": "descriptor",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -3517,14 +3545,14 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 206,
+							"id": 207,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"children": [
 								{
-									"id": 208,
+									"id": 209,
 									"name": "code",
 									"kind": 32,
 									"kindString": "Variable",
@@ -3542,7 +3570,7 @@
 									}
 								},
 								{
-									"id": 209,
+									"id": 210,
 									"name": "fields",
 									"kind": 32,
 									"kindString": "Variable",
@@ -3560,7 +3588,7 @@
 									}
 								},
 								{
-									"id": 207,
+									"id": 208,
 									"name": "size",
 									"kind": 32,
 									"kindString": "Variable",
@@ -3583,9 +3611,9 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										208,
 										209,
-										207
+										210,
+										208
 									]
 								}
 							],
@@ -3600,7 +3628,7 @@
 					}
 				},
 				{
-					"id": 201,
+					"id": 202,
 					"name": "PillarLayouts",
 					"kind": 32,
 					"kindString": "Variable",
@@ -3628,7 +3656,7 @@
 					"defaultValue": " [\n    'columns', 'rows'\n]"
 				},
 				{
-					"id": 202,
+					"id": 203,
 					"name": "cParams",
 					"kind": 2097152,
 					"kindString": "Object literal",
@@ -3640,7 +3668,7 @@
 					},
 					"children": [
 						{
-							"id": 203,
+							"id": 204,
 							"name": "columns",
 							"kind": 32,
 							"kindString": "Variable",
@@ -3655,12 +3683,12 @@
 							"type": {
 								"type": "reference",
 								"name": "PillarParams",
-								"id": 104
+								"id": 105
 							},
 							"defaultValue": " <PillarParams>{\n        cssClass: '.hs-column-layout',\n        fields: ['top', 'bottom', 'left', 'right', 'height', 'width']\n    }"
 						},
 						{
-							"id": 204,
+							"id": 205,
 							"name": "rows",
 							"kind": 32,
 							"kindString": "Variable",
@@ -3675,7 +3703,7 @@
 							"type": {
 								"type": "reference",
 								"name": "PillarParams",
-								"id": 104
+								"id": 105
 							},
 							"defaultValue": " <PillarParams>{\n        cssClass: '.hs-row-layout',\n        fields: ['left', 'right', 'top', 'bottom', 'width', 'height']\n    }"
 						}
@@ -3685,8 +3713,8 @@
 							"title": "Variables",
 							"kind": 32,
 							"children": [
-								203,
-								204
+								204,
+								205
 							]
 						}
 					],
@@ -3708,37 +3736,37 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						145,
-						107,
-						173
+						146,
+						108,
+						174
 					]
 				},
 				{
 					"title": "Interfaces",
 					"kind": 256,
 					"children": [
-						104
+						105
 					]
 				},
 				{
 					"title": "Type aliases",
 					"kind": 4194304,
 					"children": [
-						205
+						206
 					]
 				},
 				{
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						201
+						202
 					]
 				},
 				{
 					"title": "Object literals",
 					"kind": 2097152,
 					"children": [
-						202
+						203
 					]
 				}
 			],
@@ -3751,7 +3779,7 @@
 			]
 		},
 		{
-			"id": 210,
+			"id": 211,
 			"name": "\"view/TileLayouter\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -3765,7 +3793,7 @@
 			},
 			"children": [
 				{
-					"id": 211,
+					"id": 212,
 					"name": "TileLayouter",
 					"kind": 128,
 					"kindString": "Class",
@@ -3773,7 +3801,7 @@
 					"comment": {},
 					"children": [
 						{
-							"id": 214,
+							"id": 215,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -3783,7 +3811,7 @@
 							},
 							"signatures": [
 								{
-									"id": 216,
+									"id": 217,
 									"name": "new TileLayouter",
 									"kind": 16384,
 									"kindString": "Constructor signature",
@@ -3793,7 +3821,7 @@
 									},
 									"parameters": [
 										{
-											"id": 217,
+											"id": 218,
 											"name": "areaDesc",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -3814,7 +3842,7 @@
 									"type": {
 										"type": "reference",
 										"name": "TileLayouter",
-										"id": 211
+										"id": 212
 									},
 									"overwrites": {
 										"type": "reference",
@@ -3837,7 +3865,7 @@
 							}
 						},
 						{
-							"id": 215,
+							"id": 216,
 							"name": "areaDesc",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3870,7 +3898,7 @@
 							}
 						},
 						{
-							"id": 212,
+							"id": 213,
 							"name": "cssClass",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3888,7 +3916,7 @@
 							}
 						},
 						{
-							"id": 238,
+							"id": 239,
 							"name": "spacing",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3912,7 +3940,7 @@
 							}
 						},
 						{
-							"id": 213,
+							"id": 214,
 							"name": "unit",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3930,7 +3958,7 @@
 							}
 						},
 						{
-							"id": 227,
+							"id": 228,
 							"name": "layoutStyles",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3950,14 +3978,14 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 228,
+									"id": 229,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"children": [
 										{
-											"id": 229,
+											"id": 230,
 											"name": "string",
 											"kind": 32,
 											"kindString": "Variable",
@@ -3983,7 +4011,7 @@
 											"title": "Variables",
 											"kind": 32,
 											"children": [
-												229
+												230
 											]
 										}
 									],
@@ -4003,7 +4031,7 @@
 							}
 						},
 						{
-							"id": 224,
+							"id": 225,
 							"name": "getStyles",
 							"kind": 2048,
 							"kindString": "Method",
@@ -4012,7 +4040,7 @@
 							},
 							"signatures": [
 								{
-									"id": 225,
+									"id": 226,
 									"name": "getStyles",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -4022,7 +4050,7 @@
 									},
 									"parameters": [
 										{
-											"id": 226,
+											"id": 227,
 											"name": "components",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4078,7 +4106,7 @@
 							}
 						},
 						{
-							"id": 218,
+							"id": 219,
 							"name": "unitPercent",
 							"kind": 2048,
 							"kindString": "Method",
@@ -4087,14 +4115,14 @@
 							},
 							"signatures": [
 								{
-									"id": 219,
+									"id": 220,
 									"name": "unitPercent",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 220,
+											"id": 221,
 											"name": "num",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4123,7 +4151,7 @@
 							]
 						},
 						{
-							"id": 221,
+							"id": 222,
 							"name": "unitPixel",
 							"kind": 2048,
 							"kindString": "Method",
@@ -4132,14 +4160,14 @@
 							},
 							"signatures": [
 								{
-									"id": 222,
+									"id": 223,
 									"name": "unitPixel",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 223,
+											"id": 224,
 											"name": "num",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4168,7 +4196,7 @@
 							]
 						},
 						{
-							"id": 234,
+							"id": 235,
 							"name": "createLayout",
 							"kind": 2048,
 							"kindString": "Method",
@@ -4178,7 +4206,7 @@
 							},
 							"signatures": [
 								{
-									"id": 235,
+									"id": 236,
 									"name": "createLayout",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -4189,7 +4217,7 @@
 									},
 									"parameters": [
 										{
-											"id": 236,
+											"id": 237,
 											"name": "attrs",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4203,7 +4231,7 @@
 											}
 										},
 										{
-											"id": 237,
+											"id": 238,
 											"name": "components",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4246,7 +4274,7 @@
 							}
 						},
 						{
-							"id": 230,
+							"id": 231,
 							"name": "register",
 							"kind": 2048,
 							"kindString": "Method",
@@ -4256,7 +4284,7 @@
 							},
 							"signatures": [
 								{
-									"id": 231,
+									"id": 232,
 									"name": "register",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -4266,7 +4294,7 @@
 									},
 									"parameters": [
 										{
-											"id": 232,
+											"id": 233,
 											"name": "keyword",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4277,7 +4305,7 @@
 											}
 										},
 										{
-											"id": 233,
+											"id": 234,
 											"name": "style",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4319,29 +4347,29 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								214
+								215
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								215,
-								212,
-								238,
+								216,
 								213,
-								227
+								239,
+								214,
+								228
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								224,
-								218,
-								221,
-								234,
-								230
+								225,
+								219,
+								222,
+								235,
+								231
 							]
 						}
 					],
@@ -4361,7 +4389,7 @@
 					]
 				},
 				{
-					"id": 239,
+					"id": 240,
 					"name": "descriptor",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -4376,14 +4404,14 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 240,
+							"id": 241,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"children": [
 								{
-									"id": 244,
+									"id": 245,
 									"name": "bottom",
 									"kind": 32,
 									"kindString": "Variable",
@@ -4401,7 +4429,7 @@
 									}
 								},
 								{
-									"id": 246,
+									"id": 247,
 									"name": "height",
 									"kind": 32,
 									"kindString": "Variable",
@@ -4419,7 +4447,7 @@
 									}
 								},
 								{
-									"id": 242,
+									"id": 243,
 									"name": "left",
 									"kind": 32,
 									"kindString": "Variable",
@@ -4437,7 +4465,7 @@
 									}
 								},
 								{
-									"id": 243,
+									"id": 244,
 									"name": "right",
 									"kind": 32,
 									"kindString": "Variable",
@@ -4455,7 +4483,7 @@
 									}
 								},
 								{
-									"id": 241,
+									"id": 242,
 									"name": "top",
 									"kind": 32,
 									"kindString": "Variable",
@@ -4473,7 +4501,7 @@
 									}
 								},
 								{
-									"id": 245,
+									"id": 246,
 									"name": "width",
 									"kind": 32,
 									"kindString": "Variable",
@@ -4496,12 +4524,12 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										244,
-										246,
-										242,
+										245,
+										247,
 										243,
-										241,
-										245
+										244,
+										242,
+										246
 									]
 								}
 							],
@@ -4521,14 +4549,14 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						211
+						212
 					]
 				},
 				{
 					"title": "Type aliases",
 					"kind": 4194304,
 					"children": [
-						239
+						240
 					]
 				}
 			],
@@ -5421,13 +5449,13 @@
 			"kind": 1,
 			"children": [
 				4,
-				247,
-				1,
 				248,
+				1,
+				249,
 				88,
 				64,
-				103,
-				210,
+				104,
+				211,
 				26
 			]
 		}

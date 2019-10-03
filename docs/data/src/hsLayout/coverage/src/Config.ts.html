@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>34/34</span>
+        <span class='fraction'>33/33</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">83.33% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>30/30</span>
+        <span class='fraction'>29/29</span>
       </div>
     </div>
     <p class="quiet">
@@ -219,7 +219,16 @@
 <a name='L171'></a><a href='#L171'>171</a>
 <a name='L172'></a><a href='#L172'>172</a>
 <a name='L173'></a><a href='#L173'>173</a>
-<a name='L174'></a><a href='#L174'>174</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L174'></a><a href='#L174'>174</a>
+<a name='L175'></a><a href='#L175'>175</a>
+<a name='L176'></a><a href='#L176'>176</a>
+<a name='L177'></a><a href='#L177'>177</a>
+<a name='L178'></a><a href='#L178'>178</a>
+<a name='L179'></a><a href='#L179'>179</a>
+<a name='L180'></a><a href='#L180'>180</a>
+<a name='L181'></a><a href='#L181'>181</a>
+<a name='L182'></a><a href='#L182'>182</a>
+<a name='L183'></a><a href='#L183'>183</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -325,7 +334,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -492,15 +510,24 @@ export class Config {
         const context:any[] = node.attrs.context;
         <span class="missing-if-branch" title="else path not taken" >E</span>if (!node.state.cfg) {
             const s = (typeof node.attrs.source === 'string')?
-<span class="branch-0 cbranch-no" title="branch not covered" >                await m.request({ method: "GET", url: node.attrs.source }) </span>
+<span class="branch-0 cbranch-no" title="branch not covered" >                await m.request({ method: "GET", url: node.attrs.source})</span>
               : node.attrs.source;
             node.state.cfg = translate(s, s.root, context);
+            // if (typeof node.attrs.source === 'string') {
+            //     m.request({ method: "GET", url: node.attrs.source})
+            //     .then((s:any) =&gt; {
+            //         node.state.cfg = translate(s, s.root, context);
+            //     })
+            //     .catch((e:any) =&gt; log.error(`error reading config: ${e}`));
+            // } else {
+            //     const s = node.attrs.source;
+            //     node.state.cfg = translate(s, s.root, context);
+            // }
         }
     }
     view(node:Vnode) { 
         const cfg = node.state.cfg;
-        const attrs = Object.assign({}, cfg.attrs);
-        return (cfg &amp;&amp; cfg.compClass)? m(cfg.compClass, Object.assign(attrs, node.attrs)) : <span class="branch-1 cbranch-no" title="branch not covered" >m('div', 'waiting');</span>
+        return (cfg &amp;&amp; cfg.compClass)? m(cfg.compClass, Object.assign(Object.assign({}, cfg.attrs), node.attrs)) : <span class="branch-1 cbranch-no" title="branch not covered" >m('div', 'waiting');</span>
     }
 }
 &nbsp;

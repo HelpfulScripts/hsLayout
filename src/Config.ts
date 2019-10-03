@@ -98,15 +98,14 @@ export class Config {
         const context:any[] = node.attrs.context;
         if (!node.state.cfg) {
             const s = (typeof node.attrs.source === 'string')?
-                await m.request({ method: "GET", url: node.attrs.source }) 
+                await m.request({ method: "GET", url: node.attrs.source})
               : node.attrs.source;
             node.state.cfg = translate(s, s.root, context);
         }
     }
     view(node:Vnode) { 
         const cfg = node.state.cfg;
-        const attrs = Object.assign({}, cfg.attrs);
-        return (cfg && cfg.compClass)? m(cfg.compClass, Object.assign(attrs, node.attrs)) : m('div', 'waiting');
+        return (cfg && cfg.compClass)? m(cfg.compClass, Object.assign(Object.assign({}, cfg.attrs), node.attrs)) : m('div', 'waiting');
     }
 }
 
