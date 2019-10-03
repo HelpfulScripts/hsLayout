@@ -129,6 +129,7 @@ export class Layout {
         if (node.attrs.href) { 
             log.info(`href ${node.attrs.href}`);
             attrs.href = node.attrs.href;
+            attrs.target = '_blank';
             attrs.oncreate = m.route.link;
             attrs.onupdate = m.route.link;
             // attrs.onclick = () => window.open(node.attrs.href, '_blank');

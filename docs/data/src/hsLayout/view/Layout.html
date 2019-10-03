@@ -152,15 +152,16 @@
 <p id=129 class="line"><span>&nbsp;129</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(node.attrs.href)&nbsp;{&nbsp;</p>
 <p id=130 class="line"><span>&nbsp;130</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.info(`href&nbsp;${node.attrs.href}`);</p>
 <p id=131 class="line"><span>&nbsp;131</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attrs.href&nbsp;=&nbsp;node.attrs.href;</p>
-<p id=132 class="line"><span>&nbsp;132</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attrs.oncreate&nbsp;=&nbsp;m.route.link;</p>
-<p id=133 class="line"><span>&nbsp;133</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attrs.onupdate&nbsp;=&nbsp;m.route.link;</p>
-<p id=134 class="line"><span>&nbsp;134</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<comment>//&nbsp;attrs.onclick&nbsp;=&nbsp;()&nbsp;=>&nbsp;window.open(node.attrs.href,&nbsp;<quote>'_blank'</quote>);</comment></p>
-<p id=135 class="line"><span>&nbsp;135</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m(`a.hs-layout&nbsp;${css}&nbsp;${this.getCSS(node)}`,&nbsp;attrs,&nbsp;content.map((c:any)&nbsp;=>&nbsp;c));</p>
-<p id=136 class="line"><span>&nbsp;136</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{</p>
-<p id=137 class="line"><span>&nbsp;137</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m(`.hs-layout&nbsp;${css}&nbsp;${this.getCSS(node)}`,&nbsp;attrs,&nbsp;content.map((c:any)&nbsp;=>&nbsp;c));</p>
-<p id=138 class="line"><span>&nbsp;138</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
-<p id=139 class="line"><span>&nbsp;139</span>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
-<p id=140 class="line"><span>&nbsp;140</span>}</p>
-<p id=141 class="line"><span>&nbsp;141</span></p></code></div>
+<p id=132 class="line"><span>&nbsp;132</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attrs.target&nbsp;=&nbsp;<quote>'_blank'</quote>;</p>
+<p id=133 class="line"><span>&nbsp;133</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attrs.oncreate&nbsp;=&nbsp;m.route.link;</p>
+<p id=134 class="line"><span>&nbsp;134</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attrs.onupdate&nbsp;=&nbsp;m.route.link;</p>
+<p id=135 class="line"><span>&nbsp;135</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<comment>//&nbsp;attrs.onclick&nbsp;=&nbsp;()&nbsp;=>&nbsp;window.open(node.attrs.href,&nbsp;<quote>'_blank'</quote>);</comment></p>
+<p id=136 class="line"><span>&nbsp;136</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m(`a.hs-layout&nbsp;${css}&nbsp;${this.getCSS(node)}`,&nbsp;attrs,&nbsp;content.map((c:any)&nbsp;=>&nbsp;c));</p>
+<p id=137 class="line"><span>&nbsp;137</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{</p>
+<p id=138 class="line"><span>&nbsp;138</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m(`.hs-layout&nbsp;${css}&nbsp;${this.getCSS(node)}`,&nbsp;attrs,&nbsp;content.map((c:any)&nbsp;=>&nbsp;c));</p>
+<p id=139 class="line"><span>&nbsp;139</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p id=140 class="line"><span>&nbsp;140</span>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p id=141 class="line"><span>&nbsp;141</span>}</p>
+<p id=142 class="line"><span>&nbsp;142</span></p></code></div>
                 </body>
             
