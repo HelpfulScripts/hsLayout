@@ -232,7 +232,11 @@ abstract class PillarLayouter extends Layouter{
 
 /**
  * Constructs a columns pillar layout style.<br>
- * Use `{columns: [attributes]}` to invoke this layout. See top of page for a description.
+ * Use `{columns: [attributes]}` to invoke this layout. See {@link view.PillaredLayouter PillaredLayouter} for a detailed description of parameters.
+ * 
+ * #### Example
+ * Each row in the example below uses a different Column Pillar Layout style as defined in the `styles` array.
+ * The example shows how the Layouter behaves for varying number of columns.  
  * <example>
  * <file name='script.js'>
  * const styles = [ 
@@ -289,7 +293,11 @@ class Columns extends PillarLayouter {
 
 /**
  * Constructs a row pillar layout style.<br>
- * Use `{row: [attributes]}` to invoke this layout. See top of page for a description.
+ * Use `{row: [attributes]}` to invoke this layout. See {@link view.PillaredLayouter PillaredLayouter} for a detailed description of parameters.
+ * 
+ * #### Example
+ * Each column in the example below uses a different Row Pillar Layout style as defined in the `styles` array.
+ * The example shows how the Layouter behaves for varying number of rows.  
  * <example>
  * <file name='script.js'>
  * const styles = [ 

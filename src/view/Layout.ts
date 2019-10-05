@@ -3,21 +3,49 @@
  * A `mithril` component class that layouts available space in the window.
  * 
  * ### Invocation
- * invoked as `m(Layout, {name:<string>, content:Array<Vnode>})`
+ * invoked as `m(Layout, {<layout style>:[<string>], content:Array<Vnode>})`. See example below.
  * 
  * ### Attributes (node.attrs):
- * - <key>:Array<String>, required. <key> matches a registered {@link Layouter Layouter}
- * - content: Array<Vnode>, required. The Vnode children to lay out. 
- * - css:String, optional. The css specifier to use for this `Layout` component.
- * - route: object literal holding parameters passed from `m.route`
- * - href: String, optional. If present, makes the component clickable
- * - onclick:(), optional. The function to call when clicked
+ * - `<layout-style>`: [...]: a required keyword indicating the {@link view.Layouter Layouter} to use, followed by a configuration array. 
+ *    E.g. `rows: ["30px", "fill"]`.
+ * - `content`: Array<Vnode>, required. The Vnode children to lay out. 
+ *     - `string` literal, e.g. "the content"
+ *     - `[ ]` array of elements:
+ *         - `string` literal, e.g. "the content"
+ *         - `{ }` literal
+ *            - `compClass`: a {@link view.Layout.Component Component} class definition, e.g. `Layout`
+ * - `css`: optional String. The css specifier to use for this `Layout` component.
+ * - `route`: optional object literal holding parameters passed from `m.route`
+ * - `href`: optional String. If present, makes the component clickable
+ * - `target`: optional string, determines where `href` is opened. Defaults to '_blank' to open `href` in a new tab.
+ * - `onclick`:(), optional. The function to call when clicked
+ * 
+ * ### Example
+ * <example>
+ * <file name='script.js'>
+ * m.mount(root, {view: () => m(hsLayout.Layout, {
+ *     css:     'myColumn',
+ *     rows:    ["50px", "fill"], 
+ *     content: ['Top row: 50px', 'Bottom row: remainder']
+ *     })
+ * });
+ * </file>
+ * </example>
+
  */
 
 /** */
 import { m, Vnode } from '../mithril'; 
 import { Layouter } from './Layouter'; 
 import { log as _log }  from 'hsutil'; const log = _log('Layout');
+
+/**
+ * Component interface. 
+ * Formalizes the `mithril` requirement for a `view` method.
+ */
+export interface Component {
+    view(node:Vnode): Vnode;
+}
 
 /**
 Base class for applying layouts. Subclasses should implement a {@link view.Layout.Layout.getComponents `getComponents`} method that returns
@@ -42,7 +70,7 @@ class MyLayout extends Layout {
 } 
 </code>
  */
-export class Layout {
+export class Layout implements Component {
     /**
      * holds structural elements in style form: left, right, top, bottom, width, height
      */
@@ -84,7 +112,12 @@ export class Layout {
         return node.attrs.css || '';
     }
 
-
+    /**
+     * ensures that all `components` are `mithril` nodes and returns them in an array.
+     * @param components either of:
+     * - a `string` literal --> interprets the string as trusted HTML and returns a leaf node.
+     * - an array of elements, each either a `Layout`, or `string` literal which will be converted to a `Layout`.
+     */
     private normalizeContent(components:Array<typeof Layout|string>|string): Vnode {
         if (typeof components === 'string') { 
             return [m('.hs-leaf', m.trust(components))]; 
@@ -129,7 +162,7 @@ export class Layout {
         if (node.attrs.href) { 
             log.info(`href ${node.attrs.href}`);
             attrs.href = node.attrs.href;
-            attrs.target = '_blank';
+            attrs.target = attrs.target || '_blank';
             attrs.oncreate = m.route.link;
             attrs.onupdate = m.route.link;
             // attrs.onclick = () => window.open(node.attrs.href, '_blank');

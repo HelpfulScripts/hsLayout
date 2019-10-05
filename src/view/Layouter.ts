@@ -1,9 +1,9 @@
 /**
 Layouter.ts provides basic mechanisms for laying out a view container. 
 Subclasses of `Layouter` should
-- implement the {@link Layouter.view.Layouter.getStyles getStyles} method.
+- implement the {@link view.Layouter.Layouter.getStyles getStyles} method.
 - register the subclass and configuration keyword with the static 
-   {@link Layouter.Layouter.register register} method.
+   {@link view.Layouter.Layouter.register register} method.
 */
 
 /** */
@@ -20,13 +20,10 @@ static `Layouter.register` method.
 <code>
 class MyLayouter extends Layouter {
     cssClass = '.my-css-class';
-    constructor(public areaDesc:LayoutToken[]) { 
-        super(areaDesc); 
-    }
-    
+
     protected getStyles(components:Array<Vnode|Layout>):string {
-        components.map((c:Layout|Vnode, i:number) => {
-            c.style = `width:auto; height:auto;
+        components.map((c:Layout|Vnode) => {
+            c.style = `width:auto; height:auto;`
         });   
         return this.cssClass;
    }
