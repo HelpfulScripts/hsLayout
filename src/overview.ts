@@ -2,7 +2,7 @@
 # hsLayout 
 
 Helpful Scripts UI layout tools. 
-[`[Coverage Info]`](./data/src/hsLayout/coverage/)
+<a href="./data/src/hsLayout/coverage/" target="_blank">[Coverage Info]</a>
 
 [![npm version](https://badge.fury.io/js/hslayout.svg)](https://badge.fury.io/js/hslayout)
 [![GitHub](https://img.shields.io/badge/GitHub-hsLayout-blue.svg)](https://github.com/helpfulscripts/hslayout)
@@ -16,7 +16,7 @@ Helpful Scripts UI layout tools.
  * ___
  * 
  * hsLayout provides means to layout the browser window in various ways.
- * See [Layout Examples](example/layout.html)
+ * See Layout Examples below.
  * 
  * ## Concepts
  * 
