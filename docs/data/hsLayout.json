@@ -158,7 +158,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"name": "LogType"
+						"name": "LogFn"
 					},
 					"defaultValue": " _log('Config')"
 				},
@@ -935,7 +935,7 @@
 					],
 					"type": {
 						"type": "reference",
-						"name": "LogType"
+						"name": "LogFn"
 					},
 					"defaultValue": " _log('Layout')"
 				}
