@@ -88,7 +88,7 @@
 
  /** */
 import { m, Vnode }     from './mithril'; 
-import { log as _log }  from 'hsutil'; const log = _log('Config'); 
+import { Log }  from 'hsutil'; const log = new Log('Config'); 
 
 /**
  * `Component` class that creates a tree of mithril components out of a configuration obect or file.

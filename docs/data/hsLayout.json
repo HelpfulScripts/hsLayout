@@ -153,14 +153,14 @@
 						{
 							"fileName": "Config.ts",
 							"line": 91,
-							"character": 48
+							"character": 40
 						}
 					],
 					"type": {
 						"type": "reference",
-						"name": "LogFn"
+						"name": "Log"
 					},
-					"defaultValue": " _log('Config')"
+					"defaultValue": " new Log('Config')"
 				},
 				{
 					"id": 22,
@@ -930,14 +930,14 @@
 						{
 							"fileName": "view/Layout.ts",
 							"line": 40,
-							"character": 48
+							"character": 40
 						}
 					],
 					"type": {
 						"type": "reference",
-						"name": "LogFn"
+						"name": "Log"
 					},
-					"defaultValue": " _log('Layout')"
+					"defaultValue": " new Log('Layout')"
 				}
 			],
 			"groups": [

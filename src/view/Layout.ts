@@ -37,7 +37,7 @@
 /** */
 import { m, Vnode } from '../mithril'; 
 import { Layouter } from './Layouter'; 
-import { log as _log }  from 'hsutil'; const log = _log('Layout');
+import { Log }  from 'hsutil'; const log = new Log('Layout');
 
 /**
  * Component interface. 
