@@ -223,7 +223,8 @@ abstract class PillarLayouter extends Layouter{
         let f = this.fields;
         let styles:descriptor[] = this.unit(components.length);
         components.map((c:Layout|Vnode, i:number) => {
-            c.style = `${f[0]}:0%; ${f[1]}:0%; `;
+            // c.style = `${f[0]}:0%; ${f[1]}:0%; `;
+            c.style = `${f[4]}:100%;`;
             Object.keys(styles[i].fields).forEach((st:string) => { c.style += `${st}: ${styles[i].fields[st]};`; });
         });   
         return this.cssClass;
