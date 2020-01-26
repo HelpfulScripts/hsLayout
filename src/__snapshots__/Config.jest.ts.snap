@@ -7,14 +7,14 @@ exports[`Config Config should match snapshot 1`] = `
   >
     <div
       class="hs-layout  "
-      style="left: 0%; right: 0%; top: 0px; height: 30px;"
+      style="width: 100%; top: 0px; height: 30px;"
     >
       <div
         class="hs-layout  hs-column-layout "
       >
         <div
           class="hs-layout  "
-          style="top: 0%; bottom: 0%; left: 0px; width: 200px;"
+          style="height: 100%; left: 0px; width: 200px;"
         >
           <div
             class="hs-leaf"
@@ -24,7 +24,7 @@ exports[`Config Config should match snapshot 1`] = `
         </div>
         <div
           class="hs-layout  "
-          style="top: 0%; bottom: 0%; left: 200px; right: 0px; width: auto;"
+          style="height: 100%; left: 200px; right: 0px; width: auto;"
         >
           <div
             class="hs-leaf"
@@ -36,14 +36,14 @@ exports[`Config Config should match snapshot 1`] = `
     </div>
     <div
       class="hs-layout  "
-      style="left: 0%; right: 0%; top: 30px; bottom: 10px; height: auto;"
+      style="width: 100%; top: 30px; bottom: 10px; height: auto;"
     >
       <div
         class="hs-layout  hs-column-layout "
       >
         <div
           class="hs-layout  "
-          style="top: 0%; bottom: 0%; left: 0px; width: 200px;"
+          style="height: 100%; left: 0px; width: 200px;"
         >
           <div
             class="hs-leaf"
@@ -53,7 +53,7 @@ exports[`Config Config should match snapshot 1`] = `
         </div>
         <div
           class="hs-layout  "
-          style="top: 0%; bottom: 0%; left: 200px; right: 0px; width: auto;"
+          style="height: 100%; left: 200px; right: 0px; width: auto;"
         >
           <div
             class="hs-leaf"
@@ -65,7 +65,7 @@ exports[`Config Config should match snapshot 1`] = `
     </div>
     <div
       class="hs-layout  "
-      style="left: 0%; right: 0%; bottom: 0px; height: 10px;"
+      style="width: 100%; bottom: 0px; height: 10px;"
     >
       <div
         class="hs-layout   hs-site-footer"
