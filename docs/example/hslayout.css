@@ -3,13 +3,14 @@
   width: 100%;
   height: 100%;
   display: block;
-  overflow: scroll;
 }
 .hs-layout.hs-column-layout {
+  overflow: scroll;
   position: relative;
   left: 0%;
 }
 .hs-layout.hs-row-layout {
+  overflow: scroll;
   position: relative;
   top: 0%;
 }
