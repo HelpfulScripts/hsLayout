@@ -25,7 +25,7 @@
  *      content: ['LeftNav', 'MainNav']
  *  }},
  *  Footer: { Layout: {
- *      css: '.hs-site-footer',
+ *      css: '.hsdocs_footer',
  *      content: ['(c) Helpful ; Scripts']
  *  }},
  *  LeftNav:  { LeftNav:  { lib:"route.lib", field:"route.field"}},

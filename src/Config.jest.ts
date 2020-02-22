@@ -1,6 +1,4 @@
 import { Config }   from './';
-// import { log }      from 'hsnode';
-// import { node }     from 'hsnode';
 import * as layout  from './';
 import { m }        from './mithril';
 
@@ -21,7 +19,7 @@ const myConfig = {
         content: ['LeftNav', 'MainNav']
     }},
     Footer: { Layout: {
-        css: '.hs-site-footer',
+        css: '.hs_footer',
         content: ['(c) Helpful ; Scripts']
     }},
     LeftHead: "left head",

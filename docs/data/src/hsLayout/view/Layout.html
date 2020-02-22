@@ -147,7 +147,7 @@
 <p id=124 class="line"><span>&nbsp;124</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
 <p id=125 class="line"><span>&nbsp;125</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(components.length>0)&nbsp;{&nbsp;<comment>//&nbsp;an&nbsp;array:&nbsp;ensure&nbsp;elements&nbsp;are&nbsp;Layout&nbsp;components</comment></p>
 <p id=126 class="line"><span>&nbsp;126</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;components.map((comp:string|typeof&nbsp;Layout):Vnode&nbsp;=>&nbsp;</p>
-<p id=127 class="line"><span>&nbsp;127</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(comp&nbsp;instanceof&nbsp;Layout)?&nbsp;comp&nbsp;:&nbsp;m(Layout,&nbsp;{content:comp})</p>
+<p id=127 class="line"><span>&nbsp;127</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(comp&nbsp;instanceof&nbsp;Layout)?&nbsp;comp&nbsp;:&nbsp;m(Layout,&nbsp;{content:comp})</p>
 <p id=128 class="line"><span>&nbsp;128</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</p>
 <p id=129 class="line"><span>&nbsp;129</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
 <p id=130 class="line"><span>&nbsp;130</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<comment>//&nbsp;else:&nbsp;assume&nbsp;components&nbsp;is&nbsp;a&nbsp;mithril&nbsp;node:&nbsp;return&nbsp;node&nbsp;as&nbsp;an&nbsp;array</comment></p>

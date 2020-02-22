@@ -3,12 +3,12 @@
 .hs-layout {
     position: absolute; 
     &.hs-column-layout {
-        overflow: scroll;
+        // overflow: scroll;
         position: relative; 
         left: 0%; 
     }
     &.hs-row-layout {
-        overflow: scroll;
+        // overflow: scroll;
         position: relative; 
         top: 0%;
     }
@@ -57,6 +57,8 @@
 
 .hs-layout-frame {
     position:relative;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .hs-layout-fill {

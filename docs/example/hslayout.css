@@ -5,12 +5,10 @@
   display: block;
 }
 .hs-layout.hs-column-layout {
-  overflow: scroll;
   position: relative;
   left: 0%;
 }
 .hs-layout.hs-row-layout {
-  overflow: scroll;
   position: relative;
   top: 0%;
 }
@@ -59,6 +57,8 @@
 }
 .hs-layout-frame {
   position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 .hs-layout-fill {
   position: relative;

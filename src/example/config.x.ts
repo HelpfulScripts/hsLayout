@@ -22,7 +22,7 @@ const myConfig = {
                 ]
             }},
             { Layout: {
-                css: '.hs-site-footer',
+                css: '.hs_footer',
                 content: ['(c) Helpful ; Scripts']
             }}
         ] 
@@ -53,7 +53,7 @@ const example = {
         getComponents(node:Vnode) { return m('', 'The Main Nav'); } 
     },
     Footer: class extends hslayout.Layout{ 
-        getComponents(node:Vnode) { return m('.hs-site-footer', '(c) Helpful ; Scripts'); } 
+        getComponents(node:Vnode) { return m('.hsdocs_footer', '(c) Helpful ; Scripts'); } 
     }
 };
 

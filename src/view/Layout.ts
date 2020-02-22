@@ -124,7 +124,7 @@ export class Layout implements Component {
         }
         if (components.length>0) { // an array: ensure elements are Layout components
             return components.map((comp:string|typeof Layout):Vnode => 
-                    (comp instanceof Layout)? comp : m(Layout, {content:comp})
+                (comp instanceof Layout)? comp : m(Layout, {content:comp})
             );
         }
         // else: assume components is a mithril node: return node as an array

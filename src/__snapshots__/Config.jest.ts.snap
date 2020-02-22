@@ -68,7 +68,7 @@ exports[`Config Config should match snapshot 1`] = `
       style="width: 100%; bottom: 0px; height: 10px;"
     >
       <div
-        class="hs-layout   hs-site-footer"
+        class="hs-layout   hs_footer"
       >
         <div
           class="hs-layout  "
