@@ -156,7 +156,10 @@ export class Layout implements Component {
         const attrs:any = {
             style: node.style,
             route: node.attrs.route,     
-            onclick: node.attrs.onclick
+            onclick: node.attrs.onclick,
+            onmouseenter: node.attrs.onmouseenter,
+            onmousemove: node.attrs.onmousemove,
+            onmouseleave: node.attrs.onmouseleave,
         };
         node.attrs.route = undefined;
         if (node.attrs.href) { 
