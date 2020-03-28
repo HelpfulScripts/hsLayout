@@ -44,30 +44,34 @@
 									"name": "oninit",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 8,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "Vnode",
-												"id": 3
+												"id": 3,
+												"name": "Vnode"
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "Promise",
 										"typeArguments": [
 											{
 												"type": "intrinsic",
 												"name": "void"
 											}
-										]
+										],
+										"name": "Promise"
 									}
 								}
 							],
@@ -93,18 +97,22 @@
 									"name": "view",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 11,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "Vnode",
-												"id": 3
+												"id": 3,
+												"name": "Vnode"
 											}
 										}
 									],
@@ -160,7 +168,7 @@
 						"type": "reference",
 						"name": "Log"
 					},
-					"defaultValue": " new Log('Config')"
+					"defaultValue": "new Log('Config')"
 				},
 				{
 					"id": 22,
@@ -390,7 +398,7 @@
 			]
 		},
 		{
-			"id": 252,
+			"id": 253,
 			"name": "\"index\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -406,6 +414,126 @@
 					}
 				]
 			},
+			"children": [
+				{
+					"id": 254,
+					"name": "Component",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 89
+				},
+				{
+					"id": 261,
+					"name": "Config",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 5
+				},
+				{
+					"id": 256,
+					"name": "FILL",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 63
+				},
+				{
+					"id": 255,
+					"name": "Layout",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 93
+				},
+				{
+					"id": 259,
+					"name": "LayoutToken",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 27
+				},
+				{
+					"id": 260,
+					"name": "Layouter",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 65
+				},
+				{
+					"id": 263,
+					"name": "Vnode",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 3
+				},
+				{
+					"id": 262,
+					"name": "m",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 2
+				},
+				{
+					"id": 258,
+					"name": "pc",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 60
+				},
+				{
+					"id": 257,
+					"name": "px",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 57
+				}
+			],
+			"groups": [
+				{
+					"title": "References",
+					"kind": 16777216,
+					"children": [
+						254,
+						261,
+						256,
+						255,
+						259,
+						260,
+						263,
+						262,
+						258,
+						257
+					]
+				}
+			],
 			"sources": [
 				{
 					"fileName": "index.ts",
@@ -444,11 +572,7 @@
 							"line": 14,
 							"character": 17
 						}
-					],
-					"type": {
-						"type": "intrinsic",
-						"name": "any"
-					}
+					]
 				},
 				{
 					"id": 2,
@@ -473,7 +597,7 @@
 						"type": "intrinsic",
 						"name": "any"
 					},
-					"defaultValue": " require(\"mithril\")"
+					"defaultValue": "require(\"mithril\")"
 				}
 			],
 			"groups": [
@@ -501,7 +625,7 @@
 			]
 		},
 		{
-			"id": 253,
+			"id": 264,
 			"name": "\"overview\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -586,7 +710,9 @@
 									"name": "getCSS",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "Called during the lifecycle `view` call to retrieve the css style class to apply to this container.\nThe default implementation returns components stored in `node.attrs.css`. This allows for\ncreating containers directly via mithril: `m(Layout, {content:[...], css:'.my-class'})`.\nOverride this method to create containers that return more sophisticated content."
 									},
@@ -596,11 +722,13 @@
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "Vnode",
-												"id": 3
+												"id": 3,
+												"name": "Vnode"
 											}
 										}
 									],
@@ -633,7 +761,9 @@
 									"name": "getComponents",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "Called during the lifecycle `view` call to retrieve the subcomponents to render in this container.\nThe default implementation returns components stored in `node.attrs.content`. This allows for\ncreating containers directly via mithril: `m(Layout, {content:[...]})`.\nIn case `node.attrs.content` is an array of literals with a `compClass` field describing a Component class,\nthe method will create a Mithril node on that class and pass the `node.attrs.route` argument down to it.",
 										"text": "Override this method to create containers that return more sophisticated content.",
@@ -645,18 +775,20 @@
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "Vnode",
-												"id": 3
+												"id": 3,
+												"name": "Vnode"
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "Vnode",
-										"id": 3
+										"id": 3,
+										"name": "Vnode"
 									}
 								}
 							],
@@ -683,7 +815,9 @@
 									"name": "normalizeContent",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "ensures that all `components` are `mithril` nodes and returns them in an array."
 									},
@@ -693,7 +827,9 @@
 											"name": "components",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "either of:\n- a `string` literal --> interprets the string as trusted HTML and returns a leaf node.\n- an array of elements, each either a `Layout`, or `string` literal which will be converted to a `Layout`.\n"
 											},
@@ -702,15 +838,17 @@
 												"types": [
 													{
 														"type": "reference",
-														"name": "Array",
 														"typeArguments": [
 															{
 																"type": "union",
 																"types": [
 																	{
-																		"type": "reference",
-																		"name": "Layout",
-																		"id": 93
+																		"type": "query",
+																		"queryType": {
+																			"type": "reference",
+																			"id": 93,
+																			"name": "Layout"
+																		}
 																	},
 																	{
 																		"type": "intrinsic",
@@ -718,7 +856,8 @@
 																	}
 																]
 															}
-														]
+														],
+														"name": "Array"
 													},
 													{
 														"type": "intrinsic",
@@ -730,8 +869,8 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "Vnode",
-										"id": 3
+										"id": 3,
+										"name": "Vnode"
 									}
 								}
 							],
@@ -757,7 +896,9 @@
 									"name": "view",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "lays out the component in `components` according to the configuration in `attrs`.\nThe method returns a vnode container that has an associated `cssClass` style.\n`layout` is called during the `render` phase of the `mithril` lifecycle,\nwhich ensures an outside-in calling sequence on containers;\ni.e. the outermost containers are called first, and `node` will already have the\n`style` field set with required style attributes.\nThese are added to any `attrs` parameter provided.",
 										"text": "The format for the layout configuration in `attrs` is <code>\n{<keyword>: <parameter>}\n</code>\nwhere `keyword` is the keyword with which the `Layouter` was registered.",
@@ -769,23 +910,25 @@
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "Vnode",
-												"id": 3
+												"id": 3,
+												"name": "Vnode"
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "Vnode",
-										"id": 3
+										"id": 3,
+										"name": "Vnode"
 									},
 									"implementationOf": {
 										"type": "reference",
-										"name": "Component.view",
-										"id": 91
+										"id": 91,
+										"name": "Component.view"
 									}
 								}
 							],
@@ -798,8 +941,8 @@
 							],
 							"implementationOf": {
 								"type": "reference",
-								"name": "Component.view",
-								"id": 90
+								"id": 90,
+								"name": "Component.view"
 							}
 						}
 					],
@@ -832,8 +975,8 @@
 					"implementedTypes": [
 						{
 							"type": "reference",
-							"name": "Component",
-							"id": 89
+							"id": 89,
+							"name": "Component"
 						}
 					]
 				},
@@ -863,25 +1006,29 @@
 									"name": "view",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 92,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "reference",
-												"name": "Vnode",
-												"id": 3
+												"id": 3,
+												"name": "Vnode"
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "Vnode",
-										"id": 3
+										"id": 3,
+										"name": "Vnode"
 									}
 								}
 							],
@@ -913,8 +1060,8 @@
 					"implementedBy": [
 						{
 							"type": "reference",
-							"name": "Layout",
-							"id": 93
+							"id": 93,
+							"name": "Layout"
 						}
 					]
 				},
@@ -937,7 +1084,7 @@
 						"type": "reference",
 						"name": "Log"
 					},
-					"defaultValue": " new Log('Layout')"
+					"defaultValue": "new Log('Layout')"
 				}
 			],
 			"groups": [
@@ -1015,7 +1162,9 @@
 									"name": "new Layouter",
 									"kind": 16384,
 									"kindString": "Constructor signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "Layouter Constructor, will be called by the static `createLayout` method when creating the layout on a {@link hsLayout:view.Layout.Layout `Layout`}.\nThe `areaDesc` parameter is expected to be of the form {<keyword>: {@link hsLayout:view.Tokens.LayoutToken `LayoutToken`}[]}}\nand will be passed through form the `Layout` requesting the layout."
 									},
@@ -1025,7 +1174,9 @@
 											"name": "areaDesc",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"shortText": "\n"
 											},
@@ -1033,16 +1184,16 @@
 												"type": "array",
 												"elementType": {
 													"type": "reference",
-													"name": "LayoutToken",
-													"id": 27
+													"id": 27,
+													"name": "LayoutToken"
 												}
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "Layouter",
-										"id": 65
+										"id": 65,
+										"name": "Layouter"
 									}
 								}
 							],
@@ -1078,8 +1229,8 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"name": "LayoutToken",
-									"id": 27
+									"id": 27,
+									"name": "LayoutToken"
 								}
 							}
 						},
@@ -1130,7 +1281,9 @@
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"children": [
 										{
 											"id": 68,
@@ -1138,6 +1291,7 @@
 											"kind": 32,
 											"kindString": "Variable",
 											"flags": {
+												"isExported": true,
 												"isOptional": true
 											},
 											"sources": [
@@ -1149,8 +1303,8 @@
 											],
 											"type": {
 												"type": "reference",
-												"name": "Layouter",
-												"id": 65
+												"id": 65,
+												"name": "Layouter"
 											}
 										}
 									],
@@ -1189,7 +1343,9 @@
 									"name": "getStyles",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "Calculates the style attributes required for each component in `Components`.\nThese attributes are saved in a `style` field on the component itself.\nDuring rendering these `style` attributes are copied to the `node.attrs.styles` field.\n### Example\n<code>protected getStyles(components:Array<Vnode|Layout>):string {\ncomponents.map((c:Layout|Vnode, i:number) => {\nc.style = `width:auto; height:auto;\n});\nreturn this.cssClass;\n}\n</code>"
 									},
@@ -1199,13 +1355,14 @@
 											"name": "components",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "\n"
 											},
 											"type": {
 												"type": "reference",
-												"name": "Array",
 												"typeArguments": [
 													{
 														"type": "union",
@@ -1216,12 +1373,13 @@
 															},
 															{
 																"type": "reference",
-																"name": "Layout",
-																"id": 93
+																"id": 93,
+																"name": "Layout"
 															}
 														]
 													}
-												]
+												],
+												"name": "Array"
 											}
 										}
 									],
@@ -1255,7 +1413,9 @@
 									"name": "createLayout",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "Lays out the `components` according to the configuration in `attrs`.\nThe method will search for a registered layout key in `attrs`, then construct the `Layouter` associated with the key\nwith the parameters for the key, and call the `getStyles` method on the style with the provided `components`.",
 										"returns": "returns the css class that the `getStyles` function returns.\n"
@@ -1266,7 +1426,9 @@
 											"name": "attrs",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "an object literal, typically provided as middle attributes object in the m(css, {}, '') call."
 											},
@@ -1280,17 +1442,19 @@
 											"name": "components",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {},
 											"type": {
 												"type": "reference",
-												"name": "Array",
 												"typeArguments": [
 													{
 														"type": "reference",
 														"name": "Vnode"
 													}
-												]
+												],
+												"name": "Array"
 											}
 										}
 									],
@@ -1324,7 +1488,9 @@
 									"name": "register",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "Register a new Layouter style with corresponding configuration keyword.\nExample:```\nclass ColumnsLayout extends Layouter {...}\nLayouter.register('Column', Columns);\n```\n@param keyword the keyword used in the attributes to `this.layout`\n@param style the `Layouter` implementation to instantiate when encountering `keyword`"
 									},
@@ -1334,7 +1500,9 @@
 											"name": "keyword",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "string"
@@ -1345,11 +1513,16 @@
 											"name": "style",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
-												"type": "reference",
-												"name": "Layouter",
-												"id": 65
+												"type": "query",
+												"queryType": {
+													"type": "reference",
+													"id": 65,
+													"name": "Layouter"
+												}
 											}
 										}
 									],
@@ -1383,7 +1556,9 @@
 									"name": "translate",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"shortText": "Translates `string` params to {@link hsLayout:view.Tokens.LayoutToken LayoutTokens}.\nThe `params` are expected to either\n- end in 'px'\n- end in '%'\n- be equal to 'fill' (case insensitive)"
 									},
@@ -1393,13 +1568,14 @@
 											"name": "params",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"comment": {
 												"text": "an Array of strings that will be converted to an array of LayourTokens.\n\n"
 											},
 											"type": {
 												"type": "reference",
-												"name": "Array",
 												"typeArguments": [
 													{
 														"type": "union",
@@ -1414,20 +1590,21 @@
 															}
 														]
 													}
-												]
+												],
+												"name": "Array"
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "Array",
 										"typeArguments": [
 											{
 												"type": "reference",
-												"name": "LayoutToken",
-												"id": 27
+												"id": 27,
+												"name": "LayoutToken"
 											}
-										]
+										],
+										"name": "Array"
 									}
 								}
 							],
@@ -1478,13 +1655,13 @@
 					"extendedBy": [
 						{
 							"type": "reference",
-							"name": "PillarLayouter",
-							"id": 112
+							"id": 112,
+							"name": "PillarLayouter"
 						},
 						{
 							"type": "reference",
-							"name": "TileLayouter",
-							"id": 216
+							"id": 217,
+							"name": "TileLayouter"
 						}
 					]
 				}
@@ -1555,21 +1732,21 @@
 												"type": "array",
 												"elementType": {
 													"type": "reference",
-													"name": "LayoutToken",
-													"id": 27
+													"id": 27,
+													"name": "LayoutToken"
 												}
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "Columns",
-										"id": 150
+										"id": 150,
+										"name": "Columns"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "PillarLayouter.__constructor",
-										"id": 121
+										"id": 121,
+										"name": "PillarLayouter.__constructor"
 									}
 								}
 							],
@@ -1582,8 +1759,8 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "PillarLayouter.__constructor",
-								"id": 121
+								"id": 121,
+								"name": "PillarLayouter.__constructor"
 							}
 						},
 						{
@@ -1606,14 +1783,14 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"name": "LayoutToken",
-									"id": 27
+									"id": 27,
+									"name": "LayoutToken"
 								}
 							},
 							"overwrites": {
 								"type": "reference",
-								"name": "PillarLayouter.areaDesc",
-								"id": 122
+								"id": 122,
+								"name": "PillarLayouter.areaDesc"
 							}
 						},
 						{
@@ -1635,8 +1812,8 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "PillarLayouter.cssClass",
-								"id": 120
+								"id": 120,
+								"name": "PillarLayouter.cssClass"
 							}
 						},
 						{
@@ -1661,8 +1838,8 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "PillarLayouter.fields",
-								"id": 119
+								"id": 119,
+								"name": "PillarLayouter.fields"
 							}
 						},
 						{
@@ -1684,8 +1861,8 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "PillarLayouter.firstFixed",
-								"id": 113
+								"id": 113,
+								"name": "PillarLayouter.firstFixed"
 							}
 						},
 						{
@@ -1707,8 +1884,8 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "PillarLayouter.lastFixed",
-								"id": 114
+								"id": 114,
+								"name": "PillarLayouter.lastFixed"
 							}
 						},
 						{
@@ -1731,8 +1908,8 @@
 							"defaultValue": "0",
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Layouter.spacing",
-								"id": 80
+								"id": 80,
+								"name": "Layouter.spacing"
 							}
 						},
 						{
@@ -1780,8 +1957,8 @@
 												"type": "array",
 												"elementType": {
 													"type": "reference",
-													"name": "descriptor",
-													"id": 210
+													"id": 210,
+													"name": "descriptor"
 												}
 											}
 										}
@@ -1797,8 +1974,8 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "PillarLayouter.unit",
-								"id": 115
+								"id": 115,
+								"name": "PillarLayouter.unit"
 							}
 						},
 						{
@@ -1845,8 +2022,8 @@
 											],
 											"type": {
 												"type": "reference",
-												"name": "Layouter",
-												"id": 65
+												"id": 65,
+												"name": "Layouter"
 											}
 										}
 									],
@@ -1870,8 +2047,8 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Layouter.layoutStyles",
-								"id": 66
+								"id": 66,
+								"name": "Layouter.layoutStyles"
 							}
 						},
 						{
@@ -1904,24 +2081,24 @@
 											},
 											"type": {
 												"type": "reference",
-												"name": "Array",
 												"typeArguments": [
 													{
 														"type": "union",
 														"types": [
 															{
 																"type": "reference",
-																"name": "Vnode",
-																"id": 3
+																"id": 3,
+																"name": "Vnode"
 															},
 															{
 																"type": "reference",
-																"name": "Layout",
-																"id": 93
+																"id": 93,
+																"name": "Layout"
 															}
 														]
 													}
-												]
+												],
+												"name": "Array"
 											}
 										}
 									],
@@ -1931,13 +2108,13 @@
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "Layouter.getStyles",
-										"id": 85
+										"id": 85,
+										"name": "Layouter.getStyles"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "PillarLayouter.getStyles",
-										"id": 135
+										"id": 135,
+										"name": "PillarLayouter.getStyles"
 									}
 								}
 							],
@@ -1950,13 +2127,13 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "Layouter.getStyles",
-								"id": 85
+								"id": 85,
+								"name": "Layouter.getStyles"
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "PillarLayouter.getStyles",
-								"id": 135
+								"id": 135,
+								"name": "PillarLayouter.getStyles"
 							}
 						},
 						{
@@ -2003,13 +2180,13 @@
 											"comment": {},
 											"type": {
 												"type": "reference",
-												"name": "Array",
 												"typeArguments": [
 													{
 														"type": "reference",
 														"name": "Vnode"
 													}
-												]
+												],
+												"name": "Array"
 											}
 										}
 									],
@@ -2019,8 +2196,8 @@
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "Layouter.createLayout",
-										"id": 76
+										"id": 76,
+										"name": "Layouter.createLayout"
 									}
 								}
 							],
@@ -2033,8 +2210,8 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Layouter.createLayout",
-								"id": 76
+								"id": 76,
+								"name": "Layouter.createLayout"
 							}
 						},
 						{
@@ -2075,9 +2252,12 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"type": {
-												"type": "reference",
-												"name": "Layouter",
-												"id": 65
+												"type": "query",
+												"queryType": {
+													"type": "reference",
+													"id": 65,
+													"name": "Layouter"
+												}
 											}
 										}
 									],
@@ -2087,8 +2267,8 @@
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "Layouter.register",
-										"id": 72
+										"id": 72,
+										"name": "Layouter.register"
 									}
 								}
 							],
@@ -2101,8 +2281,8 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Layouter.register",
-								"id": 72
+								"id": 72,
+								"name": "Layouter.register"
 							}
 						}
 					],
@@ -2148,8 +2328,8 @@
 					"extendedTypes": [
 						{
 							"type": "reference",
-							"name": "PillarLayouter",
-							"id": 112
+							"id": 112,
+							"name": "PillarLayouter"
 						}
 					]
 				},
@@ -2196,8 +2376,8 @@
 											},
 											"type": {
 												"type": "reference",
-												"name": "PillarParams",
-												"id": 109
+												"id": 109,
+												"name": "PillarParams"
 											}
 										},
 										{
@@ -2213,21 +2393,21 @@
 												"type": "array",
 												"elementType": {
 													"type": "reference",
-													"name": "LayoutToken",
-													"id": 27
+													"id": 27,
+													"name": "LayoutToken"
 												}
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "PillarLayouter",
-										"id": 112
+										"id": 112,
+										"name": "PillarLayouter"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "Layouter.__constructor",
-										"id": 81
+										"id": 81,
+										"name": "Layouter.__constructor"
 									}
 								}
 							],
@@ -2240,8 +2420,8 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "Layouter.__constructor",
-								"id": 81
+								"id": 81,
+								"name": "Layouter.__constructor"
 							}
 						},
 						{
@@ -2267,14 +2447,14 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"name": "LayoutToken",
-									"id": 27
+									"id": 27,
+									"name": "LayoutToken"
 								}
 							},
 							"overwrites": {
 								"type": "reference",
-								"name": "Layouter.areaDesc",
-								"id": 82
+								"id": 82,
+								"name": "Layouter.areaDesc"
 							}
 						},
 						{
@@ -2372,8 +2552,8 @@
 							"defaultValue": "0",
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Layouter.spacing",
-								"id": 80
+								"id": 80,
+								"name": "Layouter.spacing"
 							}
 						},
 						{
@@ -2421,8 +2601,8 @@
 												"type": "array",
 												"elementType": {
 													"type": "reference",
-													"name": "descriptor",
-													"id": 210
+													"id": 210,
+													"name": "descriptor"
 												}
 											}
 										}
@@ -2481,8 +2661,8 @@
 											],
 											"type": {
 												"type": "reference",
-												"name": "Layouter",
-												"id": 65
+												"id": 65,
+												"name": "Layouter"
 											}
 										}
 									],
@@ -2506,8 +2686,8 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Layouter.layoutStyles",
-								"id": 66
+								"id": 66,
+								"name": "Layouter.layoutStyles"
 							}
 						},
 						{
@@ -2549,8 +2729,8 @@
 										"type": "array",
 										"elementType": {
 											"type": "reference",
-											"name": "descriptor",
-											"id": 210
+											"id": 210,
+											"name": "descriptor"
 										}
 									}
 								}
@@ -2593,24 +2773,24 @@
 											},
 											"type": {
 												"type": "reference",
-												"name": "Array",
 												"typeArguments": [
 													{
 														"type": "union",
 														"types": [
 															{
 																"type": "reference",
-																"name": "Vnode",
-																"id": 3
+																"id": 3,
+																"name": "Vnode"
 															},
 															{
 																"type": "reference",
-																"name": "Layout",
-																"id": 93
+																"id": 93,
+																"name": "Layout"
 															}
 														]
 													}
-												]
+												],
+												"name": "Array"
 											}
 										}
 									],
@@ -2620,8 +2800,8 @@
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "Layouter.getStyles",
-										"id": 85
+										"id": 85,
+										"name": "Layouter.getStyles"
 									}
 								}
 							],
@@ -2634,8 +2814,8 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "Layouter.getStyles",
-								"id": 85
+								"id": 85,
+								"name": "Layouter.getStyles"
 							}
 						},
 						{
@@ -2670,8 +2850,8 @@
 										"type": "array",
 										"elementType": {
 											"type": "reference",
-											"name": "descriptor",
-											"id": 210
+											"id": 210,
+											"name": "descriptor"
 										}
 									}
 								}
@@ -2716,8 +2896,8 @@
 										"type": "array",
 										"elementType": {
 											"type": "reference",
-											"name": "descriptor",
-											"id": 210
+											"id": 210,
+											"name": "descriptor"
 										}
 									}
 								}
@@ -2774,13 +2954,13 @@
 											"comment": {},
 											"type": {
 												"type": "reference",
-												"name": "Array",
 												"typeArguments": [
 													{
 														"type": "reference",
 														"name": "Vnode"
 													}
-												]
+												],
+												"name": "Array"
 											}
 										}
 									],
@@ -2790,8 +2970,8 @@
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "Layouter.createLayout",
-										"id": 76
+										"id": 76,
+										"name": "Layouter.createLayout"
 									}
 								}
 							],
@@ -2804,8 +2984,8 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Layouter.createLayout",
-								"id": 76
+								"id": 76,
+								"name": "Layouter.createLayout"
 							}
 						},
 						{
@@ -2846,9 +3026,12 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"type": {
-												"type": "reference",
-												"name": "Layouter",
-												"id": 65
+												"type": "query",
+												"queryType": {
+													"type": "reference",
+													"id": 65,
+													"name": "Layouter"
+												}
 											}
 										}
 									],
@@ -2858,8 +3041,8 @@
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "Layouter.register",
-										"id": 72
+										"id": 72,
+										"name": "Layouter.register"
 									}
 								}
 							],
@@ -2872,8 +3055,8 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Layouter.register",
-								"id": 72
+								"id": 72,
+								"name": "Layouter.register"
 							}
 						}
 					],
@@ -2922,20 +3105,20 @@
 					"extendedTypes": [
 						{
 							"type": "reference",
-							"name": "Layouter",
-							"id": 65
+							"id": 65,
+							"name": "Layouter"
 						}
 					],
 					"extendedBy": [
 						{
 							"type": "reference",
-							"name": "Columns",
-							"id": 150
+							"id": 150,
+							"name": "Columns"
 						},
 						{
 							"type": "reference",
-							"name": "Rows",
-							"id": 178
+							"id": 178,
+							"name": "Rows"
 						}
 					]
 				},
@@ -2974,21 +3157,21 @@
 												"type": "array",
 												"elementType": {
 													"type": "reference",
-													"name": "LayoutToken",
-													"id": 27
+													"id": 27,
+													"name": "LayoutToken"
 												}
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "Rows",
-										"id": 178
+										"id": 178,
+										"name": "Rows"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "PillarLayouter.__constructor",
-										"id": 121
+										"id": 121,
+										"name": "PillarLayouter.__constructor"
 									}
 								}
 							],
@@ -3001,8 +3184,8 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "PillarLayouter.__constructor",
-								"id": 121
+								"id": 121,
+								"name": "PillarLayouter.__constructor"
 							}
 						},
 						{
@@ -3025,14 +3208,14 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"name": "LayoutToken",
-									"id": 27
+									"id": 27,
+									"name": "LayoutToken"
 								}
 							},
 							"overwrites": {
 								"type": "reference",
-								"name": "PillarLayouter.areaDesc",
-								"id": 122
+								"id": 122,
+								"name": "PillarLayouter.areaDesc"
 							}
 						},
 						{
@@ -3054,8 +3237,8 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "PillarLayouter.cssClass",
-								"id": 120
+								"id": 120,
+								"name": "PillarLayouter.cssClass"
 							}
 						},
 						{
@@ -3080,8 +3263,8 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "PillarLayouter.fields",
-								"id": 119
+								"id": 119,
+								"name": "PillarLayouter.fields"
 							}
 						},
 						{
@@ -3103,8 +3286,8 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "PillarLayouter.firstFixed",
-								"id": 113
+								"id": 113,
+								"name": "PillarLayouter.firstFixed"
 							}
 						},
 						{
@@ -3126,8 +3309,8 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "PillarLayouter.lastFixed",
-								"id": 114
+								"id": 114,
+								"name": "PillarLayouter.lastFixed"
 							}
 						},
 						{
@@ -3150,8 +3333,8 @@
 							"defaultValue": "0",
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Layouter.spacing",
-								"id": 80
+								"id": 80,
+								"name": "Layouter.spacing"
 							}
 						},
 						{
@@ -3199,8 +3382,8 @@
 												"type": "array",
 												"elementType": {
 													"type": "reference",
-													"name": "descriptor",
-													"id": 210
+													"id": 210,
+													"name": "descriptor"
 												}
 											}
 										}
@@ -3216,8 +3399,8 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "PillarLayouter.unit",
-								"id": 115
+								"id": 115,
+								"name": "PillarLayouter.unit"
 							}
 						},
 						{
@@ -3264,8 +3447,8 @@
 											],
 											"type": {
 												"type": "reference",
-												"name": "Layouter",
-												"id": 65
+												"id": 65,
+												"name": "Layouter"
 											}
 										}
 									],
@@ -3289,8 +3472,8 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Layouter.layoutStyles",
-								"id": 66
+								"id": 66,
+								"name": "Layouter.layoutStyles"
 							}
 						},
 						{
@@ -3323,24 +3506,24 @@
 											},
 											"type": {
 												"type": "reference",
-												"name": "Array",
 												"typeArguments": [
 													{
 														"type": "union",
 														"types": [
 															{
 																"type": "reference",
-																"name": "Vnode",
-																"id": 3
+																"id": 3,
+																"name": "Vnode"
 															},
 															{
 																"type": "reference",
-																"name": "Layout",
-																"id": 93
+																"id": 93,
+																"name": "Layout"
 															}
 														]
 													}
-												]
+												],
+												"name": "Array"
 											}
 										}
 									],
@@ -3350,13 +3533,13 @@
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "Layouter.getStyles",
-										"id": 85
+										"id": 85,
+										"name": "Layouter.getStyles"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "PillarLayouter.getStyles",
-										"id": 135
+										"id": 135,
+										"name": "PillarLayouter.getStyles"
 									}
 								}
 							],
@@ -3369,13 +3552,13 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "Layouter.getStyles",
-								"id": 85
+								"id": 85,
+								"name": "Layouter.getStyles"
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "PillarLayouter.getStyles",
-								"id": 135
+								"id": 135,
+								"name": "PillarLayouter.getStyles"
 							}
 						},
 						{
@@ -3422,13 +3605,13 @@
 											"comment": {},
 											"type": {
 												"type": "reference",
-												"name": "Array",
 												"typeArguments": [
 													{
 														"type": "reference",
 														"name": "Vnode"
 													}
-												]
+												],
+												"name": "Array"
 											}
 										}
 									],
@@ -3438,8 +3621,8 @@
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "Layouter.createLayout",
-										"id": 76
+										"id": 76,
+										"name": "Layouter.createLayout"
 									}
 								}
 							],
@@ -3452,8 +3635,8 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Layouter.createLayout",
-								"id": 76
+								"id": 76,
+								"name": "Layouter.createLayout"
 							}
 						},
 						{
@@ -3494,9 +3677,12 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"type": {
-												"type": "reference",
-												"name": "Layouter",
-												"id": 65
+												"type": "query",
+												"queryType": {
+													"type": "reference",
+													"id": 65,
+													"name": "Layouter"
+												}
 											}
 										}
 									],
@@ -3506,8 +3692,8 @@
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "Layouter.register",
-										"id": 72
+										"id": 72,
+										"name": "Layouter.register"
 									}
 								}
 							],
@@ -3520,8 +3706,8 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Layouter.register",
-								"id": 72
+								"id": 72,
+								"name": "Layouter.register"
 							}
 						}
 					],
@@ -3567,8 +3753,8 @@
 					"extendedTypes": [
 						{
 							"type": "reference",
-							"name": "PillarLayouter",
-							"id": 112
+							"id": 112,
+							"name": "PillarLayouter"
 						}
 					]
 				},
@@ -3694,8 +3880,21 @@
 										}
 									],
 									"type": {
-										"type": "reference",
-										"name": "__type"
+										"type": "reflection",
+										"declaration": {
+											"id": 215,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "view/PillaredLayouter.ts",
+													"line": 81,
+													"character": 52
+												}
+											]
+										}
 									}
 								},
 								{
@@ -3764,7 +3963,7 @@
 							"name": "string"
 						}
 					},
-					"defaultValue": " [\n    'columns', 'rows'\n]"
+					"defaultValue": "[\n    'columns', 'rows'\n]"
 				},
 				{
 					"id": 207,
@@ -3793,10 +3992,10 @@
 							],
 							"type": {
 								"type": "reference",
-								"name": "PillarParams",
-								"id": 109
+								"id": 109,
+								"name": "PillarParams"
 							},
-							"defaultValue": " <PillarParams>{\n        cssClass: '.hs-column-layout',\n        fields: ['top', 'bottom', 'left', 'right', 'height', 'width']\n    }"
+							"defaultValue": "<PillarParams>{\n        cssClass: '.hs-column-layout',\n        fields: ['top', 'bottom', 'left', 'right', 'height', 'width']\n    }"
 						},
 						{
 							"id": 209,
@@ -3813,10 +4012,10 @@
 							],
 							"type": {
 								"type": "reference",
-								"name": "PillarParams",
-								"id": 109
+								"id": 109,
+								"name": "PillarParams"
 							},
-							"defaultValue": " <PillarParams>{\n        cssClass: '.hs-row-layout',\n        fields: ['left', 'right', 'top', 'bottom', 'width', 'height']\n    }"
+							"defaultValue": "<PillarParams>{\n        cssClass: '.hs-row-layout',\n        fields: ['left', 'right', 'top', 'bottom', 'width', 'height']\n    }"
 						}
 					],
 					"groups": [
@@ -3890,7 +4089,7 @@
 			]
 		},
 		{
-			"id": 215,
+			"id": 216,
 			"name": "\"view/TileLayouter\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -3904,7 +4103,7 @@
 			},
 			"children": [
 				{
-					"id": 216,
+					"id": 217,
 					"name": "TileLayouter",
 					"kind": 128,
 					"kindString": "Class",
@@ -3912,7 +4111,7 @@
 					"comment": {},
 					"children": [
 						{
-							"id": 219,
+							"id": 220,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -3922,7 +4121,7 @@
 							},
 							"signatures": [
 								{
-									"id": 221,
+									"id": 222,
 									"name": "new TileLayouter",
 									"kind": 16384,
 									"kindString": "Constructor signature",
@@ -3932,7 +4131,7 @@
 									},
 									"parameters": [
 										{
-											"id": 222,
+											"id": 223,
 											"name": "areaDesc",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -3944,21 +4143,21 @@
 												"type": "array",
 												"elementType": {
 													"type": "reference",
-													"name": "LayoutToken",
-													"id": 27
+													"id": 27,
+													"name": "LayoutToken"
 												}
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "TileLayouter",
-										"id": 216
+										"id": 217,
+										"name": "TileLayouter"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "Layouter.__constructor",
-										"id": 81
+										"id": 81,
+										"name": "Layouter.__constructor"
 									}
 								}
 							],
@@ -3971,12 +4170,12 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "Layouter.__constructor",
-								"id": 81
+								"id": 81,
+								"name": "Layouter.__constructor"
 							}
 						},
 						{
-							"id": 220,
+							"id": 221,
 							"name": "areaDesc",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3998,18 +4197,18 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"name": "LayoutToken",
-									"id": 27
+									"id": 27,
+									"name": "LayoutToken"
 								}
 							},
 							"overwrites": {
 								"type": "reference",
-								"name": "Layouter.areaDesc",
-								"id": 82
+								"id": 82,
+								"name": "Layouter.areaDesc"
 							}
 						},
 						{
-							"id": 217,
+							"id": 218,
 							"name": "cssClass",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4027,7 +4226,7 @@
 							}
 						},
 						{
-							"id": 243,
+							"id": 244,
 							"name": "spacing",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4046,12 +4245,12 @@
 							"defaultValue": "0",
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Layouter.spacing",
-								"id": 80
+								"id": 80,
+								"name": "Layouter.spacing"
 							}
 						},
 						{
-							"id": 218,
+							"id": 219,
 							"name": "unit",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4069,7 +4268,7 @@
 							}
 						},
 						{
-							"id": 232,
+							"id": 233,
 							"name": "layoutStyles",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4089,14 +4288,14 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 233,
+									"id": 234,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"children": [
 										{
-											"id": 234,
+											"id": 235,
 											"name": "string",
 											"kind": 32,
 											"kindString": "Variable",
@@ -4112,8 +4311,8 @@
 											],
 											"type": {
 												"type": "reference",
-												"name": "Layouter",
-												"id": 65
+												"id": 65,
+												"name": "Layouter"
 											}
 										}
 									],
@@ -4122,7 +4321,7 @@
 											"title": "Variables",
 											"kind": 32,
 											"children": [
-												234
+												235
 											]
 										}
 									],
@@ -4137,12 +4336,12 @@
 							},
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Layouter.layoutStyles",
-								"id": 66
+								"id": 66,
+								"name": "Layouter.layoutStyles"
 							}
 						},
 						{
-							"id": 229,
+							"id": 230,
 							"name": "getStyles",
 							"kind": 2048,
 							"kindString": "Method",
@@ -4151,7 +4350,7 @@
 							},
 							"signatures": [
 								{
-									"id": 230,
+									"id": 231,
 									"name": "getStyles",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -4161,7 +4360,7 @@
 									},
 									"parameters": [
 										{
-											"id": 231,
+											"id": 232,
 											"name": "components",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4171,24 +4370,24 @@
 											},
 											"type": {
 												"type": "reference",
-												"name": "Array",
 												"typeArguments": [
 													{
 														"type": "union",
 														"types": [
 															{
 																"type": "reference",
-																"name": "Vnode",
-																"id": 3
+																"id": 3,
+																"name": "Vnode"
 															},
 															{
 																"type": "reference",
-																"name": "Layout",
-																"id": 93
+																"id": 93,
+																"name": "Layout"
 															}
 														]
 													}
-												]
+												],
+												"name": "Array"
 											}
 										}
 									],
@@ -4198,8 +4397,8 @@
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "Layouter.getStyles",
-										"id": 85
+										"id": 85,
+										"name": "Layouter.getStyles"
 									}
 								}
 							],
@@ -4212,12 +4411,12 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "Layouter.getStyles",
-								"id": 85
+								"id": 85,
+								"name": "Layouter.getStyles"
 							}
 						},
 						{
-							"id": 223,
+							"id": 224,
 							"name": "unitPercent",
 							"kind": 2048,
 							"kindString": "Method",
@@ -4226,14 +4425,14 @@
 							},
 							"signatures": [
 								{
-									"id": 224,
+									"id": 225,
 									"name": "unitPercent",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 225,
+											"id": 226,
 											"name": "num",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4262,7 +4461,7 @@
 							]
 						},
 						{
-							"id": 226,
+							"id": 227,
 							"name": "unitPixel",
 							"kind": 2048,
 							"kindString": "Method",
@@ -4271,14 +4470,14 @@
 							},
 							"signatures": [
 								{
-									"id": 227,
+									"id": 228,
 									"name": "unitPixel",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 228,
+											"id": 229,
 											"name": "num",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4307,7 +4506,7 @@
 							]
 						},
 						{
-							"id": 239,
+							"id": 240,
 							"name": "createLayout",
 							"kind": 2048,
 							"kindString": "Method",
@@ -4317,7 +4516,7 @@
 							},
 							"signatures": [
 								{
-									"id": 240,
+									"id": 241,
 									"name": "createLayout",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -4328,7 +4527,7 @@
 									},
 									"parameters": [
 										{
-											"id": 241,
+											"id": 242,
 											"name": "attrs",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4342,7 +4541,7 @@
 											}
 										},
 										{
-											"id": 242,
+											"id": 243,
 											"name": "components",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4350,13 +4549,13 @@
 											"comment": {},
 											"type": {
 												"type": "reference",
-												"name": "Array",
 												"typeArguments": [
 													{
 														"type": "reference",
 														"name": "Vnode"
 													}
-												]
+												],
+												"name": "Array"
 											}
 										}
 									],
@@ -4366,8 +4565,8 @@
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "Layouter.createLayout",
-										"id": 76
+										"id": 76,
+										"name": "Layouter.createLayout"
 									}
 								}
 							],
@@ -4380,12 +4579,12 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Layouter.createLayout",
-								"id": 76
+								"id": 76,
+								"name": "Layouter.createLayout"
 							}
 						},
 						{
-							"id": 235,
+							"id": 236,
 							"name": "register",
 							"kind": 2048,
 							"kindString": "Method",
@@ -4395,7 +4594,7 @@
 							},
 							"signatures": [
 								{
-									"id": 236,
+									"id": 237,
 									"name": "register",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -4405,7 +4604,7 @@
 									},
 									"parameters": [
 										{
-											"id": 237,
+											"id": 238,
 											"name": "keyword",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4416,15 +4615,18 @@
 											}
 										},
 										{
-											"id": 238,
+											"id": 239,
 											"name": "style",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
 											"type": {
-												"type": "reference",
-												"name": "Layouter",
-												"id": 65
+												"type": "query",
+												"queryType": {
+													"type": "reference",
+													"id": 65,
+													"name": "Layouter"
+												}
 											}
 										}
 									],
@@ -4434,8 +4636,8 @@
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "Layouter.register",
-										"id": 72
+										"id": 72,
+										"name": "Layouter.register"
 									}
 								}
 							],
@@ -4448,8 +4650,8 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "Layouter.register",
-								"id": 72
+								"id": 72,
+								"name": "Layouter.register"
 							}
 						}
 					],
@@ -4458,29 +4660,29 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								219
+								220
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								220,
-								217,
-								243,
+								221,
 								218,
-								232
+								244,
+								219,
+								233
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								229,
-								223,
-								226,
-								239,
-								235
+								230,
+								224,
+								227,
+								240,
+								236
 							]
 						}
 					],
@@ -4494,13 +4696,13 @@
 					"extendedTypes": [
 						{
 							"type": "reference",
-							"name": "Layouter",
-							"id": 65
+							"id": 65,
+							"name": "Layouter"
 						}
 					]
 				},
 				{
-					"id": 244,
+					"id": 245,
 					"name": "descriptor",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -4515,14 +4717,14 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 245,
+							"id": 246,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"children": [
 								{
-									"id": 249,
+									"id": 250,
 									"name": "bottom",
 									"kind": 32,
 									"kindString": "Variable",
@@ -4540,7 +4742,7 @@
 									}
 								},
 								{
-									"id": 251,
+									"id": 252,
 									"name": "height",
 									"kind": 32,
 									"kindString": "Variable",
@@ -4558,7 +4760,7 @@
 									}
 								},
 								{
-									"id": 247,
+									"id": 248,
 									"name": "left",
 									"kind": 32,
 									"kindString": "Variable",
@@ -4576,7 +4778,7 @@
 									}
 								},
 								{
-									"id": 248,
+									"id": 249,
 									"name": "right",
 									"kind": 32,
 									"kindString": "Variable",
@@ -4594,7 +4796,7 @@
 									}
 								},
 								{
-									"id": 246,
+									"id": 247,
 									"name": "top",
 									"kind": 32,
 									"kindString": "Variable",
@@ -4612,7 +4814,7 @@
 									}
 								},
 								{
-									"id": 250,
+									"id": 251,
 									"name": "width",
 									"kind": 32,
 									"kindString": "Variable",
@@ -4635,12 +4837,12 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										249,
-										251,
-										247,
+										250,
+										252,
 										248,
-										246,
-										250
+										249,
+										247,
+										251
 									]
 								}
 							],
@@ -4660,14 +4862,14 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						216
+						217
 					]
 				},
 				{
 					"title": "Type aliases",
 					"kind": 4194304,
 					"children": [
-						244
+						245
 					]
 				}
 			],
@@ -4719,14 +4921,18 @@
 									"name": "new DefinedToken",
 									"kind": 16384,
 									"kindString": "Constructor signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 37,
 											"name": "size",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "number"
@@ -4735,13 +4941,13 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "DefinedToken",
-										"id": 34
+										"id": 34,
+										"name": "DefinedToken"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "LayoutToken.__constructor",
-										"id": 28
+										"id": 28,
+										"name": "LayoutToken.__constructor"
 									}
 								}
 							],
@@ -4754,8 +4960,8 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "LayoutToken.__constructor",
-								"id": 28
+								"id": 28,
+								"name": "LayoutToken.__constructor"
 							}
 						},
 						{
@@ -4773,15 +4979,17 @@
 									"name": "getSize",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "number"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "LayoutToken.getSize",
-										"id": 32
+										"id": 32,
+										"name": "LayoutToken.getSize"
 									}
 								}
 							],
@@ -4794,8 +5002,8 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "LayoutToken.getSize",
-								"id": 32
+								"id": 32,
+								"name": "LayoutToken.getSize"
 							}
 						}
 					],
@@ -4825,20 +5033,20 @@
 					"extendedTypes": [
 						{
 							"type": "reference",
-							"name": "LayoutToken",
-							"id": 27
+							"id": 27,
+							"name": "LayoutToken"
 						}
 					],
 					"extendedBy": [
 						{
 							"type": "reference",
-							"name": "PixelToken",
-							"id": 45
+							"id": 45,
+							"name": "PixelToken"
 						},
 						{
 							"type": "reference",
-							"name": "PercentToken",
-							"id": 51
+							"id": 51,
+							"name": "PercentToken"
 						}
 					]
 				},
@@ -4868,16 +5076,18 @@
 									"name": "new FillToken",
 									"kind": 16384,
 									"kindString": "Constructor signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "reference",
-										"name": "FillToken",
-										"id": 40
+										"id": 40,
+										"name": "FillToken"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "LayoutToken.__constructor",
-										"id": 28
+										"id": 28,
+										"name": "LayoutToken.__constructor"
 									}
 								}
 							],
@@ -4890,8 +5100,8 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "LayoutToken.__constructor",
-								"id": 28
+								"id": 28,
+								"name": "LayoutToken.__constructor"
 							}
 						},
 						{
@@ -4909,15 +5119,17 @@
 									"name": "getSize",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "number"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "LayoutToken.getSize",
-										"id": 32
+										"id": 32,
+										"name": "LayoutToken.getSize"
 									}
 								}
 							],
@@ -4930,8 +5142,8 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "LayoutToken.getSize",
-								"id": 32
+								"id": 32,
+								"name": "LayoutToken.getSize"
 							}
 						}
 					],
@@ -4961,8 +5173,8 @@
 					"extendedTypes": [
 						{
 							"type": "reference",
-							"name": "LayoutToken",
-							"id": 27
+							"id": 27,
+							"name": "LayoutToken"
 						}
 					]
 				},
@@ -4993,14 +5205,18 @@
 									"name": "new LayoutToken",
 									"kind": 16384,
 									"kindString": "Constructor signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 31,
 											"name": "size",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "number"
@@ -5009,8 +5225,8 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "LayoutToken",
-										"id": 27
+										"id": 27,
+										"name": "LayoutToken"
 									}
 								}
 							],
@@ -5059,7 +5275,9 @@
 									"name": "getSize",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "number"
@@ -5108,13 +5326,13 @@
 					"extendedBy": [
 						{
 							"type": "reference",
-							"name": "DefinedToken",
-							"id": 34
+							"id": 34,
+							"name": "DefinedToken"
 						},
 						{
 							"type": "reference",
-							"name": "FillToken",
-							"id": 40
+							"id": 40,
+							"name": "FillToken"
 						}
 					]
 				},
@@ -5144,14 +5362,18 @@
 									"name": "new PercentToken",
 									"kind": 16384,
 									"kindString": "Constructor signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 54,
 											"name": "size",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "number"
@@ -5160,13 +5382,13 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "PercentToken",
-										"id": 51
+										"id": 51,
+										"name": "PercentToken"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "DefinedToken.__constructor",
-										"id": 35
+										"id": 35,
+										"name": "DefinedToken.__constructor"
 									}
 								}
 							],
@@ -5179,8 +5401,8 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "DefinedToken.__constructor",
-								"id": 35
+								"id": 35,
+								"name": "DefinedToken.__constructor"
 							}
 						},
 						{
@@ -5198,15 +5420,17 @@
 									"name": "getSize",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "number"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "LayoutToken.getSize",
-										"id": 32
+										"id": 32,
+										"name": "LayoutToken.getSize"
 									}
 								}
 							],
@@ -5219,8 +5443,8 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "LayoutToken.getSize",
-								"id": 32
+								"id": 32,
+								"name": "LayoutToken.getSize"
 							}
 						}
 					],
@@ -5250,8 +5474,8 @@
 					"extendedTypes": [
 						{
 							"type": "reference",
-							"name": "DefinedToken",
-							"id": 34
+							"id": 34,
+							"name": "DefinedToken"
 						}
 					]
 				},
@@ -5281,14 +5505,18 @@
 									"name": "new PixelToken",
 									"kind": 16384,
 									"kindString": "Constructor signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"parameters": [
 										{
 											"id": 48,
 											"name": "size",
 											"kind": 32768,
 											"kindString": "Parameter",
-											"flags": {},
+											"flags": {
+												"isExported": true
+											},
 											"type": {
 												"type": "intrinsic",
 												"name": "number"
@@ -5297,13 +5525,13 @@
 									],
 									"type": {
 										"type": "reference",
-										"name": "PixelToken",
-										"id": 45
+										"id": 45,
+										"name": "PixelToken"
 									},
 									"overwrites": {
 										"type": "reference",
-										"name": "DefinedToken.__constructor",
-										"id": 35
+										"id": 35,
+										"name": "DefinedToken.__constructor"
 									}
 								}
 							],
@@ -5316,8 +5544,8 @@
 							],
 							"overwrites": {
 								"type": "reference",
-								"name": "DefinedToken.__constructor",
-								"id": 35
+								"id": 35,
+								"name": "DefinedToken.__constructor"
 							}
 						},
 						{
@@ -5335,15 +5563,17 @@
 									"name": "getSize",
 									"kind": 4096,
 									"kindString": "Call signature",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"type": {
 										"type": "intrinsic",
 										"name": "number"
 									},
 									"inheritedFrom": {
 										"type": "reference",
-										"name": "LayoutToken.getSize",
-										"id": 32
+										"id": 32,
+										"name": "LayoutToken.getSize"
 									}
 								}
 							],
@@ -5356,8 +5586,8 @@
 							],
 							"inheritedFrom": {
 								"type": "reference",
-								"name": "LayoutToken.getSize",
-								"id": 32
+								"id": 32,
+								"name": "LayoutToken.getSize"
 							}
 						}
 					],
@@ -5387,8 +5617,8 @@
 					"extendedTypes": [
 						{
 							"type": "reference",
-							"name": "DefinedToken",
-							"id": 34
+							"id": 34,
+							"name": "DefinedToken"
 						}
 					]
 				},
@@ -5413,10 +5643,10 @@
 					],
 					"type": {
 						"type": "reference",
-						"name": "FillToken",
-						"id": 40
+						"id": 40,
+						"name": "FillToken"
 					},
-					"defaultValue": " new FillToken()"
+					"defaultValue": "new FillToken()"
 				},
 				{
 					"id": 60,
@@ -5432,7 +5662,9 @@
 							"name": "pc",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"comment": {
 								"shortText": "A convenience function that returns a defined percent-sized token"
 							},
@@ -5442,7 +5674,9 @@
 									"name": "pc",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"text": "the percentage in the token\n"
 									},
@@ -5454,8 +5688,8 @@
 							],
 							"type": {
 								"type": "reference",
-								"name": "PercentToken",
-								"id": 51
+								"id": 51,
+								"name": "PercentToken"
 							}
 						}
 					],
@@ -5481,7 +5715,9 @@
 							"name": "px",
 							"kind": 4096,
 							"kindString": "Call signature",
-							"flags": {},
+							"flags": {
+								"isExported": true
+							},
 							"comment": {
 								"shortText": "A convenience function that returns a defined pixel-sized token"
 							},
@@ -5491,7 +5727,9 @@
 									"name": "px",
 									"kind": 32768,
 									"kindString": "Parameter",
-									"flags": {},
+									"flags": {
+										"isExported": true
+									},
 									"comment": {
 										"text": "the number of pixels in the token\n"
 									},
@@ -5503,8 +5741,8 @@
 							],
 							"type": {
 								"type": "reference",
-								"name": "PixelToken",
-								"id": 45
+								"id": 45,
+								"name": "PixelToken"
 							}
 						}
 					],
@@ -5560,13 +5798,13 @@
 			"kind": 1,
 			"children": [
 				4,
-				252,
-				1,
 				253,
+				1,
+				264,
 				88,
 				64,
 				108,
-				215,
+				216,
 				26
 			]
 		}
