@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">89.19% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>33/33</span>
+                <span class='fraction'>33/37</span>
             </div>
         
             
@@ -37,9 +37,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">63.64% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>7/11</span>
             </div>
         
             
@@ -536,7 +536,7 @@ function translate(config:any, subcfg:any, context:any[]) {
         const content = translate(config, subcfg[opt], context); 
         // if a class resolution exists:
         if (cl) { 
-            log.debug(`resolved class '${opt}' to ${log.inspect(cl, 1)}`);
+            log.debug(<span class="fstat-no" title="function not covered" >()=</span>&gt;<span class="cstat-no" title="statement not covered" >`resolved class '${opt}' to ${log.inspect(cl, {depth:1})}`)</span>;
             const r = {
                 compClass:cl,   // Component class
                 attrs:content   // attributes passed to the Component class
@@ -548,7 +548,7 @@ function translate(config:any, subcfg:any, context:any[]) {
         // otherwise, if no class resolution exists:
         else { 
             if (isNaN(parseInt(opt))) {
-                log.debug(`resolved direct '${opt}' to ${log.inspect(content, 0)}`);
+                log.debug(<span class="fstat-no" title="function not covered" >()=</span>&gt;<span class="cstat-no" title="statement not covered" >`resolved direct '${opt}' to ${log.inspect(content)}`)</span>;
             }
             result[opt] = content; 
         }
@@ -565,10 +565,10 @@ function translate(config:any, subcfg:any, context:any[]) {
  * @return the resolved Class, or `undefined`.
  */
 function resolve(sym:string, context:any[]) {
-    log.debug(`resolving ${sym} in context '${log.inspect(context,0)}'`);
+    log.debug(<span class="fstat-no" title="function not covered" >()=</span>&gt;<span class="cstat-no" title="statement not covered" >`resolving ${sym} in context '${log.inspect(context)}'`)</span>;
     let cl:any;
     context.some((c:any) =&gt;  cl = c[sym]);
-    log.debug(`resolving ${sym} =&gt; ${log.inspect(cl,0)}`);
+    log.debug(<span class="fstat-no" title="function not covered" >()=</span>&gt;<span class="cstat-no" title="statement not covered" >`resolving ${sym} =&gt; ${log.inspect(cl)}`)</span>;
     return cl;
 }
 &nbsp;

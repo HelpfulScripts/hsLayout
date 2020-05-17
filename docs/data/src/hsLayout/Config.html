@@ -156,7 +156,7 @@
 <p id=133 class="line"><span>&nbsp;133</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;content&nbsp;=&nbsp;translate(config,&nbsp;subcfg[opt],&nbsp;context);&nbsp;</p>
 <p id=134 class="line"><span>&nbsp;134</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<comment>//&nbsp;if&nbsp;a&nbsp;class&nbsp;resolution&nbsp;exists:</comment></p>
 <p id=135 class="line"><span>&nbsp;135</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(cl)&nbsp;{&nbsp;</p>
-<p id=136 class="line"><span>&nbsp;136</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.debug(`resolved&nbsp;class&nbsp;<quote>'${opt}'</quote>&nbsp;to&nbsp;${log.inspect(cl,&nbsp;1)}`);</p>
+<p id=136 class="line"><span>&nbsp;136</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.debug(()=>`resolved&nbsp;class&nbsp;<quote>'${opt}'</quote>&nbsp;to&nbsp;${log.inspect(cl,&nbsp;{depth:1})}`);</p>
 <p id=137 class="line"><span>&nbsp;137</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;r&nbsp;=&nbsp;{</p>
 <p id=138 class="line"><span>&nbsp;138</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;compClass:cl,&nbsp;&nbsp;&nbsp;<comment>//&nbsp;Component&nbsp;class</comment></p>
 <p id=139 class="line"><span>&nbsp;139</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attrs:content&nbsp;&nbsp;&nbsp;<comment>//&nbsp;attributes&nbsp;passed&nbsp;to&nbsp;the&nbsp;Component&nbsp;class</comment></p>
@@ -168,7 +168,7 @@
 <p id=145 class="line"><span>&nbsp;145</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<comment>//&nbsp;otherwise,&nbsp;if&nbsp;no&nbsp;class&nbsp;resolution&nbsp;exists:</comment></p>
 <p id=146 class="line"><span>&nbsp;146</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;{&nbsp;</p>
 <p id=147 class="line"><span>&nbsp;147</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(isNaN(parseInt(opt)))&nbsp;{</p>
-<p id=148 class="line"><span>&nbsp;148</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.debug(`resolved&nbsp;direct&nbsp;<quote>'${opt}'</quote>&nbsp;to&nbsp;${log.inspect(content,&nbsp;0)}`);</p>
+<p id=148 class="line"><span>&nbsp;148</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.debug(()=>`resolved&nbsp;direct&nbsp;<quote>'${opt}'</quote>&nbsp;to&nbsp;${log.inspect(content)}`);</p>
 <p id=149 class="line"><span>&nbsp;149</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
 <p id=150 class="line"><span>&nbsp;150</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result[opt]&nbsp;=&nbsp;content;&nbsp;</p>
 <p id=151 class="line"><span>&nbsp;151</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
@@ -185,10 +185,10 @@
 <p id=162 class="line"><span>&nbsp;162</span><comment>&nbsp;*&nbsp;@return&nbsp;the&nbsp;resolved&nbsp;Class,&nbsp;or&nbsp;`undefined`.</comment></p>
 <p id=163 class="line"><span>&nbsp;163</span><comment>&nbsp;*/</comment></p>
 <p id=164 class="line"><span>&nbsp;164</span>function&nbsp;resolve(sym:string,&nbsp;context:any[])&nbsp;{</p>
-<p id=165 class="line"><span>&nbsp;165</span>&nbsp;&nbsp;&nbsp;&nbsp;log.debug(`resolving&nbsp;${sym}&nbsp;in&nbsp;context&nbsp;<quote>'${log.inspect(context,0)}'</quote>`);</p>
+<p id=165 class="line"><span>&nbsp;165</span>&nbsp;&nbsp;&nbsp;&nbsp;log.debug(()=>`resolving&nbsp;${sym}&nbsp;in&nbsp;context&nbsp;<quote>'${log.inspect(context)}'</quote>`);</p>
 <p id=166 class="line"><span>&nbsp;166</span>&nbsp;&nbsp;&nbsp;&nbsp;let&nbsp;cl:any;</p>
 <p id=167 class="line"><span>&nbsp;167</span>&nbsp;&nbsp;&nbsp;&nbsp;context.some((c:any)&nbsp;=>&nbsp;&nbsp;cl&nbsp;=&nbsp;c[sym]);</p>
-<p id=168 class="line"><span>&nbsp;168</span>&nbsp;&nbsp;&nbsp;&nbsp;log.debug(`resolving&nbsp;${sym}&nbsp;=>&nbsp;${log.inspect(cl,0)}`);</p>
+<p id=168 class="line"><span>&nbsp;168</span>&nbsp;&nbsp;&nbsp;&nbsp;log.debug(()=>`resolving&nbsp;${sym}&nbsp;=>&nbsp;${log.inspect(cl)}`);</p>
 <p id=169 class="line"><span>&nbsp;169</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;cl;</p>
 <p id=170 class="line"><span>&nbsp;170</span>}</p>
 <p id=171 class="line"><span>&nbsp;171</span></p>

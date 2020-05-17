@@ -163,7 +163,7 @@ export class Layout implements Component {
         };
         node.attrs.route = undefined;
         if (node.attrs.href) { 
-            log.debug(`href ${node.attrs.href}`);
+            log.debug(()=>`href ${node.attrs.href}`);
             attrs.href = node.attrs.href;
             attrs.target = attrs.target || '_blank';
             attrs.oncreate = m.route.link;

@@ -133,7 +133,7 @@ function translate(config:any, subcfg:any, context:any[]) {
         const content = translate(config, subcfg[opt], context); 
         // if a class resolution exists:
         if (cl) { 
-            log.debug(`resolved class '${opt}' to ${log.inspect(cl, 1)}`);
+            log.debug(()=>`resolved class '${opt}' to ${log.inspect(cl, {depth:1})}`);
             const r = {
                 compClass:cl,   // Component class
                 attrs:content   // attributes passed to the Component class
@@ -145,7 +145,7 @@ function translate(config:any, subcfg:any, context:any[]) {
         // otherwise, if no class resolution exists:
         else { 
             if (isNaN(parseInt(opt))) {
-                log.debug(`resolved direct '${opt}' to ${log.inspect(content, 0)}`);
+                log.debug(()=>`resolved direct '${opt}' to ${log.inspect(content)}`);
             }
             result[opt] = content; 
         }
@@ -162,10 +162,10 @@ function translate(config:any, subcfg:any, context:any[]) {
  * @return the resolved Class, or `undefined`.
  */
 function resolve(sym:string, context:any[]) {
-    log.debug(`resolving ${sym} in context '${log.inspect(context,0)}'`);
+    log.debug(()=>`resolving ${sym} in context '${log.inspect(context)}'`);
     let cl:any;
     context.some((c:any) =>  cl = c[sym]);
-    log.debug(`resolving ${sym} => ${log.inspect(cl,0)}`);
+    log.debug(()=>`resolving ${sym} => ${log.inspect(cl)}`);
     return cl;
 }
 
