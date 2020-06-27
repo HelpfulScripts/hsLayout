@@ -27,34 +27,7 @@ describe("Layout", () => {
   });
 
   it("should be clickable", () => {
-    return expect(cont).toMatchInlineSnapshot(`
-              <div>
-                <a
-                  class="hs-layout  myRow"
-                  href="#!my/link"
-                  target="_blank"
-                >
-                  <div
-                    class="hs-layout  "
-                  >
-                    <div
-                      class="hs-leaf"
-                    >
-                      First: 150px
-                    </div>
-                  </div>
-                  <div
-                    class="hs-layout  "
-                  >
-                    <div
-                      class="hs-leaf"
-                    >
-                      Second: remainder
-                    </div>
-                  </div>
-                </a>
-              </div>
-            `);
+    return expect(cont).toMatchSnapshot();
   });
 });
 
@@ -67,33 +40,6 @@ describe("Layout without params", () => {
   });
 
   it("should be clickable", () => {
-    return expect(cont).toMatchInlineSnapshot(`
-              <div>
-                <a
-                  class="hs-layout  myRow"
-                  href="#!my/link"
-                  target="_blank"
-                >
-                  <div
-                    class="hs-layout  "
-                  >
-                    <div
-                      class="hs-leaf"
-                    >
-                      First: [object Object]
-                    </div>
-                  </div>
-                  <div
-                    class="hs-layout  "
-                  >
-                    <div
-                      class="hs-leaf"
-                    >
-                      Second: remainder
-                    </div>
-                  </div>
-                </a>
-              </div>
-            `);
+    return expect(cont).toMatchSnapshot();
   });
 });

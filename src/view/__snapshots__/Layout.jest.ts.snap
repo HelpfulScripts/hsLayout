@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout should be clickable 1`] = `
+<div>
+  <a
+    class="hs-layout  hs-row-layout myRow"
+    href="#!my/link"
+    target="_blank"
+  >
+    <div
+      class="hs-layout  "
+      style="width: 100%; top: 0px; height: 150px;"
+    >
+      <div
+        class="hs-leaf"
+      >
+        First: 150px
+      </div>
+    </div>
+    <div
+      class="hs-layout  "
+      style="width: 100%; top: 150px; bottom: 0px; height: auto;"
+    >
+      <div
+        class="hs-leaf"
+      >
+        Second: remainder
+      </div>
+    </div>
+  </a>
+</div>
+`;
+
+exports[`Layout without params should be clickable 1`] = `
+<div>
+  <a
+    class="hs-layout  hs-row-layout myRow"
+    href="#!my/link"
+    target="_blank"
+  >
+    <div
+      class="hs-layout  "
+      style="width: 100%; top: 0px; height: 150px;"
+    >
+      <div
+        class="hs-leaf"
+      >
+        First: [object Object]
+      </div>
+    </div>
+    <div
+      class="hs-layout  "
+      style="width: 100%; top: 150px; bottom: 0px; height: auto;"
+    >
+      <div
+        class="hs-leaf"
+      >
+        Second: remainder
+      </div>
+    </div>
+  </a>
+</div>
+`;

@@ -1,5 +1,9 @@
 {
   "name": "hslayout",
+  "sideEffects": [
+    "./bin/view/PillaredLayouter.js",
+    "./bin/view/TileLayouter.js"    
+  ],
   "main": "./index.js",
   "types": "./index.d.ts",
   "version": "2.4.16",
