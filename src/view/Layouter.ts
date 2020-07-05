@@ -7,7 +7,8 @@ Subclasses of `Layouter` should
 */
 
 /** */
-import { Vnode}         from 'mithril';
+import m from "mithril";
+type Vnode = m.Vnode<any, any>;
 import { LayoutToken }  from './Tokens';
 import { Layout }       from './Layout';
 import { px, pc, FILL } from './Tokens';
@@ -68,11 +69,11 @@ export abstract class Layouter {
      * Layouter.register('Column', Columns);
      * ```
      * @param keyword the keyword used in the attributes to `this.layout`
-     * @param style the `Layouter` implementation to instantiate when encountering `keyword` 
+     * @param layouter the `Layouter` implementation to instantiate when encountering `keyword` 
      */
-    public static register(keyword:string, style:typeof Layouter) {
+    public static register(keyword:string, layouter:typeof Layouter) {
 //        console.log(`registering ${keyword} layout`);
-        Layouter.layoutStyles[keyword] = style;
+        Layouter.layoutStyles[keyword] = layouter;
     }
 
     /**

@@ -1,6 +1,6 @@
 import { Layout } from "../";
 import { px } from "../";
-import { m } from "../";
+import m from "mithril";
 
 let cont: any;
 const root = window.document.createElement("div");

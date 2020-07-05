@@ -35,10 +35,12 @@
  */
 
 /** */
-import { m, Vnode } from '../mithril'; 
+import m from "mithril";
+type Vnode = m.Vnode<any, any>;
 import { Layouter } from './Layouter'; 
 import { Log }  from 'hsutil'; const log = new Log('Layout');
 
+type mType = Vnode | Vnode[] | string;
 /**
  * Component interface. 
  * Formalizes the `mithril` requirement for a `view` method.
@@ -90,7 +92,7 @@ export class Layout implements Component {
      * Override this method to create containers that return more sophisticated content.
      * @return a String, a Vnode, or an array of Strings or Vnodes
      */
-    protected getComponents(node:Vnode):Vnode {
+    protected getComponents(node:Vnode):mType {
         return !Array.isArray(node.attrs.content)? node.attrs.content :
             node.attrs.content.map((c:any) => {
                 if (c.compClass) { 
@@ -118,14 +120,15 @@ export class Layout implements Component {
      * - a `string` literal --> interprets the string as trusted HTML and returns a leaf node.
      * - an array of elements, each either a `Layout`, or `string` literal which will be converted to a `Layout`.
      */
-    private normalizeContent(components:Array<typeof Layout|string>|string): Vnode {
+    private normalizeContent(components:mType): Vnode[] {
         if (typeof components === 'string') { 
             return [m('.hs-leaf', m.trust(components))]; 
-        }
-        if (components.length>0) { // an array: ensure elements are Layout components
-            return components.map((comp:string|typeof Layout):Vnode => 
-                (comp instanceof Layout)? comp : m(Layout, {content:comp})
-            );
+        } else if (components instanceof Array) {
+            // if (components.length>0) { // an array: ensure elements are Layout components
+                return components.map((comp:Vnode):Vnode => 
+                    (comp instanceof Layout)? comp : m(Layout, {content:comp})
+                );
+            // }
         }
         // else: assume components is a mithril node: return node as an array
         return [components];
@@ -154,7 +157,7 @@ export class Layout implements Component {
         const content = this.normalizeContent(this.getComponents(node)); // --> Vnode[]
         let css = Layouter.createLayout(node.attrs, content);
         const attrs:any = {
-            style: node.style,
+            // style: node.style,
             route: node.attrs.route,     
             onclick: node.attrs.onclick,
             onmouseenter: node.attrs.onmouseenter,
@@ -166,8 +169,8 @@ export class Layout implements Component {
             log.debug(()=>`href ${node.attrs.href}`);
             attrs.href = node.attrs.href;
             attrs.target = attrs.target || '_blank';
-            attrs.oncreate = m.route.link;
-            attrs.onupdate = m.route.link;
+            attrs.oncreate = m.route.Link;
+            attrs.onupdate = m.route.Link;
             // attrs.onclick = () => window.open(node.attrs.href, '_blank');
             return m(`a.hs-layout ${css} ${this.getCSS(node)}`, attrs, content.map((c:any) => c));
         } else {

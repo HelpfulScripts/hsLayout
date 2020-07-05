@@ -1,4 +1,5 @@
-import { m, Vnode}  from '../mithril';
+import m from "mithril";
+type Vnode = m.Vnode<any, any>;
 import * as hslayout from '../';
 //import * as widgets from '../../hsWidgets/src/';
 

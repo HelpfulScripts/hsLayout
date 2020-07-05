@@ -1,6 +1,6 @@
 import { Config }   from './';
 import * as layout  from './';
-import { m }        from './mithril';
+import m from "mithril";
 
 // const fs = node.fs;
 

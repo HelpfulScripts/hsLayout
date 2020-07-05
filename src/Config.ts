@@ -87,8 +87,9 @@
  */
 
  /** */
-import { m, Vnode }     from './mithril'; 
-import { Log }  from 'hsutil'; const log = new Log('Config'); 
+ import m from "mithril";
+ type Vnode = m.Vnode<any, any>;
+ import { Log }  from 'hsutil'; const log = new Log('Config'); 
 
 /**
  * `Component` class that creates a tree of mithril components out of a configuration obect or file.
@@ -128,7 +129,7 @@ function translate(config:any, subcfg:any, context:any[]) {
     let result = subcfg.length? [] : {};
     // step through options 
     const options = Object.keys(subcfg);
-    options.map((opt:string):Vnode => {
+    options.map((opt:string) => {
         const cl:any = resolve(opt, context);
         const content = translate(config, subcfg[opt], context); 
         // if a class resolution exists:

@@ -40,13 +40,13 @@ The following options are supported for the Attributes array:
  */
 
 /** */
-import { Layout }       from './Layout';
 import { Layouter }     from './Layouter';
 import { LayoutToken, 
          DefinedToken, 
          PixelToken }   from './Tokens';
-import { Vnode}         from '../mithril';
-
+import m from "mithril";
+type Vnode = m.Vnode<any, any>;
+         
 
 
 /**
@@ -219,10 +219,10 @@ abstract class PillarLayouter extends Layouter{
      * During rendering these `styles` attributes are copied to the `node.attrs.styles` field.
      * @param components 
      */
-    protected getStyles(components:Array<Vnode|Layout>):string  { 
+    protected getStyles(components:Vnode[]):string  { 
         let f = this.fields;
         let styles:descriptor[] = this.unit(components.length);
-        components.map((c:Layout|Vnode, i:number) => {
+        components.map((c:any, i:number) => {
             // c.style = `${f[0]}:0%; ${f[1]}:0%; `;
             c.style = `${f[4]}:100%;`;
             Object.keys(styles[i].fields).forEach((st:string) => { c.style += `${st}: ${styles[i].fields[st]};`; });

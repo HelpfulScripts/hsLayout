@@ -1,5 +1,5 @@
 import * as hslayout from "../";
-import { m } from "../mithril";
+import m from "mithril";
 
 let cont: any;
 const root = window.document.createElement("div");

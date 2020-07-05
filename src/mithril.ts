@@ -6,10 +6,7 @@
 /**
  * import and re-export the mithril m objkect
  */
-export const m = require("mithril");
+import _m from "mithril";
 
-/**
- * provide and export a Typescript Vnode type
- */
-export type Vnode = typeof m.Vnode;
-
+export const m = _m;
+export type Vnode = _m.Vnode<any, any>;

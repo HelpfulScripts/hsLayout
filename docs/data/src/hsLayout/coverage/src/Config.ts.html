@@ -229,7 +229,8 @@
 <a name='L170'></a><a href='#L170'>170</a>
 <a name='L171'></a><a href='#L171'>171</a>
 <a name='L172'></a><a href='#L172'>172</a>
-<a name='L173'></a><a href='#L173'>173</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L173'></a><a href='#L173'>173</a>
+<a name='L174'></a><a href='#L174'>174</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -319,6 +320,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -490,8 +492,9 @@
  */
 &nbsp;
  /** */
-import { m, Vnode }     from './mithril'; 
-import { Log }  from 'hsutil'; const log = new Log('Config'); 
+ import m from "mithril";
+ type Vnode = m.Vnode&lt;any, any&gt;;
+ import { Log }  from 'hsutil'; const log = new Log('Config'); 
 &nbsp;
 /**
  * `Component` class that creates a tree of mithril components out of a configuration obect or file.
@@ -531,7 +534,7 @@ function translate(config:any, subcfg:any, context:any[]) {
     let result = subcfg.length? [] : {};
     // step through options 
     const options = Object.keys(subcfg);
-    options.map((opt:string):Vnode =&gt; {
+    options.map((opt:string) =&gt; {
         const cl:any = resolve(opt, context);
         const content = translate(config, subcfg[opt], context); 
         // if a class resolution exists:

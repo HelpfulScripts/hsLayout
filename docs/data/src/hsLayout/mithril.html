@@ -29,13 +29,10 @@
 <p id=6 class="line"><span>&nbsp;&nbsp;&nbsp;6</span><comment>/**</comment></p>
 <p id=7 class="line"><span>&nbsp;&nbsp;&nbsp;7</span><comment>&nbsp;*&nbsp;import&nbsp;and&nbsp;re-export&nbsp;the&nbsp;mithril&nbsp;m&nbsp;objkect</comment></p>
 <p id=8 class="line"><span>&nbsp;&nbsp;&nbsp;8</span><comment>&nbsp;*/</comment></p>
-<p id=9 class="line"><span>&nbsp;&nbsp;&nbsp;9</span>export&nbsp;const&nbsp;m&nbsp;=&nbsp;require(<quote>"mithril"</quote>);</p>
+<p id=9 class="line"><span>&nbsp;&nbsp;&nbsp;9</span>import&nbsp;_m&nbsp;from&nbsp;<quote>"mithril"</quote>;</p>
 <p id=10 class="line"><span>&nbsp;&nbsp;10</span></p>
-<p id=11 class="line"><span>&nbsp;&nbsp;11</span><comment>/**</comment></p>
-<p id=12 class="line"><span>&nbsp;&nbsp;12</span><comment>&nbsp;*&nbsp;provide&nbsp;and&nbsp;export&nbsp;a&nbsp;Typescript&nbsp;Vnode&nbsp;type</comment></p>
-<p id=13 class="line"><span>&nbsp;&nbsp;13</span><comment>&nbsp;*/</comment></p>
-<p id=14 class="line"><span>&nbsp;&nbsp;14</span>export&nbsp;type&nbsp;Vnode&nbsp;=&nbsp;typeof&nbsp;m.Vnode;</p>
-<p id=15 class="line"><span>&nbsp;&nbsp;15</span></p>
-<p id=16 class="line"><span>&nbsp;&nbsp;16</span></p></code></div>
+<p id=11 class="line"><span>&nbsp;&nbsp;11</span>export&nbsp;const&nbsp;m&nbsp;=&nbsp;_m;</p>
+<p id=12 class="line"><span>&nbsp;&nbsp;12</span>export&nbsp;type&nbsp;Vnode&nbsp;=&nbsp;_m.Vnode<any,&nbsp;any>;</p>
+<p id=13 class="line"><span>&nbsp;&nbsp;13</span></p></code></div>
                 </body>
             

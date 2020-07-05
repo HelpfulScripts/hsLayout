@@ -59,14 +59,14 @@ v, w, and h can take on the following vakues:
 
  */
 /** */
-import { Layout }       from './Layout';
 import { Layouter }     from './Layouter';
 import { LayoutToken, 
          FillToken, 
          DefinedToken, 
          PixelToken }   from './Tokens';
-import { Vnode}         from '../mithril';
-
+import m from "mithril";
+type Vnode = m.Vnode<any, any>;
+         
 type descriptor = {top:string, left:string, right:string, bottom:string, width:string, height:string};
 
 /**
@@ -153,9 +153,9 @@ class TileLayouter extends Layouter {
      * During rendering these `styles` attributes are copied to the `node.attrs.styles` field.
      * @param components 
      */
-    protected getStyles(components:Array<Vnode|Layout>):string  { 
+    protected getStyles(components:Vnode[]):string  { 
         let styles = this.unit(components.length);
-        components.map((c:Layout|Vnode, i:number) => {
+        components.map((c:any, i:number) => {
             c.style = styles[i];
         });   
         return '.hs-tile-layout';

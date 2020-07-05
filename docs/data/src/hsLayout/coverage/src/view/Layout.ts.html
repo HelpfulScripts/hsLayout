@@ -234,7 +234,10 @@
 <a name='L175'></a><a href='#L175'>175</a>
 <a name='L176'></a><a href='#L176'>176</a>
 <a name='L177'></a><a href='#L177'>177</a>
-<a name='L178'></a><a href='#L178'>178</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L178'></a><a href='#L178'>178</a>
+<a name='L179'></a><a href='#L179'>179</a>
+<a name='L180'></a><a href='#L180'>180</a>
+<a name='L181'></a><a href='#L181'>181</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -272,8 +275,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -357,10 +362,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">36x</span>
 <span class="cline-any cline-yes">21x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -448,10 +454,12 @@
  */
 &nbsp;
 /** */
-import { m, Vnode } from '../mithril'; 
+import m from "mithril";
+type Vnode = m.Vnode&lt;any, any&gt;;
 import { Layouter } from './Layouter'; 
 import { Log }  from 'hsutil'; const log = new Log('Layout');
 &nbsp;
+type mType = Vnode | Vnode[] | string;
 /**
  * Component interface. 
  * Formalizes the `mithril` requirement for a `view` method.
@@ -503,7 +511,7 @@ export class Layout implements Component {
      * Override this method to create containers that return more sophisticated content.
      * @return a String, a Vnode, or an array of Strings or Vnodes
      */
-    protected getComponents(node:Vnode):Vnode {
+    protected getComponents(node:Vnode):mType {
         return !Array.isArray(node.attrs.content)? node.attrs.content :
             node.attrs.content.map((c:any) =&gt; {
                 if (c.compClass) { 
@@ -531,14 +539,15 @@ export class Layout implements Component {
      * - a `string` literal --&gt; interprets the string as trusted HTML and returns a leaf node.
      * - an array of elements, each either a `Layout`, or `string` literal which will be converted to a `Layout`.
      */
-    private normalizeContent(components:Array&lt;typeof Layout|string&gt;|string): Vnode {
+    private normalizeContent(components:mType): Vnode[] {
         if (typeof components === 'string') { 
             return [m('.hs-leaf', m.trust(components))]; 
-        }
-        if (components.length&gt;0) { // an array: ensure elements are Layout components
-            return components.map((comp:string|typeof Layout):Vnode =&gt; 
-                (comp instanceof Layout)? <span class="branch-0 cbranch-no" title="branch not covered" >comp </span>: m(Layout, {content:comp})
-            );
+        } else if (components instanceof Array) {
+            // if (components.length&gt;0) { // an array: ensure elements are Layout components
+                return components.map((comp:Vnode):Vnode =&gt; 
+                    (comp instanceof Layout)? <span class="branch-0 cbranch-no" title="branch not covered" >comp </span>: m(Layout, {content:comp})
+                );
+            // }
         }
         // else: assume components is a mithril node: return node as an array
         return [components];
@@ -567,7 +576,7 @@ export class Layout implements Component {
         const content = this.normalizeContent(this.getComponents(node)); // --&gt; Vnode[]
         let css = Layouter.createLayout(node.attrs, content);
         const attrs:any = {
-            style: node.style,
+            // style: node.style,
             route: node.attrs.route,     
             onclick: node.attrs.onclick,
             onmouseenter: node.attrs.onmouseenter,
@@ -579,8 +588,8 @@ export class Layout implements Component {
             log.debug(<span class="fstat-no" title="function not covered" >()=</span>&gt;<span class="cstat-no" title="statement not covered" >`href ${node.attrs.href}`)</span>;
             attrs.href = node.attrs.href;
             attrs.target = attrs.target || '_blank';
-            attrs.oncreate = m.route.link;
-            attrs.onupdate = m.route.link;
+            attrs.oncreate = m.route.Link;
+            attrs.onupdate = m.route.Link;
             // attrs.onclick = () =&gt; window.open(node.attrs.href, '_blank');
             return m(`a.hs-layout ${css} ${this.getCSS(node)}`, attrs, content.map((c:any) =&gt; c));
         } else {

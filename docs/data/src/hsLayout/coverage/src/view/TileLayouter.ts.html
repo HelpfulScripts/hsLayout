@@ -284,9 +284,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -450,14 +450,14 @@ v, w, and h can take on the following vakues:
 &nbsp;
  */
 /** */
-import { Layout }       from './Layout';
 import { Layouter }     from './Layouter';
 import { LayoutToken, 
          FillToken, 
          DefinedToken, 
          PixelToken }   from './Tokens';
-import { Vnode}         from '../mithril';
-&nbsp;
+import m from "mithril";
+type Vnode = m.Vnode&lt;any, any&gt;;
+         
 type descriptor = {top:string, left:string, right:string, bottom:string, width:string, height:string};
 &nbsp;
 /**
@@ -544,9 +544,9 @@ class TileLayouter extends Layouter {
      * During rendering these `styles` attributes are copied to the `node.attrs.styles` field.
      * @param components 
      */
-    protected getStyles(components:Array&lt;Vnode|Layout&gt;):string  { 
+    protected getStyles(components:Vnode[]):string  { 
         let styles = this.unit(components.length);
-        components.map((c:Layout|Vnode, i:number) =&gt; {
+        components.map((c:any, i:number) =&gt; {
             c.style = styles[i];
         });   
         return '.hs-tile-layout';
