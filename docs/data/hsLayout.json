@@ -565,96 +565,6 @@
 		},
 		{
 			"id": 265,
-			"name": "\"mithril\"",
-			"kind": 1,
-			"kindString": "Module",
-			"flags": {
-				"isExported": true
-			},
-			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsLayout/src/mithril.ts",
-			"comment": {
-				"shortText": "translates mithril libraries to an ES6 module and provides some Typescript type shortcuts."
-			},
-			"children": [
-				{
-					"id": 267,
-					"name": "Vnode",
-					"kind": 4194304,
-					"kindString": "Type alias",
-					"flags": {
-						"isExported": true
-					},
-					"sources": [
-						{
-							"fileName": "mithril.ts",
-							"line": 12,
-							"character": 17
-						}
-					],
-					"type": {
-						"type": "reference",
-						"typeArguments": [
-							{
-								"type": "intrinsic",
-								"name": "any"
-							},
-							{
-								"type": "intrinsic",
-								"name": "any"
-							}
-						],
-						"name": "_m.Vnode"
-					}
-				},
-				{
-					"id": 266,
-					"name": "m",
-					"kind": 32,
-					"kindString": "Variable",
-					"flags": {
-						"isExported": true,
-						"isConst": true
-					},
-					"sources": [
-						{
-							"fileName": "mithril.ts",
-							"line": 11,
-							"character": 14
-						}
-					],
-					"type": {
-						"type": "reference",
-						"name": "Static"
-					},
-					"defaultValue": "_m"
-				}
-			],
-			"groups": [
-				{
-					"title": "Type aliases",
-					"kind": 4194304,
-					"children": [
-						267
-					]
-				},
-				{
-					"title": "Variables",
-					"kind": 32,
-					"children": [
-						266
-					]
-				}
-			],
-			"sources": [
-				{
-					"fileName": "mithril.ts",
-					"line": 1,
-					"character": 0
-				}
-			]
-		},
-		{
-			"id": 268,
 			"name": "\"overview\"",
 			"kind": 1,
 			"kindString": "Module",
@@ -5905,7 +5815,6 @@
 				1,
 				256,
 				265,
-				268,
 				62,
 				84,
 				109,

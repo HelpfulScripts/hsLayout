@@ -156,8 +156,8 @@ export class Layout implements Component {
     view(node:Vnode): Vnode {
         const content = this.normalizeContent(this.getComponents(node)); // --> Vnode[]
         let css = Layouter.createLayout(node.attrs, content);
-        const attrs:any = {
-            // style: node.style,
+        const attrs:m.Attributes = {
+            style: (<any>node).style,
             route: node.attrs.route,     
             onclick: node.attrs.onclick,
             onmouseenter: node.attrs.onmouseenter,
@@ -169,8 +169,8 @@ export class Layout implements Component {
             log.debug(()=>`href ${node.attrs.href}`);
             attrs.href = node.attrs.href;
             attrs.target = attrs.target || '_blank';
-            attrs.oncreate = m.route.Link;
-            attrs.onupdate = m.route.Link;
+            // attrs.oncreate = m.route.Link;
+            // attrs.onupdate = m.route.Link;
             // attrs.onclick = () => window.open(node.attrs.href, '_blank');
             return m(`a.hs-layout ${css} ${this.getCSS(node)}`, attrs, content.map((c:any) => c));
         } else {

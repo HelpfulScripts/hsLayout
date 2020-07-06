@@ -179,9 +179,9 @@
 <p id=156 class="line"><span>&nbsp;156</span>&nbsp;&nbsp;&nbsp;&nbsp;view(node:Vnode):&nbsp;Vnode&nbsp;{</p>
 <p id=157 class="line"><span>&nbsp;157</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;content&nbsp;=&nbsp;this.normalizeContent(this.getComponents(node));&nbsp;<comment>//&nbsp;-->&nbsp;Vnode[]</comment></p>
 <p id=158 class="line"><span>&nbsp;158</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let&nbsp;css&nbsp;=&nbsp;Layouter.createLayout(node.attrs,&nbsp;content);</p>
-<p id=159 class="line"><span>&nbsp;159</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;attrs:any&nbsp;=&nbsp;{</p>
-<p id=160 class="line"><span>&nbsp;160</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<comment>//&nbsp;style:&nbsp;node.style,</comment></p>
-<p id=161 class="line"><span>&nbsp;161</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;route:&nbsp;node.attrs.route,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p id=159 class="line"><span>&nbsp;159</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;attrs:m.Attributes&nbsp;=&nbsp;{</p>
+<p id=160 class="line"><span>&nbsp;160</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style:&nbsp;(<any>node).style,</p>
+<p id=161 class="line"><span>&nbsp;161</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;route:&nbsp;node.attrs.route,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
 <p id=162 class="line"><span>&nbsp;162</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onclick:&nbsp;node.attrs.onclick,</p>
 <p id=163 class="line"><span>&nbsp;163</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onmouseenter:&nbsp;node.attrs.onmouseenter,</p>
 <p id=164 class="line"><span>&nbsp;164</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onmousemove:&nbsp;node.attrs.onmousemove,</p>
@@ -192,9 +192,9 @@
 <p id=169 class="line"><span>&nbsp;169</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;log.debug(()=>`href&nbsp;${node.attrs.href}`);</p>
 <p id=170 class="line"><span>&nbsp;170</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attrs.href&nbsp;=&nbsp;node.attrs.href;</p>
 <p id=171 class="line"><span>&nbsp;171</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attrs.target&nbsp;=&nbsp;attrs.target&nbsp;||&nbsp;<quote>'_blank'</quote>;</p>
-<p id=172 class="line"><span>&nbsp;172</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attrs.oncreate&nbsp;=&nbsp;m.route.Link;</p>
-<p id=173 class="line"><span>&nbsp;173</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attrs.onupdate&nbsp;=&nbsp;m.route.Link;</p>
-<p id=174 class="line"><span>&nbsp;174</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<comment>//&nbsp;attrs.onclick&nbsp;=&nbsp;()&nbsp;=>&nbsp;window.open(node.attrs.href,&nbsp;<quote>'_blank'</quote>);</comment></p>
+<p id=172 class="line"><span>&nbsp;172</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<comment>//&nbsp;attrs.oncreate&nbsp;=&nbsp;m.route.Link;</comment></p>
+<p id=173 class="line"><span>&nbsp;173</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<comment>//&nbsp;attrs.onupdate&nbsp;=&nbsp;m.route.Link;</comment></p>
+<p id=174 class="line"><span>&nbsp;174</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<comment>//&nbsp;attrs.onclick&nbsp;=&nbsp;()&nbsp;=>&nbsp;window.open(node.attrs.href,&nbsp;<quote>'_blank'</quote>);</comment></p>
 <p id=175 class="line"><span>&nbsp;175</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m(`a.hs-layout&nbsp;${css}&nbsp;${this.getCSS(node)}`,&nbsp;attrs,&nbsp;content.map((c:any)&nbsp;=>&nbsp;c));</p>
 <p id=176 class="line"><span>&nbsp;176</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{</p>
 <p id=177 class="line"><span>&nbsp;177</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m(`.hs-layout&nbsp;${css}&nbsp;${this.getCSS(node)}`,&nbsp;attrs,&nbsp;content.map((c:any)&nbsp;=>&nbsp;c));</p>
