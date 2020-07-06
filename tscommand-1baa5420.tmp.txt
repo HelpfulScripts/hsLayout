@@ -1,1 +1,0 @@
-src/Config.ts src/index.ts src/mithril.ts src/overview.ts src/view/Layout.ts src/view/Layouter.ts src/view/PillaredLayouter.ts src/view/TileLayouter.ts src/view/Tokens.ts --declaration --removeComments --noImplicitAny --suppressImplicitAnyIndexErrors --inlineSourceMap --moduleResolution node --rootDir ./src --esModuleInterop --target ES6 --module commonjs --outDir bin
