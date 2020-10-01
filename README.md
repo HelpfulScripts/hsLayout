@@ -1,5 +1,8 @@
+<b>Deprecated</b>. Replaced by `Grid` widget in `hsWidget`.
+
 hsLayout 
 ========
+
 [![npm version](https://badge.fury.io/js/hslayout.svg)](https://badge.fury.io/js/hslayout)
 [![GitHub](https://img.shields.io/badge/GitHub-hsLayout-blue.svg)](https://github.com/helpfulscripts/hslayout)
 [![docs](https://img.shields.io/badge/hsDocs-hsLayout-blue.svg)](https://helpfulscripts.github.io/hsLayout/#!/api/hsLayout/0)
